@@ -1,0 +1,9 @@
+.wuju-post-user-info.single{
+	display: none;
+}
+.wuju-post-footer-bar {
+    display: none;
+}
+.wuju-posts-list.single .wuju-post-footer-bar,.wuju-posts-list.bg-bbs .wuju-post-footer-bar {
+    display: block;
+}

@@ -1,0 +1,10 @@
+.wuju-content-left {
+    float: right;
+    margin: 0px 0px 0 0;
+}
+.wuju-content-right {
+    float: left;
+}
+.wuju-single-left-bar{
+	margin-left: 760px !important;
+}

@@ -1,0 +1,60 @@
+/*单栏*/
+.wuju-content-right {
+    display: none;
+}
+.wuju-main-content.bbs .wuju-content-right,.wuju-main-content.single-bbs .wuju-content-right {
+    display: block;
+}
+.wuju-content-left {
+    width: 100%;
+    margin-right: 0;
+}
+.wuju-main-content.bbs .wuju-content-left,.wuju-main-content.single-bbs .wuju-content-left {
+    width: calc(100% - 320px);
+}
+.wuju-posts-list{
+    width: calc(100% - 95px);
+    margin: 0 auto 15px;
+}
+.wuju-post-list.block .wuju-posts-list{
+    width: 100%;
+}
+.wuju-post-list.time .wuju-pager{
+    width: calc(100% - 95px);
+}
+.wuju-bbs-cat-list li {
+    width: 32%;
+    margin-right: 2%;
+}
+.wuju-bbs-cat-list li:nth-child(3n) {
+    margin: 0;
+    margin-bottom: 10px;
+}
+.wuju-bbs-cat-list li:nth-child(2n) {
+    margin-right: 2%;
+    margin-bottom: 10px;
+}
+
+.wuju-bbs-single-box .right {
+    width: calc(100% - 128px);
+}
+.wuju-main-content.single .wuju-posts-list {
+    width: 100%;
+}
+.wuju-post-images-list {
+    width: 100%;
+    box-sizing: border-box;
+}
+.wuju-post-images-list a {
+    width: 20%;
+}
+
+.wuju-post-list.block .wuju-post-images-list a {
+    height: 206px;
+}
+.wuju-post-list.time .wuju-post-images-list a {
+    height: 187px;
+}
+.single .wuju-posts-list .wuju-post-images-list a {
+    height: 206px;
+}

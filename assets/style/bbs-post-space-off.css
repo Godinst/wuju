@@ -1,0 +1,8 @@
+.wuju-bbs-single-box {
+    margin-bottom: 0;
+    border-bottom: 1px solid #f3f3f3;
+    border-radius: 0;
+}
+.wuju-bbs-single-box:last-child {
+    border-bottom: 0;
+}
