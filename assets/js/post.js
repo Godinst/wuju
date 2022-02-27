@@ -38,7 +38,7 @@ history.pushState('','','?type='+type+'&index='+index+'&page=1');
 
 $.ajax({
 type: "POST",
-url:.wuju_ajax_url+"/data/post.php",
+url:jinsom.wuju_ajax_url+"/data/post.php",
 data: {type:type,page:page,load_type:load_type,index:index,author_id:author_id,data:data},
 success: function(msg){
 if(load_type=='more'){//加载更多
