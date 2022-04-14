@@ -14,9 +14,6 @@ $('.wuju-member-avatar span').html('点击修改头像');
 $('#wuju-upload-avatar').val('');
 if(data.code == 1){
 $('.wuju-member-avatar img').attr('src',data.file_url);
-}else if(data.code == 3){
-layer.msg(data.msg);
-function c(){wuju_recharge_vip_form();}setTimeout(c,1500);
 }else{
 layer.msg(data.msg);
 }
@@ -37,18 +34,9 @@ var bar = $('.wuju-video-bar');
 var percent = $('.wuju-video-percent');
 var progress = $(".wuju-video-progress");
 
-//判断后缀
-var location=$(this).val();
-var point=location.lastIndexOf(".");
-type=location.substr(point+1);
-if(wuju.upload_video_type.indexOf(type)== -1 ){
-layer.msg('不支持该文件类型！');
-return false;
-}
-
 $("#wuju-upload-video-form").ajaxSubmit({
 dataType:'json',
-beforeSend: function(data) {
+beforeSend: function() {
 progress.show();
 var percentVal = '0%';
 bar.width(percentVal);
@@ -88,16 +76,6 @@ return false;
 
 //上传本地音乐
 $('body').off('click').on('change','#wuju-upload-music', function(){
-
-//判断后缀
-var location=$(this).val();
-var point=location.lastIndexOf(".");
-type=location.substr(point+1);
-if(wuju.upload_music_type.indexOf(type)== -1 ){
-layer.msg('不支持该文件类型！');
-return false;
-}
-
 var bar = $('.wuju-music-bar');
 var percent = $('.wuju-music-percent');
 var progress = $(".wuju-music-progress");
@@ -145,16 +123,6 @@ return false;
 
 //上传背景音乐
 $('.wuju-member-right').off('click').on('change','#wuju-upload-user-bg-music', function(){
-
-//判断后缀
-var location=$(this).val();
-var point=location.lastIndexOf(".");
-type=location.substr(point+1);
-if(wuju.upload_music_type.indexOf(type)== -1 ){
-layer.msg('不支持该文件类型！');
-return false;
-}
-
 var bar = $('.wuju-bg-music-bar');
 var percent = $('.wuju-bg-music-percent');
 var progress = $(".wuju-bg-music-progress");
@@ -199,16 +167,6 @@ return false;
 
 //上传本地附件
 $('body').off('click').on('change','#wuju-insert-file-input', function(){
-
-//判断后缀
-var location=$(this).val();
-var point=location.lastIndexOf(".");
-type=location.substr(point+1);
-if(wuju.upload_file_type.indexOf(type)== -1 ){
-layer.msg('不支持该文件类型！');
-return false;
-}
-
 bar=$('.wuju-file-bar');
 percent=$('.wuju-file-percent');
 progress=$(".wuju-file-progress");

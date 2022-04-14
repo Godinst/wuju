@@ -8,29 +8,128 @@ document.write("<script type='text/javascript' src='"+wuju.cdn_url+"/assets/js/p
 document.write("<script type='text/javascript' src='"+wuju.cdn_url+"/assets/js/editor.js'></script>");//编辑相关
 document.write("<script type='text/javascript' src='"+wuju.cdn_url+"/assets/js/post.js'></script>");//内容相关
 
-//置顶内容：全局置顶==板块置顶==主页置顶==推荐==加精
-function wuju_sticky(post_id,bbs_id,type,obj){
-layer.confirm('你确定要'+$(obj).html()+'吗？',{
+//置顶动态
+function wuju_sticky_post(post_id,type,obj){
+if(type=='no'){
+title='你要取消置顶吗？';
+}else{
+title='你要置顶这篇内容吗？';
+}
+layer.confirm(title,{
 btnAlign: 'c',
 }, function(){
 layer.load(1);
 $.ajax({
 type: "POST",
 url:  wuju.wuju_ajax_url+"/action/commend-post.php",
-data: {post_id:post_id,bbs_id:bbs_id,type:type},
+data: {post_id:post_id,type:'sticky-post'},
 success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
-if(msg.code==1||msg.code==2){
-$(obj).html(msg.html);
-}else if(msg.code==3){//弹窗开通会员
-function c(){wuju_recharge_vip_form();}setTimeout(c,1500);
+if(msg.code==1){//置顶成功
+$(obj).html('取消置顶');
+}else if(msg.code==2){//取消置顶
+$(obj).html('置顶内容');
 }
 }
 });
 });
 }
 
+
+
+//推荐动态
+function wuju_commend_post(post_id,type,obj){
+if(type=='no'){
+title='你要取消推荐这条内容吗？';
+}else{
+title='你要推荐这条内容吗？';
+}
+layer.confirm(title,{
+btnAlign: 'c',
+}, function(){
+layer.load(1);
+$.ajax({
+type: "POST",
+url:  wuju.wuju_ajax_url+"/action/commend-post.php",
+data: {post_id:post_id,type:'commend-post'},
+success: function(msg){
+layer.closeAll('loading');
+layer.msg(msg.msg);
+if(msg.code==1){//推荐成功
+$(obj).html('取消推荐');	
+}else if(msg.code==2){//取消置顶
+$(obj).html('推荐内容');
+}
+}
+});
+});
+}
+
+
+
+//置顶帖子
+function wuju_sticky_bbs_post(post_id,bbs_id,type,obj){
+if(type=='no'){
+title='你要取消置顶吗？';
+}else{
+title='你要置顶这篇内容吗？';
+}
+layer.confirm(title,{
+btnAlign: 'c',
+}, function(){
+layer.load(1);
+$.ajax({
+type: "POST",
+url:  wuju.wuju_ajax_url+"/action/commend-post.php",
+data: {post_id:post_id,bbs_id:bbs_id,type:'sticky-bbs-post'},
+success: function(msg){
+layer.closeAll('loading');
+layer.msg(msg.msg);
+if(msg.code==1){//置顶成功
+$(obj).parents('.do').prev().append('<span class="wuju-bbs-post-type-up"></span>');
+$(obj).html('取消置顶');
+}else if(msg.code==2){//取消置顶
+$(obj).parents('.do').prev().children('.wuju-bbs-post-type-up').remove();
+$(obj).html('置顶内容');
+}
+}
+});
+});
+}
+
+
+
+
+//加精帖子
+function wuju_commend_bbs_post(post_id,bbs_id,type,obj){
+if(type=='no'){
+title='你要取消加精吗？';
+}else{
+title='你要加精这篇内容吗？';
+}
+layer.confirm(title,{
+btnAlign: 'c',
+}, function(){
+layer.load(1);
+$.ajax({
+type: "POST",
+url:  wuju.wuju_ajax_url+"/action/commend-post.php",
+data: {post_id:post_id,bbs_id:bbs_id,type:'commend-bbs-post'},
+success: function(msg){
+layer.closeAll('loading');
+layer.msg(msg.msg);
+if(msg.code==1){//加精成功
+$(obj).parents('.do').prev().append('<span class="wuju-bbs-post-type-nice"></span>');
+$(obj).html('取消加精');
+}else if(msg.code==2){//取消加精
+$(obj).parents('.do').prev().children('.wuju-bbs-post-type-nice').remove();
+$(obj).html('加精帖子');
+}
+}
+});
+});
+}
 
 
 
@@ -51,8 +150,7 @@ layer.closeAll('loading');
 if(msg.code==0){//签到失败
 layer.msg(msg.msg);
 }else if(msg.code==1||msg.code==2){//签到成功
-audio=document.getElementById('wuju-sign-music');
-audio.play();
+
 if(msg.code==2){
 layer.msg(msg.msg);
 }else{
@@ -70,14 +168,6 @@ $('.wuju-sign-page-all-days span').html(msg.sign_c);
 month_day=parseInt($('.wuju-sign-page-month-days span').text());
 $('.wuju-sign-page-month-days span').html(month_day+1);
 $('.wuju-sign-page-content tbody td.today').removeClass('no-sign').addClass('had-sign').children('span').append('<i class="wuju-icon wuju-dagou"></i>');
-$('#sign-1').after($('#sign-1').clone());
-$('.wuju-sidebar-user-info .sign,.wuju-sign-page-btn').first().remove();
-}else if(msg.code==9){//绑定邮箱
-layer.msg(msg.msg);
-function e(){wuju_update_mail_form(wuju.user_id,2);}setTimeout(e,1500);
-}else if(msg.code==8){//弹出绑定手机号
-layer.msg(msg.msg);
-function d(){wuju_update_phone_form(msg.user_id);}setTimeout(d,2000);
 }
 }
 });
@@ -171,10 +261,6 @@ data:{number:number},
 success: function(msg){
 layer.closeAll(); 
 if(msg.code==1){
-
-audio=document.getElementById('wuju-sign-music');
-audio.play();
-
 layer.open({
 title:false,
 type: 1,
@@ -206,7 +292,7 @@ layer.closeAll();
 layer.open({
 title:'推广规则说明',
 btn: false,
-area: ['550px','auto'],
+area: ['500px','auto'],
 resize:false,
 content: msg
 })
@@ -217,6 +303,25 @@ content: msg
 
 //更新论坛设置信息
 function wuju_update_bbs_setting(){
+select_value=parseInt($("#power_form").val());
+power_lv=$("input[name='power_lv']").val();
+showposts=$("input[name='showposts']").val();
+credit_post_number=$("input[name='credit_post_number']").val();
+credit_reply_number=$("input[name='credit_reply_number']").val();
+credit_post_times=$("input[name='credit_post_times']").val();
+credit_reply_times=$("input[name='credit_reply_times']").val();
+last_reply_time=$("input[name='last_reply_time']").val();
+if(select_value==6){
+if(power_lv==''){//若选择了权限为指定等级，判断是否输入值
+setTimeout(function(){layer.closeAll('loading');});
+layer.msg('请输入发帖权限->满足经验的用户');
+return false;
+}
+}
+
+//判断必填项是否为空
+if(!showposts){layer.msg('请输入帖子相关->帖子数量');return false;}
+if(showposts<5){layer.msg('帖子数量要大于或等于5');return false;}
 
 enabled='';
 disabled='';
@@ -272,23 +377,19 @@ var avatar=wuju.avatar;
 if($(obj).hasClass('wuju-had-like')){
 $(obj).removeClass('wuju-had-like');    
 $(obj).addClass('wuju-no-like');
-$(obj).children('i').addClass('wuju-xihuan2').removeClass('wuju-xihuan1');
+$(obj).children('i').addClass('wuju-xihuan2').removeClass('wuju-shiliangzhinengduixiang31');
 like_dom.removeClass('wuju-had-like');//文章左侧栏
 like_dom.addClass('wuju-no-like');//文章左侧栏
-like_dom.children('i').addClass('wuju-xihuan2').removeClass('wuju-xihuan1');//文章左侧栏
+like_dom.children('i').addClass('wuju-xihuan2').removeClass('wuju-shiliangzhinengduixiang31');//文章左侧栏
 like_num.html(parseInt(like_num.html())-1); 
 $(obj).parent().next().children('.wuju-post-like-list').find('#had_like_'+user_id).remove();
 }else{
-
-audio=document.getElementById('wuju-like-up-music');
-audio.play();
-
 $(obj).removeClass('wuju-no-like');    
 $(obj).addClass('wuju-had-like');
-$(obj).children('i').addClass('wuju-xihuan1').removeClass('wuju-xihuan2');
+$(obj).children('i').addClass('wuju-shiliangzhinengduixiang31').removeClass('wuju-xihuan2');
 like_dom.removeClass('wuju-no-like');//文章左侧栏    
 like_dom.addClass('wuju-had-like');//文章左侧栏
-like_dom.children('i').addClass('wuju-xihuan1').removeClass('wuju-xihuan2');//文章左侧栏
+like_dom.children('i').addClass('wuju-shiliangzhinengduixiang31').removeClass('wuju-xihuan2');//文章左侧栏
 like_num.html(parseInt(like_num.html())+1);  
 $(obj).parent().next().children('.wuju-post-like-list').prepend('<a href="#" id="had_like_'+user_id+'">'+avatar+wuju.verify+'</a>');
 // layer.msg('喜欢成功！');
@@ -296,14 +397,7 @@ $(obj).parent().next().children('.wuju-post-like-list').prepend('<a href="#" id=
 $.ajax({   
 url:wuju.wuju_ajax_url+"/action/like-post.php",
 type:'POST',   
-data:{post_id:post_id}, 
-success: function(msg){
-if(msg.author_id){
-
-ws.send('{"from_url":"'+wuju.home_url+'","type":"like_post","notice_user_id":"'+msg.author_id+'","do_user_id":"'+wuju.user_id+'"}');
-
-}
-}   
+data:{post_id:post_id},    
 }); 
 }
 
@@ -323,19 +417,17 @@ like_dom.removeClass('wuju-had-like');
 $(obj).removeClass('wuju-had-like');    
 like_dom.addClass('wuju-no-like');
 $(obj).addClass('wuju-no-like');
-$(obj).children('i').addClass('wuju-xihuan2').removeClass('wuju-xihuan1');
-like_dom.children('i').addClass('wuju-xihuan2').removeClass('wuju-xihuan1');
+$(obj).children('i').addClass('wuju-xihuan2').removeClass('wuju-shiliangzhinengduixiang31');
+like_dom.children('i').addClass('wuju-xihuan2').removeClass('wuju-shiliangzhinengduixiang31');
 like_num.html(parseInt(like_num.html())-1); 
 like_dom.parent().next().children('.wuju-post-like-list').find('#had_like_'+user_id).remove();
 }else{
-audio=document.getElementById('wuju-like-up-music');
-audio.play();
 like_dom.removeClass('wuju-no-like');  
 $(obj).removeClass('wuju-no-like');   
 like_dom.addClass('wuju-had-like');
 $(obj).addClass('wuju-had-like');
-$(obj).children('i').addClass('wuju-xihuan1').removeClass('wuju-xihuan2');
-like_dom.children('i').addClass('wuju-xihuan1').removeClass('wuju-xihuan2');
+$(obj).children('i').addClass('wuju-shiliangzhinengduixiang31').removeClass('wuju-xihuan2');
+like_dom.children('i').addClass('wuju-shiliangzhinengduixiang31').removeClass('wuju-xihuan2');
 like_num.html(parseInt(like_num.html())+1);  
 like_dom.parent().next().children('.wuju-post-like-list').prepend('<a href="#" id="had_like_'+user_id+'">'+avatar+wuju.verify+'</a>');
 // layer.msg('喜欢成功！');
@@ -343,17 +435,31 @@ like_dom.parent().next().children('.wuju-post-like-list').prepend('<a href="#" i
 $.ajax({   
 url:wuju.wuju_ajax_url+"/action/like-post.php",
 type:'POST',   
-data:{post_id:post_id},    
-success: function(msg){
-if(msg.author_id){
-
-ws.send('{"from_url":"'+wuju.home_url+'","type":"like_post","notice_user_id":"'+msg.author_id+'"}');
-
-}
-} 
+data:{post_id:post_id},     
 }); 
 }
 
+
+//收藏商品
+function wuju_like_goods(post_id,obj){
+if(!wuju.is_login){
+wuju_pop_login_style();	
+return false;
+}
+if($(obj).hasClass('had')){
+$(obj).removeClass('had').children('i').removeClass('wuju-shoucang').addClass('wuju-shoucang1');	
+$(obj).children('span').text('收藏');
+}else{
+$(obj).addClass('had').children('i').removeClass('wuju-shoucang1').addClass('wuju-shoucang');	
+$(obj).children('span').text('已收藏');	
+}
+
+$.ajax({   
+url:wuju.wuju_ajax_url+"/action/like-post.php",
+type:'POST',   
+data:{post_id:post_id},    
+});	
+}
 
 
 
@@ -373,8 +479,6 @@ success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
 if(msg.code==1){
-audio=document.getElementById('wuju-follow-music');
-audio.play();
 $(obj).addClass("had");
 $(obj).html('<i class="wuju-icon wuju-yiguanzhu"></i> 已 关');
 n++; 	
@@ -406,8 +510,6 @@ success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
 if(msg.code==1){
-audio=document.getElementById('wuju-follow-music');
-audio.play();
 $(obj).addClass("had");
 $(obj).html('<i class="wuju-icon wuju-yiguanzhu"></i> 已 关');
 n++;	
@@ -466,7 +568,7 @@ this_dom.removeClass('on').html('修改金额');
 $('.wuju-reward-money span').html('<input type="hidden" id="wuju-reward-number" value="'+number+'"><m>'+number+'</m>');
 }else{
 this_dom.addClass('on').html('取消');
-$('.wuju-reward-money span').html('<input type="text"  maxlength="6"  id="wuju-reward-number">');
+$('.wuju-reward-money span').html('<input type="text"  maxlength="4"  id="wuju-reward-number">');
 $('#wuju-reward-number').focus();
 }
 }
@@ -483,22 +585,8 @@ success:function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
 if(msg.code==1){
-
-
-ws.send('{"from_url":"'+wuju.home_url+'","type":"reward","notice_user_id":"'+msg.author_id+'"}');
-
-
-function d(){
-layer.closeAll();
-if(msg.post_url&&!$('body').hasClass('home')){
-window.open(msg.post_url,'_self');
-}
-}setTimeout(d,2000);
-}else if(msg.code==4){//绑定邮箱
-function e(){wuju_update_mail_form(wuju.user_id,2);}setTimeout(e,1500);
-}else if(msg.code==2){//弹出绑定手机号
-function d(){wuju_update_phone_form(msg.user_id);}setTimeout(d,2000);
-} 
+function d(){layer.closeAll();}setTimeout(d,2000);
+}   
 }
 });
 }
@@ -614,15 +702,15 @@ data: {bbs_id:bbs_id},
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
-title:'父级'+wuju.bbs_name+'设置',
+title:'父级论坛设置',
 skin: 'wuju-bbs-setting-form', 
 type: 1,
-area: ['870px', '600px'], 
+area: ['800px', '600px'], 
 resize:false,
 content: msg
 });
 
-$('.wuju-bbs-setting-form .layui-layer-content').after('<div class="wuju-update-bbs-setting-btn" onclick="wuju_update_bbs_setting();">保存设置</div>');
+$('.wuju-bbs-setting-form .layui-layer-content').after('<div class="wuju-update-bbs-setting-btn opacity" onclick="wuju_update_bbs_setting();">保存设置</div>');
 
 
 //论坛上传头像
@@ -639,8 +727,12 @@ $('.wuju-bbs-child-setting-avatar span').show().html(wuju.loading);
 done: function(res, index, upload){
 $('.wuju-bbs-child-setting-avatar span').hide().html('点击上传头像');
 if(res.code == 1){
+if($('.wuju-bbs-child-setting-avatar img').length>0){
 $('.wuju-bbs-child-setting-avatar img').attr('src',res.file_url);
-$('.wuju-bbs-avatar-input').val(res.file_url);
+}else{
+$('.wuju-bbs-child-setting-avatar no-img').remove();
+$('.wuju-bbs-child-setting-avatar').prepend('<img src="'+res.file_url+'" class="avatar opacity">');
+}
 }else{
 layer.msg(res.msg);	
 }
@@ -698,6 +790,15 @@ $("#wuju-bbs-comment-power-verify").hide();
 }
 });
 
+//布局
+form.on('select(layout)',function(data){
+if(data.value==0){
+$('#wuju-layout-sidebar-setting').show();
+}else{
+$('#wuju-layout-sidebar-setting').hide();
+}
+});
+
 //访问
 form.on('select(visit_power_form)',function(data){
 $select_value=parseInt($("#visit_power_form").val());
@@ -710,11 +811,6 @@ if($select_value==6){
 $("#wuju-visit-power-exp").show();    
 }else{
 $("#wuju-visit-power-exp").hide();     
-}
-if($select_value==12){
-$("#wuju-visit-power-vip-number").show();    
-}else{
-$("#wuju-visit-power-vip-number").hide();     
 }
 if($select_value==7){
 $("#wuju-visit-power-user").show();    
@@ -757,7 +853,7 @@ data: {bbs_id:bbs_id},
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
-title:wuju.bbs_name+'子版块设置',
+title:'子论坛设置',
 skin: 'wuju-bbs-setting-form', 
 type: 1,
 area: ['500px', '400px'], 
@@ -783,8 +879,12 @@ $('.wuju-bbs-child-setting-avatar span').show().html(wuju.loading);
 done: function(res, index, upload){
 $('.wuju-bbs-child-setting-avatar span').hide().html('点击上传头像');
 if(res.code == 1){
+if($('.wuju-bbs-child-setting-avatar img').length>0){
 $('.wuju-bbs-child-setting-avatar img').attr('src',res.file_url);
-$('.wuju-bbs-avatar-input').val(res.file_url);
+}else{
+$('.wuju-bbs-child-setting-avatar no-img').remove();
+$('.wuju-bbs-child-setting-avatar').prepend('<img src="'+res.file_url+'" class="avatar opacity">');
+}
 }else{
 layer.msg(res.msg);	
 }
@@ -840,8 +940,12 @@ $('.wuju-topic-setting-avatar span').show().html(wuju.loading);
 done: function(res, index, upload){
 $('.wuju-topic-setting-avatar span').hide().html('点击上传头像');
 if(res.code == 1){
+if($('.wuju-topic-setting-avatar img').length>0){
 $('.wuju-topic-setting-avatar img').attr('src',res.file_url);
-$('.wuju-bbs-avatar-input').val(res.file_url);
+}else{
+$('.wuju-topic-setting-avatar no-img').remove();
+$('.wuju-topic-setting-avatar').prepend('<img src="'+res.file_url+'" class="avatar opacity">');
+}
 }else{
 layer.msg(res.msg);	
 }
@@ -926,7 +1030,7 @@ content: msg
 });
 }
 
-//提交付费可见购买
+//提交付费可见
 function wuju_pay_for_visible(post_id){
 layer.load(1);
 $.ajax({
@@ -938,17 +1042,11 @@ success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
 if(msg.code==1){
-ws.send('{"from_url":"'+wuju.home_url+'","type":"buy","notice_user_id":"'+msg.author_id+'","do_user_id":"'+wuju.user_id+'"}');
 function d(){window.location.href=wuju.home_url+'/?p='+post_id;}
 setTimeout(d,1500);
 }else if(msg.code==3){//弹出金币充值窗口
-function c(){wuju_recharge_credit_form();}setTimeout(c,1500);
-}else if(msg.code==8){//弹出余额充值窗口
-function c(){wuju_recharge_money_form();}setTimeout(c,1500);
-}else if(msg.code==4){//绑定邮箱
-function e(){wuju_update_mail_form(wuju.user_id,2);}setTimeout(e,1500);
-}else if(msg.code==2){//弹出绑定手机号
-function d(){wuju_update_phone_form(msg.user_id);}setTimeout(d,2000);
+function c(){wuju_recharge_credit_form();}
+setTimeout(c,1500);
 }
 }
 });    
@@ -985,8 +1083,8 @@ title:'我的钱包',
 type: 1,
 area: ['700px', '560px'], 
 resize:false,
-// fixed: false,
-// offset: '50px',
+fixed: false,
+offset: '50px',
 content: msg
 });
 }
@@ -997,7 +1095,7 @@ content: msg
 
 
 //卡密兑换表单
-function wuju_keypay_form(title){
+function wuju_keypay_form(){
 if(!wuju.is_login){
 wuju_pop_login_style();	
 return false;
@@ -1010,7 +1108,7 @@ success: function(msg){
 layer.closeAll('loading');
 layer.open({
 type:1,
-title:title,
+title:'卡密兑换',
 btn: false,
 resize:false,
 area: '350px',
@@ -1071,28 +1169,6 @@ content: msg
 });
 }
 
-//余额充值表单
-function wuju_recharge_money_form(){
-layer.load(1);
-$.ajax({
-type: "POST",
-url:wuju.wuju_ajax_url+"/stencil/recharge-money.php",
-success: function(msg){
-layer.closeAll('loading');
-window.recharge_credit_form=layer.open({
-type:1,
-title:wuju.money_name+'充值',
-btn: false,
-fixed:false,
-resize:false,
-area: ['600px', 'auto'], 
-skin: 'wuju-credit-recharge-form',
-content: msg
-});
-}
-});
-}
-
 //支付宝||微信||金币开通会员
 function wuju_recharge_vip_form(type){
 if(!wuju.is_login){
@@ -1108,7 +1184,7 @@ success: function(msg){
 layer.closeAll('loading');
 window.recharge_vip_form=layer.open({
 type:1,
-title:false,
+title:'开通会员',
 fixed:false,
 btn: false,
 resize:false,
@@ -1123,30 +1199,20 @@ content: msg
 
 //提交支付宝金币充值付款
 function wuju_recharge_alipay(type){
-if(!wuju.is_login){
-wuju_pop_login_style();	
-return false;
-}
-
 number=$('#wuju-credit-recharge-number').val();
-recharge_data=$('#wuju-credit-recharge-form').serialize();
-if(type=='alipay_pc'){
-type='alipay';
-}else if(type=='alipay_code'){
-type='qrcode';
-}
-
-recharge_data=recharge_data+'&type='+type;
+data=$('#wuju-credit-recharge-form').serialize();
+data=data+'&type='+type;
 
 //创建订单
 $.ajax({
 type: "POST",
 url:wuju.wuju_ajax_url+"/action/create-trade-no.php",
-data:recharge_data,
+data:data,
+success: function(msg){}
 });
 
 if(type=='alipay'){
-$('#wuju-credit-recharge-form').attr('action',wuju.home_url+'/Extend/pay/alipay/alipay.php').submit();
+$('#wuju-credit-recharge-form').attr('action',wuju.theme_url+'/extend/alipay/'+type+'.php').submit();
 
 layer.confirm(
 '<p style="text-align:center;">请您在新窗口完成付款操作！</p>', 
@@ -1157,12 +1223,21 @@ layer.load(1);
 $.ajax({   
 url:wuju.wuju_ajax_url+"/action/check-trade.php",
 type:'POST',   
-data:recharge_data,
+data:data,
 success:function(msg){   
 layer.closeAll('loading');
 layer.msg(msg.msg);
 if(msg.code==1){
 function c(){window.location.reload();}setTimeout(c,2000);
+// if(msg.type=='credit'){//充值金币
+// layer.close(recharge_credit_form);//关闭充值窗口
+// credit=parseInt($('.wuju-mycredit-credit-info .credit i').html());
+// recharge_number=parseInt(msg.recharge_number);
+// count=credit+recharge_number;
+// $('.wuju-mycredit-credit-info .credit i').html(count);
+// }else{
+// $('.wuju-mycredit-user-info .vip m').html(msg.content);//开通会员
+// }
 }else{
 layer.close(index);
 }
@@ -1170,17 +1245,15 @@ layer.close(index);
 }); 
 }
 ); 
-
-$('#wuju-credit-recharge-form input[name="WIDout_trade_no"]').val(new Date().getTime());
 }else{//当面付
 
 
 //生成当面付二维码
 layer.load(1);
 $.ajax({   
-url:wuju.home_url+'/Extend/pay/alipay/'+type+'.php',
+url:wuju.theme_url+'/extend/alipay/'+type+'.php',
 type:'GET',   
-data:recharge_data,
+data:data,
 success:function(msg){   
 layer.closeAll('loading');
 window.wechatpay_code_form=layer.open({
@@ -1200,7 +1273,7 @@ wuju_qrcode('wuju-qrcode',200,200,msg);
 }
 });
 
-wuju_check_order_wechatpay(recharge_data);
+wuju_check_order_wechatpay(data);
 
 }   
 });
@@ -1208,26 +1281,23 @@ wuju_check_order_wechatpay(recharge_data);
 
 }
 
+
+
 }
 
 
 //提交微信支付充值
 function wuju_recharge_wechatpay(type){
-if(!wuju.is_login){
-wuju_pop_login_style();	
-return false;
-}
-
 number=$('#wuju-credit-recharge-number').val();
 if(number<=0){
 layer.msg('充值的金额不合法！');
 return false;
 }
 
-if(type=='wechatpay_pc'){
-ajax_url=wuju.home_url+"/Extend/pay/wechatpay/wechatpay-code.php";
+if(type=='wechat'){
+ajax_url=wuju.wuju_ajax_url+"/stencil/wechatpay-code.php";
 }else{
-ajax_url=wuju.home_url+"/Extend/pay/xunhupay/wechatpay-xunhu-code.php";	
+ajax_url=wuju.wuju_ajax_url+"/stencil/wechatpay-xunhu-code.php";	
 }
 
 data=$('#wuju-credit-recharge-form').serialize();
@@ -1242,7 +1312,7 @@ success: function(msg){}
 
 
 //生成二维码
-if(type=='wechatpay_pc'){
+if(type=='wechat'){
 layer.load(1);
 $.ajax({   
 url:ajax_url,
@@ -1305,85 +1375,23 @@ wuju_check_order_wechatpay(data);
 }
 
 
-//易支付
-function wuju_recharge_other_pay(type){
-if(!wuju.is_login){
-wuju_pop_login_style();	
-return false;
-}
-
-if(type=='epay_alipay'||type=='epay_wechatpay'){
-data=$('#wuju-credit-recharge-form').serialize();
-data=data+'&type='+type;
-
-//创建订单
-$.ajax({
-type: "POST",
-url:wuju.wuju_ajax_url+"/action/create-trade-no.php",
-data:data,
-});
-$('#wuju-credit-recharge-form').append('<input type="hidden" name="pay_type" value="'+type+'">');
-$('#wuju-credit-recharge-form').attr('action',wuju.home_url+'/Extend/pay/epay/index.php').submit();
-layer.confirm(
-'<p style="text-align:center;">请您在新窗口完成付款操作！</p>', 
-{title:false,btn:['已支付完成','支付失败'],btnAlign: 'c'}, 
-function(index){
-layer.close(index);
-layer.load(1);
-$.ajax({   
-url:wuju.wuju_ajax_url+"/action/check-trade.php",
-type:'POST',   
-data:data,
-success:function(msg){   
-layer.closeAll('loading');
-layer.msg(msg.msg);
-if(msg.code==1){
-function c(){window.location.reload();}setTimeout(c,2000);
-}else{
-layer.close(index);
-}
-}   
-}); 
-}
-); 
-
-}else{
-layer.msg('码支付暂未开启！');	
-}
-$('#wuju-credit-recharge-form input[name="WIDout_trade_no"]').val(new Date().getTime());
-}
 
 
-function wuju_recharge(recharge_type){
-if(!wuju.is_login){
-wuju_pop_login_style();	
-return false;
-}
-
-if(recharge_type=='money'){
-money_number=$('.wuju-recharge-money-input input').val();
-if(money_number<0.01||!money_number){
-layer.msg('充值金额不能小于0.01元！');
-return false;
-}
-$('#wuju-credit-recharge-number').val(money_number);
-}
-
+function wuju_recharge_credit(){
 if($('.wuju-credit-recharge-type li.on').length>0){
 type=$('.wuju-credit-recharge-type li.on').attr('data');
-if(type=='alipay_pc'||type=='alipay_code'){
+if(type=='alipay'||type=='qrcode'){
 wuju_recharge_alipay(type);
-}else if(type=='wechatpay_pc'||type=='xunhupay_wechat_pc'){
-wuju_recharge_wechatpay(type);
-}else if(type=='epay_alipay'||type=='epay_wechatpay'||type=='mapay_alipay'||type=='mapay_wechatpay'){
-wuju_recharge_other_pay(type);
+}else if(type=='wechat'){
+wuju_recharge_wechatpay('wechat');
+}else if(type=='keypay'){
+wuju_keypay_form();	
+}else if(type=='xunhu-wechat'){
+wuju_recharge_wechatpay('xunhu');
 }else if(type=='creditpay'){
 wuju_recharge_vip_credit();
-}else if(type=='moneypay'){
-wuju_recharge_credit_money();
-}else{
-layer.msg('暂未开启！');	
 }
+
 }else{
 layer.msg('请选择充值类型！');
 }	
@@ -1426,15 +1434,12 @@ wuju_check_order_wechatpay(data);
 
 //用金币开通会员
 function wuju_recharge_vip_credit(){
-if(!wuju.is_login){
-wuju_pop_login_style();	
-return false;
-}
 number=$('#wuju-credit-recharge-number').val();
 if(number<=0){
 layer.msg('充值的金额不合法！');
 return false;
 }
+
 data=$('#wuju-credit-recharge-form').serialize();
 data=data+'&type=creditpay';
 layer.load(1);
@@ -1448,37 +1453,13 @@ layer.msg(msg.msg);
 if(msg.code==1){
 $('.wuju-mycredit-user-info .vip m').html(msg.content);
 }
-}
-});
-}
 
-//使用余额充值金币
-function wuju_recharge_credit_money(){
-if(!wuju.is_login){
-wuju_pop_login_style();	
-return false;
-}
-number=$('#wuju-credit-recharge-number').val();
-if(number<=0){
-layer.msg('充值的金额不合法！');
-return false;
-}
-data=$('#wuju-credit-recharge-form').serialize();
-data=data+'&type=moneypay';
-layer.load(1);
-$.ajax({
-type: "POST",
-url:wuju.wuju_ajax_url+"/action/recharge-credit-money.php",
-data:data,
-success: function(msg){
-layer.closeAll('loading');
-layer.msg(msg.msg);
-if(msg.code==1){
-$('.wuju-mycredit-credit-info .credit i').html(msg.credit);
-$('.wuju-mycredit-credit-info .credit m').html(msg.money);
-}
+
+
 }
 });
+
+
 }
 
 
@@ -1590,12 +1571,22 @@ layer.close(transfer_confirm_form);
 
 
 //查看密码动态
-function wuju_post_password(post_id){
+function wuju_get_password_posts(post_id,type,obj){
 if(!wuju.is_login){
 wuju_pop_login_style();
 return false;
 }
-layer.prompt({title:'请输入查看密码',formType:1,btnAlign:'c'},function(password,index){
+
+if(type=='pop'){//弹窗
+password= $(obj).parent().prev().children('input').val();
+}else{
+password= $(obj).prev('#wuju-post-password').val();	
+}
+
+if(password==''){
+layer.msg('请输入密码！');
+return false;
+}
 layer.load(1);
 $.ajax({
 type: "POST",
@@ -1605,12 +1596,53 @@ success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
 if(msg.code==1){
-function d(){window.open(msg.url,'_self');}setTimeout(d,1500);
+function d(){window.location.href=wuju.home_url+'/?p='+post_id;}
+setTimeout(d,2500);
 }
 }
 });
+}
+
+
+//下载密码音乐表单
+function wuju_music_password_form(post_id){
+if(!wuju.is_login){
+wuju_pop_login_style();
+return false;
+}
+layer.load(1);
+$.ajax({
+type: "POST",
+url:wuju.wuju_ajax_url+"/stencil/music-password.php",
+data: {post_id:post_id},
+success: function(msg){
+layer.closeAll('loading');
+layer.open({
+title:'请输入密码',
+btn: false,
+type: 1,
+resize:false,
+area: '350px',
+skin: 'wuju-login-form',
+content: msg
+});
+
+}
 });
 }
+
+
+
+
+
+
+
+//论坛移除图片
+function wuju_remove_multiple_img(obj){
+$(obj).parent().remove();
+}
+
+
 
 
 
@@ -1629,23 +1661,14 @@ success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
 if(msg.code==1){//取消关注
-$(obj).removeClass('had').addClass('no');
+$(obj).removeClass('has').addClass('no');
 $(obj).html('<i class="wuju-icon wuju-guanzhu"></i>关注');
 }else if(msg.code==2){//关注成功
-audio=document.getElementById('wuju-follow-music');
-audio.play();
-$(obj).removeClass('no').addClass('had'); 
-$(obj).html('<i class="wuju-icon wuju-yiguanzhu"></i>已关');     
+$(obj).removeClass('no').addClass('has'); 
+$(obj).html('<i class="wuju-icon wuju-yiguanzhu"></i> 已关');     
 }else if(msg.code==3){//相互关注成功
-audio=document.getElementById('wuju-follow-music');
-audio.play();
-$(obj).removeClass('no').addClass('had');  
+$(obj).removeClass('no').addClass('has');  
 $(obj).html('<i class="wuju-icon wuju-xianghuguanzhu"></i>互关');    
-}
-if(msg.code==2||msg.code==3){
-if($(obj).parent().hasClass('follow-see')){
-function d(){window.open($(obj).parent().attr('data'),'_self');}setTimeout(d,500);
-}
 }
 }
 }); 
@@ -1700,25 +1723,80 @@ layer.msg(msg.msg);
 
 
 
-//弹窗扫码分享
-function wuju_popop_share_code(url,title,tips){
-if(tips){
-tips='<p>'+tips+'</p>';
-}
+
+
+
+
+
+
+
+
+
+
+//弹窗转发 分享到微信功能
+function wuju_singe_share_wechat(url){
 layer.open({
-title:title,
+title:'分享到微信',
 btn: false,
 type: 1,
 resize:false,
-area: ['240px'],
+area: ['240px', '315px'],
 skin: 'wuju-pop-share',
-content: '<div id="wuju-qrcode"></div>'+tips,
+content: '<div id="wuju-qrcode"></div><p>打开微信“扫一扫”</p>',
 success: function(layero, index){
 wuju_qrcode('wuju-qrcode',200,200,url);
 }
 });    
 }
 
+function wuju_singe_share_qq(url){
+layer.open({
+title:'分享到QQ',
+btn: false,
+type: 1,
+resize:false,
+area: ['240px', '315px'],
+skin: 'wuju-pop-share',
+content: '<div id="wuju-qrcode"></div><p>打开QQ“扫一扫”</p>',
+success: function(layero, index){
+wuju_qrcode('wuju-qrcode',200,200,url);
+}
+});    
+}
+
+
+
+//侧栏小工具 分享到微信功能
+function wuju_sidebar_share_wechat(title,url){
+layer.open({
+title:title,
+btn: false,
+type: 1,
+resize:false,
+area: ['240px', '315px'],
+skin: 'wuju-pop-share',
+content: '<div id="wuju-qrcode"></div><p>打开微信“扫一扫”</p>',
+success: function(layero, index){
+wuju_qrcode('wuju-qrcode',200,200,url);
+}
+});    
+}
+
+function wuju_sidebar_share_qq(){
+url=$('#wuju-sidebar-share-link').html();
+layer.open({
+title:'分享到QQ',
+btn: false,
+type: 1,
+resize:false,
+area: ['240px', '315px'],
+skin: 'wuju-pop-share',
+content: '<div id="wuju-qrcode"></div><p>打开QQ“扫一扫”</p>',
+success: function(layero, index){
+wuju_qrcode('wuju-qrcode',200,200,url);
+}
+});    
+}
 
 //分享到QQ空间
 function wuju_sidebar_share_qzone(){
@@ -1735,42 +1813,19 @@ window.open(weibo_url+share_url);
 }
 
 
-//个人主页关注页面
-function wuju_member_follow_page(obj){
-author_id=$(obj).attr('author_id');
-if(!$(obj).attr('type')){
-$('.wuju-member-menu li[type=follow-page]').addClass('on').siblings().removeClass('on');
-}else{
-$(obj).addClass('on').siblings().removeClass('on');
-}
-$('.wuju-post-list').prepend(wuju.loading_post);
-$.ajax({
-type: "POST",
-url:wuju.wuju_ajax_url+"/stencil/member-follow.php",
-data: {author_id:author_id},
-success: function(msg){ 
-$('.wuju-load').remove();
-$('.wuju-post-list').html(msg);  
-}
-});
-}
 
 
-
-//个人主页设置页面
-function wuju_member_setting_page(obj){
-if($('.wuju-load-post').length>0){
-return false;	
-}
-author_id=$(obj).attr('author_id');
+//ajax获取设置页面
+function wuju_setting_form(obj){
+user_id=$(obj).attr('author_id');
 $(obj).addClass('on').siblings().removeClass('on');
 $('.wuju-post-list').prepend(wuju.loading_post);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/stencil/member-profile.php",
-data: {author_id:author_id},
+url:wuju.wuju_ajax_url+"/stencil/profile.php",
+data: {user_id:user_id},
 success: function(msg){   
-$('.wuju-load').remove();
+$('.wuju-post-list').children('.wuju-load').remove();
 $('.wuju-post-list').html(msg);
 layui.use(['upload','form','element'], function(){
 var upload = layui.upload;
@@ -1823,35 +1878,43 @@ element.progress('wuju-bg-music', percent*100+'%');
 
 //论坛列表加载更多
 function wuju_ajax_bbs(obj,type){
-$(obj).before(wuju.loading_post);
-$(obj).hide();
 page=$(obj).attr('data');
 bbs_id=$('.wuju-bbs-header').attr('data');
 topic=$('.wuju-bbs-box-header .left li.on').attr('topic');
+$(obj).html(wuju.loading);
+ajax_obj=obj;
 $.ajax({
 type: "POST",
 url:wuju.wuju_ajax_url+"/ajax/bbs.php",
 data: {page:page,bbs_id:bbs_id,type:type,topic:topic},
 success: function(msg){   
-$('.wuju-load-post').remove();
-$(obj).show();
+$(ajax_obj).html('加载更多');
 if(msg==0){
 layer.msg('没有更多内容！');
-$(obj).remove();
+$(ajax_obj).remove();
 }else{
-$(obj).before(msg);//追加内容
 
-//瀑布流渲染
+
 if($(obj).parent().hasClass('wuju-bbs-list-4')){
-grid.masonry('reloadItems');  
-grid.imagesLoaded().progress( function() {
-grid.masonry('layout');
-}); 
+container=$('#wuju-bbs-list-4');
+$(msg).find('img').each(function(index){
+wuju_loadImage($(this).attr('src'));
+})
+var $newElems = $(msg).css({ opacity: 0}).appendTo(container);
+$newElems.imagesLoaded(function(){
+$newElems.animate({ opacity: 1},800);
+container.masonry( 'appended', $newElems,true);
+});
+}else{
+$(ajax_obj).before(msg);	
 }
+
+
 
 paged=parseInt(page)+1;
-$(obj).attr('data',paged);	
+$(ajax_obj).attr('data',paged);	
 }
+
 
 }
 });
@@ -1874,32 +1937,34 @@ $(obj).attr('data',paged);
 //new:按最新发表排序
 //nice:精品帖子
 function wuju_ajax_bbs_menu(type,obj){
-if($('.wuju-load').length==0){
 $(obj).addClass('on').siblings().removeClass('on');
 var bbs_id=$('.wuju-bbs-header').attr('data');
-$('.wuju-bbs-list-box').prepend(wuju.loading_post);
+$('.wuju-bbs-list-box').html(wuju.loading);
 topic=$(obj).attr('topic');
 $.ajax({
 type: "POST",
 url:wuju.wuju_ajax_url+"/ajax/bbs.php",
 data: {page:1,bbs_id:bbs_id,type:type,topic:topic},
-success: function(msg){ 
-audio=document.getElementById('wuju-reload-music');
-audio.play();
+success: function(msg){   
 
-$('.wuju-bbs-list-box').html(msg);//追加内容	
-
-//瀑布流渲染
+$('.wuju-bbs-list-box').empty();
 if($(obj).parents('.wuju-bbs-box').next().hasClass('wuju-bbs-list-4')){
-grid.masonry('reloadItems');  
-grid.imagesLoaded().progress( function() {
-grid.masonry('layout');
-}); 
+container=$('#wuju-bbs-list-4');
+$(msg).find('img').each(function(index){
+wuju_loadImage($(this).attr('src'));
+})
+var $newElems = $(msg).css({ opacity: 0}).appendTo(container);
+$newElems.imagesLoaded(function(){
+$newElems.animate({ opacity: 1},800);
+container.masonry( 'reload', $newElems,true);
+});
+}else{
+$('.wuju-bbs-list-box').html(msg);	
 }
+
 
 }
 });
-}
 }
 
 
@@ -1912,7 +1977,7 @@ layer.msg('请输入你要搜索的内容！');
 return false;
 }
 
-$('.wuju-bbs-list-box').html(wuju.loading_post);
+$('.wuju-bbs-list-box').html(wuju.loading);
 $.ajax({
 type: "POST",
 url:wuju.wuju_ajax_url+"/ajax/search-bbs.php",
@@ -1920,14 +1985,18 @@ data: {page:1,bbs_id:bbs_id,content:content},
 success: function(msg){   
 
 $('.wuju-bbs-list-box').empty();
-$('.wuju-bbs-list-box').html(msg);//追加内容
-
-//瀑布流渲染
 if($('.wuju-bbs-list-box').hasClass('wuju-bbs-list-4')){
-grid.masonry('reloadItems');  
-grid.imagesLoaded().progress( function() {
-grid.masonry('layout');
+container=$('#wuju-bbs-list-4');
+$(msg).find('img').each(function(index){
+wuju_loadImage($(this).attr('src'));
+})
+var $newElems = $(msg).css({ opacity: 0}).appendTo(container);
+$newElems.imagesLoaded(function(){
+$newElems.animate({ opacity: 1},800);
+container.masonry( 'reload', $newElems,true);
 });
+}else{
+$('.wuju-bbs-list-box').html(msg);	
 }
 
 }
@@ -1937,7 +2006,7 @@ grid.masonry('layout');
 
 //论坛ajax搜索 加载更多
 function wuju_ajax_bbs_search_more(obj){
-$(obj).html(wuju.loading_post);
+$(obj).html(wuju.loading);
 page=parseInt($(obj).attr('data'));
 content=$('#wuju-bbs-search').val();
 bbs_id=$('.wuju-bbs-header').attr('data');
@@ -1958,14 +2027,19 @@ $('.wuju-bb-search-more').remove();
 
 $('.wuju-bb-search-more').attr('data',page+1);
 
-$('.wuju-bb-search-more').before(msg);//追加内容
 
-//瀑布流渲染
 if($(obj).parent().hasClass('wuju-bbs-list-4')){
-grid.masonry('reloadItems');  
-grid.imagesLoaded().progress( function() {
-grid.masonry('layout');
+container=$('#wuju-bbs-list-4');
+$(msg).find('img').each(function(index){
+wuju_loadImage($(this).attr('src'));
+})
+var $newElems = $(msg).css({ opacity: 0}).appendTo(container);
+$newElems.imagesLoaded(function(){
+$newElems.animate({ opacity: 1},800);
+container.masonry( 'appended', $newElems,true);
 });
+}else{
+$('.wuju-bb-search-more').before(msg);	
 }
 	
 }
@@ -2385,7 +2459,7 @@ SetCookie(type,val);
 
 //追加悬赏
 function wuju_add_bbs_answer_number(post_id){
-layer.prompt({title:'请输入要追加的'+wuju.credit_name+'数量',btnAlign: 'c'},function(value, index, elem){
+layer.prompt({title:'请输入要追加的金额',btnAlign: 'c'},function(value, index, elem){
 layer.load(1);
 $.ajax({
 type: "POST",
@@ -2444,7 +2518,7 @@ function d(){window.location.reload();}setTimeout(d,2000);
 
 //快捷插入表情
 function wuju_add_smile(a,type,obj){
-if(type=='im-one'||type=='im-group'){//IM
+if(type==1){//IM
 content=$(obj).parents('.wuju-chat-windows-footer-bar').next('textarea');
 content.val(content.val()+a);
 content.focus();	
@@ -2509,7 +2583,7 @@ resize:false,
 scrollbar:true,
 skin: 'wuju-more-like-form',
 area: ['250px', '420px'],
-content: '<div class="wuju-more-like-content">'+wuju.loading_post+'</div>',
+content: '<div class="wuju-more-like-content"><div class="wuju-load"><div class="wuju-loading"><i></i><i></i><i></i></div></div></div>',
 success: function(layero,index){
 $.ajax({   
 url:wuju.wuju_ajax_url+"/stencil/more-like.php",
@@ -2528,7 +2602,7 @@ $('.wuju-more-like-content').html(msg);
 function wuju_emali_notice_form(){
 layer.load(1);
 $.ajax({   
-url:wuju.wuju_ajax_url+"/stencil/email-notice.php",
+url:wuju.wuju_ajax_url+"/stencil/emali-notice.php",
 type:'POST',      
 success:function(msg){
 layer.closeAll('loading');
@@ -2724,7 +2798,7 @@ layer.msg(msg.msg);
 if(msg.code==1){
 function c(){window.location.reload();}setTimeout(c,2000);
 }else if(msg.code==2){
-function d(){wuju_update_phone_form(msg.user_id);}setTimeout(d,1000);
+function d(){wuju_update_phone_form(msg.user_id);}setTimeout(d,2000);
 }
 }
 });
@@ -2841,7 +2915,7 @@ layer.closeAll();//关闭插入的表单
 
 
 //赠送礼物表单
-function wuju_send_gift_form(author_id,post_id){
+function wuju_send_gift_form(author_id){
 if(!wuju.is_login){
 wuju_pop_login_style();	
 return false;
@@ -2850,7 +2924,7 @@ layer.load(1);
 $.ajax({
 type: "POST",
 url:wuju.wuju_ajax_url+"/stencil/send-gift.php",
-data:{author_id:author_id,post_id:post_id},
+data:{author_id:author_id},
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
@@ -2867,7 +2941,7 @@ content: msg
 }
 
 //送礼物
-function wuju_send_gift(author_id,post_id){
+function wuju_send_gift(author_id){
 if($('.wuju-send-gift-form li.on').length==0){
 layer.msg('请选择需要赠送的礼物！');	
 return false;
@@ -2878,19 +2952,12 @@ layer.load(1);
 $.ajax({
 type: "POST",
 url:wuju.wuju_ajax_url+"/action/send-gift.php",
-data: {name:name,author_id:author_id,post_id:post_id},
+data: {name:name,author_id:author_id},
 success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
 if(msg.code==1){
-
-ws.send('{"from_url":"'+wuju.home_url+'","type":"gift","notice_user_id":"'+author_id+'","notice_user_name":"'+msg.notice_user_name+'","do_user_id":"'+wuju.user_id+'","do_user_name":"'+msg.do_user_name+'","do_user_avatar":"'+msg.do_user_avatar+'","content":"'+msg.content+'","message":"'+msg.gift_name+'"}');
-
-if(msg.post_url){
-function d(){window.open(msg.post_url,'_self');}setTimeout(d,2000);
-}else{
 function d(){window.location.reload();}setTimeout(d,2000);
-}
 }
 }
 });
@@ -2905,14 +2972,14 @@ window['video_'+post_id]=new window[video_type]({
 id:'wuju-video-'+post_id,
 url:video_url,
 poster:cover,
-playbackRate: [0.5,1,1.5,2,6],
+playbackRate: [0.5,1,2,6,8],
 fitVideoSize:'fixWidth',
-pip: true,
-rotate:{
-"clockwise": true,
-"innerRotate": true
-},
 autoplay:autoplay,
+// enterLogo:{
+// url: wuju.video_logo,
+// width: 120,
+// height: 50
+// },
 });
 window['video_'+post_id].on('play',function(){
 if($('.wuju-video-playing').length>0){
@@ -2959,46 +3026,64 @@ wuju_post_video(rand,video_url,video_img,true);
 }
 
 
+//弹窗展示我关注的论坛
+function wuju_follow_bbs_form(topic_name){
+if(!wuju.is_login){
+wuju_pop_login_style();	
+return false;
+}
+layer.load(1);
+$.ajax({   
+url:wuju.wuju_ajax_url+"/stencil/follow-bbs.php",
+data:{topic_name:topic_name},
+type:'POST', 
+success:function(msg){
+layer.closeAll('loading');
+layer.open({
+title:false,
+type: 1,
+fixed: false,
+skin: 'wuju-follow-bbs-form', 
+area: ['570px', 'auto'], 
+content: msg
+});
 
+}   
+});
+}
 
 //显示IM表情
-function wuju_smile(obj,type,dom){
+function wuju_im_smile(obj,type){
 window.event.stopPropagation();
-if($(obj).children('.wuju-smile-form').length>0){
-$(obj).children('.wuju-smile-form').toggle(100);
+this_dom=$(obj);
+if(this_dom.children('.wuju-smile-form').length>0){
+this_dom.children('.wuju-smile-form').toggle(100);
 }else{
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.module_url+"/stencil/smile.php",
-data:{type:type,dom:dom},
+url:wuju.module_url+"/stencil/smile-im.php",
+data:{type:type},
 success: function(msg){
 layer.closeAll('loading');
 
-if(type=='im'){
-$(obj).html(msg);//IM
+if(type==1){
+$(this_dom).append(msg);//普通
 }else{
-$(obj).append(msg);//普通|富文本
+$(this_dom).html(msg);//IM
 }
 
-//切换表情
-$('.wuju-smile-form .header li').click(function(e){
-e.stopPropagation();
-$(this).addClass('on').siblings().removeClass('on');
-$(this).parent().next().children('ul').eq($(this).index()).show().siblings().hide();
-});
-
-$(obj).children('.wuju-smile-form').show();
+$(this_dom).children('.wuju-smile-form').show();
 }
 });
 }
 }
 
 //显示内容表情
-// function wuju_post_smile(obj){
-// window.event.stopPropagation();
-// $(obj).children('.wuju-smile-form').toggle(100);
-// }
+function wuju_post_smile(obj){
+window.event.stopPropagation();
+$(obj).children('.wuju-smile-form').toggle(100);
+}
 
 
 //清除未读IM消息
@@ -3077,7 +3162,7 @@ function wuju_open_now(){
 $(".wuju-now").animate({right:"0px"});
 
 if($('.wuju-now-content li').length==0){
-$('.wuju-now-content').html(wuju.loading_post);
+$('.wuju-now-content').html(wuju.loading);
 $.ajax({   
 url:wuju.wuju_ajax_url+"/stencil/now.php",
 data:{page:1,type:1},
@@ -3097,7 +3182,7 @@ $(".wuju-now").animate({right:"-350px"},250);
 
 //刷新实时动态
 function wuju_refresh_now(){
-$('.wuju-now-content').html(wuju.loading_post);
+$('.wuju-now-content').html(wuju.loading);
 $.ajax({   
 url:wuju.wuju_ajax_url+"/stencil/now.php",
 data:{page:1,type:1},
@@ -3138,10 +3223,9 @@ success: function(msg){
 layer.closeAll('loading');
 layer.open({
 title:'提现',
-fixed: false,
 skin:'wuju-cash-form',
 type: 1,
-area: ['380px', 'auto'], 
+area: ['380px', '405px'], 
 content: msg
 });
 }
@@ -3375,8 +3459,13 @@ area: ['300px'],
 content: msg
 });
 
-$(obj).find('.tips').text('已打开');
-
+if($(obj).text()=='打开'){
+if($('.wuju-get-redbag-my-credit').text()=='红包被领完了'){
+$(obj).addClass('had').removeClass('open').text('红包被领完');
+}else{
+$(obj).addClass('had').removeClass('open').text('红包已打开');
+}
+}
 
 }
 
@@ -3399,7 +3488,6 @@ fixed: false,
 skin:'wuju-pop-task-form',
 offset: '50px',
 area: ['700px'],
-offset: '50px',
 resize:false,
 content: msg
 });
@@ -3418,8 +3506,6 @@ success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
 if(msg.code==1){
-audio=document.getElementById('wuju-sign-music');
-audio.play();
 $(obj).addClass('had').removeClass('on').text('已领取');
 number_obj=$('.wuju-task-form-header .header .number n');
 number=parseInt(number_obj.text());
@@ -3462,8 +3548,6 @@ success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
 if(msg.code==1){
-audio=document.getElementById('wuju-sign-music');
-audio.play();
 $(obj).addClass('had').text('已领取');
 }
 }
@@ -3620,10 +3704,6 @@ function c(){window.location.reload();}setTimeout(c,2000);
 
 //申请论坛表单
 function wuju_apply_bbs_form(){
-if(!wuju.is_login){
-wuju_pop_login_style();	
-return false;
-}
 layer.load(1);
 $.ajax({
 type: "POST",
@@ -3678,9 +3758,8 @@ layer.msg(msg.msg);
 if(msg.code==1){
 function c(){window.location.reload();}setTimeout(c,2000);
 }else if(msg.code==3){
-function c(){wuju_recharge_credit_form();}setTimeout(c,1500);
-}else if(msg.code==5){
-function c(){wuju_recharge_money_form();}setTimeout(c,1500);
+function c(){wuju_recharge_credit_form();}
+setTimeout(c,1500);
 }
 }
 });
@@ -3733,7 +3812,7 @@ type: 1,
 fixed: false,
 offset: '100px',
 skin:'wuju-goods-order-confirmation-form',
-area: ['550px','auto'],
+area: ['500px','auto'],
 resize:false,
 content: msg
 });
@@ -3800,7 +3879,7 @@ select_price=$('.wuju-goods-single-header .right .select-price li n.on').index()
 }
 
 select_arr=JSON.stringify(select_arr);
-trade_no=new Date().getTime();
+trade_no=$('#wuju-goods-trade-no').val();
 layer.load(1);
 $.ajax({
 type: "POST",
@@ -3831,19 +3910,19 @@ layer.msg(msg.msg);
 
 //商品订单支付
 function wuju_goods_order_pay(pay_type,trade_no){
-if(pay_type=='alipay_pc'){
-window.location.href=wuju.home_url+'/Extend/pay/alipay/alipay.php?trade_no='+trade_no;
-}else if(pay_type=='alipay_code'||pay_type=='wechatpay_pc'||pay_type=='xunhupay_wechat_pc'){
+if(pay_type=='alipay'){
+window.location.href=wuju.theme_url+'/extend/alipay/alipay.php?trade_no='+trade_no;
+}else if(pay_type=='qrcode'||pay_type=='wechat'||pay_type=='xunhu-wechat'){
 ajax_type='POST';
 pay_tips='<p><i class="wuju-icon wuju-weixinzhifu"></i> 微信扫码支付</p>';
-if(pay_type=='alipay_code'){
+if(pay_type=='qrcode'){
 ajax_type='GET';
 pay_tips='<p style="color: #00a7ff;"><i class="wuju-icon wuju-zhifubaozhifu" style="color: #00a7ff;font-size: 24px;vertical-align: -3px;"></i> 支付宝扫码支付</p>';
-pay_url=wuju.home_url+'/Extend/pay/alipay/qrcode.php';
-}else if(pay_type=='wechatpay_pc'){
-pay_url=wuju.home_url+"/Extend/pay/wechatpay/wechatpay-code.php";
-}else if(pay_type=='xunhupay_wechat_pc'){
-pay_url=wuju.home_url+"/Extend/pay/xunhupay/wechatpay-xunhu-code.php";
+pay_url=wuju.theme_url+'/extend/alipay/qrcode.php';
+}else if(pay_type=='wechat'){
+pay_url=wuju.wuju_ajax_url+"/stencil/wechatpay-code.php";
+}else if(pay_type=='xunhu-wechat'){
+pay_url=wuju.wuju_ajax_url+"/stencil/wechatpay-xunhu-code.php";
 }
 	
 
@@ -3855,7 +3934,7 @@ type:ajax_type,
 data:{trade_no:trade_no},
 success:function(msg){   
 layer.closeAll('loading');
-if(pay_type=='xunhupay_wechat_pc'){
+if(pay_type=='xunhu-wechat'){
 pay_code='<img style="width:200px;height:200px;" src="'+msg+'">';
 }else{
 pay_code='<div id="wuju-qrcode"></div>';
@@ -3886,8 +3965,6 @@ wuju_check_goods_order(trade_no);//发起长轮询
 });
 
 
-}else if(pay_type=='epay_alipay'||pay_type=='epay_wechatpay'){//易支付
-window.location.href=wuju.home_url+'/Extend/pay/epay/index.php?trade_no='+trade_no+'&pay_type='+pay_type;
 }
 }
 
@@ -3952,7 +4029,7 @@ type: 1,
 fixed: false,
 offset: '100px',
 skin:'wuju-goods-order-confirmation-form',
-area: ['550px','auto'],
+area: ['500px','auto'],
 resize:false,
 content: msg
 });
@@ -4087,111 +4164,7 @@ $(obj).parents('.wuju-bbs-single-box').siblings().find('.comment-up').text(title
 }); 
 }
 
-//收藏内容
-function wuju_collect(post_id,type,obj){
-if(!wuju.is_login){
-wuju_pop_login_style();	
-return false;
-}
-if(type=='img'){
-url=$(obj).parent().siblings('.fancybox-stage').find('img').attr('src');
-}else{
-url='';	
-}
-layer.load(1);
-$.ajax({   
-url:wuju.wuju_ajax_url+"/action/collect.php",
-type:'POST',   
-data:{post_id:post_id,type:type,url:url},  
-success: function(msg){
-layer.closeAll('loading');
-if(msg.code==2){
-$(obj).children('i').addClass('wuju-shoucang1').removeClass('wuju-shoucang').siblings('p').text(msg.text);
-}else{
-$(obj).children('i').addClass('wuju-shoucang').removeClass('wuju-shoucang1').siblings('p').text(msg.text);
-}	
-}
-}); 
-}
 
-//下载次数
-function wuju_download_times(post_id){
-$.ajax({   
-url:wuju.wuju_ajax_url+"/action/download-times.php",
-type:'POST',   
-data:{post_id:post_id},  
-}); 
-}
-
-
-
-//记录社交登录 返回地址 登录返回 登录回调
-function wuju_login_back_url(){
-url=window.location.href;
-document.cookie="login_back="+url;
-}
-
-
-//清除历史搜索
-function wuju_history_search_clear(){
-layer.confirm('你确定要清除历史搜索吗？',{
-btnAlign: 'c',
-}, function(){
-$('.wuju-pop-search-hot.history').remove();
-layer.msg('已经清除！'); 
-DelCookie('history-search');
-});	
-}
-
-
-//刷新内容时间
-function wuju_reload_post(post_id){
-layer.confirm('你确定要刷新该内容吗？<br><font style="color: #f44336;">刷新之后，内容的时间变更为当前的时间</font>',{
-btnAlign: 'c',
-}, function(){
-layer.load(1);
-$.ajax({
-type: "POST",
-url:  wuju.wuju_ajax_url+"/action/reload-post.php",
-data: {post_id:post_id},
-success: function(msg){
-layer.closeAll('loading');
-layer.msg(msg.msg);  
-}
-});
-});
-}
-
-
-//转换表情
-function wuju_content_to_smile(content){
-smile_add_arr=$.parseJSON(wuju.smile_add);
-if(smile_add_arr){
-content=content.replace(/\[s\-(\d+)\]/g,'<img src="'+wuju.smile_url+smile_add_arr[0]['smile_url']+'/$1.png" class="wp-smiley">');
-content=content.replace(/\[s\-(\d+)\-(\d+)\]/g,function(){var args=arguments;return '<img src="'+wuju.smile_url+smile_add_arr[(args[1]-1)]['smile_url']+'/'+args[2]+'.png" class="wp-smiley">'});
-}
-return content;
-}
-
-//html实体化
-function wuju_htmlspecialchars_decode(str){
-str=str.replace(/&amp;/g,'&');
-str=str.replace(/&lt;/g,'<');
-str=str.replace(/&gt;/g,'>');
-str=str.replace(/&quot;/g,'"');
-str=str.replace(/&#039;/g,"'");
-str=str.replace(/\n/g,"<br>");
-return str;
-}
-
-function wuju_htmlspecialchars(str){
-str = str.replace(/&/g, '&amp;');  
-str = str.replace(/</g, '&lt;');  
-str = str.replace(/>/g, '&gt;');  
-str = str.replace(/"/g, '&quot;');  
-str = str.replace(/'/g, '&#039;');  
-return str; 
-}
 
 
 //设置cookie
@@ -4228,3 +4201,9 @@ function wuju_test(){
 layer.msg('该功能开发中，即将开启。');
 }
 
+
+
+$(".xgplayer-start").click(function(){
+title=$(this).parents('.wuju-post-video').next('h2').text();
+return title;
+});
