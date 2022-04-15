@@ -16,7 +16,7 @@ return this;}
 function serialize(){return data;}
 function serializeJSON(){return JSON.stringify(serialize());}
 this.addPair=addPair;this.addPairs=addPairs;this.serialize=serialize;this.serializeJSON=serializeJSON;}
-FormSerializer.patterns=patterns;FormSerializer.serializeObject=function serializeObject(){return new FormSerializer($,this).addPairs(this.serializeArray()).serialize();};FormSerializer.serializeJSON=function serializeJSON(){return new FormSerializer($,this).addPairs(this.serializeArray()).serializeJSON();};if(typeof $.fn!=="undefined"){$.fn.serializeObjectLightSNS=FormSerializer.serializeObject;$.fn.serializeJSONLightSNS=FormSerializer.serializeJSON;}
+FormSerializer.patterns=patterns;FormSerializer.serializeObject=function serializeObject(){return new FormSerializer($,this).addPairs(this.serializeArray()).serialize();};FormSerializer.serializeJSON=function serializeJSON(){return new FormSerializer($,this).addPairs(this.serializeArray()).serializeJSON();};if(typeof $.fn!=="undefined"){$.fn.serializeObjectwuju=FormSerializer.serializeObject;$.fn.serializeJSONwuju=FormSerializer.serializeJSON;}
 
 
 
@@ -191,7 +191,7 @@ function c(){window.location.reload();}setTimeout(c,2000);
 
 //保存设置
 function wuju_admin_save_setting(){
-data=$('#wuju-panel-form').serializeJSONLightSNS();
+data=$('#wuju-panel-form').serializeJSONwuju();
 layer.load(1);
 $.ajax({
 type:"POST",

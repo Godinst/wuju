@@ -1,4 +1,4 @@
-var myApp=new LightSNS({
+var myApp=new wuju({
 tapHold:false,
 scrollTopOnNavbarClick:true,//返回顶部
 swipeBackPage:false,
