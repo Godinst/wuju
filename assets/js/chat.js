@@ -1,3 +1,8 @@
+//===================================IM聊天相关的js==================
+
+//长轮询
+var wuju_user_chat_ajax = null,wuju_user_chat_group_ajax = null; 
+
 
 
 //打开单人聊天模式
@@ -8,34 +13,25 @@ return false;
 }
 
 $('.wuju-group-user-info').remove();//资料卡片打开IM聊天
-
-//计算提醒数量
-if($(obj).children('.wuju-chat-list-tips').length>0){
-current_tips=parseInt($(obj).children('.wuju-chat-list-tips').text());
-all_tips=parseInt($('.wuju-right-bar-im .number').text());
-last_tips=all_tips-current_tips;
-if(last_tips>0){
-$('.wuju-right-bar-im .number').text(last_tips);
-}else{
-$('.wuju-right-bar-im .number').remove();	
+if($('.wuju-chat-windows-loading').length>0){
+return false;
 }
 $(obj).children('.wuju-chat-list-tips').remove();//移除提醒
-}
 
-layer.load(1);
 $.ajax({
 type: "POST",
 url:wuju.module_url+"/chat/chat-info.php",
 data: {author_id:user_id,type:'one'},
 success: function(msg){
-layer.closeAll('loading');
 if(msg.code==1){
+count=msg.count;
 status=msg.status;	
 name=msg.nickname;
 desc=msg.desc;
 avatar=msg.avatar;
 
-if($('.wuju-chat-user-window').length==0){//防止重复打开窗口
+
+if($('.wuju-chat-user-window').length==0){
 layer.open({
 type:1,
 anim: 5,
@@ -62,11 +58,14 @@ $('.wuju-chat-user-window').css({"top":"50px","bottom":"0","height":540});
 $('.wuju-chat-message-list').css('height',250);
 
 },
+end: function(layero){
+wuju_stop_user_Ajax();//关闭窗口时，终止前一个ajax；
+},
 content: 
 '<div class="wuju-chat-message-list" data-no-instant></div>'+
-'<div class="wuju-chat-windows-footer"><div class="wuju-msg-tips" onclick=\'wuju_im_tips(this,"one")\'>底部</div>'+
+'<div class="wuju-chat-windows-footer">'+
 '<div class="wuju-chat-windows-footer-bar one clear">'+
-'<span onclick=\'wuju_smile(this,"im-one","")\' class="wuju-icon smile wuju-weixiao-"></span>'+
+'<span onclick="wuju_im_smile(this,5)" class="wuju-icon smile wuju-weixiao-"></span>'+
 '<span class="image wuju-icon wuju-tupian1"></span>'+
 '<span class="notice wuju-icon wuju-tongzhi1"></span>'+
 '</div>'+
@@ -75,9 +74,11 @@ content:
 '<div class="wuju-chat-send-message-btn opacity" onclick="wuju_send_msg()">发送</div></div></div>',
 
 });  
+
+
+}else{
+wuju_stop_user_Ajax();//打开另外一个聊天时，终止前一个ajax；
 }
-
-
 
 
 //==================渲染=========================
@@ -87,8 +88,17 @@ $('.wuju-chat-windows-footer-bar.one .smile').after('<span class="image wuju-ico
 wuju_im_upload_one(user_id);
 
 $('.wuju-chat-user-window .wuju-chat-windows-user-header').remove();
-$('.wuju-chat-user-window').append('<div class="wuju-chat-windows-user-header chat-one" data="'+user_id+'"><div class="wuju-chat-windows-user-avatar">'+avatar+'</div><div class="wuju-chat-windows-user-info"><div class="wuju-chat-windows-user-name">'+name+'</div><span class="wuju-chat-online-status">'+status+'</span><div class="wuju-chat-windows-user-desc">'+desc+'</div>	</div></div>');
-$('.wuju-chat-message-list').html(msg.messages_list); 
+$('.wuju-chat-user-window').append('<div class="wuju-chat-windows-user-header" data="'+user_id+'" count="'+count+'"><div class="wuju-chat-windows-user-avatar">'+avatar+'</div><div class="wuju-chat-windows-user-info"><div class="wuju-chat-windows-user-name">'+name+'</div><span class="wuju-chat-online-status">'+status+'</span><div class="wuju-chat-windows-user-desc">'+desc+'</div>	</div></div>');
+$('.wuju-chat-message-list').empty();
+$('.wuju-chat-message-list').append('<div class="wuju-chat-windows-loading"></div>');
+
+$.ajax({//获取聊天记录
+type: "POST",
+url:wuju.module_url+"/chat/message-list.php",
+data: {user_id:user_id},
+success: function(msg){
+$('.wuju-chat-message-list').empty();
+$('.wuju-chat-message-list').append(msg); 
 $('.wuju-chat-message-list').scrollTop($('.wuju-chat-message-list')[0].scrollHeight); 
 
 //图片加载完毕执行
@@ -96,21 +106,10 @@ $(".wuju-chat-message-list-content img").on('load',function(){
 $('.wuju-chat-message-list').scrollTop($('.wuju-chat-message-list')[0].scrollHeight);
 } );
 
+wuju_ajax_get_messages();//发起长轮询
 
-$('.wuju-chat-message-list').scroll(function(){
-contentH =$(this).get(0).scrollHeight;//内容高度
-scrollTop =$(this).scrollTop();//滚动高度
-// console.log(contentH-scrollTop);
-if(contentH-scrollTop>1000){
-$('.wuju-msg-tips').show();
-}else{
-$('.wuju-msg-tips').hide();	
-}
-if(contentH-scrollTop<400){
-$('.wuju-msg-tips').text('底部');	
 }
 });
-
 
 
 }else{
@@ -120,12 +119,52 @@ layer.msg(msg.msg);
 });//获取IM聊天信息
 
 
-
-
-
 }
 
 
+//单对单聊天长轮询
+function wuju_ajax_get_messages(){
+count=$('.wuju-chat-user-window .wuju-chat-windows-user-header').attr('count');
+user_id=$('.wuju-chat-user-window .wuju-chat-windows-user-header').attr('data');
+wuju_user_chat_ajax = $.ajax({
+type: "POST",
+url:wuju.module_url+"/chat/message-list-ajax.php",
+timeout:30000,
+dataType: 'json',
+data: {user_id:user_id,count:count},
+success: function(msg){
+if(msg.code==1){
+// layer.msg('暂没有消息！');	
+wuju_ajax_get_messages();	
+}else if(msg.code==2){
+$('.wuju-chat-message-list').append(msg.msg);	
+audio = document.getElementById('wuju-im-music');
+audio.play();
+$('.wuju-chat-user-window .wuju-chat-windows-user-header').attr('count',msg.count);
+$('.wuju-chat-content-recent-user').children('li[data-id="'+user_id+'"]').attr('data-count',msg.count);
+$('.wuju-chat-message-list').scrollTop($('.wuju-chat-message-list')[0].scrollHeight);
+wuju_ajax_get_messages();
+}else if(msg.code==3){//超时
+}else if(msg.code==5){
+$('.wuju-chat-user-window .wuju-chat-windows-user-header').attr('count',msg.count);
+$('.wuju-chat-content-recent-user').children('li[data-id="'+user_id+'"]').attr('data-count',msg.count);
+wuju_ajax_get_messages(); 
+}else{
+wuju_ajax_get_messages();	
+}
+},
+error:function(XMLHttpRequest,textStatus,errorThrown){ 
+if(textStatus=="timeout"){ 
+wuju_ajax_get_messages();
+} 
+} 
+});	
+}
+
+//终止单对单ajax长轮询
+function wuju_stop_user_Ajax(){   
+if(wuju_user_chat_ajax) {wuju_user_chat_ajax.abort();}  
+}  
 
 
 
@@ -136,16 +175,16 @@ wuju_pop_login_style();
 return false;
 }
 	
-$('#wuju-chat-group-'+bbs_id+'.top .wuju-chat-list-tips').remove();//移除消息提醒
+if($('.wuju-chat-windows-group-loading').length>0){
+return false;
+}
 
-layer.load(1);
+
 $.ajax({
 type: "POST",
 url:wuju.module_url+"/chat/chat-info.php",
 data: {bbs_id:bbs_id,type:'group'},
 success: function(msg){
-layer.closeAll('loading');
-
 if(msg.code==1){
 notice=msg.notice;
 name=msg.name;
@@ -153,7 +192,8 @@ desc=msg.desc;
 avatar=msg.avatar;
 number=msg.number;
 
-if($('.wuju-chat-group-window').length==0){//防止重复打开窗口
+
+if($('.wuju-chat-group-window').length==0){
 layer.open({
 type:1,
 anim: 5,
@@ -184,33 +224,38 @@ $('.wuju-chat-message-group-list').css('height',250);
 $('.wuju-chat-windows-right').css('height',459);
 },
 end: function(layero){
-ws.send('{"from_url":"'+wuju.home_url+'","type":"chat_group_back","do_user_id":"'+wuju.user_id+'","bbs_id":"'+bbs_id+'","do_user_name":"'+wuju.nickname_base+'"}');
+wuju_stop_group_Ajax();//关闭窗口时，终止前一个ajax；
 },
-content: 
-'<div class="wuju-chat-windows-left">'+
-'<div class="wuju-chat-message-group-list" data-no-instant></div>'+
-'<div class="wuju-chat-windows-footer"><div class="wuju-msg-tips" onclick=\'wuju_im_tips(this,"group")\'>底部</div>'+
-'<div class="wuju-chat-windows-footer-bar group clear">'+
-'<span onclick=\'wuju_smile(this,"im-group","")\' class="wuju-icon smile wuju-weixiao-"></span>'+
-'<span class="image wuju-icon wuju-tupian1"></span>'+
-'<span class="wuju-upload-group-img-loading"></span>'+
-'</div>'+
-'<textarea class="wuju-chat-textarea-group"></textarea>'+
-'<div class="wuju-chat-windows-footer-send clear">'+
-'<div class="wuju-chat-send-message-btn-group opacity" onclick="wuju_send_group_msg()">发送</div>'+
-'</div></div></div>'+
-'<div class="wuju-chat-windows-right">'+
-'<div class="wuju-chat-group-notice">'+
-'<div class="wuju-chat-group-notice-title">群公告</div>'+
-'<div class="wuju-chat-group-notice-desc"></div>'+
-'</div>'+
-'<div class="wuju-chat-group-user">'+
-'<div class="wuju-chat-group-user-number">群成员 <span></span></div>'+
-'<div class="wuju-chat-group-user-list"></div>'+
-'</div></div>'
+//<span class="bag wuju-icon wuju-hongbao3" onclick="wuju_test()"></span>\
+//<span class="touzi wuju-icon wuju-dice" onclick="wuju_test()"></span>\
+content: '\
+<div class="wuju-chat-windows-left">\
+<div class="wuju-chat-message-group-list" data-no-instant></div>\
+<div class="wuju-chat-windows-footer">\
+<div class="wuju-chat-windows-footer-bar group clear">\
+<span onclick="wuju_im_smile(this,5)" class="wuju-icon smile wuju-weixiao-"></span>\
+<span class="image wuju-icon wuju-tupian1"></span>\
+<span class="wuju-upload-group-img-loading"></span>\
+</div>\
+<textarea class="wuju-chat-textarea-group"></textarea>\
+<div class="wuju-chat-windows-footer-send clear">\
+<div class="wuju-chat-send-message-btn-group opacity" onclick="wuju_send_group_msg()">发送</div>\
+</div></div></div>\
+<div class="wuju-chat-windows-right">\
+<div class="wuju-chat-group-notice">\
+<div class="wuju-chat-group-notice-title">群公告</div>\
+<div class="wuju-chat-group-notice-desc"></div>\
+</div>\
+<div class="wuju-chat-group-user">\
+<div class="wuju-chat-group-user-number">群成员 <span></span></div>\
+<div class="wuju-chat-group-user-list"></div>\
+</div></div>'
 });  
 
+}else{
+wuju_stop_group_Ajax();//打开另外一个群组时，终止前一个ajax；
 }
+
 
 
 
@@ -223,58 +268,102 @@ wuju_im_upload_group(bbs_id);
 
 
 $('.wuju-chat-group-window .wuju-chat-windows-user-header').remove();
-$('.wuju-chat-group-window').append('<div class="wuju-chat-windows-user-header chat-group" data="'+bbs_id+'"><div class="wuju-chat-windows-user-avatar">'+avatar+'</div><div class="wuju-chat-windows-user-info"><div class="wuju-chat-windows-user-name">'+name+'</div><div class="wuju-chat-windows-user-desc">'+desc+'</div>	</div></div>');
+$('.wuju-chat-group-window').append('<div class="wuju-chat-windows-user-header" bbs-id="'+bbs_id+'"><div class="wuju-chat-windows-user-avatar">'+avatar+'</div><div class="wuju-chat-windows-user-info"><div class="wuju-chat-windows-user-name">'+name+'</div><div class="wuju-chat-windows-user-desc">'+desc+'</div>	</div></div>');
 $('.wuju-chat-group-notice-desc').html(notice);
 $('.wuju-chat-group-user-number span').html('（'+number+'人）');
+$('.wuju-chat-message-group-list').empty();//群组记录
+$('.wuju-chat-group-user-list').empty();//群组成员
+$('.wuju-chat-message-group-list').append('<div class="wuju-chat-windows-group-loading"></div>');
+$('.wuju-chat-group-user-list').append('<div class="wuju-chat-group-user-list-loading"></div>');
 $('#wuju-upload-group-bbs-id').val(bbs_id);
 
-
-
-$('.wuju-chat-message-group-list').html(msg.messages_list); 
+//获取群组消息
+$.ajax({
+type: "POST",
+url:wuju.module_url+"/chat/message-group-list.php",
+data: {bbs_id:bbs_id},
+dataType: 'json',
+success: function(msg){
+$('.wuju-chat-group-window .wuju-chat-windows-user-header').attr('count',msg.count);
+$('.wuju-chat-message-group-list').empty();
+$('.wuju-chat-message-group-list').append(msg.msg); 
 $('.wuju-chat-message-group-list').scrollTop($('.wuju-chat-message-group-list')[0].scrollHeight);
 
 //图片加载完毕执行
 $(".wuju-chat-message-list-content img").on('load',function(){
 $('.wuju-chat-message-group-list').scrollTop($('.wuju-chat-message-group-list')[0].scrollHeight);
-});
+} );
+
+wuju_ajax_get_messages_group();//发起长轮询
 
 
-$('.wuju-chat-group-user-list').html(msg.user_list);//右侧栏用户列表
-
-
-$('.wuju-chat-message-group-list').scroll(function(){
-contentH =$(this).get(0).scrollHeight;//内容高度
-scrollTop =$(this).scrollTop();//滚动高度
-// console.log(contentH-scrollTop);
-if(contentH-scrollTop>1000){
-$('.wuju-msg-tips').show();
-}else{
-$('.wuju-msg-tips').hide();	
-}
-if(contentH-scrollTop<400){
-$('.wuju-msg-tips').text('底部');	
 }
 });
 
-
-ws.send('{"from_url":"'+wuju.home_url+'","type":"chat_group_join","do_user_id":"'+wuju.user_id+'","bbs_id":"'+bbs_id+'","do_user_name":"'+wuju.nickname_base+'","chat_group_join_text":"'+wuju.chat_group_join_text+'"}');
-
+//获取群组侧栏成员
+$.ajax({
+type: "POST",
+url:wuju.module_url+"/chat/group-user-list.php",
+data: {bbs_id:bbs_id},
+success: function(msg){
+$('.wuju-chat-group-user-list').empty();
+$('.wuju-chat-group-user-list').append(msg); 
+}
+});
 
 
 }else{
 layer.msg(msg.msg);
 }
-
-
 }
-
-
 });//获取群聊信息
 
 
 }
 
 
+//群组聊天长轮询
+function wuju_ajax_get_messages_group(){
+count=$('.wuju-chat-group-window .wuju-chat-windows-user-header').attr('count');
+bbs_id=$('.wuju-chat-group-window .wuju-chat-windows-user-header').attr('bbs-id');
+wuju_user_chat_group_ajax = $.ajax({
+type: "POST",
+url:wuju.module_url+"/chat/message-group-list-ajax.php",
+timeout:30000,
+dataType: 'json',
+data: {bbs_id:bbs_id,count:count},
+success: function(msg){
+if(msg.code==1){
+// layer.msg('暂没有消息！');	
+wuju_ajax_get_messages_group();	
+}else if(msg.code==2){
+$('.wuju-chat-message-group-list').append(msg.msg);	
+// audio = document.getElementById('audio');
+// audio.play();
+$('.wuju-chat-group-window .wuju-chat-windows-user-header').attr('count',msg.count);
+$('.wuju-chat-message-group-list').scrollTop($('.wuju-chat-message-group-list')[0].scrollHeight);
+function c(){
+$('.wuju-chat-message-group-list').scrollTop($('.wuju-chat-message-group-list')[0].scrollHeight);
+}
+setTimeout(c,300);
+wuju_ajax_get_messages_group();
+}else if(msg.code==3){//不存在参数
+}else{
+wuju_ajax_get_messages_group();	
+}
+},
+error:function(XMLHttpRequest,textStatus,errorThrown){ 
+if(textStatus=="timeout"){ 
+wuju_ajax_get_messages_group();
+} 
+} 
+});	
+}
+
+//终止群组ajax长轮询
+function wuju_stop_group_Ajax(){   
+if(wuju_user_chat_group_ajax) {wuju_user_chat_group_ajax.abort();}  
+}  
 
 
 
@@ -311,25 +400,22 @@ return false;
 
 //加入群聊
 function wuju_join_group_chat(bbs_id,obj){
-if(!wuju.is_login){
-wuju_pop_login_style();	
-return false;
-}
 if(wuju.is_black){
 layer.msg('你是黑名单用户，禁止互动操作！');	
 return false;
 }
-$(obj).html('<i class="fa fa-spinner fa-spin"></i> 进入中...');
+this_dom=obj;
+$(this_dom).html('<i class="fa fa-spinner fa-spin"></i> 进入中...');
 $.ajax({
 type: "POST",
 url:wuju.module_url+"/wuju-join-group-chat.php",
 data: {bbs_id:bbs_id},
 success: function(msg){
-$(obj).html('加入群聊');
+$(this_dom).html('加入群聊');
 if(msg==1){
 wuju_open_group_chat(bbs_id);
 }else if(msg==2){
-layer.msg('请先关注'+wuju.bbs_name+'才允许加入群聊！');	
+layer.msg('请先关注论坛才可以加入群聊！');	
 }else if(msg==3){
 wuju_pop_login_style();
 }
@@ -338,23 +424,16 @@ wuju_pop_login_style();
 }
 
 
-//发送单对单聊天消息
+//发送聊天消息
 function wuju_send_msg(){
-author_id=$('.wuju-chat-windows-user-header.chat-one').attr('data');
+author_id=$('.wuju-chat-user-window .wuju-chat-windows-user-header').attr('data');
 content= $('.wuju-chat-textarea').val();
 if($.trim(content)==''){
 layer.msg('请输入内容！');
 return false;  
 }
-
-smile_add_arr=$.parseJSON(wuju.smile_add);
-if(smile_add_arr){
-content_a=content.replace(/\[s\-(\d+)\]/g,'<img src="'+wuju.smile_url+smile_add_arr[0]['smile_url']+'/$1.png" class="wp-smiley">');
-content_a=content_a.replace(/\[s\-(\d+)\-(\d+)\]/g,function(){var args=arguments;return '<img src="'+wuju.smile_url+smile_add_arr[(args[1]-1)]['smile_url']+'/'+args[2]+'.png" class="wp-smiley">'});
-}else{
-content_a=content;
-}
-$('.wuju-chat-message-list').append('<li class="myself"><div class="wuju-chat-message-list-user-info avatarimg-'+wuju.user_id+'">'+wuju.avatar+'</div><div class="wuju-chat-message-list-content">'+content_a+'</div></li>');
+content_a=content.replace(/\[s\-(\d+)\]/g,'<img src="'+wuju.smile_url+'$1.png" class="wp-smiley">');
+$('.wuju-chat-message-list').append('<li class="myself"><div class="wuju-chat-message-list-user-info">'+wuju.avatar+'</div><div class="wuju-chat-message-list-content">'+content_a+'</div></li>');
 $('.wuju-chat-textarea').val('');
 $('.wuju-chat-message-list').scrollTop($('.wuju-chat-message-list')[0].scrollHeight);
 $.ajax({
@@ -362,27 +441,10 @@ type: "POST",
 url:wuju.module_url+"/chat/msg.php",
 data: {author_id:author_id,content:content},
 success: function(msg){
-if(msg.code==0||msg.code==3){
+if(msg.code==0){
 $('.wuju-chat-message-list .myself').last().children('.wuju-chat-message-list-content').prepend('<i class="wuju-icon error wuju-shibai" title="'+msg.msg+'"></i>');
 $('.wuju-chat-message-list').append('<p class="wuju-chat-message-list-join error"><span>'+msg.msg+'</span></p>');
 $('.wuju-chat-message-list').scrollTop($('.wuju-chat-message-list')[0].scrollHeight);
-if(msg.code==3){//弹窗开通会员
-function c(){wuju_recharge_vip_form();}setTimeout(c,1500);
-}
-}else if(msg.code==1){//聊天隐私
-
-
-ws.send('{"from_url":"'+wuju.home_url+'","type":"chat","notice_user_id":"'+author_id+'","do_user_id":"'+msg.do_user_id+'","do_user_name":"'+wuju.nickname_base+'","content":"'+msg.content+'","message":"'+msg.message+'","do_user_avatar":"'+msg.do_user_avatar+'"}');
-
-if($('.wuju-chat-content-recent-user #wuju-chat-'+author_id).length>0){//当前会话置顶
-$('.wuju-chat-content-recent-user .wuju-group-top-br').after($('.wuju-chat-content-recent-user #wuju-chat-'+author_id));
-$('#wuju-chat-'+author_id+' .msg').text(content);
-}
-
-if(msg.im_privacy==1){
-$('.wuju-chat-message-list').append('<p class="wuju-chat-message-list-join error"><span>'+msg.im_privacy_tips+'</span></p>');
-$('.wuju-chat-message-list').scrollTop($('.wuju-chat-message-list')[0].scrollHeight);
-}
 }
 }
 });
@@ -391,20 +453,14 @@ $('.wuju-chat-message-list').scrollTop($('.wuju-chat-message-list')[0].scrollHei
 
 //发送群聊消息
 function wuju_send_group_msg(){
-bbs_id=$('.wuju-chat-group-window .wuju-chat-windows-user-header').attr('data');
+bbs_id=$('.wuju-chat-group-window .wuju-chat-windows-user-header').attr('bbs-id');
 content= $('.wuju-chat-textarea-group').val();
 if($.trim(content)==''){
 layer.msg('请输入内容！');
 return false;  
 }
-smile_add_arr=$.parseJSON(wuju.smile_add);
-if(smile_add_arr){
-content_a=content.replace(/\[s\-(\d+)\]/g,'<img src="'+wuju.smile_url+smile_add_arr[0]['smile_url']+'/$1.png" class="wp-smiley">');
-content_a=content_a.replace(/\[s\-(\d+)\-(\d+)\]/g,function(){var args=arguments;return '<img src="'+wuju.smile_url+smile_add_arr[(args[1]-1)]['smile_url']+'/'+args[2]+'.png" class="wp-smiley">'});
-}else{
-content_a=content;
-}
-$('.wuju-chat-message-group-list').append('<li class="myself"><div class="wuju-chat-message-list-user-info avatarimg-'+wuju.user_id+'">'+wuju.avatar+'</div><div class="wuju-chat-message-list-content">'+content_a+'</div></li>');
+content_a=content.replace(/\[s\-(\d+)\]/g,'<img src="'+wuju.smile_url+'$1.png" class="wp-smiley">');
+$('.wuju-chat-message-group-list').append('<li class="myself"><div class="wuju-chat-message-list-user-info">'+wuju.avatar+'</div><div class="wuju-chat-message-list-content">'+content_a+'</div></li>');
 $('.wuju-chat-textarea-group').val('');
 $('.wuju-chat-message-group-list').scrollTop($('.wuju-chat-message-group-list')[0].scrollHeight);
 $.ajax({
@@ -412,22 +468,10 @@ type: "POST",
 url:wuju.module_url+"/chat/msg-group.php",
 data: {bbs_id:bbs_id,content:content},
 success: function(msg){
-if(msg.code==0||msg.code==3){
+if(msg.code==0){
 $('.wuju-chat-message-group-list .myself').last().children('.wuju-chat-message-list-content').prepend('<i class="wuju-icon error wuju-shibai" title="'+msg.msg+'"></i>');
 $('.wuju-chat-message-group-list').append('<p class="wuju-chat-message-list-join error"><span>'+msg.msg+'</span></p>');
 $('.wuju-chat-message-group-list').scrollTop($('.wuju-chat-message-group-list')[0].scrollHeight);
-if(msg.code==3){//弹窗开通会员
-function c(){wuju_recharge_vip_form();}setTimeout(c,1500);
-}
-}else if(msg.code==1){
-
-ws.send('{"from_url":"'+wuju.home_url+'","type":"chat_group","do_user_id":"'+msg.do_user_id+'","bbs_id":"'+msg.bbs_id+'","group_type":"'+msg.group_type+'","message":"'+msg.message+'","do_user_avatar":"'+msg.do_user_avatar+'","do_user_name":"'+msg.do_user_name+'"}');
-
-//机器人
-if(msg.rebot_name){
-ws.send('{"from_url":"'+wuju.home_url+'","type":"chat_group","do_user_id":"'+msg.rebot_user_id+'","bbs_id":"'+bbs_id+'","message":"'+wuju_htmlspecialchars_decode(msg.rebot_message)+'","do_user_avatar":"'+msg.rebot_avatar+'","do_user_name":"'+msg.rebot_name+'","content":"'+msg.rebot_insert_id+'"}');
-}
-
 }	
 }
 });	
@@ -447,26 +491,17 @@ accept:'file',
 before: function(obj){
 layer.load(1);
 },
-done: function(msg, index, upload){
+done: function(res, index, upload){
 layer.closeAll('loading');
-if(msg.code == 1){
-$('.wuju-chat-message-list').append('<li class="myself"><div class="wuju-chat-message-list-user-info avatarimg-'+wuju.user_id+'">'+wuju.avatar+'</div><div class="wuju-chat-message-list-content">'+msg.img+'</div></li>');
+if(res.code == 1){
+$('.wuju-chat-message-list').append('<li class="myself"><div class="wuju-chat-message-list-user-info">'+wuju.avatar+'</div><div class="wuju-chat-message-list-content">'+res.img+'</div></li>');
 $('.wuju-chat-message-list').scrollTop($('.wuju-chat-message-list')[0].scrollHeight);
 //图片加载完毕执行
 $(".wuju-chat-message-list-content img").on('load',function(){
 $('.wuju-chat-message-list').scrollTop($('.wuju-chat-message-list')[0].scrollHeight);
 });
-
-
-ws.send('{"from_url":"'+wuju.home_url+'","type":"chat","notice_user_id":"'+author_id+'","do_user_id":"'+msg.do_user_id+'","do_user_name":"'+wuju.nickname_base+'","content":"'+msg.content+'","message":"'+msg.message+'","do_user_avatar":"'+msg.do_user_avatar+'"}');
-
-if($('#wuju-chat-'+author_id).length>0){//当前会话置顶
-$('.wuju-chat-content-recent-user .wuju-group-top-br').after($('#wuju-chat-'+author_id));
-$('#wuju-chat-'+author_id+' .msg').text('[图片]');
-}
-
 }else{
-layer.msg(msg.msg);	
+layer.msg(res.msg);	
 }
 },
 error: function(index, upload){
@@ -490,22 +525,17 @@ accept:'file',
 before: function(obj){
 layer.load(1);
 },
-done: function(msg, index, upload){
+done: function(res, index, upload){
 layer.closeAll('loading');
-if(msg.code == 1){
-$('.wuju-chat-message-group-list').append('<li class="myself"><div class="wuju-chat-message-list-user-info avatarimg-'+wuju.user_id+'">'+wuju.avatar+'</div><div class="wuju-chat-message-list-content">'+msg.img+'</div></li>');
+if(res.code == 1){
+$('.wuju-chat-message-group-list').append('<li class="myself"><div class="wuju-chat-message-list-user-info">'+wuju.avatar+'</div><div class="wuju-chat-message-list-content">'+res.img+'</div></li>');
 $('.wuju-chat-message-group-list').scrollTop($('.wuju-chat-message-group-list')[0].scrollHeight);
 //图片加载完毕执行
 $(".wuju-chat-message-list-content img").on('load',function(){
 $('.wuju-chat-message-group-list').scrollTop($('.wuju-chat-message-group-list')[0].scrollHeight);
 });
-
-
-ws.send('{"from_url":"'+wuju.home_url+'","type":"chat_group","do_user_id":"'+msg.do_user_id+'","bbs_id":"'+msg.bbs_id+'","group_type":"'+msg.group_type+'","message":"'+msg.message+'","do_user_avatar":"'+msg.do_user_avatar+'","do_user_name":"'+msg.do_user_name+'"}');
-
-
 }else{
-layer.msg(msg.msg);	
+layer.msg(res.msg);	
 }
 },
 error: function(index, upload){
@@ -514,41 +544,4 @@ layer.closeAll('loading');
 }
 });
 });
-}
-
-
-//下拉
-function wuju_im_tips(obj,type){
-$(obj).hide().html('底部');
-if(type=='one'){
-$('.wuju-chat-message-list').scrollTop($('.wuju-chat-message-list')[0].scrollHeight);
-}else{
-$('.wuju-chat-message-group-list').scrollTop($('.wuju-chat-message-group-list')[0].scrollHeight);
-}
-}
-
-
-
-//打开右侧IM列表
-function wuju_open_im_list(){
-$(".wuju-chat").animate({right:'0px'},280);
-if($('.wuju-chat-content-recent-user').hasClass('had')){return false;}
-$('.wuju-chat-content-recent-user,.wuju-chat-content-follow-user,.wuju-chat-content-group').html(wuju.loading_post);
-$.ajax({
-type: "POST",
-url:wuju.module_url+"/chat/chat-list.php",
-data:{type:'all'},
-success: function(msg){
-if(msg.code==1){
-$('.wuju-chat-content-recent-user').html(msg.recent).addClass('had');  
-$('.wuju-chat-content-group').html(msg.group); 
-$('.wuju-chat-content-follow-user').html(msg.follow); 
-}
-}
-});
-}
-
-//关闭右侧IM列表
-function wuju_close_im_list(){
-$(".wuju-chat").animate({right:'-280px'},280);
 }

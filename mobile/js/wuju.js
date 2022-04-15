@@ -1,5 +1,5 @@
 var myApp=new LightSNS({
-tapHold:true,
+tapHold:false,
 scrollTopOnNavbarClick:true,//返回顶部
 swipeBackPage:false,
 cache:false,
@@ -13,75 +13,39 @@ onAjaxStart: function (xhr) {
 myApp.showIndicator();
 },
 onAjaxComplete: function (xhr) {
-if(xhr.status!=200){
-console.log('请求失败，请重新尝试！(1000009)');
-// layer.open({
-// content: '请求失败，请重新尝试！(1000009)',
-// btn: '确定',
-// shadeClose: false,
-// yes: function(){
-// layer.closeAll();
-// }
-// });	
-}
 myApp.hideIndicator();
 }
 });
 // var $$=wuju;
 
-
-//强制登录
-if(wuju.login_on_off&&!wuju.is_login){
-myApp.loginScreen();
-myApp.addView('#wuju-view-sns-0',{dynamicNavbar:true,domCache:true});
-}else{
-
-mobile_tab=$.parseJSON(wuju.mobile_tab);//获取移动端开启的页面类型
-
-if(mobile_tab){
-for (var i = 0; i < mobile_tab.length; i++) {
-mobile_tab_type=mobile_tab[i].wuju_mobile_tab_type;
-if(mobile_tab_type!='publish'){
-if(mobile_tab_type=='custom'){
-if(mobile_tab[i].wuju_mobile_tab_custom_type!='link'){
-myApp.addView('#wuju-view-custom-'+i,{dynamicNavbar:true,domCache:true});
-}
-}else{
-myApp.addView('#wuju-view-'+mobile_tab_type+'-'+i,{dynamicNavbar:true,domCache:true});	
-}
-}
-}//for
-}//if
-
+mobile_page=$.parseJSON(wuju.mobile_page);//获取移动端开启的页面类型
+if(mobile_page){
+if(mobile_page.sns){view_sns=myApp.addView('#wuju-view-sns',{dynamicNavbar:true,domCache:true});}
+if(mobile_page.notice){view_notice=myApp.addView('#wuju-view-notice',{dynamicNavbar:true,domCache:true});}
+if(mobile_page.find){view_find=myApp.addView('#wuju-view-find',{dynamicNavbar:true,domCache:true});}
+if(mobile_page.mine){view_mine=myApp.addView('#wuju-view-mine',{dynamicNavbar:true,domCache:true});}
+if(mobile_page.bbs){view_bbs=myApp.addView('#wuju-view-bbs',{dynamicNavbar:true,domCache:true});}
+if(mobile_page.video){view_video=myApp.addView('#wuju-view-video',{dynamicNavbar:true,domCache:true});}
+if(mobile_page.single){view_single=myApp.addView('#wuju-view-single',{dynamicNavbar:true,domCache:true});}
+if(mobile_page.custom_1){view_custom_1=myApp.addView('#wuju-view-custom-1',{dynamicNavbar:true,domCache:true});}
+if(mobile_page.custom_2){view_custom_2=myApp.addView('#wuju-view-custom-2',{dynamicNavbar:true,domCache:true});}
+if(mobile_page.custom_3){view_custom_3=myApp.addView('#wuju-view-custom-3',{dynamicNavbar:true,domCache:true});}
 }
 
-//通过外链打开首页tab
-if(wuju_get_para('tab')!=''){
-myApp.showTab('#'+wuju_get_para('tab'));
-// window.history.pushState(null,null,'/');
-}
-
-
-if(wuju.is_login&&wuju.phone_on_off&&!wuju.is_phone){
-myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/setting/setting-phone.php?author_id='+wuju.user_id});
-}
-if(wuju.is_login&&wuju.email_on_off&&!wuju.is_email){
-myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/setting/setting-email.php?author_id='+wuju.user_id});
-}
 
 
 //判断页面属性
 if(wuju.is_single){
-//window.history.pushState(null,null,'/');
+window.history.pushState(null,null,'/');
 if(wuju.is_bbs_post){
 function a(){
 myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/post-bbs.php?post_id='+wuju.post_id+'&bbs_id='+wuju.bbs_id+'&url='+wuju.post_url+'&type=bbs'});
 }setTimeout(a,500);   
-}else if(wuju.wp_post_type=='goods'){
+}else if(wuju.post_reprint){
 function b(){
-myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/post-goods.php?post_id='+wuju.post_id+'&url='+wuju.post_url+'&rand='+Math.random().toString(36).substr(2,5)});
+myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/post-words.php?post_id='+wuju.post_id+'&url='+wuju.post_url});
 }setTimeout(b,500);
-}else if(wuju.post_type=='music'||wuju.post_type=='video'||wuju.post_type=='single'||wuju.post_type=='redbag'||wuju.post_type=='secret'){
+}else if(wuju.post_type){
 function c(){
 myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/post-'+wuju.post_type+'.php?post_id='+wuju.post_id+'&url='+wuju.post_url});
 }setTimeout(c,500);
@@ -93,14 +57,9 @@ myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/p
 }
 
 if(wuju.is_page){
-search_para=wuju_get_para('search');
 window.history.pushState(null,null,'/');
 function e(){
-if(wuju.page_template=='page/select.php'){//筛选
-myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/post-page.php?post_id='+wuju.post_id+'&page_template='+wuju.page_template+'&url='+wuju.post_url+'&search='+search_para});
-}else{
-myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/post-page.php?post_id='+wuju.post_id+'&page_template='+wuju.page_template+'&url='+wuju.post_url});
-}	
+myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/post-page.php?post_id='+wuju.post_id+'&page_template='+wuju.page_template+'&url='+wuju.post_url});	
 }setTimeout(e,500);	
 }
 
@@ -118,27 +77,78 @@ myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/m
 }
 
 if(wuju.is_category){
+window.history.pushState(null,null,'/');
+function h(){
 myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/bbs.php?bbs_id='+wuju.bbs_id+'&url='+wuju.bbs_url});
+}setTimeout(h,500);	
 }
 
 if(wuju.is_tag){
+window.history.pushState(null,null,'/');
+function i(){
 myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/topic.php?topic_id='+wuju.topic_id+'&url='+wuju.topic_url});
+}setTimeout(i,500);	
 }
 
 if(wuju.is_search){
+window.history.pushState(null,null,'/');
+function j(){
 myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/search.php?search_keywords='+wuju.search_keywords});
-}
-
-if(wuju.is_category_shop){
-myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/shop/tax.php?term_id='+wuju.shop_term_id+'&name='+wuju.shop_term_name+'&url='+wuju.shop_term_url});
+}setTimeout(j,500);	
 }
 
 
 
 
+//强制登录
+if(wuju.login_on_off&&!wuju.is_login){
+myApp.loginScreen();
+}
 
 
 
+//sns首页
+if(mobile_page.sns){
+wuju_index_sns_js_load();
+}
+
+
+//消息页面
+if(mobile_page.notice){
+wuju_index_notice_js_load();
+}
+
+
+//视频专题加载更多事情
+if(mobile_page.video){//如果开启专题页面
+var video_loading = false;
+var video_page = 2;
+var video_list=$('.wuju-video-special-list');
+number=video_list.attr('number');
+$('.wuju-video-page-content.infinite-scroll').on('infinite',function(){
+if (video_loading) return;
+video_loading = true;
+video_list.after(wuju.loading_post);
+topic=$('.wuju-video-special-menu li.on').attr('data');
+$.ajax({
+type: "POST",
+url:  wuju.mobile_ajax_url+"/post/video-special.php",
+data: {topic:topic,page:video_page,number:number,type:'more'},
+success: function(msg){
+if(msg==0){ 
+video_loading = true; 
+}else{
+video_list.append(msg);
+video_page++;
+video_loading = false;  
+}
+$('.wuju-load-post').remove();
+}
+});
+
+}); 
+
+}
 
 
 
@@ -263,9 +273,9 @@ data: {post_id:post_id},
 success: function(msg){
 
 if(msg.is_like){//更新喜欢
-$('.wuju-player-footer-btn .like i').removeClass('wuju-xihuan2').addClass('wuju-xihuan1');	
+$('.wuju-player-footer-btn .like i').removeClass('wuju-xihuan2').addClass('wuju-shiliangzhinengduixiang31');	
 }else{
-$('.wuju-player-footer-btn .like i').removeClass('wuju-xihuan1').addClass('wuju-xihuan2');		
+$('.wuju-player-footer-btn .like i').removeClass('wuju-shiliangzhinengduixiang31').addClass('wuju-xihuan2');		
 }
 $('.wuju-player-footer-btn .comment m').html(msg.comment_number);//更新评论
 
@@ -346,7 +356,7 @@ myApp.getCurrentView().router.back();
 if(navigator.userAgent.indexOf("Html5Plus")<0){//非app环境
 $("body").on("click",".back", function(e){
 history.back();
-// console.log(3);
+console.log(3);
 });
 }
 
@@ -379,3 +389,117 @@ main && main.moveTaskToBack(false);  //后台
 
 
 
+//补签
+var $$_ = function(id) {
+return "string" == typeof id ? document.getElementById(id) : id;
+};
+var Class = {
+create: function() {
+return function() {
+this.initialize.apply(this, arguments);
+}
+}
+}
+Object.extend = function(destination, source) {
+for(var property in source) {
+destination[property] = source[property];
+}
+return destination;
+}
+var Calendar = Class.create();
+Calendar.prototype = {
+initialize: function(container, options) {
+this.Container = $$_(container); //容器(table结构)
+this.Days = []; //日期对象列表
+this.SetOptions(options);
+this.Year = this.options.Year;
+this.Month = this.options.Month;
+this.qdDay = this.options.qdDay;
+this.Draw();
+},
+//设置默认属性
+SetOptions: function(options) {
+this.options = { //默认值
+Year: new Date().getFullYear(), //显示年
+Month: new Date().getMonth() + 1, //显示月
+qdDay: null,
+};
+Object.extend(this.options, options || {});
+},
+//画日历
+Draw: function() {
+//签到日期
+var day = this.qdDay;
+//日期列表
+var arr = [];
+//用当月第一天在一周中的日期值作为当月离第一天的天数
+for(var i = 1, firstDay = new Date(this.Year, this.Month - 1, 1).getDay(); i <= firstDay; i++) {
+arr.push("&nbsp;");
+}
+//用当月最后一天在一个月中的日期值作为当月的天数
+for(var i = 1, monthDay = new Date(this.Year, this.Month, 0).getDate(); i <= monthDay; i++) {
+arr.push(i);
+}
+var frag = document.createDocumentFragment();
+this.Days = [];
+while(arr.length > 0) {
+//每个星期插入一个tr
+var row = document.createElement("tr");
+//每个星期有7天
+for(var i = 1; i <= 7; i++) {
+var cell = document.createElement("td");
+
+cell.innerHTML = "<span>&nbsp;</span>";
+if(arr.length > 0) {
+var d = arr.shift();
+cell.innerHTML = "<span>" + d + "</span>";
+if(d > 0 && day.length) {
+cell.className = "no-sign";	
+$(cell).attr('onclick','wuju_sign_add_form('+d+')');
+$(cell).attr('id','wuju-sign-day-'+d);
+a=0;
+for(var ii = 0; ii < day.length; ii++) {
+this.Days[d] = cell;
+had_sign=this.IsSame(new Date(this.Year, this.Month - 1, d), day[ii]);//是否签到
+if(had_sign) {
+cell.className = "had-sign";
+$(cell).children('span').html(d+'<i class="wuju-icon wuju-dagou"></i>');
+a=1;
+}
+// console.log(1);
+
+}
+
+if(d <new Date().getDate()&&!a){
+$(cell).addClass('no').children('span').html(d+'<m>补</m>');
+}
+
+if(d ==new Date().getDate()){
+$(cell).addClass('today');
+}
+
+if(d >new Date().getDate()){
+$(cell).addClass('in');
+}
+
+
+
+
+}
+}
+row.appendChild(cell);
+}
+frag.appendChild(row);
+}
+//先清空内容再插入(ie的table不能用innerHTML)
+while(this.Container.hasChildNodes()) {
+this.Container.removeChild(this.Container.firstChild);
+}
+this.Container.appendChild(frag);
+},
+//是否签到
+IsSame: function(d1, d2) {
+d2 = new Date(d2 * 1000);
+return(d1.getFullYear() == d2.getFullYear() && d1.getMonth() == d2.getMonth() && d1.getDate() == d2.getDate());
+},
+};

@@ -80,12 +80,12 @@ $("input[name='wuju_options[wuju_panel_name]']").bind("input propertychange",fun
 $('.wuju-panel-header-inner h1').html($(this).val());
 });
 
-//获取最新版本提示
 layui.use(['layer'], function() {
 $("#wuju-get-update-info").click(function() {
 layer.load(1);
-url=wuju.update_url+"/update.php?callback=?&url=123";
-jQuery.getJSON(url,function(data) {
+var my_domain = document.domain;
+var url = wuju.author_update + "/update.php?callback=?&url=123";
+jQuery.getJSON(url, function(data) {
 layer.closeAll('loading');
 layer.alert(data.version)
 })
@@ -94,32 +94,18 @@ layer.alert(data.version)
 
 
 
-//设置页回车搜索
+// 回车搜索
 $(".wuju-panel-search input").keypress(function(e) {  
 if(e.which == 13) {  
 return false;
 }  
 }); 
 
-//layui模块引入
-layui.use('element',function(){
-var element=layui.element
+
+layui.use('element', function() {
+var element = layui.element
 })
-
-//用户列表筛选
-wuju_user_type_el=$('[name="wuju_user_type"]');
-wuju_user_type_el.change(function(){
-wuju_user_type_el.val(jQuery(this).val());
 });
-
-});//ready
-
-
-
-
-// =================================函数开始
-
-
 
 //退出登录
 function wuju_login_out(){
@@ -170,29 +156,19 @@ function c(){window.location.reload();}setTimeout(c,2000);
 //metabox导出备份
 function wuju_amdin_backup_metabox(){
 post_id=wuju_getUrlParam('post');
-if(!post_id){
-alert('请新建页面之后再进行导出数据操作！');
-return false;
-}
-type=$('.components-select-control__input').val();
-window.open(wuju.theme_url+"/module/admin/action/admin-setting-metabox-back.php?download&post_id="+post_id+"&type="+type);
+window.open(wuju.theme_url+"/module/admin/action/admin-setting-metabox-back.php?download&post_id="+post_id);
 }
 
 
 //metabox导入备份
 function wuju_amdin_backup_metabox_import(){
-post_id=wuju_getUrlParam('post');
-if(!post_id){
-alert('请新建页面之后再进行导入数据操作！');
-return false;
-}
-type=$('.components-select-control__input').val();
 backup=$('#wuju-admin-backup-metabox-val').val();
 if(backup=='delete'){
 title='你要确定要清空所有的设置选项吗？清空之后将恢复默认设置！';
 }else{
 title='你确定要导入备份设置吗？你之前的设置选项会被覆盖！';
 }
+post_id=wuju_getUrlParam('post');
 layer.confirm(title,{
 btnAlign: 'c',
 }, function(){
@@ -200,7 +176,7 @@ layer.load(1);
 $.ajax({
 type:"POST",
 url: wuju.wuju_ajax_url+"/admin/action/admin-setting-metabox-back.php",
-data:{backup:backup,post_id:post_id,type:type},
+data:{backup:backup,post_id:post_id},
 success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
@@ -214,21 +190,18 @@ function c(){window.location.reload();}setTimeout(c,2000);
 
 
 //保存设置
-function wuju_admin_save_setting(tips){
+function wuju_admin_save_setting(){
 data=$('#wuju-panel-form').serializeJSONLightSNS();
-time=$('#wuju-setting-time').attr('data');
 layer.load(1);
 $.ajax({
 type:"POST",
 url: wuju.wuju_ajax_url+"/admin/action/admin-save.php",
-data:{data:data,time:time},
+data:{data:data},
 success: function(msg){
 layer.closeAll('loading');
-if(tips){
 layer.msg(msg.msg);
-}
 if(msg.code==1){
-$('#wuju-setting-time').attr('data',msg.time);
+
 }
 }
 });
@@ -264,7 +237,7 @@ layer.closeAll('loading');
 window.admin_key_add_form=layer.open({
 title:'卡密生成',
 type: 1,
-area: ['540px', '500px'], 
+area: ['540px', '368px'], 
 content: msg
 });
 layui.use(['form','laydate'], function () {
@@ -356,7 +329,7 @@ layer.closeAll('loading');
 window.admin_key_add_form=layer.open({
 title:'卡密导出',
 type: 1,
-area: ['640px', '400px'], 
+area: ['640px', '330px'], 
 content: msg
 });
 layui.use(['form'], function () {
@@ -393,7 +366,7 @@ layer.closeAll('loading');
 window.admin_key_add_form=layer.open({
 title:'卡密删除',
 type: 1,
-area: ['630px', '320px'], 
+area: ['630px', '240px'], 
 content: msg
 });
 layui.use(['form'], function () {
@@ -705,23 +678,15 @@ $('.wuju-multiple-import-content').val('');
 
 
 //弹出充值记录表单
-function wuju_admin_recharge_form(type){
-if(type=='money'){
-url=wuju.wuju_ajax_url+"/admin/stencil/recharge-money.php";
-title=wuju.money_name+'充值记录';
-}else{
-url=wuju.wuju_ajax_url+"/admin/stencil/recharge.php";
-title=wuju.credit_name+'充值记录';
-}
-
+function wuju_admin_recharge_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:url,
+url:wuju.wuju_ajax_url+"/admin/stencil/recharge.php",
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
-title:title,
+title:'全站充值记录',
 type: 1,
 area: ['700px', '520px'], 
 content: msg
@@ -814,7 +779,19 @@ content: msg.msg
 });
 }
 
-
+//自助授权
+function wuju_custom_verify_domain(){
+layer.load(1);
+$.ajax({
+type: "POST",
+url:"https://admin.wuju.cn/verify.php",
+data:{domain:wuju.domain,theme:wuju.theme_name},
+success: function(msg){
+layer.closeAll('loading');
+layer.msg(msg.msg);
+}
+});	
+}
 
 //弹出提现记录表单
 function wuju_admin_cash_form(){
@@ -941,17 +918,16 @@ content: msg
 
 //发表全站通知
 function wuju_admin_notice_add(){
-title=$('#wuju-admin-notice-add-title').val();
 content=$('#wuju-admin-notice-add-val').val();
-if(content==''||title==''){
-layer.msg("通知内容或标题不能为空！");
+if(content==''){
+layer.msg("通知内容不能为空！");
 return false;
 }
 layer.load(1);
 $.ajax({
 type: "POST",
 url:wuju.wuju_ajax_url+"/admin/action/notice-do.php",
-data:{content:content,title:title,type:'add'},
+data:{content:content,type:'add'},
 success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
@@ -986,17 +962,16 @@ content: msg
 
 //编辑全站通知
 function wuju_admin_notice_edit(id){
-title=$('#wuju-admin-notice-add-title').val();
 content=$('#wuju-admin-notice-add-val').val();
-if(content==''||title==''){
-layer.msg("通知内容或标题不能为空！");
+if(content==''){
+layer.msg("通知内容不能为空！");
 return false;
 }
 layer.load(1);
 $.ajax({
 type: "POST",
 url:wuju.wuju_ajax_url+"/admin/action/notice-do.php",
-data:{content:content,title:title,type:'edit',id:id},
+data:{content:content,type:'edit',id:id},
 success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
@@ -1162,7 +1137,7 @@ url:wuju.wuju_ajax_url+"/admin/stencil/apply-bbs.php",
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
-title:wuju.bbs_name+'申请开通',
+title:'论坛开通申请',
 type: 1,
 fixed: false,
 area: ['700px','410px'], 
@@ -1269,7 +1244,6 @@ window.admin_apply_bbs_read_form=layer.open({
 title:'订单详情',
 type: 1,
 fixed: false,
-offset: '61px',
 area: ['750px','680px'], 
 content: msg
 });
@@ -1368,148 +1342,14 @@ layer.close(goods_order_view_form);
 }
 
 
-
-//举报表单
-function wuju_admin_report_form(){
-layer.load(1);
-$.ajax({
-type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/report.php",
-success: function(msg){
-layer.closeAll('loading');
-layer.open({
-title:'举报列表',
-type: 1,
-fixed: false,
-area: ['700px','410px'], 
-content: msg
-});
-}
-});	
-}
-
-//查看举报详情表单
-function wuju_admin_report_read_form(id){
-layer.load(1);
-$.ajax({
-type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/report-read.php",
-data:{id:id},
-success: function(msg){
-layer.closeAll('loading');
-window.admin_report_read_form=layer.open({
-title:'举报详情',
-type: 1,
-fixed: false,
-area: ['500px','350px'], 
-content: msg
-});
-}
-});	
-}
-
-//举报操作
-function wuju_admin_report_do(type,id,obj){
-
-if(type=='do'){
-title="你确定要标记为处理吗？";
-}else{
-title="你确定要删除吗？";	
-}
-
-layer.confirm(title,{
-btn: ['确定','取消'],
-btnAlign: 'c',
-},
-function(){
-
-layer.load(1);
-$.ajax({
-type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/report-do.php",
-data:{ID:id,type:type},
-success: function(msg){
-layer.closeAll('loading');
-layer.msg(msg.msg);
-if(msg.code==1){
-if(type=='del'){
-$('#wuju-admin-report-'+id).remove();
-}else if(type=='do'){
-$('#wuju-admin-report-'+id+' span m').html('已经处理').attr('style','');
-}
-layer.close(admin_report_read_form);
-}
-}
-});	
-});	
-
-
-
-}
-
-
-
-
-//导出手机号/邮箱
-function wuju_phone_email_export(){
-layer.confirm('选择你要导出的用户数据',{
-btn: ['手机号','邮箱号'],
-btnAlign: 'c',
-},
-function(){
-$('#wuju-export-phone-email-form input').attr('value','phone');
-$('#wuju-export-phone-email-form').submit();
-layer.closeAll();	
-},
-function(){
-$('#wuju-export-phone-email-form input').attr('value','email');
-$('#wuju-export-phone-email-form').submit();
-layer.closeAll();
-}
-);
-}
-
-
-//插入图标表单
-function wuju_add_icon_form(obj){
-id=$(obj).siblings('input').attr('name');
-// $('#'+id).find('.wuju-panel-icon-remove').hide();
-layer.load(1);
-$.ajax({
-type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/add-icon.php",
-data:{id:id},
-success: function(msg){
-layer.closeAll('loading');
-layer.open({
-title:false,
-type: 1,
-fixed: false,
-skin:'wuju-add-icon-form',
-area: ['620px','450px'], 
-content: msg
-});
-}
-});
-}
-
-
-
-
-
-
-
-
 function wuju_no(){
 layer.msg("还没有写好啦！预留接口");	
 }
 
 
-//获取get参数
+
 function wuju_getUrlParam(name){
 var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
 var r = window.location.search.substr(1).match(reg);
 if(r!=null)return  unescape(r[2]); return null;
 }
-
-

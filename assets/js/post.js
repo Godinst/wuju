@@ -1,50 +1,54 @@
 
 
-//获取内容数据
-function wuju_post(type,load_type,obj){
-if($('.wuju-load-post').length>0){
+//首页或个人主页获取内容数据
+var wuju_post_status=1;
+function wuju_post(type,obj){
+
+if($('.wuju-load-post').length==0){
+$('.wuju-post-list').prepend(wuju.loading_post);
+}
+
+if(wuju_post_status==0){
 return false;	
 }
+
+$(obj).addClass('on').siblings().removeClass('on');
+
 author_id=$(obj).attr('author_id');
-if(load_type=='more'){//加载更多
+wuju_post_status=0;
+$.ajax({
+type: "POST",
+url:wuju.wuju_ajax_url+"/data/post.php",
+data: {type:type,author_id:author_id},
+success: function(msg){   
+$('.wuju-post-list').html(msg);
+wuju_post_js();//ajax后加载要执行的脚本
+wuju_post_status=1;
+}
+});
+}
+
+
+
+//首页或个人主页加载更多数据
+function wuju_post_more(type,obj){
 page=$(obj).attr('page');
+
+author_id=$(obj).attr('author_id');
+
+if($('.wuju-load-post').length==0){
 $(obj).before(wuju.loading_post);
-$(obj).hide();	
-
-if(author_id){
-menu_list=$('.wuju-member-menu li.on');
-}else{
-menu_list=$('.wuju-index-menu li.on');
+$(obj).hide();
 }
-
-data=menu_list.attr('data');
-index=menu_list.index();
-
-}else{//ajax切换
-
-
-
-page=1;
-$(obj).addClass('on').siblings().removeClass('on');//菜单切换效果
-$('.wuju-post-list').prepend(wuju.loading_post);//加载动画
-data=$(obj).attr('data');
-index=$(obj).index();
-
-if(!author_id&&wuju.sns_home_load_type=='page'){//首页显示
-history.pushState('','','?type='+type+'&index='+index+'&page=1');
-}
-}
-
 
 $.ajax({
 type: "POST",
-url:.wuju_ajax_url+"/data/post.php",
-data: {type:type,page:page,load_type:load_type,index:index,author_id:author_id,data:data},
-success: function(msg){
-if(load_type=='more'){//加载更多
+url:wuju.wuju_ajax_url+"/more/data.php",
+data: {type:type,page:page,author_id:author_id},
+success: function(msg){   
 $('.wuju-load-post').remove();
 $(obj).show();
-if(msg==0){//没有数据
+if(msg==0){
 layer.msg('没有更多内容！');
 $(obj).remove();
 }else{
@@ -52,33 +56,6 @@ $(obj).before(msg);
 page=parseInt(page)+1;
 $(obj).attr('page',page);	
 }
-}else{//ajax切换
-audio=document.getElementById('wuju-reload-music');
-audio.play();
-$('.wuju-post-list').html(msg);
-}
-
-if(!author_id&&$('#wuju-sns-home-ajax-page').length>0){//分页
-layui.use('laypage', function(){
-var laypage = layui.laypage;
-laypage.render({
-elem:'wuju-sns-home-ajax-page',
-count:$('#wuju-sns-home-ajax-page').attr('count'),
-limit:$('#wuju-sns-home-ajax-page').attr('number'),
-theme:'var(--wuju-color)',
-jump:function(obj,first){
-type=$('.wuju-index-menu li.on').attr('type');
-index=$('.wuju-index-menu li.on').index();
-page=obj.curr;
-if(!first){
-window.open('/?type='+type+'&index='+index+'&page='+page,'_self');
-}
-}
-});
-});
-}
-
-
 wuju_post_js();//ajax后加载要执行的脚本
 }
 });
@@ -99,9 +76,7 @@ $(this).html("查看全文");
 
 //评论框点击变高
 $('.wuju-post-comments').focus(function(){
-if(!$(this).next().hasClass('wuju-stop-comment-tips')){
 $(this).css('height','85px');
-}
 });
 
 //资料小卡片
@@ -125,30 +100,29 @@ $(this).children('.wuju-user-info-card').hide();
 });
 
 
-wuju_lightbox();
 }
 
 
 
 //搜索页面======ajax加载
-function wuju_search_post(type,obj){
-if($('.wuju-load-post').length>0){
-return false;
+function wuju_ajax_search(type,obj){
+
+if($('.wuju-load-post').length==0){
+$('.wuju-search-content').prepend(wuju.loading_post);
 }
 
+if(wuju_post_status==0){
+return false;	
+}
 
-$('.wuju-search-content').prepend(wuju.loading_post);//加载动画
 keyword=$('#wuju-search-val').val();
-data=$(obj).attr('data');
 $(obj).addClass('on').siblings().removeClass('on');
 wuju_post_status=0;
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/data/search.php",
-data: {type:type,keyword:keyword,page:1,load_type:'menu',data:data},
+url:wuju.wuju_ajax_url+"/ajax/search.php",
+data: {type:type,keyword:keyword},
 success: function(msg){   
-audio=document.getElementById('wuju-reload-music');
-audio.play();
 $('.wuju-search-content').html(msg);
 wuju_post_js();
 wuju_post_status=1;
@@ -161,7 +135,6 @@ wuju_post_status=1;
 function wuju_more_search(obj){
 type=$(obj).attr('type');
 page=$(obj).attr('data');
-data=$('.wuju-search-tab li.on').attr('data');
 keyword=$('#wuju-search-val').val();
 if($('.wuju-load-post').length==0){
 $(obj).before(wuju.loading_post);
@@ -169,8 +142,8 @@ $(obj).hide();
 }
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/data/search.php",
-data: {page:page,type:type,keyword:keyword,load_type:'more',data:data},
+url:wuju.wuju_ajax_url+"/more/search.php",
+data: {page:page,type:type,keyword:keyword},
 success: function(msg){   
 $('.wuju-load-post').remove();
 $(obj).show();
@@ -192,11 +165,14 @@ wuju_post_js();
 
 //=======================================话题页面加载数据===================
 function wuju_topic_data(type,obj){
-if($('.wuju-load-post').length>0){
-return false;
+
+if($('.wuju-load-post').length==0){
+$('.wuju-topic-post-list').prepend(wuju.loading_post);
 }
 
-$('.wuju-topic-post-list').prepend(wuju.loading_post);//加载动画
+if(wuju_post_status==0){
+return false;	
+}
 topic_id=$('.wuju-topic-info').attr('data');
 post_list=$('.wuju-topic-post-list');
 $(obj).addClass('on').siblings().removeClass('on');
@@ -205,9 +181,7 @@ $.ajax({
 type: "POST",
 url:wuju.wuju_ajax_url+"/data/topic.php",
 data: {type:type,topic_id:topic_id},
-success: function(msg){  
-audio=document.getElementById('wuju-reload-music');
-audio.play(); 
+success: function(msg){   
 post_list.html(msg);
 wuju_post_js();
 wuju_post_status=1;
@@ -275,13 +249,4 @@ $(obj).attr('page',paged);
 }
 });
 
-}
-
-
-
-//图片灯箱
-function wuju_lightbox(){
-$("[data-fancybox]").fancybox({
-hash:false,
-});	
 }

@@ -1,4 +1,3 @@
-@charset "utf-8"; 
 :root {
     --wuju-width: 1100px;
     --wuju-color: #5fb878;
@@ -25,7 +24,6 @@ textarea {
 }
 .avatar {
     background-color: #f6f6f6;
-    object-fit: cover;
 }
 .wuju-icon {
     font-size: 16px;
@@ -52,9 +50,6 @@ li {
 a {
     color: #333;
     text-decoration: none;
-}
-h2, h3, h4 {
-    font-weight: bold;
 }
 
 @media screen and (max-width: 600px) {
@@ -131,10 +126,7 @@ td, th {
 .wuju-jingyan {
     color: #41a3ff;
 }
-/*收藏图标*/
-.wuju-shoucang {
-    color: #FF9800;
-}
+
 /*VIP图标*/
 .wuju-huiyuan1 {
     color: #FFC107;
@@ -153,10 +145,6 @@ td, th {
     font-size: 20px;
 }
 
-/*加速条*/
-.instantclick-bar {
-    background: var(--wuju-color) !important;
-}
 
 
 
@@ -373,7 +361,7 @@ td, th {
 .wuju-member-follow-box li:hover {
     background-color: #f2f2f2;
 }
-.wuju-member-follow-info .follow.had{
+.wuju-member-follow-info .follow.has{
     background-color: #888;
 }
 .wuju-member-follow-info .follow.no {
@@ -482,13 +470,6 @@ td, th {
     display: inline-flex;
     overflow: hidden;
 }
-.wuju-member-left-profile li span>n {
-    background-color: #F44336;
-    padding: 0px 4px;
-    border-radius: 2px;
-    color: #fff;
-    margin-left: 5px;
-}
 .wuju-member-left-profile li i {
     font-size: 22px;
     vertical-align: -3px;
@@ -539,13 +520,22 @@ td, th {
 }
 .wuju-profile-bg-music span {
     background-color: var(--wuju-color);
-    border-radius:2px;
+    border-radius: var(--wuju-border-radius);
     display: inline-block;
     color: #fff;
     padding: 10px 36px;
     cursor: pointer;
     margin-left: 10px;
     position: relative;
+}
+.wuju-profile-bg-music span m {
+    position: absolute;
+    right: -20px;
+    top: -5px;
+    font-size: 12px;
+    background-color: #F44336;
+    padding: 2px 8px;
+    border-radius: 9px;
 }
 #wuju-upload-user-bg-music {
     position: absolute;
@@ -742,29 +732,14 @@ td, th {
     cursor: pointer;
     border-radius: 0 0 var(--wuju-border-radius) var(--wuju-border-radius);
 }
-.wuju-member-left .box h3 {
+.wuju-member-left-visitor h3,.wuju-member-left-profile h3,.wuju-member-left-bg-music h3,.wuju-member-left-gift h3 {
     font-size: 14px;
     border-left: 3px solid var(--wuju-color);
     padding-left: 8px;
     line-height: 16px;
     margin-bottom: 10px;
-    font-weight: normal;
 }
 
-.wuju-member-left-honor li {
-    float: left;
-    padding: 6px 8px;
-    border: 1px solid #cacaca;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    background-color: #fff;
-    border-radius: 4px;
-    cursor: default;
-    line-height: 1;
-}
-.wuju-member-left-honor li:hover {
-    border-color: var(--wuju-color);
-}
 
 /*弹窗搜索*/
 .wuju-pop-search {
@@ -776,12 +751,16 @@ td, th {
     opacity: 0;
     visibility: hidden;
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .wuju-pop-search-container {
+    position: relative;
     width: 90%;
     max-width: 600px;
     border-radius: 2px;
-    margin: 100px auto;
+    text-align: center;
 }
 
 .wuju-pop-search-content {
@@ -811,19 +790,9 @@ td, th {
     visibility: visible;
     z-index: 9999999;
     background-color: #f5f5f5;
-    overflow-y: auto;
 }
 .wuju-pop-search-hot {
     text-align: left;
-}
-.wuju-pop-search-hot.history i {
-    color: #888;
-}
-.wuju-pop-search-hot p .right {
-    float: right;
-}
-.wuju-pop-search-hot p .right i {
-    cursor: pointer;
 }
 .wuju-pop-search-hot p,.wuju-pop-search-bbs .title,.wuju-pop-search-topic .title {
     font-size: 16px;
@@ -831,14 +800,13 @@ td, th {
     color: #555;
 }
 .wuju-pop-search-hot-list a {
+    border: 1px solid #9E9E9E;
     padding: 6px 12px;
     margin-right: 20px;
     display: inline-block;
     color: #9E9E9E;
     margin-bottom: 15px;
-    border: 1px solid #e5e5e5;
-    background-color: #fff;
-    border-radius: 4px;
+    border-radius: 2px;
 }
 .wuju-pop-search-hot-list a:hover {
     background-color: #777;
@@ -846,8 +814,8 @@ td, th {
     color: #fff;
 }
 .wuju-pop-search .close {
-    position: fixed;
-    right: 10px;
+    position: absolute;
+    right: 0px;
     top: 0px;
     font-size: 28px;
     padding: 20px;
@@ -869,8 +837,19 @@ td, th {
     height: 60px;
     border-radius: 4px;
 }
+.wuju-pop-search-bbs li no-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 24px;
+    background-color: #076ec0;
+    color: #fff;
+    text-align: center;
+    line-height: 60px;
+}
 .wuju-pop-search-bbs li p {
-    color: #5f5f5f;
+    color: #a5aab0;
     margin-top: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -888,7 +867,6 @@ td, th {
     margin-right: 2%;
     overflow: hidden;
     border-radius: 4px;
-    margin-bottom: 2%;
 }
 .wuju-pop-search-topic li:nth-child(3n) {
     margin-right: 0;
@@ -900,7 +878,14 @@ td, th {
     border-radius: 4px;
     transition: transform 0.3s;
 }
-
+.wuju-pop-search-topic li no-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background-color: #89a6c6;
+    display: inline-block;
+    background: linear-gradient(to right,#89a6c6, rgb(160, 191, 225));
+}
 .wuju-pop-search-topic li p {
     position: absolute;
     width: 100%;
@@ -998,15 +983,15 @@ td, th {
 }
 .wuju-search-user-list li {
     float: left;
-    width: calc((100% - 30px)/3);
-    margin-right: 15px;
-    margin-bottom: 15px;
+    width: calc((100% - 40px)/3);
+    margin-right: 20px;
+    margin-bottom: 20px;
     padding: 10px;
     box-sizing: border-box;
     background-color: #f6f6f6;
     border-radius: 4px;
 }
-.wuju-search-user-list li:nth-child(3n) {
+.wuju-search-user-list li:nth-child(3n+1) {
     margin-right: 0;
 }
 .wuju-search-user-list li .avatarimg img {
@@ -1076,10 +1061,6 @@ td, th {
     margin-left: 8px;
     color: #fff;
 }
-.wuju-mark.buy {
-    background-color: #F44336;
-    border-radius: 2px;
-}
 .wuju-boy {
     background-color: #1E9FFF;
 }
@@ -1103,30 +1084,12 @@ td, th {
     border-radius: 2px;
     cursor: pointer;
     vertical-align: 2px;
-    margin: 0 8px 0 0;
 }
 .wuju-top:before,.wuju-bbs-post-type-up:before {
     content: "顶";
 }
 .wuju-lv .wuju-icon,.wuju-vip .wuju-icon {
     font-size: 12px;
-}
-.wuju-member-top {
-    background-color: #1E9FFF;
-    border-radius: 2px;
-    cursor: pointer;
-    vertical-align: 2px;
-    margin: 0 8px 0 0;
-}
-.wuju-post-user-info-name .wuju-member-top {
-    padding: 0 5px;
-    font-size: 12px;
-    vertical-align: 0px;
-    margin-left: 8px;
-    margin-right: 0;
-}
-.wuju-member-top:before{
-    content: '顶';
 }
 
 /*侧栏小工具*/
@@ -1148,179 +1111,90 @@ td, th {
     line-height: 16px;
     margin: 10px;
     padding-left: 8px;
-    font-weight: normal;
+}
+.wuju-sidebar-box-content {
+    padding: 10px;
+    position: relative;
+}
+.wuju-sidebar-box-content.sign {
+    padding: 10px;
+}
+.wuju-sidebar-box-content.info {
+    display: flex;
 }
 
-
-
-
-/*侧栏用户列表小工具*/
-.wuju-widget-sign-ranking .wuju-sidebar-user-list {
-    padding-top: 10px;
-}
-.wuju-sidebar-user-list {
-    padding: 0px 10px 10px;
-}
-.wuju-sidebar-user-list li:last-child {
+.wuju-sidebar-box-content.sign li:last-child {
     border-bottom: none;
 }
-.wuju-sidebar-user-list li {
+.wuju-sidebar-box-content.sign li {
     list-style: none;
     clear: both;
     padding: 8px 0px;
-    border-bottom: 1px solid #f6f6f6;
+    border-bottom: 1px solid #f7f7f7;
 }
-.wuju-sidebar-user-list .avatarimg {
+.wuju-sidebar-sign-list-avatar {
     float: left;
     position: relative;
 }
 
-.wuju-sidebar-user-list .avatarimg img {
-    width: 48px;
-    height: 48px;
+.wuju-sidebar-sign-list-avatar img {
+    width: 50px;
+    height: 50px;
     background-color: #ececec;
     border-radius: 100%;
 }
-.wuju-sidebar-user-list .info {
+.wuju-sidebar-sign-list-info {
     float: left;
-    padding: 0px 0 0 6px;
+    padding: 5px 0 0 5px;
     font-size: 16px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    width: 165px;
+    width: 160px;
 }
-.wuju-sidebar-user-list .info>a {
+.wuju-sidebar-sign-list-info>a {
     overflow: hidden;
 }
-.wuju-sidebar-user-list .time {
-    font-size: 13px;
-    margin-top: 8px;
+.wuju-sidebar-sign-list-info .time {
+    font-size: 14px;
+    margin-top: 5px;
     color: #999;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
 }
-.wuju-sidebar-user-list .follow {
+.wuju-sidebar-sign-list-follow {
     float: right;
     margin-top: 1px;
     position: absolute;
     right: 10px;
 }
-.wuju-sidebar-user-list .follow .number {
+.wuju-sidebar-sign-list-follow .number {
     color: #999;
     font-size: 12px;
 }
-.wuju-sidebar-user-list .follow .number i {
+.wuju-sidebar-sign-list-follow .number i {
     margin: 0 2px;
-    color: #F44336;
+    color: #f00;
     font-style: normal;
 }
-.wuju-sidebar-user-list .follow>.visit {
-    background-color: #fff;
-    color: var(--wuju-color);
-    border: 1px solid var(--wuju-color);
-    border-radius: 4px;
-    padding: 4px 6px;
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 12px;
-}
-.wuju-sidebar-user-list.bbs-admin-list,.wuju-sidebar-user-list.bbs-commend-list {
-    padding-top: 10px;
-}
-.wuju-widget-sign-ranking .more-sign {
-    display: block;
-    text-align: center;
+
+.wuju-sidebar-widget-list {
     padding: 10px;
-    padding-top: 10px;
-    border-top: 1px solid #f1f1f1;
-    color: #999;
+    position: relative;
 }
-
-/*侧栏关注按钮*/
-.wuju-sidebar-user-list .follow>span {
-    padding: 3px 2px;
-    margin: 5px 0px 0 10px;
-    font-size: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    color: #fff;
-    position: absolute;
-    right: 0px;
+.wuju-sidebar-widget-list li {
+    list-style: none;
+    clear: both;
+    padding: 8px 0px;
+    border-bottom: 1px solid #f7f7f7;
+}
+.wuju-sidebar-widget-list li:last-child {
+    border-bottom: none;
+}
+.wuju-sidebar-widget-list .wuju-sidebar-widget-list-avatar img {
     width: 50px;
-    text-align: center;
-    background-color: var(--wuju-color);
+    height: 50px;
+    background: #ececec;
+    border-radius: 100%;
 }
-.wuju-sidebar-user-list .follow>span.had {
-    background-color: #bbb;
-}
-.wuju-sidebar-user-list .follow>span i {
-    vertical-align: -2px;
-}
-.wuju-sidebar-user-list.b .follow>span.had {
-    color: #bbb;
-    border: 1px solid #ccc;
-}
-
-.wuju-sidebar-user-list.b .follow>span {
-    background-color: #fff;
-    color: var(--wuju-color);
-    border: 1px solid var(--wuju-color);
-    border-radius: 4px;
-}
-
-
-.wuju-sidebar-user-list.bbs-commend-list .follow>span {
-    width: 55px;
-}
-
-/*用户格子列表小工具*/
-.wuju-sidebar-lattice-list {
-    padding: 10px 10px 0;
-    position: relative;
-}
-.wuju-sidebar-lattice-list li {
-    margin-right: 10px;
-    margin-bottom: 10px;
-    float: left;
-    position: relative;
-    width: calc((100% - 30px)/4);
-}
-.wuju-sidebar-lattice-list li:nth-child(4n) {
-    margin-right: 0;
-}
-.wuju-sidebar-lattice-list li img {
-    width: 100%;
-    height: 62.5px;
-    border: 0;
-    object-fit: cover;
-    border-radius: 4px;
-}
-.wuju-sidebar-lattice-list li p {
-    position: absolute;
-    width: 100%;
-    background-color: rgba(0,0,0,.2);
-    bottom: 0;
-    color: #fff;
-    font-size: 12px;
-    text-align: center;
-    line-height: 18px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    padding: 0 2px;
-    cursor: pointer;
-    box-sizing: border-box;
-    border-radius: 0 0 4px 4px;
-}
-.wuju-sidebar-lattice-list li i {
-    right: -6px;
-    bottom: -4px;
-}
-
-
-/*认证图标*/
 .wuju-verify {
     position: absolute;
     bottom: -2px;
@@ -1329,7 +1203,6 @@ td, th {
     height: 18px;
     background-image: url(../../images/verify-icon.svg);
     background-size: 48px;
-    background-repeat: no-repeat;
 }
 .wuju-verify-a {
     background-position: -15px -15px;
@@ -1349,17 +1222,86 @@ td, th {
 .wuju-member-avatar i.wuju-custom-verify {
     background-size: 20px !important;
 }
+.wuju-sidebar-widget-list-info a {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 125px;
+    display: inline-block;
+}
+.wuju-sidebar-widget-list-avatar {
+    float: left;
+    position: relative;
+}
+.wuju-sidebar-widget-list-info {
+    float: left;
+    padding: 5px 0 0 5px;
+    font-size: 16px;
+}
+.wuju-sidebar-widget-list-info .desc {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #999;
+    width: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.wuju-sidebar-widget-list-info .verify {
+    margin-left: 3px;
+    vertical-align: 1px;
+}
+.wuju-sidebar-widget-list-number .a i {
+    margin: 0 2px;
+    color: #f00;
+    font-style: normal;
+}
+.wuju-sidebar-widget-list-number .a {
+    color: #999;
+    font-size: 12px;
+}
+.wuju-sidebar-follow-btn {
+    padding: 3px 2px;
+    margin: 5px 0px 0 10px;
+    font-size: 10px;
+    border-radius: 1px;
+    cursor: pointer;
+    color: #fff;
+    position: absolute;
+    right: 0px;
+    width: 50px;
+    text-align: center;
+}
+.wuju-sidebar-follow-btn.no {
+    background-color: #2eb354;
+}
+.wuju-sidebar-follow-btn.has {
+    background-color: #bbb;
+}
+.wuju-sidebar-follow-btn i {
+    vertical-align: -2px;
+}
+.wuju-sidebar-widget-list-number {
+    float: right;
+    margin-top: 1px;
+    position: absolute;
+    right: 10px;
+}
+.wuju-sidebar-widget-list-number .wuju-lv {
+    background-color: inherit !important;
+    box-shadow: 0px 0px 0px rgba(0,0,0,.1);
+    color: #f00;
+}
 
 
 
 
-/*登录模块小工具*/
-.wuju-sidebar-user-info .bg {
+.wuju-sidebar-user-info-bg {
     background-size: cover;
     height: 100px;
     position: relative;
 }
-.wuju-sidebar-user-info .avatarimg {
+.wuju-sidebar-user-info-avatar {
     background: rgba(255,255,255,0.3);
     width: 80px;
     height: 80px;
@@ -1370,117 +1312,57 @@ td, th {
     margin-left: -40px;
     border-radius: 100%;
 }
-.wuju-sidebar-user-info .avatarimg i {
+.wuju-sidebar-user-info-avatar i {
     bottom: 3px;
     right: 3px;
     width: 18px;
     height: 18px;
     background-size: 55px;
 }
-.wuju-sidebar-user-info .avatarimg i.wuju-verify-a {
+.wuju-sidebar-user-info-avatar i.wuju-verify-a {
     background-position: -18px -19px;
 }
-.wuju-sidebar-user-info .avatarimg i.wuju-verify-b {
+.wuju-sidebar-user-info-avatar i.wuju-verify-b {
     background-position: -18px -73px;
 }
-.wuju-sidebar-user-info .avatarimg i.wuju-verify-c {/*女神*/
+.wuju-sidebar-user-info-avatar i.wuju-verify-c {/*女神*/
     background-position: -18px -183px;
 }
-.wuju-sidebar-user-info .avatarimg i.wuju-verify-d {
+.wuju-sidebar-user-info-avatar i.wuju-verify-d {
     background-position: -18px -128px;
 }
-.wuju-sidebar-user-info .avatarimg img {
+.wuju-sidebar-user-info-avatar img {
     width: 74px;
     height: 74px;
     border-radius: 100%;
     margin: 3px;
     background-color: #f9f9f9;
 }
-.wuju-sidebar-user-info .info {
+.wuju-sidebar-user-info-username {
     padding: 26px 16px 9px 16px;
     text-align: center;
 }
-.wuju-sidebar-user-info .info .name {
+.wuju-sidebar-user-info-username .name {
+    font-weight: bold;
     overflow: hidden;
     display: inline-flex;
 }
-.wuju-sidebar-user-info .number {
-    padding: 10px;
-    position: relative;
-    display: flex;
-}
-.wuju-sidebar-user-info .number li {
+.wuju-sidebar-user-info-sign-btn{
     text-align: center;
-    border-right-width: 1px;
-    border-right-style: solid;
-    border-color: rgba(217, 217, 217, 0.68);
-    box-sizing: border-box;
-    flex: 1;
-}
-.wuju-sidebar-user-info .number li strong {
-    display: block;
-    font-weight: normal;
-    line-height: 25px;
-    overflow: hidden;
-    font-size: 18px;
-}
-.wuju-sidebar-user-info .number li span {
-    font-size: 12px;
-    display: block;
-    color: #808080;
-}
-.wuju-sidebar-user-info .number li:nth-child(4) {
-    border-right-width: 0px;
-}
-.wuju-sidebar-user-info .lv {
-    padding: 10px 10px;
-}
-.wuju-sidebar-user-info .lv .lv-number {
-    float: right;
-    font-size: 12px;
-    color: #999;
-}
-.wuju-sidebar-user-info .lv .bar {
-    height: 5px;
-    background-color: #efefef;
-    border-radius: 20px;
-    margin-top: 8px;
-    position: relative;
-}
-.wuju-sidebar-user-info .lv .bar span {
-    position: absolute;
-    background-color: var(--wuju-color);
-    height: 5px;
-    border-radius: 10px;
-}
-.wuju-sidebar-user-info .lv .title span:first-child {
-    color: #555;
-    font-size: 13px;
-}
-.wuju-sidebar-user-info .sign {
-    text-align: center;
-    line-height: 42px;
-    background-color: var(--wuju-color);
+    line-height: 45px;
+    background-color: #2eb354;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
     position: relative;
-    margin: 10px;
-    border-radius: 4px;
 }
-.wuju-sidebar-user-info .sign.had {
+.wuju-sidebar-user-info-sign-btn.had {
     background: #fff;
     border-top: 1px solid #e5e5e5;
     color: #23a649;
     cursor: default;
-    margin-bottom: 0;
 }
-.wuju-sidebar-user-info .sign.had a {
-    color: #23a649;
-    display: inline-block;
-    width: 100%;
-}
-.wuju-sidebar-user-info .sign.had m {
+.wuju-sidebar-user-info-sign-btn.had span {
     vertical-align: 2px;
     border: 1px solid #4aca6d;
     color: #35b558;
@@ -1491,7 +1373,40 @@ td, th {
     margin-left: 10px;
     font-size: 12px;
 }
-
+.wuju-sidebar-box-content.info li {
+    text-align: center;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-color: rgba(217, 217, 217, 0.68);
+    box-sizing: border-box;
+    flex: 1;
+}
+.wuju-sidebar-box-content.info li strong {
+    display: block;
+    font-weight: normal;
+    line-height: 25px;
+    overflow: hidden;
+    font-size: 18px;
+}
+.wuju-sidebar-box-content.info li span {
+    font-size: 12px;
+    display: block;
+    color: #808080;
+}
+.wuju-sidebar-box-content.info li:nth-child(4) {
+    border-right-width: 0px;
+}
+.wuju-sidebar-sign {
+    position: relative;
+}
+.wuju-sidebar-sign>i {
+    color: #3f8e55;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    cursor: pointer;
+}
 
 
 
@@ -1577,15 +1492,6 @@ td, th {
     background: var(--wuju-color);
     color: #fff;
 }
-.wuju-case-menu .admin {
-    float: right;
-}
-.wuju-case-menu .admin i {
-    font-size: 34px;
-    margin-left: 10px;
-    cursor: pointer;
-    color: #F44336;
-}
 .wuju-case-menu li.join:after {
     display: none;
 }
@@ -1631,10 +1537,6 @@ td, th {
 }
 .wuju-case-name a {
     color: #00a2eb;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    display: block;
 }
 .wuju-case-desc {
     line-height: 22px;
@@ -1823,81 +1725,44 @@ td, th {
 .video .wuju-post-read-more {
     margin-bottom: 10px;
 }
-.wuju-video-tips {
-    width: 400px;
-    height: 225px;
-    display: flex;
+.wuju-video-tips-content {
+    position: absolute;
+    top: 0;
     align-items: center;
     justify-content: center;
-    background: #333;
-    color: #fff;
-    border-radius: 4px;
-    background-size: cover;
-    position: relative;
-    background-position: center;
-}
-.wuju-video-tips-shade {
-    background-color: rgb(0, 0, 0);
-    opacity: 0.5;
-    position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 1;
-}
-.wuju-video-tips-content {
-    text-shadow: 0 0 4px rgba(0,0,0,0.5);
-    position: relative;
-    z-index: 2;
-}
-.wuju-video-tips .btn {
-    background-color: var(--wuju-color);
-    text-align: center;
-    width: 80px;
-    margin: 0 auto;
-    margin-top: 15px;
-    padding: 8px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.wuju-video-tips .btn.had {
-    background-color: #bbb;
-}
-.wuju-video-tips .text i {
-    font-size: 24px;
-    vertical-align: -2px;
-}
-.wuju-publish-video-lists {
-    margin-top: 10px;
-    padding: 5px;
-    background-color: #f2fde7;
-}
-.wuju-publish-video-lists textarea {
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #f2f2f5;
-    border-radius: 4px;
-    height: 100px;
-}
-.wuju-single-video-lists {
-    margin: 20px 20px 4px;
-}
-.wuju-single-video-lists>a {
-    display: inline-block;
+    background: rgba(0, 0, 0, 1);
+    z-index: 998;
     color: #fff;
-    background-color: #aaa;
-    margin-right: 16px;
-    padding: 8px 15px;
-    border-radius: 20px;
-    margin-bottom: 16px;
+    text-align: center;
+    display: flex;
+    font-size: 14px;
 }
-.wuju-single-video-lists>a.on,.wuju-single-video-lists>a:hover {
-    background-color: var(--wuju-color);
+.wuju-video-tips-btn {
+    background: #f60;
+    padding: 5px 15px;
+    border-radius: 2px;
+    cursor: pointer;
+    color: #fff;
+    margin-top: 10px;
+    display: inline-block;
 }
-.wuju-single-video-lists>a>i {
-    margin-right: 5px;
+.wuju-video-tips-box>span {
+    margin: 0 5px;
+    color: #f60;
 }
-
+.wuju-video-time-tips {
+    position: absolute;
+    z-index: 999;
+    color: #fff;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    text-align: center;
+}
 .single .wuju-post-video {
     max-width: 100%;
 }
@@ -1919,16 +1784,17 @@ td, th {
 .xgplayer-error{
     z-index: 99;
 }
-.xgplayer-skin-default video,.xgplayer-skin-default .xgplayer-controls,.xgplayer-skin-default .xgplayer-enter,.wuju-post-video .xgplayer,.xgplayer-skin-default .xgplayer-poster{
-    border-radius: 6px;
-}
 
 /*金币图标*/
+.wuju-gold-icon {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-image: url(../../images/gold.png);
+    background-size: cover;
+}
 .wuju-jinbi{
     color: #fe7f3e;
-}
-.wuju-balance {
-    color: #dd3333;
 }
 
 
@@ -1961,20 +1827,7 @@ td, th {
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     display: none;
-    min-height: 245px;
     border-radius: var(--wuju-border-radius);
-}
-.wuju-smile-form .header {
-    display: flex;
-}
-.wuju-smile-form .header li {
-    padding: 10px 0;
-    margin-right: 15px;
-    font-size: 16px;
-    color: #999;
-}
-.wuju-smile-form .header li.on {
-    color: var(--wuju-color);
 }
 .wuju-smile-form .tips {
     height: 100%;
@@ -2003,10 +1856,6 @@ img.wp-smiley {
     width: 30px !important;
     height: 30px !important;
     max-height: 30px !important;
-    padding: 0 !important;
-    border: none !important;
-    margin: 0 !important;
-    vertical-align: -0.1em !important;
 }
 
 /*发布框表情*/
@@ -2048,7 +1897,6 @@ img.wp-smiley {
     right: -280px;
     z-index: 1000;
     box-shadow: -3px 0 6px -2px #999;
-    background-color: #fff;
 }
 .wuju-chat-content {
     height: 600px;
@@ -2058,6 +1906,7 @@ img.wp-smiley {
 }
 .wuju-chat-header {
     height: 50px;
+    background-color: #227dc5;
     overflow: hidden;
     color: #fff;
     display: flex;
@@ -2069,8 +1918,6 @@ img.wp-smiley {
     width: 55px;
     line-height: 50px;
     text-align: center;
-    background-color: var(--wuju-color);
-    color: #fff;
 }
 .wuju-chat-header div span {
     display: none;
@@ -2081,10 +1928,10 @@ img.wp-smiley {
 }
 .wuju-chat-header div.on {
     flex: 1;
-    opacity: 0.8;
+    background-color: #3d96dc;
 }
 .wuju-chat-header i {
-    color: #fff;
+    color: #b4d6f0;
     font-size: 22px;
 }
 .wuju-chat-header .on i {
@@ -2152,33 +1999,17 @@ img.wp-smiley {
     color: #000;
     text-decoration: none;
 }
-.wuju-chat-content-recent-notice li .tips {
-    position: absolute;
-    height: 15px;
-    border: solid 2px #fff;
-    border-radius: 9px;
-    background: #FF5D54;
-    font-size: 12px;
-    line-height: 16px;
-    padding: 0 4px;
-    color: #fff;
-    top: 22px;
-    right: 20px;
-    min-width: 14px;
-    text-align: center;
-}
 .wuju-chat-content-recent-notice-icon {
     width: 50px;
     height: 50px;
     float: left;
-    background-color: var(--wuju-color);
+    background-color: #80b865;
     border-radius: 100%;
     overflow: hidden;
     margin: 8px 0 0 15px;
     color: #fff;
     text-align: center;
     line-height: 50px;
-    opacity: 0.8;
 }
 .wuju-chat-content-recent-notice-icon i {
     font-size: 20px;
@@ -2199,7 +2030,7 @@ img.wp-smiley {
     font-size: 22px;
 }
 .wuju-chat-content-recent-notice-info,.wuju-chat-content-user-add-info {
-    margin: 8px 0 8px 15px;
+    margin: 10px 0 8px 15px;
     float: left;
     min-height: 50px;
     line-height: 50px;
@@ -2240,7 +2071,17 @@ img.wp-smiley {
     border-radius:100%; 
     background-color: #f1f1f1;
 }
-
+.wuju-chat-content-recent-user-avatar no-img,.wuju-chat-windows-user-avatar no-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #2279e7;
+    color: #fff;
+    display: inline-block;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+}
 .wuju-chat-list-tips {
     position: absolute;
     height: 15px;
@@ -2253,8 +2094,6 @@ img.wp-smiley {
     color: #fff;
     top: 30px;
     right: 20px;
-    min-width: 14px;
-    text-align: center;
 }
 .wuju-chat-content-recent-user-avatar span.wuju-vip-icon {
     height: 12px;
@@ -2308,19 +2147,20 @@ img.wp-smiley {
     font-size: 12px;
     color: #999;
 }
-.wuju-chat-close-icon, .wuju-chat-clear-icon {
+.wuju-chat-close-icon,.wuju-chat-clear-icon {
     width: 40px;
     height: 40px;
     position: absolute;
     top: 55px;
     left: -40px;
     border-radius: 3px 0 0 3px;
-    background-color: var(--wuju-color);
+    background-color: #227dc5;
     cursor: pointer;
-    opacity: 0.9;
+    opacity: 0.8;
     text-align: center;
     color: #fff;
     line-height: 40px;
+    background: linear-gradient(to right,#227dc5,#00c3ff);
 }
 .wuju-chat-clear-icon {
     top: 100px;
@@ -2347,14 +2187,14 @@ img.wp-smiley {
 .wuju-chat-loading {
     width: 240px;
     height: 50px;
-    background-image: url(../../images/spinner.gif);
+    background-image: url(../../../../../../wp-admin/images/spinner.gif);
     background-repeat: no-repeat;
     background-position: center;
 }
 .wuju-chat-windows-loading,.wuju-chat-windows-group-loading,.wuju-chat-group-user-list-loading {
     width: 100%;
     height: 150px;
-    background-image: url(../../images/spinner.gif);
+    background-image: url(../../../../../../wp-admin/images/spinner.gif);
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -2385,11 +2225,12 @@ img.wp-smiley {
 
 
 /*单个用户聊天界面*/
-.wuju-chat-user-window .layui-layer-title, .wuju-chat-group-window .layui-layer-title {
-    background-color: var(--wuju-color);
+.wuju-chat-user-window .layui-layer-title,.wuju-chat-group-window .layui-layer-title {
+    background-color: #3d96dc;
     color: #fff;
     height: 80px;
     border-radius: 0;
+    background: linear-gradient(to right,#227dc5,#00c3ff);
 }
 .wuju-chat-user-window .layui-layer-title,.wuju-chat-group-window .layui-layer-title,.layui-layer-move {
     cursor: default !important;
@@ -2403,7 +2244,7 @@ img.wp-smiley {
     min-height: 540px !important;
     overflow: hidden;
 }
-.wuju-chat-group-window .layui-layer-content, .wuju-chat-user-window .layui-layer-content, .wuju-sign-add-form .layui-layer-content,.wuju-publish-power-form .layui-layer-content,.wuju-apply-bbs-form .layui-layer-content {
+.wuju-chat-group-window .layui-layer-content, .wuju-chat-user-window .layui-layer-content {
     height: auto !important;
 }
 .wuju-chat-user-window .layui-layer-content{
@@ -2500,7 +2341,6 @@ img.wp-smiley {
     height: 250px;
     overflow-x: hidden;
     overflow-y: auto;
-    position:relative;
 }
 .wuju-chat-message-list li.myself,.wuju-chat-message-group-list li.myself {
     text-align: right;
@@ -2585,7 +2425,7 @@ img.wp-smiley {
     left: auto;
     right: 3px;
 }
-.wuju-chat-message-list-user-info img.avatar {
+.wuju-chat-message-list-user-info img {
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -2648,9 +2488,6 @@ img.wp-smiley {
     font-size: 14px;
     margin-right: 10px;
 }
-.wuju-chat-message-list-content a {
-    text-decoration: underline;
-}
 .wuju-chat-message-list-content i.error {/*错误消息*/
     position: absolute;
     color: #F44336;
@@ -2674,7 +2511,6 @@ img.wp-smiley {
     text-align: center;
     font-size: 12px;
     color: #999;
-    margin-bottom: 10px;
 }
 .wuju-chat-windows-footer-bar {
     padding: 10px 10px 5px 10px;
@@ -2739,18 +2575,19 @@ img.wp-smiley {
 .wuju-chat-windows-footer-send {
     padding: 0px 10px 10px;
 }
-.wuju-chat-send-message-btn, .wuju-chat-send-message-btn-group {
+.wuju-chat-send-message-btn,.wuju-chat-send-message-btn-group {
     width: 80px;
     text-align: center;
     float: right;
-    background-color: var(--wuju-color);
+    background-color: #3d96dc;
     color: #fff;
     padding: 5px 0;
     border-radius: 2px;
     cursor: pointer;
+    background: linear-gradient(to right,#227dc5,#00c3ff);
 }
 
-.wuju-right-bar-im span.number,.wuju-right-bar>li.wuju-notice>span {
+.wuju-right-bar-im span,.wuju-right-bar>li.wuju-notice>span {
     position: absolute;
     right: -4px;
     padding: 0px 5px;
@@ -2849,13 +2686,19 @@ img.wp-smiley {
     height: 10px;
 }
 .wuju-chat-group-user-list li i {
+    width: 17px;
+    height: 19px;
+    background-image: url(../../images/bbs_admin.png);
+    display: inline-block;
     float: right;
+    margin-right: 5px;
+    margin-top: 2px;
 }
 .wuju-chat-group-user-list li i.big {
-    color: #F44336;
+    background-position: -3px -4px;
 }
 .wuju-chat-group-user-list li i.small {
-    color: #03A9F4;
+    background-position: -3px -45px;
 }
 #wuju-upload-group-img {
     position: absolute;
@@ -2919,7 +2762,16 @@ img.wp-smiley {
     padding: 4px;
     border-radius: 100%;
 }
-
+.wuju-bbs-visit-bbs-avatar no-img {
+    width: 44px;
+    height: 44px;
+    padding: 4px;
+    border-radius: 100%;
+    display: inline-block;
+    text-align: center;
+    line-height: 44px;
+    background-color: #076ec0;
+}
 .wuju-bbs-visit-bbs-name {
     margin-left: 10px;
     font-weight: bold;
@@ -2935,78 +2787,92 @@ img.wp-smiley {
     white-space: nowrap;
 }
 .wuju-bbs-visit-content {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    height: 180px;
+    padding: 20px 30px 40px;
 }
-.wuju-bbs-visit-password-input {
-    display: flex;
-    margin-top: 10px;
-    align-items: center;
+.wuju-bbs-visit-pass-tips {
+    padding: 0 0 5px;
+    margin: 20px 0 10px;
+    color: #5b667b;
+    text-align: center;
 }
-.wuju-bbs-visit-password-input input {
+.wuju-bbs-visit-pass-tips i {
+    font-size: 20px;
+    margin-right: 5px;
+    vertical-align: -2px;
+}
+.wuju-bbs-visit-btn {
+    width: 50%;
+    margin: 15px auto;
+    background-color: #EF5350;
+    text-align: center;
+    padding: 8px;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#wuju-bbs-visit-psssword {
     border: 1px solid #f1f1f1;
     padding: 8px 10px;
-    line-height: 20px;
+    height: 19px;
+    line-height: 19px;
     background: #f2f2f2;
     border-radius: 4px;
+    width: 280px;
 }
-.wuju-bbs-visit-password-input .btn {
-    background-color: var(--wuju-color);
+#wuju-bbs-comment-edior {
+    padding-top: 5px;
+}
+.wuju-bbs-visit-content-form span {
+    border-radius: 4px;
+    margin-left: 14px;
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #3b8cff;
+    background: #3b8cff;
+    display: inline-block;
     color: #fff;
-    line-height: 38px;
-    padding: 0 10px;
-    border-radius: 0 4px 4px 0;
     cursor: pointer;
+    padding: 0 12px;
+}
+#wuju-visit-power-pass span {
+    border-radius: 4px;
+    margin-left: 14px;
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #ef754e;
+    background: #ef754e;
+    display: inline-block;
+    color: #fff;
+    cursor: pointer;
+    padding: 0 12px;
+}
+#wuju-visit-power-pass i {
+    font-size: 12px;
+    font-style: normal;
+    margin-left: 10px;
+    color: #999;
 }
 .wuju-bbs-visit-other-tips {
     padding: 0 0 5px;
+    margin: 40px 0 10px;
+    color: #5b667b;
     text-align: center;
     line-height: 30px;
     color: #999;
-}
-.wuju-bbs-visit-other-tips>m {
-    margin: 0 5px;
-    color: #F44336;
-}
-.wuju-bbs-visit-other-tips.pay m {
-    color: #f00;
-    margin: 0 5px;
+    font-size: 16px;
 }
 .wuju-bbs-visit-other-tips i {
     margin-right: 5px;
     font-size: 30px;
     vertical-align: -5px;
 }
-.wuju-bbs-visit-btn {
-    width: 50%;
-    margin: 15px auto 0; 
-    text-align: center;
-    padding: 8px;
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: var(--wuju-color);
-}
-
-
 /*论坛设置*/
 .wuju-bbs-setting-form,.wuju-topic-setting-form {
     padding: 20px;
     padding-bottom: 50px;
 }
-.wuju-bbs-setting-form .layui-tab-title.all li {
-    min-width: 50px;
-}
-.wuju-bbs-setting-form .layui-tab-title.menu li {
-    min-width: 40px;
-    padding: 0 8px;
-}
-.wuju-bbs-setting-form .layui-tab-title.menu li.layui-this {
-    background-color: var(--wuju-color);
-    color: #fff;
+.wuju-bbs-setting-form .layui-tab-title li {
+    min-width: 54px;
 }
 .wuju-bbs-child-setting-avatar,.wuju-topic-setting-avatar {
     position: relative;
@@ -3020,7 +2886,7 @@ img.wp-smiley {
     border-radius: 100%;
     cursor: pointer;
 }
-.wuju-bbs-child-setting-avatar span, .wuju-topic-setting-avatar span {
+.wuju-bbs-child-setting-avatar span,.wuju-topic-setting-avatar span {
     position: absolute;
     font-size: 12px;
     left: 0;
@@ -3032,7 +2898,6 @@ img.wp-smiley {
     line-height: 80px;
     cursor: pointer;
     display: none;
-    top:0;
 }
 .wuju-bbs-child-setting-avatar:hover span,.wuju-topic-setting-avatar:hover span {
     display: inline-block !important;
@@ -3050,45 +2915,6 @@ img.wp-smiley {
 }
 #wuju-bbs-setting-form {
     padding-bottom: 50px;
-}
-
-.wuju-bbs-menu-setting {
-    display: flex;
-    width: 80%;
-}
-.wuju-bbs-menu-setting>div:first-child {
-    margin-right: 20px;
-}
-.wuju-bbs-menu-setting>div {
-    flex: 1;
-    text-align: center;
-    box-sizing: border-box;
-}
-.wuju-bbs-menu-setting-box .title {
-    border: 1px dashed #ddd;
-    background-color: #f8f8f8;
-    padding: 10px;
-    font-weight: bold;
-    font-size: 13px;
-}
-.wuju-bbs-menu-setting>div>ul {
-    padding: 5px 15px;
-    border: 1px dashed #ddd;
-    background-color: #fff;
-    border-top: 0;
-    min-height: 62px;
-}
-.wuju-bbs-menu-setting>div>ul>li {
-    margin: 10px 0;
-    padding: 10px 15px;
-    cursor: move;
-    font-weight: 700;
-    text-align: center;
-    border: 1px solid #e5e5e5;
-    background-color: #fafafa;
-}
-#wuju-bbs-menu-setting-2 li {
-    opacity: 0.5;
 }
 
 
@@ -3114,10 +2940,10 @@ img.wp-smiley {
     padding: 0px 20px;
     clear: both;
 }
-.wuju-posts-list>h1.single, .wuju-posts-list>h2.single {
-    font-size: 20px !important;
+.wuju-posts-list>h1.single,.wuju-posts-list>h2.single {
+    font-size: 22px !important;
     margin-bottom: 10px !important;
-    padding: 0 40px 0 20px !important;
+    padding: 0 30px 0 20px !important;
     line-height: inherit !important;
 }
 .video.single .wuju-posts-list>h1 {
@@ -3126,10 +2952,14 @@ img.wp-smiley {
 .wuju-posts-list>h1.single.bbs,.wuju-posts-list>h2.single.bbs {
     clear: none;
 }
-.wuju-posts-list>h2.single .wuju-top, .wuju-posts-list>h2.single .wuju-commend-icon {
-    margin: 0 8px 0 0;
+.wuju-posts-list>h1.single span {
+    vertical-align: 3px;
+    font-size: 14px;
+    padding: 2px 6px;
 }
 .wuju-posts-list>h1 span {
+    color: #fff;
+    vertical-align: 2px;
     padding: 1px 6px;
 }
 .wuju-commend-icon {
@@ -3137,7 +2967,6 @@ img.wp-smiley {
     border-radius: 2px;
     cursor: pointer;
     vertical-align: 2px;
-    margin: 0 8px 0 0;
 }
 .wuju-commend-icon.bbs {
     vertical-align: 3px;
@@ -3175,13 +3004,9 @@ img.wp-smiley {
     overflow: hidden;
     line-height: 22px;
     word-break: break-all;
-    margin-top: 10px;
 }
 .wuju-hide-content p {
     margin-bottom: 0 !important;
-}
-.wuju-hide-content .wuju-post-video {
-    margin: 0;
 }
 .wuju-post-content img {
     max-width: 100%;
@@ -3330,7 +3155,6 @@ img.wp-smiley {
     z-index: 999;
     text-align: center;
     box-shadow: 0px 0px 3px rgba(70, 70, 70, 0.3);
-    white-space: nowrap;
 }
 .wuju-post-setting-box li {
     padding: 7px 13px;
@@ -3356,9 +3180,9 @@ img.wp-smiley {
     position: relative;
     margin-right: 10px;
 }
-.wuju-post-link, .post_link {
+.wuju-post-link,.post_link {
     color: #1e73be;
-    margin: 0 5px 0 5px;
+    margin: 0 0px 0 5px;
     cursor: pointer;
 }
 .wuju-chat-message-list .myself .wuju-chat-message-list-content .wuju-post-link {
@@ -3420,6 +3244,7 @@ img.wp-smiley {
     margin-top: 8px;
     font-size: 15px;
     font-weight: 300;
+    overflow: hidden;
     text-shadow: 0 0 4px rgba(0,0,0,0.5);
     line-height: 19px;
 }
@@ -3455,11 +3280,11 @@ img.wp-smiley {
 .wuju-info-card .city {
     margin-top: 15px;
     height: 14px;
-    color: #808080;
 }
 .wuju-info-card .city i {
     margin-right: 3px;
     display: inline-block !important;
+    color: #666;
 }
 .wuju-info-card .btn {
     margin-top: 15px;
@@ -3468,7 +3293,7 @@ img.wp-smiley {
 .wuju-info-card .btn .follow {
     background-color: #2eb354;
 }
-.wuju-info-card .btn .follow.had {
+.wuju-info-card .btn .follow.has {
     background-color: #999;
 }
 .wuju-info-card .btn span {
@@ -3502,7 +3327,7 @@ img.wp-smiley {
     height: 18px;
 }
 .wuju-post-user-info-time {
-    width: 300px;
+    width: 160px;
     margin: 10px 0 0 50px;
     font-size: 13px;
     color: #808080;
@@ -3524,7 +3349,7 @@ img.wp-smiley {
 }
 .wuju-post-images-list {
     padding: 0 20px;
-    width: 56%;
+    width: 100%;
     box-sizing: border-box;
 }
 .wuju-post-images-list .one img {
@@ -3532,29 +3357,37 @@ img.wp-smiley {
     width: auto;
     object-fit: initial;
     height: auto;
-    min-width: 80px;
 }
 .wuju-post-images-list a {
     overflow: hidden;
     position: relative;
     float: left;
-    width: calc((100% - 20px)/3);
-    height: 120px;
+    width: calc((100% - 60px)/4);
     box-sizing: border-box;
     padding: 0;
-    margin-right: 10px;
-    margin-top: 10px;
+    height: 180px;
+    margin-right: 20px;
+    margin-top: 20px;
     border-radius: 4px;
 }
-.wuju-post-images-list a:nth-child(3n) {
+.wuju-post-images-list a:nth-child(4n) {
     margin-right: 0;
 }
-
+.wuju-post-list.block .wuju-post-images-list a {
+    height: 180px;
+}
+.wuju-post-list.time .wuju-post-images-list a {
+    height: 152px;
+}
 .wuju-post-images-list a.one {
-    max-height: 400px;
     width: auto;
+    max-width: 30%;
+    max-height: 400px;
     height: auto !important;
-    max-width: 50%;
+}
+.wuju-post-images-list a.one>i {
+    left: 1px;
+    bottom: 0px;
 }
 .wuju-post-images-list img {
     width: 100%;
@@ -3566,19 +3399,19 @@ img.wp-smiley {
     object-fit: cover;
     border-radius: 4px;
 }
-.wuju-post-images-list a i.gif, .wuju-comment-image-list.number-1 a .gif {
+.wuju-post-images-list a i {
     width: 35px;
+    height: 18px;
     display: inline-block;
     position: absolute;
-    background: rgb(0 0 0 / 0.6);
-    bottom: 6px;
-    right: 6px;
+    background: #8BC34A;
+    bottom: 0;
+    left: 1px;
     text-align: center;
     color: #fff;
-    font-size: 12px;
+    line-height: 20px;
+    font-size: 16px;
     font-style: normal;
-    border-radius: 2px;
-    padding: 2px 0;
 }
 .wuju-post-images-list a i.long {
     background-color: #507daf;
@@ -3590,41 +3423,22 @@ img.wp-smiley {
     color: #FF5722;
     cursor: pointer;
 }
-.full .wuju-post-images-list a {
-    height: 180px;
-}
 
-.wuju-post-images-list a .more-img {
+.wuju-icon.redbag {
     position: absolute;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    font-size:26px;
-    color: #fff;
+    right: 4px;
+    font-size: 26px;
+    color: #b4b4b4;
+    margin-top: 10px;
+    cursor: pointer;
+    z-index: 2;
 }
-.wuju-post-images-list a .more-img .shade {
-    background-color: rgb(0 0 0 / 50%);
-    width: 100%;
-    height: 100%;
-    position: absolute;
+.wuju-icon.redbag:hover {
+    color: #f23c3c;
 }
-.wuju-post-images-list a .more-img .text {
-    position: absolute;
-}
-.wuju-post-images-list a.blur .more-img .text {
-    z-index: 1;
-    right: 15px;
-    top: 10px;
-    font-size: 22px;
-    opacity: 0.5;
-}
-
-
 
 /*密码可见*/
-/*.wuju-post-password {
+.wuju-post-password {
     margin-top: 10px;
 }
 .wuju-post-password:before {
@@ -3650,7 +3464,7 @@ img.wp-smiley {
     color: #fff;
     cursor: pointer;
     line-height: 30px;
-}*/
+}
 
 
 
@@ -3726,10 +3540,6 @@ img.wp-smiley {
 .wuju-post-single-excerp.no>i {
     font-size: 26px;
     vertical-align: -3px;
-}
-.wuju-post-single-excerp.no>m {
-    margin: 0 5px;
-    color: #F44336;
 }
 .wuju-post-single-thum a {
     float: left;
@@ -3840,9 +3650,9 @@ img.wp-smiley {
     position: absolute;
     left: -60px;
     padding: 60px 0 0;
-    z-index: 1004;
+    z-index: 2;
 }
-.wuju-single-left-bar>li {
+.wuju-single-left-bar li {
     width: 40px;
     height: 40px;
     text-align: center;
@@ -3855,22 +3665,8 @@ img.wp-smiley {
     position: relative;
     transition: all .3s ease;
 }
-.wuju-single-left-bar>li:hover {
+.wuju-single-left-bar li:hover {
     transform: translateY(-6px);
-}
-.wuju-single-left-bar>li.comment i{
-    position: relative;
-}
-.wuju-single-left-bar>li.comment i span{
-    position: absolute;
-    font-size: 12px;
-    padding: 0 6px;
-    color: #fff;
-    background-color: #f56b41;
-    line-height: initial;
-    border-radius: 20px;
-    top: -12px;
-    left: 14px;
 }
 .wuju-single-left-bar li.bbs-avatar {
     background-color: initial;
@@ -3883,10 +3679,8 @@ img.wp-smiley {
 .wuju-single-left-bar li.redbag {
     color: #f56b41;
 }
-.wuju-single-left-bar li.gift {
-    color: #ff69a0;
-}
 .wuju-single-title-list-content {
+    display: none;
     padding: 10px;
     background-color: #fff;
     position: absolute;
@@ -4080,7 +3874,15 @@ img.wp-smiley {
     margin: 0;
     padding: 0px !important;
 }
-
+.wuju-single-topic-list>a no-img {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    text-align: center;
+    line-height: 32px;
+    background-color: #f7584d;
+    color: #fff;
+}
 .wuju-single-topic-list a span {
     display: inline-block;
     padding: 0 10px;
@@ -4165,14 +3967,14 @@ blockquote {
     color: #fff;
     margin: auto;
     cursor: pointer;
-    padding: 4px 0px;
+    padding: 6px 0px;
     border-radius: 30px;
     margin-top: 10px;
     text-align: center;
     line-height: 1.7;
     font-size: 14px;
 }
-.wuju-btn.no,.wuju-btn.had {
+.wuju-btn.no {
     background-color: #ccc;
 }
 .wuju-tips {
@@ -4181,9 +3983,6 @@ blockquote {
     color: #999;
     background: #F8F8F9;
     clear: both;
-}
-.wuju-tips.hidden {
-    display: none;
 }
 .wuju-tips p {
     line-height: 30px;
@@ -4249,7 +4048,7 @@ blockquote {
     line-height: 35px;
     font-size: 20px;
 }
-.wuju-right-bar>li>.title {
+.wuju-right-bar>li>.title:before {
     position: absolute;
     border-radius: 3px;
     background-color: #525252;
@@ -4262,52 +4061,56 @@ blockquote {
     transform: translateX(-20px);
     opacity: 0;
     white-space: nowrap;
-    visibility: hidden;
 }
-.wuju-right-bar>li:hover>.title {
+.wuju-right-bar>li:hover>.title:before {
     opacity: 1;
     transform: translateX(0);
-    visibility: visible;
 }
-
-.wuju-right-bar>li.language ul {
-    position: absolute;
-    padding: 10px;
-    background-color: #fff;
-    right: 55px;
-    border-radius: 4px;
-    z-index: 99;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
-    transition: .15s ease-in-out;
-    transform: translateX(-20px);
-    opacity: 0;
-    top: -50%;
-    visibility: hidden;
+.wuju-right-bar>li.task .title:before {
+    content: '做任务';
 }
-.wuju-right-bar>li.language ul li.on, .wuju-right-bar>li.language ul li:hover,.wuju-header-menu-avatar>ul li.language ul>li.on, .wuju-header-menu-avatar>ul li.language ul>li:hover {
-    color: var(--wuju-color);
+.wuju-right-bar>li.sort-normal .title:before {
+    content: '顺序查看';
 }
-.wuju-right-bar>li.language ul li {
-    padding: 8px;
-    position: relative;
-    min-width: 70px;
+.wuju-right-bar>li.sort-rand .title:before {
+    content: '随机排序';
 }
-.wuju-right-bar>li.language:hover {
-    color: inherit;
+.wuju-right-bar>li.sort-hot .title:before {
+    content: '热门查看';
 }
-.wuju-right-bar>li.language:hover ul,.wuju-header-menu-avatar>ul li.language:hover ul {
-    opacity: 1;
-    transform: translateX(0);
-    visibility: visible;
+.wuju-right-bar>li.publish .title:before {
+    content: '发表内容';
 }
-.wuju-right-bar>li.language ul li.on:before, .wuju-right-bar>li.language ul li:hover:before,.wuju-header-menu-avatar>ul li.language ul>li.on:before, .wuju-header-menu-avatar>ul li.language ul>li:hover:before {
-    content: '·';
-    font-weight: bold;
-    position: absolute;
-    left: 4px;
-    color: #F44336;
+.wuju-right-bar>li.wuju-right-bar-im .title:before {
+    content: '聊天';
 }
-
+.wuju-right-bar>li.setting .title:before {
+    content: '偏好设置';
+}
+.wuju-right-bar>li.totop .title:before {
+    content: '返回顶部';
+}
+.wuju-right-bar>li.tobottom .title:before {
+    content: '到底部';
+}
+.wuju-right-bar>li.now .title:before {
+    content: '实时动态';
+}
+.wuju-right-bar>li.search .title:before {
+    content: '搜索';
+}
+.wuju-right-bar>li.wuju-notice>.title:before {
+    content: '消息提醒';
+}
+.wuju-right-bar>li.custom_a>.title:before {
+    content: '自定义-1';
+}
+.wuju-right-bar>li.custom_b>.title:before {
+    content: '自定义-2';
+}
+.wuju-right-bar>li.custom_c>.title:before {
+    content: '自定义-3';
+}
 
 /*标签页面（话题）*/
 .wuju-topic-header {
@@ -4485,30 +4288,14 @@ blockquote {
 }
 
 /*评论*/
-.wuju-comment-form {
+.wuju-comment-form{
     font-size: 12px;
     line-height: 18px;
     padding: 0 20px;
-    display: none;
-}
-.page-template-default .wuju-comment-form,.single .wuju-comment-form{
-    display: block;
 }
 .wuju-comment-textarea{
     margin-bottom: 10px;
     position: relative;
-}
-.wuju-comment-textarea .gift i, .wuju-comment-textarea .redbag i {
-    cursor: pointer;
-    font-size: 22px;
-    color: #b4b4b4;
-    margin: 0 10px;
-}
-.wuju-comment-textarea .gift i:hover {
-    color: #ff69a0;
-}
-.wuju-comment-textarea .redbag i:hover {
-    color: #f23c3c;
 }
 .wuju-comments-btn{
     font-size: 14px;
@@ -4526,7 +4313,7 @@ blockquote {
 }
 .wuju-bbs-edior.comment {
     margin-bottom: 10px;
-    z-index: 999;
+    z-index: 1;
 }
 .wuju-post-comments {
     width: 100%;
@@ -4546,28 +4333,8 @@ blockquote {
     border-bottom: 1px dotted #e6e6e6;
     padding: 10px 0 5px;
 }
-.wuju-post-comment-list li.current-comment {
-    background-color: #fff9f9;
-}
 .wuju-post-comment-list li:last-child {
     border-bottom: none;
-}
-.wuju-post-comment-list li .reward,.wuju-bbs-single-content .reward{
-    color: #F44336;
-}
-.wuju-post-comment-list li .gift,.wuju-bbs-single-content .gift {
-    color: #ff69a0;
-}
-.wuju-bbs-single-content .gift img {
-    width: 50px;
-    height: 50px;
-    margin-left: 10px;
-    border: none;
-}
-
-.wuju-post-comment-list li .delete {
-    text-decoration: line-through;
-    color: #999;
 }
 .wuju-comment-avatar {
     float: left;
@@ -4605,26 +4372,16 @@ blockquote {
     margin-right: 10px;
 }
 .wuju-comment-info {
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     overflow: hidden;
 }
 .wuju-comment-content {
-    padding-top: 15px;
+    padding: 15px 20px 0;
     font-size: 14px;
     line-height: 26px;
     color: #333;
     word-wrap: break-word;
     word-break: break-word;
-}
-.wuju-comment-info-footer .up-comment {
-    padding: 0px 4px;
-    border: 1px solid #E91E63;
-    color: #E91E63;
-    font-size: 12px;
-    border-radius: 2px;
-    margin-right: 6px;
-    display: inline-block;
-    line-height: 14px;
 }
 .wuju-comment-content img.emoji {
     width: 28px !important;
@@ -4665,9 +4422,14 @@ jin.wuju-post-at img.emoji {
 }
 /*首页ajax菜单*/
 .wuju-index-menu {
+    background-color: #fff;
     clear: both;
     position: relative;
+    margin-bottom: 10px;
     border-radius: var(--wuju-border-radius);
+}
+.wuju-index-menu-list {
+    display: flex;
 }
 .wuju-index-menu li {
     text-align: center;
@@ -4676,24 +4438,14 @@ jin.wuju-post-at img.emoji {
     position: relative;
     color: #555;
     line-height: 36px;
-    height: 36px;
-    margin: 0 10px 10px 0;
+    margin: 10px;
+    flex: 1;
     overflow: hidden;
-    background-color: #fff;
-    padding: 0 14px;
-    border-radius: 4px;
-    float: left;
 }
 .wuju-index-menu li.on, .wuju-index-menu li:hover {
     background: var(--wuju-color);
     border-radius: 4px;
     color: #fff;
-}
-.wuju-index-menu li:hover a {
-    color: #fff;
-}
-.wuju-index-menu li a {
-    display: inline-block;
 }
 .wuju-index-menu :after {
     content: '';
@@ -4703,26 +4455,24 @@ jin.wuju-post-at img.emoji {
 
 /*转载*/
 .wuju-reprint {
-    padding: 10px 0;
+    padding: 15px 0;
     position: relative;
-    background-color: #f7f7f7;
-    margin: 5px 15px 0;
-    border-radius: 4px;
+    background-color: #f2f2f5;
 }
 .wuju-reprint-author {
-    padding: 0 10px;
+    padding: 0 20px;
 }
 .wuju-reprint-title {
     margin: 12px 0 0px;
     color: #444;
-    font-size: 16px;
-    padding: 0 10px;
+    font-size: 18px;
+    padding: 0 20px;
 }
 .wuju-reprint-content {
-    color: #888;
+    color: #555;
     line-height: 28px;
     font-size: 13px;
-    padding: 0 15px;
+    padding: 0 20px;
     margin-top: 8px;
 }
 .wuju-reprint-content .layui-tab {
@@ -4739,14 +4489,6 @@ jin.wuju-post-at img.emoji {
 }
 .wuju-reprint .wuju-post-images-list {
     padding-bottom: 5px;
-    padding: 0 10px;
-}
-.wuju-reprint .wuju-post-images-list a.one {
-    margin-top: 0;
-    max-width: 20%;
-}
-.reprint .wuju-post-bar {
-    margin-top: 5px;
 }
 
 
@@ -4759,8 +4501,8 @@ jin.wuju-post-at img.emoji {
 }
 .wuju-media-show li {
     float: left;
-    height: 180px;
-    width: calc((100% - 40px)/5);
+    height: 200px;
+    width: calc((100% - 30px)/4);
     box-sizing: border-box;
     cursor: pointer;
     position: relative;
@@ -4835,8 +4577,7 @@ figure figcaption, figure figcaption > a {
 figure.effect-apollo h2 {
     text-align: center;
     margin: 20px 0 10px 0;
-    font-size: 15px;
-    font-weight: normal;
+    font-size: 20px;
 }
 figure.effect-apollo p {
     position: absolute;
@@ -4853,10 +4594,9 @@ figure.effect-apollo p {
 }
 figure.effect-ming h2 {
     margin: 20px 0 10px 0;
-    font-size: 15px;
+    font-size: 20px;
     -webkit-transition: -webkit-transform 0.35s;
     transition: transform 0.35s;
-    font-weight: normal;
 }
 figure.effect-ming p {
     opacity: 0;
@@ -4930,7 +4670,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     transform: scale3d(1,1,1);
 }
 
-.wuju-media-show li:nth-child(5n) {
+.wuju-media-show li:nth-child(4n) {
     margin-right: 0;
 }
 .wuju-media-show li a span {
@@ -5029,7 +4769,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     background-color: #89a6c6;
     background: linear-gradient(to right,#89a6c6, rgb(160, 191, 225));
     background-size: cover;
-    background-position: center;
 }
 .wuju-bbs-header-bg i {
     position: absolute;
@@ -5064,7 +4803,17 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     height: 150px;
     border-radius: 4px;
 }
-
+.wuju-bbs-header-info-avatar no-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 35px;
+    background-color: #076ec0;
+    color: #fff;
+    text-align: center;
+    line-height: 150px;
+}
 .wuju-bbs-header-info-avatar span {
     position: absolute;
     width: 50px;
@@ -5079,12 +4828,16 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 .wuju-bbs-header-info-btn child {
     color: #999;
-    float: left;
-    line-height: 30px;
 }
 .wuju-bbs-header-info-avatar span img {
     width: 50px;
     height: 50px;
+}
+.wuju-bbs-header-info-avatar span no-img {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
 }
 .wuju-bbs-header-info-avatar span:hover {
     border: 1px solid #beb9b9;
@@ -5110,7 +4863,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     cursor: pointer;
     width: 90px;
     text-align: center;
-    float: left;
+    display: inline-block;
 }
 .wuju-bbs-header-info-btn .follow {
     width: 90px;
@@ -5123,10 +4876,10 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     color: #fff;
     font-size: 16px !important;
     text-align: center;
-    float: left;
+    display: inline-block;
 }
 .wuju-bbs-header-info-btn .follow.had {
-    background-color: #ccc;
+    background-color: #888;
 }
 .wuju-bbs-header-publish-btn {
     float: right;
@@ -5146,7 +4899,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     font-size: 12px;
     line-height: 30px;
     margin-left: 20px;
-    float: left;
 }
 .wuju-bbs-follow-info span {
     margin-right: 10px;
@@ -5184,7 +4936,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     overflow: hidden;
     position: relative;
     border-radius: 4px;
-    display: flex;
 }
 .wuju-bbs-cat-list li:hover {
     background-color: #e6e6e6;
@@ -5214,17 +4965,27 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     height: 50px;
     border-radius: 6px;
 }
+.wuju-bbs-cat-list li .left no-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+    background-color: #076ec0;
+    color: #fff;
+}
 .wuju-bbs-cat-list li .right {
     float: left;
-    flex: 1;
-    width: 50px;
 }
 .wuju-bbs-cat-list li .right .desc {
     font-size: 12px;
     color: #999;
+    width: 133px;
     max-height: 38px;
     line-height: 18px;
     margin-top: 8px;
+    min-width: 238px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -5317,7 +5078,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     font-family: "Microsoft Yahei";
     font-size: 16px;
     line-height: 24px;
-    font-weight: normal;
 }
 .wuju-content-left.full .wuju-bbs-list-1 .right h2{
     max-width: 750px;
@@ -5473,7 +5233,17 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 #wuju-bbs-hide-content {
     border: 1px solid #e6e6e6;
     border-bottom: none;
-    border-radius: 4px;
+}
+#wuju-bbs-publish-btn {
+    font-size: 18px;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+    height: 28px;
+    color: #fff;
+    background-color: var(--wuju-color);
+    line-height: 30px;
+    padding: 6px 18px;
 }
 .wuju-bbs-title {
     width: 100%;
@@ -5604,11 +5374,10 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     margin: auto;
     color: #fff;
     background-color: var(--wuju-color);
-    padding: 8px 0px;
+    padding: 6px 0px;
     border-radius: 20px;
     margin-top: 15px;
     cursor: pointer;
-    font-size: 14px;
 }
 .wuju-bbs-edior-footer-bar {
     position: relative;
@@ -5688,41 +5457,38 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 .wuju-bbs-list-3 li {
     float: left;
-    width: calc((100% - 20px)/3);
+    width: calc((100% - 30px)/3);
     background-color: #fff;
     box-shadow: 0 0 3px #ddd;
     border-bottom: 1px solid #ddd;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin-right: 15px;
+    margin-bottom: 15px;
     position: relative;
     border-radius: var(--wuju-border-radius);
 }
-/*.wuju-bbs-list-3 li:hover .thum img {
+.wuju-bbs-list-3 li:hover .thum img {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
-}*/
+}
 .wuju-bbs-list-3 li .bg {
-    height: 260px;
+    height: 220px;
     background-size: cover;
     background-position: center;
-    border-radius: 8px;
-    margin: 10px;
+    border-radius: 4px 4px 0 0;
 }
 .wuju-bbs-list-3 li h2 {
     font-size: 16px;
-    margin: 12px 12px 12px;
+    padding: 15px 12px 15px;
     color: #333;
+    text-overflow: ellipsis;
     overflow: hidden;
-    font-weight: normal;
-    height: 42px;
-    display: flex;
-    align-items: center;
+    white-space: nowrap;
+    line-height: 18px;
 }
 .wuju-bbs-list-3 li .info {
-    padding: 8px 12px;
+    padding: 0 12px 12px;
     color: #999;
     font-size: 12px;
-    border-top: 1px solid #f1f1f1;
 }
 .wuju-bbs-list-3 li .info span:first-child {
     float: left;
@@ -5759,24 +5525,22 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     float: initial;
 }
 .wuju-content-left.full .wuju-bbs-list-3 li {
-    width: calc((100% - 30px)/4);
+    width: calc((100% - 45px)/4);
 }
 .wuju-content-left.full .wuju-bbs-list-3 li:nth-child(3n) {
-    margin-right: 10px;
+    margin-right: 15px;
 }
 .wuju-content-left.full .wuju-bbs-list-3 li:nth-child(4n) {
     margin-right: 0;
 }
 .wuju-bbs-list-1 .right .mark span {
     height: 19px;
-    line-height: 19px;
+    line-height: 20px;
     padding: 0 7px;
     color: #fff;
     font-size: 12px;
     display: inline-block;
-    margin-left: 4px;
-    vertical-align: -2px;
-    border-radius: 3px;
+    margin: 2px 0 0 3px;
 }
 
 /*有图*/
@@ -5851,10 +5615,8 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-bbs-list-3 li .thum img {
     width: 100%;
     height: auto;
-    padding: 10px;
-    box-sizing: border-box;
-    border-radius: 16px;
-    padding-bottom: 0;
+    transition: transform 0.3s;
+    border-radius: var(--wuju-border-radius) var(--wuju-border-radius) 0 0;
 }
 
 
@@ -5931,9 +5693,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     position: relative;
     display: flex;
 }
-.wuju-bbs-single-box.current-comment {
-    background-color: #fff9f9;
-}
 .wuju-bbs-single-header {
     background-color: #fff;
     margin-bottom: 10px;
@@ -5972,50 +5731,42 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 .wuju-bbs-single-header-info .wuju-bbs-follow-info {
     font-size: 16px;
-    float: inherit;
 }
 .wuju-bbs-single-title {
     padding: 10px 20px 10px 20px;
-    height: inherit;
-    display: flex;
+    height: 29px;
 }
 .wuju-bbs-single-title h1 {
     font-size: 18px;
     float: left;
     text-overflow: ellipsis;
     overflow: hidden;
-    max-width: inherit;
-    white-space: inherit;
+    white-space: nowrap;
+    max-width: 70%;
     box-sizing: border-box;
     margin-right: 5px;
     cursor: pointer;
-    flex: 1;
 }
 .wuju-bbs-single-title .mark {
     float: left;
 }
 .wuju-bbs-single-title .mark span {
-    height: 18px;
+    height: 19px;
     line-height: 18px;
     padding: 0 7px;
     color: #fff;
     font-size: 12px;
     display: inline-block;
-    vertical-align: -2px;
-    border-radius: 3px;
-    margin-right: 8px;
-}
-.wuju-bbs-single-title .mark span.wuju-bbs-post-type-img {
-    padding: 0;
+    vertical-align: -3px;
+    margin-left: 3px;
 }
 .wuju-bbs-single-title .do {
+    float: right;
     font-size: 22px;
     cursor: pointer;
     width: 60px;
-    text-align: right;
-}
-.wuju-bbs-single-title .do:hover >div {
-    display: block !important;
+    text-align: center;
+    margin-right: -20px;
 }
 .wuju-bbs-post-setting {
     background-color: #fff;
@@ -6078,20 +5829,10 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     padding: 15px;
     min-height: 165px;
     float: right;
-    width: calc(100% - 150px);
+    width: 100%;
     position: relative;
     display: flex;
     flex-flow: column;
-}
-.wuju-bbs-single-box .right>.up-comment {
-    position: absolute;
-    right: 2px;
-    padding: 0px 6px;
-    background-color: #E91E63;
-    border-radius: 4px;
-    top: 2px;
-    color: #fff;
-    z-index: 999;
 }
 .wuju-bbs-single-box .right .answer-icon {
     position: absolute;
@@ -6121,6 +5862,10 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     overflow: hidden;
     flex: 1;
 }
+.wuju-bbs-single-content a {
+    color: #3F51B5;
+    text-decoration: underline;
+}
 .wuju-bbs-comment-list .wuju-pop-video {
     max-width: 80%;
 }
@@ -6133,13 +5878,9 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     line-height: 1.7;
     display: block;
     min-height: 27px;
-    word-break: break-word;
 }
 .wuju-bbs-comment-list .wuju-bbs-single-content{
     min-height: 150px;
-}
-#wuju-bbs-comment-edior {
-    padding-top: 5px;
 }
 .wuju-bbs-single-content img {
     padding: 5px;
@@ -6195,7 +5936,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 .wuju-bbs-single-box .left .avatar .wuju-verify {
     bottom: 0px;
-    right: 30px;
+    right: 20px;
     width: 20px;
     height: 20px;
     background-size: 60px;
@@ -6351,9 +6092,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-bbs-edior-footer-bar .redbag:hover {
     color: #f00;
 }
-.wuju-bbs-edior-footer-bar .gift, .wuju-bbs-edior-footer-bar .gift:hover {
-    color: #ff69a0;
-}
 .wuju-more-posts.comment {
     margin: 30px auto 50px;
 }
@@ -6409,19 +6147,8 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     width: var(--wuju-width);
     margin: 0px auto 200px;
 }
-.wuju-editor-bbs-content #wuju-bbs-publish-form {
+.wuju-editor-bbs-content #wuju-bbs-publish-form, .wuju-editor-bbs-content #wuju-bbs-publish-btn {
     display: block;
-}
-.wuju-editor-bbs-content .title {
-    position: relative;
-}
-.wuju-editor-bbs-content .color>div {
-    border: 0;
-}
-.wuju-editor-bbs-content .color {
-    position: absolute;
-    right: 0;
-    top: 0;
 }
 .wuju-activity-form .layui-layer-content {
     overflow: inherit !important;
@@ -6459,15 +6186,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-activity-form-content li label {
     border-left: 3px solid var(--wuju-color);
     padding-left: 5px;
-}
-.wuju-activity-form-content li img {
-    display: block;
-    width: 100px;
-    height: auto;
-    border-radius: 4px;
-    margin-top: 20px;
-    border: 1px solid #f1f1f1;
-    box-sizing: border-box;
 }
 .wuju-activity-upload {
     margin-left: 20px;
@@ -6529,7 +6247,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     padding: 6px 0;
     background: #ffffff;
     position: relative;
-    border-top: 1px solid #f1f1f1;
 }
 .wuju-single-edior-footer-bar .city,.wuju-bbs-edior-footer-bar .city {
     font-size: 15px;
@@ -6578,7 +6295,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     width: 200px;
     float: left;
 }
-.wuju-header-content .logo .logo-bg {
+.wuju-header-content .logo a {
     width: 100%;
     height: 50px;
     background: url(../../images/logo.png);
@@ -6591,8 +6308,8 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 .wuju-bbs-list-3 li .mark {
     position: absolute;
-    top: 6px;
-    left: 6px;
+    top: 10px;
+    left: 10px;
     z-index: 1;
     cursor: pointer;
 }
@@ -6613,7 +6330,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 /*头部菜单*/
 .wuju-menu {
     float: left;
-    margin-left: 10px;
+    margin: 0 10px;
 }
 .wuju-menu ul li.menu-item-has-children a {
     padding-bottom: 20px;
@@ -6631,14 +6348,11 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     float: left;
     white-space: nowrap;
     color: #999;
+    padding: 0 15px;
     line-height: 50px;
     height: 50px;
     display: inline;
     position: relative;
-}
-.wuju-menu>ul>li>a {
-    padding: 0 14px;
-    display: inline-block;
 }
 .wuju-menu ul li a {
     color: #999;
@@ -6753,7 +6467,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     border-left: 1px solid #e1e1e1;
     border-top: 1px solid #e1e1e1;
     border-radius: 2px;
-    left: -3px;
+    left: -5px;
 }
 
 .wuju-menu ul li ul li a{
@@ -6772,110 +6486,18 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     display: block !important;
     min-width: 100px;
 }
-
-
-/*头部格子菜单*/
-.wuju-menu>ul>li.cell>ul.sub-menu {
-    width: 320px !important;
-    min-width: 320px;
-    box-sizing: border-box;
-}
-.wuju-menu>ul>li.cell>ul.sub-menu>li {
-    float: left;
-    width: calc((320px - 20px)/3);
-    margin: 10px 0;
-}
-.wuju-menu ul li.cell>ul>li:hover {
-    background-color: inherit;
-}
-.wuju-menu ul li.cell.menu-item>ul>li>a {
-    position: relative;
-    min-width: inherit !important;
-}
-.wuju-menu ul li.cell.menu-item>ul>li:hover>a {
-    color: var(--wuju-color);
-}
-.wuju-menu ul li.cell.menu-item>ul>li:hover>ul>li>a {
-    color: inherit;
-}
-.wuju-menu ul li.cell>ul>li:hover>a:after {
-    border-bottom: 3px solid var(--wuju-color);
-    content: '';
-    display: block;
-    width: 10%;
-    margin: auto;
-    margin-top: -3px;
-}
-.wuju-menu ul li.cell.menu-item>ul>li>a>img {
-    width: 35px;
-    height: 35px;
-    border-radius: 4px;
-    margin-bottom: 2px;
-}
-.wuju-menu ul li.cell.menu-item>ul>li>a>img:hover {
-    opacity: 0.7;
-}
-.wuju-menu>ul>li.cell>ul>li.menu-item-has-children:hover>ul {
-    left: 90%;
-}
-
-/*头部格子菜单+图片+文字-左右布局*/
-.wuju-menu>ul>li.cell.img-text>ul.sub-menu {
-    width: 360px !important;
-    min-width: 360px;
-}
-.wuju-menu>ul>li.cell.img-text>ul.sub-menu>li {
-    width: calc((360px - 20px)/3);
-    text-align: left;
-}
-.wuju-menu ul li.cell.img-text>ul>li:hover>a:after {
-    display: none;
-}
-
-/*头部格子菜单+图片+文字-上下布局*/
-.wuju-menu>ul>li.cell.img-text.img-block>ul.sub-menu>li {
-    text-align: center;
-}
-.wuju-menu>ul>li.cell.img-text.img-block>ul.sub-menu>li>a {
-    height: 65px;
-}
-.wuju-menu ul li.cell.img-block.menu-item>ul>li>a>img {
-    display: block;
-    margin: auto;
-}
-
-
-/*头部格子菜单+纯图片*/
-.wuju-menu>ul>li.cell.img>ul.sub-menu>li {
-    width: calc((320px - 20px)/4);
-}
-.wuju-menu ul li.cell.img.menu-item>ul>li>a {
-    height: 50px;
-}
-.wuju-menu ul li.cell.img.menu-item>ul>li>a>img {
-    width: 50px;
-    height: 50px;
-}
-.wuju-menu>ul>li.cell.img>ul.sub-menu>li>ul {/*三级菜单*/
-    width: calc((320px - 20px)/3) !important;
-}
-
-
-
 .wuju-header-right {
     position: relative;
     height: 50px;
     float: right;
 }
-.wuju-header-right>li {
+.wuju-header-right li {
     float: left;
     width: 50px;
     height: 50px;
     cursor: pointer;
     line-height: 50px;
     text-align: center;
-    color: #a4a4a4;
-    position: relative;
 }
 .wuju-notice ul {
     width: 300px;
@@ -6925,9 +6547,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     font-size: 12px;
     text-align: right;
 }
-.wuju-header-menu-avatar:hover ul,.wuju-header-right>li.language:hover ul {
-    display: block;
-}
 .wuju-header-menu-avatar>span {
     color: #ffffff;
     font-size: 12px;
@@ -6945,7 +6564,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     overflow: hidden;
     white-space: nowrap;
     display: inline-block;
-    max-width: 73px;
+    max-width: 80px;
     vertical-align: middle;
 }
 .wuju-header-menu-avatar>img {
@@ -6960,11 +6579,11 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     padding: 5px 5px;
     text-align: center;
     border-radius: 2px;
+    width: 105px;
     position: absolute;
     z-index: 9999;
     right: -18px;
     margin-top: -5px;
-    display: none;
 }
 .wuju-header-menu-avatar>ul li {
     display: block;
@@ -6979,15 +6598,10 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     color: #565656;
     height: 35px;
     line-height: 35px;
+    width: 105px;
     display: inline-block;
-    white-space: nowrap;
-    padding: 0 10px;
-    width: 100%;
-    box-sizing: border-box;
-    min-width: 100px;
-    border-radius: 2px;
 }
-.wuju-header-menu-avatar>ul:before,.wuju-header-right>li.language ul:before {
+.wuju-header-menu-avatar>ul:before {
     top: -3px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
@@ -7000,65 +6614,19 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     border-left: 1px solid #e1e1e1;
     border-top: 1px solid #e1e1e1;
     border-radius: 2px;
-    margin-left: -3px;
 }
 .wuju-header-menu-avatar>ul li:last-child {
     border-bottom: 0;
 }
-.wuju-header-menu-avatar>ul li a m {
-    position: relative;
-}
 .wuju-header-menu-avatar>ul li a span {
     position: absolute;
-    left: -10px;
-    top: 5px;
-    width: 6px;
-    height: 6px;
+    left: 12px;
+    top: 12px;
 }
 .wuju-header-menu-avatar>ul li:hover a {
     color: #fff;
     background-color: var(--wuju-color);
 }
-.wuju-header-menu-avatar>ul li.language i {
-    font-size: 12px;
-}
-.wuju-header-menu-avatar>ul li.language ul {
-    position: absolute;
-    padding: 5px;
-    background-color: #fff;
-    left: -97px;
-    border-radius: 4px;
-    z-index: 99;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
-    transition: .15s ease-in-out;
-    transform: translateX(-20px);
-    opacity: 0;
-    top: 0;
-    visibility: hidden;
-}
-.wuju-header-menu-avatar>ul li.language ul:before {
-    content: '';
-    top: 15px;
-    right: -4px;
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-    background: #FFFFFF;
-    content: "";
-    height: 6px;
-    position: absolute;
-    width: 6px;
-    z-index: 999;
-    border-left: 1px solid #f4f0f0;
-    border-top: 1px solid #f4f0f0;
-    border-radius: 2px;
-}
-.wuju-header-menu-avatar>ul li.language ul>li {
-    color: #444;
-    padding: 6px;
-    position: relative;
-    min-width: 70px;
-}
-
 .wuju-header-right .login{
     height: 25px;
     margin-top: 12px;
@@ -7078,11 +6646,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     background-color: var(--wuju-color);
     border-radius: 2px;
     margin-left: 10px;
-}
-.wuju-header-right .login, .wuju-header-right .reg {
-    min-width: 40px;
-    padding: 0 5px;
-    width: inherit;
 }
 #wuju-notice>span {
     width: 5px;
@@ -7142,7 +6705,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 .wuju-notice-title {
     border-bottom: 1px solid #e6e6e6;
-    display: flex;
 }
 .wuju-notice-content {
     height: 200px;
@@ -7214,7 +6776,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 .wuju-notice-empty {
     color: #999;
-    margin-top: 75px;
+    margin-top: 90px;
     text-align: center;
 }
 .wuju-notice-content .wuju-load{
@@ -7230,35 +6792,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     right: 30px;
     top: 10px;
 }
-.wuju-header-right>li.language ul {
-    background: #fff;
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
-    padding: 5px 5px;
-    text-align: center;
-    border-radius: 2px;
-    position: absolute;
-    z-index: 9999;
-    left: 50%;
-    margin-top: -5px;
-    width: 100px;
-    margin-left: -55px;
-    display: none;
-}
-.wuju-header-right>li.language ul>li.on, .wuju-header-right>li.language ul>li:hover {
-    background-color: var(--wuju-color);
-    color: #fff;
-}
-.wuju-header-right>li.language ul>li {
-    line-height: 30px;
-    border-radius: 2px;
-    margin-bottom: 5px;
-}
-.wuju-header-right>li.language ul>li:last-child {
-    margin-bottom: 0;
-}
-
-
-
 
 /*邮件通知个性设置*/
 .wuju-enail-notice-form {
@@ -7277,9 +6810,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-login-form .layui-layer-title {
     background-color: #fff;
     border-bottom: 1px solid #fff;
-}
-.wuju-login-form .layui-layer-content {
-    height: inherit !important;
+    /*width: 160px;*/
 }
 .wuju-pop-login-form {
     padding: 10px 20px 20px;
@@ -7297,17 +6828,13 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     border: 1px solid #f1f1f1;
     box-sizing: border-box;
 }
-.wuju-pop-login-form li.code .wuju-get-code {
+.wuju-pop-login-form li.code input.wuju-get-code {
     background-color: var(--wuju-color);
     border: none;
     padding: 0;
     color: #fff;
     margin-left: 10px;
     cursor: pointer;
-    width: 100%;
-    line-height: 35px;
-    text-align: center;
-    border-radius: 2px;
 }
 .wuju-pop-login-form li.code input.wuju-get-code.no {
     background-color: #ccc;
@@ -7321,7 +6848,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 .wuju-reg-doc a {
     color: #2196F3;
-    font-size: 13px;
 }
 .wuju-login-btn {
     display: flex;
@@ -7400,30 +6926,21 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     text-align: center;
     margin: 10px 0 15px;
 }
-.wuju-login-type{
-    padding: 10px;
+.wuju-login-type {
+    display: flex;
 }
 .wuju-login-type li {
-    width: 25%;
+    flex: 1;
+    width: 80px;
     text-align: center;
     cursor: pointer;
-    float: left;
-    margin-bottom: 20px;
-}
-.wuju-login-type li span {
-    display: inline-block;
-    height: 50px;
-    width: 50px;
-    line-height: 50px;
 }
 .wuju-login-type li i {
     font-size: 40px;
 }
 .wuju-login-type li p {
+    margin-top: 10px;
     color: #555;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
 }
 .wuju-login-type li.mail {
     color: #fab200;
@@ -7454,7 +6971,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-preference-setting{
     position: fixed;
     z-index: 1000;
-    bottom:0;
+    bottom: -182px;
     left: 0;
     right: 0;
     width: 100%;
@@ -7475,7 +6992,8 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     width: 1200px;
     margin: 0 auto;
     box-sizing: border-box;
-    padding: 20px 0 0;
+    padding: 20px 0;
+    height: 150px;
 }
 .wuju-preference-list li {
     position: relative;
@@ -7540,11 +7058,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-more-like-content .wuju-load {
     margin-top: 50px;
 }
-.wuju-preference-list .wuju-load,.wuju-preference-list .wuju-empty-page {
-    height: 120px;
-    box-sizing: border-box;
-}
-
 
 
 /*分页*/
@@ -7619,30 +7132,15 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     box-sizing: border-box;
     clear: both;
 }
-.wuju-post-comment-more {
-    text-align: center;
-    cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 2px;
-    background-color: #bbb;
-    color: #fff;
-    width: 120px;
-    margin: 20px auto;
-    box-sizing: border-box;
-    font-size: 13px;
-}
-.wuju-post-comment-more:hover {
-    background-color: #999;
-}
 /*置顶图标*/
 .wuju-post-top-time {
     display: none;
 }
 
 /*layui相关*/
-.layui-form-item .layui-inline {
-    float: left;
-}
+/*.layui-layer-page .layui-layer-content {
+    height: inherit !important;
+}*/
 .layui-form-select dl{
     z-index: 10000 !important;
 }
@@ -7741,6 +7239,53 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     padding: 15px;
 }
 
+/*用户调用小工具*/
+.wuju-sidebar-lattice-list {
+    padding: 0px 10px;
+    position: relative;
+}
+.wuju-sidebar-lattice-list li {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: left;
+    position: relative;
+}
+.wuju-sidebar-lattice-list li:nth-child(4n) {
+    margin-right: 0;
+}
+.wuju-sidebar-lattice-list li img {
+    width: 62.5px;
+    height: 62.5px;
+    border: 0;
+}
+.wuju-sidebar-lattice-list li p {
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0,0,0,.2);
+    bottom: 0;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    line-height: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0 2px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.wuju-widget-comment-adopt-ranking li p {
+    bottom: 15.5px;
+}
+.wuju-sidebar-lattice-list li i {
+    right: -6px;
+    bottom: -4px;
+}
+.wuju-sidebar-lattice-list li m {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+}
 
 /*论坛信息*/
 .wuju-widget-bbs-info-avatar {
@@ -7786,17 +7331,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     color: #747474;
     font-style: normal;
     word-wrap: break-word;
-}
-
-/*版主列表小工具*/
-.wuju-widget-bbs-admin-list .apply, .wuju-widget-bbs-commend-list .apply {
-    text-align: center;
-    padding: 10px;
-    background-color: var(--wuju-color);
-    color: #fff;
-    cursor: pointer;
-    margin: 8px;
-    border-radius: 4px;
 }
 
 
@@ -7926,16 +7460,13 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-sidebar-login .social>li i {
     font-size: 26px;
 }
-.wuju-sidebar-login .social li.phone a {
-    color: #107cd2;
-}
 .wuju-sidebar-login .social li.qq a {
     color: #4487c6;
 }
 .wuju-sidebar-login .social li.weibo a {
     color: #e12328;
 }
-.wuju-sidebar-login .social li.wechat_code a,.wuju-sidebar-login .social li.wechat_follow a {
+.wuju-sidebar-login .social li.wechat a {
     color: #25b415;
 }
 
@@ -8051,12 +7582,10 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-pop-share .layui-layer-content {
     padding: 20px;
     text-align: center;
-    height: auto !important;
 }
-#wuju-qrcode{
+.wuju-pop-share img{
     width: 200px;
     height: 200px;
-    margin: auto;
 }
 .wuju-referral-info-box {
     margin-bottom: 40px;
@@ -8084,7 +7613,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-referral-info-box li, .wuju-referral-info-box ul {
     padding: 0;
     list-style-type: none !important;
-    text-align: center;
 }
 
 
@@ -8100,7 +7628,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     padding: 10px 10px 0;
     border: 1px solid #efecec;
     background: #fff;
-    border-radius: 0px 0px 4px 4px;
+    border-radius: 2px;
     border-top: 0;
     position: relative;
 }
@@ -8116,7 +7644,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     overflow: initial !important;
 }
 .wuju-reprint-textarea .wuju-single-expression-btn {
-    bottom: 0;
+    bottom: 8px;
     left: 2px;
     position: absolute;
 }
@@ -8217,9 +7745,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-show-bbs-content .right .post li .wuju-bbs-post-type-img {
     margin-left: 4px;
 }
-.wuju-show-bbs-content .right .post li .wuju-bbs-post-type-img i {
-    vertical-align: 0;
-}
 .wuju-show-bbs-content .right .post li .mark {
     margin-right: 10px;
 }
@@ -8233,8 +7758,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     color: #fff;
     font-size: 12px;
     display: inline-block;
-    margin: 2px 0 0 6px;
-    border-radius: 2px;
+    margin: 2px 0 0 3px;
 }
 .wuju-bbs-slider-item {
     background-repeat: no-repeat;
@@ -8251,16 +7775,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     border-left: 3px solid var(--wuju-color);
     padding-left: 5px;
 }
-.wuju-show-bbs-box-header .more {
-    float: right;
-    font-size: 16px;
-}
-.wuju-show-bbs-box-header .more a {
-    color: #999;
-}
-.wuju-show-bbs-box-header .more a:hover {
-    color: #333;
-}
+
 .wuju-show-bbs-box-header.user {
     margin-bottom: 15px;
 }
@@ -8382,7 +7897,17 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     height: 60px;
     border-radius: 100%;
 }
-
+.wuju-show-bbs-box-content li .left no-img,.wuju-bbs-single-header-info .avatar no-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    display: inline-block;
+    font-size: 18px;
+    background-color: #076ec0;
+    color: #fff;
+    text-align: center;
+    line-height: 60px;
+}
 .full .wuju-show-bbs-box-content li {
     width: calc((100% - 60px)/4);
 }
@@ -8394,8 +7919,54 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 
 
-.wuju-follow-bbs-form .layui-layer-content {
-    overflow: hidden !important;
+
+.wuju-bbs-single-header-info .avatar no-img {
+    border-radius: 6px;
+}
+.wuju-single-left-bar li.bbs-avatar no-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: inline-block;
+    font-size: 14px;
+    background-color: #076ec0;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+}
+.wuju-follow-bbs-content li no-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 30px;
+    background-color: #076ec0;
+    color: #fff;
+    text-align: center;
+    line-height: 90px;
+}
+.wuju-widget-bbs-info-avatar no-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 6px;
+    display: inline-block;
+    font-size: 24px;
+    background-color: #076ec0;
+    color: #fff;
+    text-align: center;
+    line-height: 100px;
+}
+.wuju-bbs-child-setting-avatar no-img,.wuju-topic-setting-avatar no-img{
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    background-color: #076ec0;
+    color: #fff;
+    text-align: center;
+    line-height: 80px;
 }
 .wuju-show-bbs-box-content li .bottom span {
     margin-left: 10px;
@@ -8449,22 +8020,23 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 
 
-/*话题中心*/
+/*话题广场*/
+
+/*.wuju-show-topic-content {
+    padding: 20px;
+}*/
 .wuju-show-topic-content .layui-tab {
     margin: 0;
 }
 .wuju-show-topic-content .layui-tab-title {
-    padding: 8px 0 0 0;
-    border-radius: var(--wuju-border-radius);
-    white-space: break-spaces;
-    height: inherit !important;
-    border-bottom: none;
-}
-.wuju-show-topic-content .layui-tab-title li {
-    margin-right: 10px;
     background-color: #fff;
-    border-radius: 4px;
-    margin-bottom: 10px;
+    display: flex;
+    padding: 8px;
+    border-radius: var(--wuju-border-radius);
+}
+.wuju-show-topic-content .layui-tab-title li{
+    flex: 1;
+    margin-right: 10px;
 }
 .wuju-show-topic-content .layui-tab-title li:last-child{
     margin-right: 0px;
@@ -8481,10 +8053,10 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     max-width: 100%;
 }
 .wuju-topic-list li {
-    width: calc((100% - 60px)/4);
+    width: 23%;
     float: left;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin-right: 2.6666666%;
+    margin-bottom: 2%;
     height: 287px;
     background-color: #fff;
     position: relative;
@@ -8515,7 +8087,17 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     border: 1px solid #ddd;
     background-color: #fff;
 }
-
+.wuju-topic-list li .images no-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #f7584d;
+    display: inline-block;
+    color: #fff;
+    font-size: 36px;
+    line-height: 80px;
+}
 .wuju-topic-list li .name {
     font-size: 21px;
     overflow: hidden;
@@ -8527,7 +8109,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-topic-list li .desc {
     font-size: 13px;
     line-height: 25px;
-    color: #999;
+    color: #333;
     margin-bottom: 10px;
     height: 50px;
     display: -webkit-box;
@@ -8538,10 +8120,11 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-topic-list li .follow {
     border-radius: 40px;
     color: #fff;
-    background-color: var(--wuju-color);
+    background-color: #42c02e;
     width: 100px;
     padding: 8px 0;
     font-size: 16px;
+    border: 1px solid #42c02e;
     display: inline-block;
     cursor: pointer;
 }
@@ -8587,7 +8170,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     cursor: pointer;
     text-align: center;
     line-height: 46px;
-    z-index: 1;
 }
 .wuju-reward-close i {
     font-size: 28px;
@@ -8595,11 +8177,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 .wuju-reward-avatar {
     text-align: center;
-    position: relative;
-}
-.wuju-reward-avatar>i {
-    left: 50%;
-    margin-left: 20px;
 }
 .wuju-reward-avatar img {
     border-radius: 100px;
@@ -8628,7 +8205,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 .wuju-reward-money m {
     color: #FBD776;
-    font-size: 44px;
+    font-size: 60px;
 }
 .wuju-reward-money i {
     color: #FBD776;
@@ -8662,7 +8239,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     background: 0;
     border: 0;
     color: #FBD776;
-    font-size: 44px;
+    font-size: 60px;
     text-align: center;
     width: 155px;
 }
@@ -8675,23 +8252,6 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-redbag-icon:before,.redbag_icon:before {
     content: "\e6c8";
 }
-.wuju-gift-icon {
-    font-family: "wuju-icon"!important;
-    font-size: 18px;
-    margin-right: 2px;
-    color: #ff69a0;
-}
-.wuju-gift-icon:before {
-    content: "\e6f5";
-}
-.wuju-post-comment-list li .gift img {
-    width: 50px;
-    height: 50px;
-    margin-left: 10px;
-    vertical-align: -5px;
-}
-
-
 .wuju-single-reward-btn {
     text-align: center;
     margin: 20px auto;
@@ -8728,6 +8288,24 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 .wuju-publish-type-form li p {
     line-height: 28px;
+}
+.wuju-publish-type-form li.words span {
+    background-color: #f48924;
+}
+.wuju-publish-type-form li.music span {
+    background-color: #ff4f81;
+}
+.wuju-publish-type-form li.video span {
+    background-color: #009fe3;
+}
+.wuju-publish-type-form li.single span {
+    background-color: #5fb878;
+}
+.wuju-publish-type-form li.bbs span {
+    background-color: #9E9E9E;
+}
+.wuju-publish-type-form li.redbag span {
+    background-color: #e94658;
 }
 
 /*动态表单*/
@@ -8812,10 +8390,8 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-publish-words-btn {
     display: flex;
     clear: both;
-    font-size: 16px;
-}
-.pop .wuju-publish-words-btn,.wuju-publish-form .wuju-publish-words-btn {
     margin-top: 15px;
+    font-size: 16px;
 }
 .wuju-publish-words-btn .cancel {
     background-color: #c6c6c6;
@@ -8886,9 +8462,9 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     height: 36px;
     line-height: 36px;
     box-sizing: border-box;
-    border: 1px solid #e3e3e3;
+    border: 1px solid #e1e1e1;
     padding: 10px;
-    border-radius: 4px;
+    font-size: 16px;
 }
 .wuju-publish-topic-content {
     margin-top: 10px;
@@ -8953,15 +8529,11 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     margin-top: 10px;
     display: inline-block;
     margin-right: 16px;
-    color: #999;
+    color: #808080;
     cursor: pointer;
-    padding: 6px 10px;
-    background-color: #f1f1f1;
-    border-radius: 20px;
 }
 .wuju-publish-words-topic span:hover {
-    color: #fff;
-    background-color: #ccc;
+    color: #000;
 }
 .wuju-publish-words-topic.bbs {
     margin-bottom: 15px;
@@ -8969,32 +8541,30 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 
 /*选择权限表单*/
-.wuju-publish-power-content {
-    padding: 10px;
-}
 .wuju-publish-power-content li {
-    padding: 10px 20px;
+    padding: 10px 15px;
     cursor: pointer;
-    color: #666;
-    font-size: 16px;
-    float: left;
-    width: 33.33%;
-    box-sizing: border-box;
-    margin: 10px 0;
-    border-radius: 4px;
-    text-align: center;
 }
 .wuju-publish-power-content li:hover {
     background-color: #ededed;
 }
-.wuju-publish-power-content li i {
-    font-size: 24px;
+.wuju-publish-power-content li .left {
+    float: left;
     margin-right: 10px;
 }
-.wuju-publish-power-content li span {
-    vertical-align: 3px;
+.wuju-publish-power-content li .left i {
+    font-size: 43px;
+    color: #777;
 }
-
+.wuju-publish-power-content li .right {
+    float: left;
+}
+.wuju-publish-power-content li .right .name {
+    font-size: 18px;
+}
+.wuju-publish-power-content li .right .desc {
+    color: #999;
+}
 
 .wuju-publish-words-power-content {
     margin-top: 10px;
@@ -9012,11 +8582,10 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 .wuju-publish-words-power.single textarea {
     height: 200px;
 }
-.wuju-publish-words-power .price, .wuju-publish-words-power .password, .wuju-publish-words-power .number {
+.wuju-publish-words-power .price, .wuju-publish-words-power .password {
     padding: 8px;
     border: 1px solid #e1e1e1;
     border-radius: 2px;
-    width: 150px;
 }
 .wuju-publish-words-power-content>span .layui-form-switch {
     margin-top: 0;
@@ -9025,12 +8594,11 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     margin-top: 5px;
     margin-left: 5px;
 }
-.wuju-publish-words-power-content>span>i, .wuju-publish-words-power-content>i {
+.wuju-publish-words-power-content>span>i,.wuju-publish-words-power-content>i {
     font-size: 12px;
     margin-left: 5px;
     font-style: normal;
     color: #999;
-    margin-right: 5px;
 }
 .wuju-publish-words-image li .bar {
     position: absolute;
@@ -9084,7 +8652,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
 }
 .wuju-pay-form .time {
     border-bottom: 1px solid #f7f7f7;
-    margin: 10px 0;
+    margin: 10px;
     padding-bottom: 10px;
 }
 .wuju-pay-form .time span {
@@ -9109,21 +8677,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     margin: 0 5px;
 }
 .wuju-pay-form .right .top {
-    padding: 20px 0 10px;
-}
-.wuju-pay-form .right .vip-tips {
-    color: #d75e57;
-    background-color: #fff1f0;
-    border: 1px solid #ffa39e;
-    margin-left: 20px;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    height: 40px;
-    line-height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 40px 0 10px;
 }
 .wuju-pay-form .right .tips a {
     color: #2d64b3;
@@ -9136,7 +8690,7 @@ figure.effect-ming:hover figcaption::before, figure.effect-ming:hover p {
     margin-top: 5px;
 }
 .wuju-pay-form .right .top p {
-    margin-top: 20px;
+    margin-bottom: 10px;
     font-size: 16px;
 }
 .wuju-pay-form .right .top p:first-child {
@@ -9400,8 +8954,8 @@ span.aplayer-thumb {
     border-radius: 100%;
 }
 .wuju-mycredit-credit-info .credit {
-    font-size: 16px;
-    margin-bottom: 20px;
+    font-size: 18px;
+    margin-bottom: 15px;
 }
 .wuju-mycredit-credit-info .credit span {
     color: #fe7f3e;
@@ -9412,10 +8966,13 @@ span.aplayer-thumb {
     color: #fe7f3e;
 }
 .wuju-mycredit-credit-info .credit n {
-    margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 5px;
+    color: #555;
 }
 .wuju-mycredit-credit-info .credit m {
-    color: #d55249;
+    color: #999;
 }
 .wuju-mycredit-credit-type {
     display: flex;
@@ -9423,10 +8980,10 @@ span.aplayer-thumb {
 .wuju-mycredit-credit-type li {
     text-align: center;
     flex: 1;
-    padding: 10px 0;
+    padding: 10px;
     color: #fff;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 1px;
 }
 .wuju-mycredit-credit-type .recharge {
     background-color: #46c47c;
@@ -9438,9 +8995,6 @@ span.aplayer-thumb {
 }
 .wuju-mycredit-credit-type .withdrawals {
     background-color: #fa9e3b;
-}
-.wuju-mycredit-credit-type .recharge.money {
-    background-color: #d55249;
 }
 .wuju-mycredit-user-info .vip {
     margin-top: 10px;
@@ -9585,7 +9139,7 @@ span.aplayer-thumb {
     float: left;
     text-align: center;
     padding: 10px;
-    border: 1px solid #eee;
+    border: 1px solid #f2f2f2;
     margin-right: 1.3333%;
     box-sizing: border-box;
     cursor: pointer;
@@ -9596,61 +9150,22 @@ span.aplayer-thumb {
 .wuju-credit-recharge-number li .top {
     padding: 30px 0;
     border-bottom: 1px solid #f2f2f2;
-    height: 30px;
-}
-.wuju-credit-recharge-number li .top z {
-    display: block;
-    font-size: 12px;
-    margin-top: 10px;
-    color: #ff682d;
 }
 .wuju-credit-recharge-number li .top span {
+    vertical-align: -5px;
+    margin-right: 5px;
+}
+.wuju-credit-recharge-number li .top i {
+    font-style: normal;
     font-size: 16px;
 }
 .wuju-credit-recharge-number li .bottom {
     padding-top: 10px;
     font-size: 16px;
 }
-.wuju-credit-recharge-number li .bottom m {
-    font-size: 18px;
-    color: #ff5722;
-}
 .wuju-credit-recharge-number li .bottom i {
     font-style: normal;
-    color: #666;
-    font-size: 12px;
 }
-.wuju-credit-recharge-number li .commend-icon {
-    position: absolute;
-    top: -6px;
-    left: -5px;
-}
-.wuju-credit-recharge-number li .commend-icon i {
-    font-size: 47px;
-    color: #ff5722;
-}
-.wuju-credit-recharge-number li.on{
-    background-color: #f9fffa;  
-}
-.wuju-recharge-money-input {
-    margin-bottom: 30px;
-}
-.wuju-recharge-money-input>div {
-    display: flex;
-    margin-top: 10px;
-}
-.wuju-recharge-money-input input {
-    width: 200px;
-    padding: 6px;
-    box-sizing: border-box;
-    border-radius: 4px;
-    border: 1px solid #eee;
-    font-size: 20px;
-}
-.wuju-recharge-money-input input:focus {
-    border-color: var(--wuju-color);
-}
-
 .wuju-credit-recharge-number li:nth-child(4n),.wuju-send-gift-form li:nth-child(4n) {
     margin-right: 0;
 }
@@ -9660,14 +9175,14 @@ span.aplayer-thumb {
 .wuju-credit-recharge-number li.on n,.wuju-send-gift-form li.on n {
     display: inline-block;
 }
-.wuju-credit-recharge-number li n, .wuju-send-gift-form li n {
+.wuju-credit-recharge-number li n,.wuju-send-gift-form li n {
     position: absolute;
-    right: -1px;
+    right: 0;
     width: 0;
     height: 0;
     border-top: 25px solid var(--wuju-color);
     border-left: 25px solid transparent;
-    top: -1px;
+    top: 0;
     display: none;
 }
 .wuju-credit-recharge-number li n i,.wuju-send-gift-form li n i {
@@ -9691,14 +9206,14 @@ span.aplayer-thumb {
     width: 24%;
     float: left;
     text-align: center;
-    padding: 8px 0;
+    padding: 8px;
     border: 1px solid #f2f2f2;
     margin-right: 1.3333%;
     box-sizing: border-box;
     cursor: pointer;
     margin-top: 10px;
     border-radius: 2px;
-    line-height: 24px;
+    height: 45px;
 }
 .wuju-credit-recharge-type li.on {
     border-color: var(--wuju-color);
@@ -9708,12 +9223,12 @@ span.aplayer-thumb {
 }
 .wuju-credit-recharge-type li n {
     position: absolute;
-    right: -1px;
+    right: 0;
     width: 0;
     height: 0;
     border-top: 25px solid var(--wuju-color);
     border-left: 25px solid transparent;
-    top: -1px;
+    top: 0;
     display: none;
 }
 .wuju-credit-recharge-type li.on n{
@@ -9721,18 +9236,18 @@ span.aplayer-thumb {
 }
 .wuju-credit-recharge-type li n i {
     position: absolute;
-    top: -28px;
+    top: -25px;
     right: 0;
     color: #ffffff;
 }
+.wuju-credit-recharge-type li>span {
+    font-size: 16px;
+}
 .wuju-credit-recharge-type li>i {
-    font-size: 18px;
+    font-size: 24px;
     vertical-align: -2px;
     margin-right: 5px;
     color: #00a7ff;
-}
-.wuju-credit-recharge-type li>i.wuju-balance {
-    color: #dd3333;
 }
 .wuju-credit-recharge-btn, .wuju-send-gift-btn {
     margin-top: 20px;
@@ -9744,9 +9259,6 @@ span.aplayer-thumb {
     cursor: pointer;
     font-size: 16px;
     border-radius: 4px;
-}
-.wuju-credit-recharge-btn i {
-    font-style: normal;
 }
 .wuju-credit-recharge-type li.wechat>i,.wuju-credit-recharge-type li.xunhu-wechat>i {
     color: #41b035;
@@ -9774,13 +9286,8 @@ span.aplayer-thumb {
     color: #41b035;
 }
 .wuju-wechatpay-code-content p:nth-child(3) {
-    font-size: 26px;
+    font-size: 30px;
     color: #333;
-}
-.wuju-wechatpay-code-content p.small {
-    font-size: 16px;
-    margin-top: 30px;
-    color: #666;
 }
 .wuju-recharge-type li.creditpay span:first-child {
     margin-right: 15px;
@@ -9795,15 +9302,16 @@ span.aplayer-thumb {
     font-size: 20px;
     vertical-align: -1px;
 }
-.wuju-credit-recharge-number.vip li .top .wuju-icon {
+.wuju-credit-recharge-number.vip li .top span.wuju-icon {
     color: #f44336;
     font-size: 25px;
     vertical-align: -5px;
 }
 .wuju-credit-recharge-type li.credit>i {
     color: #fe7f3e;
-    vertical-align: 0px;
-    font-size: 16px;
+}.wuju-send-gift-content .credit>div
+.wuju-credit-recharge-type li.credit>i {
+    vertical-align: -4px;
 }
 .wuju-keypay-tips{
     margin-bottom: 10px;
@@ -10049,7 +9557,231 @@ span.aplayer-thumb {
 }
 
 
-/*内容排序小工具*/
+/*排行榜*/
+.wuju-ranking-page {
+    border-radius: var(--wuju-border-radius);
+}
+.wuju-ranking-page .left {
+    width: 150px;
+    float: left;
+    text-align: center;
+    border: 1px solid var(--wuju-color);
+    box-sizing: border-box;
+    border-radius: var(--wuju-border-radius);
+}
+.wuju-ranking-page .left>div {
+    width: 150px !important;
+    padding-bottom: 0 !important;
+}
+.wuju-ranking-page .left li {
+    line-height: 50px;
+    cursor: pointer;
+    position: relative;
+    opacity: .999;
+}
+.wuju-ranking-page .left li:first-child.on {
+    border-radius: var(--wuju-border-radius) var(--wuju-border-radius) 0 0;
+}
+.wuju-ranking-page .left li:last-child.on {
+    border-radius: 0 0 var(--wuju-border-radius) var(--wuju-border-radius);
+}
+.wuju-ranking-page .left li.on,.wuju-ranking-page .left li:hover {
+    background-color: var(--wuju-color);
+    color: #fff;
+    font-size: 16px;
+}
+
+
+
+.wuju-ranking-page .right {
+    float: left;
+    width: calc(100% - 170px);
+    margin-left: 20px;
+}
+.wuju-ranking-page-top {
+    display: flex;
+}
+.wuju-ranking-page-top li {
+    margin-right: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding-bottom: 20px;
+    position: relative;
+    border: 3px solid #f5f5f5;
+    width: calc((100% - 60px)/4);
+}
+.wuju-ranking-page-top li:nth-child(4n),.wuju-ranking-page-bottom li:nth-child(4n) {
+    margin-right: 0;
+}
+.wuju-ranking-page-top a, .wuju-ranking-page-top .btn {
+    position: relative;
+    z-index: 1;
+    display: block;
+}
+.wuju-ranking-page-top li .bg {
+    background-size: cover;
+    height: 80px;
+    position: relative;
+    background-position: center;
+    border-radius: 8px 8px 0 0;
+}
+.wuju-ranking-page-top li .avatarimg {
+    margin-top: -30px;
+    position: relative;
+}
+.wuju-ranking-page-top li .avatarimg img {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    border: 2px solid #fff;
+}
+.wuju-ranking-page-top li .name {
+    margin: 10px;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.wuju-ranking-page-top li:before {
+    width: 0;
+    height: 100%;
+    border-width: 3px 0px 3px 0px;
+    top: -3px;
+    left: 0px;
+    content: '';
+    border-style: solid;
+    position: absolute;
+    border-radius: 8px;
+    box-sizing: content-box;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.wuju-ranking-page-top li:hover:before {
+    width: 100%;
+}
+.wuju-ranking-page-top li:after {
+    width: 100%;
+    height: 0;
+    border-width: 0 3px 0 3px;
+    top: 0;
+    left: -3px;
+    content: '';
+    border-style: solid;
+    position: absolute;
+    border-radius: 8px;
+    box-sizing: content-box;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.wuju-ranking-page-top li:hover:after {
+    height: 100%;
+}
+.wuju-ranking-page-top li .rank {
+    display: block;
+    color: #fff;
+    padding: 4px;
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 1;
+    border-radius: 8px 8px 0 0;
+}
+.wuju-ranking-page-top li.one .rank {
+    background-color: rgba(231, 76, 60, 0.4);
+}
+.wuju-ranking-page-top li.two .rank {
+    background-color: rgba(52, 152, 219, 0.4);
+}
+.wuju-ranking-page-top li.three .rank {
+    background-color: rgba(46, 204, 113, 0.4);
+}
+.wuju-ranking-page-top li.four .rank {
+    background-color: rgba(205, 220, 57, 0.4);
+}
+
+.wuju-ranking-page-top li.one:before,.wuju-ranking-page-top li.one:after {
+    border-color: #e74c3c;
+}
+.wuju-ranking-page-top li.two:before,.wuju-ranking-page-top li.two:after {
+    border-color: #3498db;
+}
+.wuju-ranking-page-top li.three:before,.wuju-ranking-page-top li.three:after {
+    border-color: #2ecc71;
+}
+.wuju-ranking-page-top li.four:before,.wuju-ranking-page-top li.four:after {
+    border-color: #CDDC39;
+}
+
+
+.wuju-ranking-page-top li .number {
+    margin: 10px;
+    color: #999;
+    font-size: 16px;
+}
+
+.wuju-ranking-page-bottom li {
+    float: left;
+    margin-right: 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border: 1px solid #f5f5f5;
+    padding: 5px;
+    border-radius: var(--wuju-border-radius);
+    width: calc((100% - 60px)/4);
+}
+.wuju-ranking-page-bottom li a{
+    display: flex;
+}
+.wuju-ranking-page-bottom li:hover {
+    border-color: var(--wuju-color);
+}
+.wuju-ranking-page-bottom li .rank {
+    width: 30px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 14px;
+    color: #999;
+}
+.wuju-ranking-page-bottom li .avatarimg {
+    margin-right: 8px;
+    position: relative;
+}
+.wuju-ranking-page-bottom li .avatarimg img {
+    width: 38px;
+    height: 38px;
+    border-radius: 100%;
+}
+.wuju-ranking-page-bottom li .info .number {
+    color: #999;
+}
+.wuju-ranking-page-bottom li .info .name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 110px;
+    height: 19px;
+    line-height: 19px;
+}
+.wuju-ranking-page-top li .avatarimg .wuju-verify {
+    left: 50%;
+    margin-left: 12px;
+}
+.wuju-ranking-page-top li .btn .follow.has {
+    background-color: #999;
+}
+.wuju-ranking-page-top li .btn .follow {
+    background-color: #2eb354;
+    padding: 6px 20px;
+    border-radius: 2px;
+    font-size: 15px;
+    color: #fff;
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+
 
 .wuju-content-sort {
     display: flex;
@@ -10132,14 +9864,8 @@ span.aplayer-thumb {
 }
 .wuju-send-gift-form li .bottom {
     padding-top: 10px;
+    font-size: 16px;
     word-break: keep-all;
-    font-size: 18px;
-    color: #ff5722;
-}
-.wuju-send-gift-form li .bottom>span {
-    font-size: 12px;
-    color: #666;
-    margin-left: 5px;
 }
 .wuju-send-gift-form li .top .name {
     color: #666;
@@ -10168,9 +9894,9 @@ span.aplayer-thumb {
     display: flex;
 }
 .wuju-send-gift-content .credit i {
-    margin: 0 4px 0 10px;
-    vertical-align: -1px;
-    font-size: 16px;
+    margin: 0 10px 0 2px;
+    vertical-align: -3px;
+    font-size: 20px;
 }
 .wuju-send-gift-content .credit span {
     color: #F44336;
@@ -10195,7 +9921,7 @@ span.aplayer-thumb {
     padding: 0 10px 0;
 }
 .wuju-widget-single-video-list li {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     position: relative;
 }
 .wuju-widget-single-video-list li a {
@@ -10203,7 +9929,7 @@ span.aplayer-thumb {
 }
 .wuju-widget-single-video-list li .cover {
     width: 100px;
-    height: 70px;
+    height: 63px;
     margin-right: 10px;
     overflow: hidden;
     border-radius: 2px;
@@ -10227,14 +9953,11 @@ span.aplayer-thumb {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-height: 22px;
-    color: #18191a;
-    font-size: 13px;
 }
 .wuju-widget-single-video-list li .info .desc {
     font-size: 12px;
     color: #999;
     display: flex;
-    margin-top: 6px;
 }
 .wuju-widget-single-video-list li .info .desc span {
     margin-right: 10px;
@@ -10346,41 +10069,6 @@ span.aplayer-thumb {
 .wuju-widget-single-video-list li .info .desc span i {
     color: #ccc;
 }
-.wuju-widget-single-video-list.no-img li {
-    border-radius: 2px;
-    margin-bottom: 12px;
-}
-.wuju-widget-single-video-list.no-img li a {
-    display: block;
-    line-height: 24px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.wuju-widget-single-video-list.no-img li i {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: #ddd;
-    border-radius: 4px;
-    color: #fff;
-    text-align: center;
-    font-size: 12px;
-    font-style: normal;
-    line-height: 20px;
-    margin-right: 8px;
-}
-.wuju-widget-single-video-list.no-img li:nth-child(1) i {
-    background-color: #f86262;
-}
-.wuju-widget-single-video-list.no-img li:nth-child(2) i {
-    background-color: #ff8547;
-}
-.wuju-widget-single-video-list.no-img li:nth-child(3) i {
-    background-color: #ffac38;
-}
-
-
 
 
 .wuju-widget-slider img {
@@ -10390,58 +10078,47 @@ span.aplayer-thumb {
 .wuju-widget-slider .layui-carousel-ind ul{
     background-color: rgba(0,0,0,0);
 }
+
 .wuju-follow-bbs-content {
-    padding: 0 20px 20px 5px;
-    overflow-y: auto;
-    height: 100%;
-    box-sizing: border-box;
+    padding: 20px 20px 0;
 }
 .wuju-follow-bbs-content li {
-    display: flex;
+    float: left;
+    text-align: center;
+    width: 90px;
+    box-sizing: border-box;
     margin-bottom: 20px;
+    margin-right: 20px;
     cursor: pointer;
-    align-items: center;
-}
-.wuju-follow-bbs-content li .avatarimg {
-    margin-right: 10px;
-}
-.wuju-follow-bbs-content li img {
-    width: 60px;
-    height: 60px;
-    border-radius: 4px;
 }
 .wuju-follow-bbs-content li .name {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-.wuju-follow-bbs-content li .desc {
-    color: #999;
-    font-size: 13px;
-    height: 35px;
+    margin-top: 8px;
+    text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap;
 }
-.wuju-follow-bbs-content li .info {
-    flex: 1;
-}
-.wuju-follow-bbs-content li .btn {
-    width: 60px;
-    text-align: center;
-    background-color: var(--wuju-color);
-    color: #fff;
-    padding: 6px 10px;
+.wuju-follow-bbs-content li img {
+    width: 100%;
+    height: 100%;
     border-radius: 4px;
-    margin-left: 20px;
 }
-.wuju-bbs-publish-list-form .layui-layer-content {
-    max-height: 550px;
-    padding: 20px;
+.wuju-follow-bbs-content li .img {
+    height: 90px;
+    width: 90px;
+}
+.wuju-follow-bbs-content li:nth-child(5n) {
+    margin-right: 0;
+}
+.wuju-follow-bbs-content .wuju-empty-page {
+    margin-bottom: 20px;
+}
+.wuju-follow-bbs-content .tips {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #999;
 }
 .wuju-select-honor-form .layui-layer-content {
     padding: 20px;
-    height: initial !important;
-}
-.wuju-send-gift-form .layui-layer-content {
-    height: initial !important;
 }
 .wuju-user_honor-select-form .tips {
     text-align: center;
@@ -10492,7 +10169,6 @@ span.aplayer-thumb {
 .wuju-video-header-banner .left {
     flex: 1;
     border-radius: var(--wuju-border-radius);
-    overflow: hidden;
 }
 .wuju-video-header-banner video {
     border-radius: var(--wuju-border-radius);
@@ -10511,7 +10187,6 @@ span.aplayer-thumb {
     border-radius: var(--wuju-border-radius);
     cursor: pointer;
     box-sizing: border-box;
-    border: 2px solid rgba(255, 0, 0, 0);
 }
 .wuju-video-header-banner .right li:nth-child(2n){
     margin-right:0;
@@ -10531,6 +10206,7 @@ span.aplayer-thumb {
 .wuju-video-header-banner .right li p {
     position: absolute;
     bottom: 0;
+    color: #fff;
     line-height: 26px;
     font-size: 12px;
     font-weight: 600;
@@ -10546,9 +10222,6 @@ span.aplayer-thumb {
     background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.54));
     background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.54));
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.54));
-}
-.wuju-video-header-banner .right li p a {
-    color: #fff;
 }
 .wuju-video-header-banner .right li.on .shadow, .wuju-video-header-banner .right li:hover .shadow {
     opacity: 0;
@@ -10571,30 +10244,11 @@ span.aplayer-thumb {
 .wuju-video-box .header .title {
     height: 25px;
     line-height: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     float: left;
-}
-.wuju-video-box .header .title .text {
     font-size: 23px;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.87);
-    float: left;
-    margin-right: 20px;
-}
-.wuju-video-box .header .title .subtitle {
-    float: left;
-    font-size: 15px;
-}
-.wuju-video-box .header .title .subtitle span.on, .wuju-video-box .header .title .subtitle span:hover {
-    background-color: var(--wuju-color);
-    color: #fff;
-}
-.wuju-video-box .header .title .subtitle span {
-    display: inline-block;
-    margin: 0 5px;
-    padding: 0px 10px;
-    border-radius: 20px;
-    cursor: pointer;
 }
 .wuju-video-box .header .more {
     color: #999;
@@ -10711,7 +10365,6 @@ span.aplayer-thumb {
     padding: 0 12px 12px;
     font-size: 12px;
     color: rgba(0, 0, 0, 0.54);
-    height: 20px;
 }
 .wuju-video-box .content li .bottom img {
     width: 20px;
@@ -10818,16 +10471,16 @@ span.aplayer-thumb {
     line-height: 32px;
     font-weight: 500;
     border-radius: 20px;
-    background-color: #5fb878;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,.2);
+    background-color: #2eb354;
     border: none;
     color: #fff;
     font-size: 14px;
     text-align: center;
     cursor: pointer;
     margin-right: 50px;
-    display: inline-block;
 }
-.wuju-single-video-author-info .follow.had {
+.wuju-single-video-author-info .follow.has {
     background-color: #aaa;
 }
 .wuju-single-video-author-info .wuju-post-setting>i:hover {
@@ -10887,9 +10540,7 @@ span.aplayer-thumb {
     font-size: 24px;
 }
 .swiper-text h2 {
-    font-size: 32px;
-    font-weight: normal;
-    margin-bottom: 10px;
+    font-size: 38px;
 }
 .swiper-pagination .swiper-pagination-bullet {
     background: rgba(255,255,255,.35);
@@ -10910,9 +10561,6 @@ span.aplayer-thumb {
 
 
 /*文章专题*/
-.wuju-single-special-content .wuju-main-content {
-    padding-top: 20px;
-}
 .wuju-single-special-slider {
     position: relative;
     border-radius: var(--wuju-border-radius);
@@ -11059,12 +10707,11 @@ span.aplayer-thumb {
     flex: 1;
 }
 /*第六种布局*/
-.wuju-single-special-header.six .wuju-single-special-slider {
+.wuju-single-special-header.six .wuju-single-special-slider{
     width: 100% !important;
-    margin-right: 0 !important;
 }
 .wuju-single-special-header.six {
-    padding: 20px 20px 0;
+    padding: 20px;
     background-color: inherit;
 }
 /*第七种布局*/
@@ -11136,7 +10783,6 @@ span.aplayer-thumb {
     margin: -90px auto 0;
     position: relative;
     z-index: 1;
-    width: var(--wuju-width);
 }
 .wuju-single-special-header.ten .ten-list li {
     flex: 1;
@@ -11149,54 +10795,6 @@ span.aplayer-thumb {
     display: none;
 }
 
-/*第十一种布局*/
-.wuju-single-special-header.oneone .right {
-    flex: 1;
-}
-.wuju-single-special-header.oneone .right li:nth-child(3n) {
-    margin-right: 0;
-}
-.wuju-single-special-header.oneone .right li {
-    width: calc((100% - 30px)/3);
-    height: calc((100% - 15px)/2);
-    margin-bottom: 15px;
-    float: left;
-    margin-right: 15px;
-    border-radius: 4px;
-}
-/*第十二种布局*/
-.wuju-single-special-header.onetwo .right {
-    flex: 1;
-}
-.wuju-single-special-header.onetwo .right li:nth-child(4n) {
-    margin-right: 0;
-}
-.wuju-single-special-header.onetwo .right li {
-    width: calc((100% - 45px)/4);
-    height: calc((100% - 15px)/2);
-    margin-bottom: 15px;
-    float: left;
-    margin-right: 15px;
-    border-radius: 4px;
-}
-/*第十三种布局*/
-.wuju-single-special-header.onethree .right {
-    flex: 1;
-}
-.wuju-single-special-header.onethree .right li:nth-child(5n) {
-    margin-right: 0;
-}
-.wuju-single-special-header.onethree .right li {
-    width: calc((100% - 60px)/5);
-    height: calc((100% - 15px)/2);
-    margin-bottom: 15px;
-    float: left;
-    margin-right: 15px;
-    border-radius: 4px;
-}
-
-
-
 
 .wuju-single-special-box {
     margin-bottom: 20px;
@@ -11207,24 +10805,6 @@ span.aplayer-thumb {
 .wuju-single-special-box-header.two {
     margin-bottom: 0;
 }
-
-.wuju-single-special-box-header .more a {
-    color: #999;
-}
-.wuju-single-special-box-header .more:hover a{
-    color: #333;
-}
-.wuju-single-special-box-header .more {
-    float: right;
-    margin-top: 10px;
-}
-.wuju-single-special-box-header.two .more {
-    float: right;
-    font-size: 18px;
-    margin-top: 4px;
-}
-
-
 .wuju-single-special-box:last-child {
     margin-bottom: 0;
 }
@@ -11266,7 +10846,6 @@ span.aplayer-thumb {
     border-radius: 4px;
     position: relative;
     cursor: pointer;
-    background-color: #fff;
 }
 .wuju-single-special-box-header.five li {
     float: left;
@@ -11322,7 +10901,7 @@ span.aplayer-thumb {
     transition: all .3s ease;
     border-radius: var(--wuju-border-radius);
 }
-.wuju-single-special-box-content.one li:nth-child(3n),.wuju-single-special-box-content.two li:nth-child(3n),.wuju-single-special-box-content.user li:nth-child(4n) {
+.wuju-single-special-box-content.one li:nth-child(3n),.wuju-single-special-box-content.two li:nth-child(3n),.wuju-single-special-box-content.user li:nth-child(3n) {
     margin-right: 0;
 }
 .wuju-single-special-box-content.one li:hover, .wuju-single-special-box-content.two li:hover ,.wuju-single-special-box-content.user li:hover {
@@ -11395,22 +10974,17 @@ span.aplayer-thumb {
 }
 
 /*内容样式1==全屏*/
-.full .wuju-single-special-box-content.one li,.full .wuju-single-special-box-content.two li {
-    width: calc((100% - 40px)/5);
+.full .wuju-single-special-box-content.one li,.full .wuju-single-special-box-content.two li,.full .wuju-single-special-box-content.user li {
+    width: calc((100% - 30px)/4);
 }
-.full .wuju-single-special-box-content.one li:nth-child(3n),.full .wuju-single-special-box-content.two li:nth-child(3n),.full .wuju-single-special-box-content.user li:nth-child(4n) {
+.full .wuju-single-special-box-content.one li:nth-child(3n),.full .wuju-single-special-box-content.two li:nth-child(3n),.full .wuju-single-special-box-content.user li:nth-child(3n) {
     margin-right: 10px;
 }
-.full .wuju-single-special-box-content.one li:nth-child(5n),.full .wuju-single-special-box-content.two li:nth-child(5n),.full .wuju-single-special-box-content.user li:nth-child(5n) {
+.full .wuju-single-special-box-content.one li:nth-child(4n),.full .wuju-single-special-box-content.two li:nth-child(4n),.full .wuju-single-special-box-content.user li:nth-child(4n) {
     margin-right: 0;
 }
 .full .wuju-single-special-box-content.three li.b .cover a {
     height: 200px;
-}
-
-/*用户样式*/
-.full .wuju-single-special-box-content.user li {
-    width: calc((100% - 40px)/5);
 }
 
 
@@ -11520,7 +11094,7 @@ span.aplayer-thumb {
 /*用户样式*/
 .wuju-single-special-box-content.user li {
     background-color: #fff;
-    width: calc((100% - 30px)/4);
+    width: calc((100% - 20px)/3);
     float: left;
     margin-right: 10px;
     margin-bottom: 10px;
@@ -11614,7 +11188,6 @@ span.aplayer-thumb {
     justify-content: center;
     font-size: 20px;
     color: #555;
-    text-align: center;
 }
 
 .wuju-now {
@@ -11698,7 +11271,7 @@ span.aplayer-thumb {
 .wuju-now-content li .follow i {
     vertical-align: -1px;
 }
-.wuju-now-content li .follow.had {
+.wuju-now-content li .follow.has {
     color: #999;
 }
 .wuju-now-content li .content {
@@ -11716,6 +11289,16 @@ span.aplayer-thumb {
     overflow: hidden;
     white-space: nowrap;
     vertical-align: -4px;
+}
+.wuju-now-content li .content m {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    background-color: #2196F3;
+    color: #fff;
+    margin-right: 10px;
+    border-radius: 4px;
 }
 .wuju-now-content .wuju-load {
     display: flex;
@@ -11864,11 +11447,14 @@ span.aplayer-thumb {
 .wuju-black-house-header-html, .wuju-black-house-footer-html {
     color: #fff;
 }
-
-/*提现*/
+/*
+提现*/
+.wuju-cash-form-content {
+    overflow: hidden;
+    white-space: nowrap;
+}
 .wuju-cash-form .layui-layer-content {
     padding: 20px;
-    height: inherit !important;
 }
 .wuju-cash-form-content>div span:first-child {
     margin-right: 15px;
@@ -11882,12 +11468,6 @@ span.aplayer-thumb {
     padding: 8px 6px;
     border-radius: 4px;
     width: 245px;
-}
-.wuju-cash-form-content>div .tips {
-    margin-top: 10px;
-    font-size: 13px;
-    color: #f00;
-    text-align: center;
 }
 .wuju-cash-form-content .number input {
     width: 110px;
@@ -11978,8 +11558,6 @@ span.aplayer-thumb {
 }
 .wuju-post-user-info-name .wuju-top, .wuju-post-user-info-name .wuju-commend-icon {
     vertical-align: inherit;
-    margin-left: 8px;
-    margin-right: 0;
 }
 
 
@@ -12139,8 +11717,6 @@ span.aplayer-thumb {
 /*马甲*/
 .wuju-majia-form-content {
     padding: 30px 20px;
-    overflow-y: auto;
-    height: 430px;
 }
 .wuju-majia-form-content li {
     float: left;
@@ -12186,7 +11762,7 @@ span.aplayer-thumb {
     font-size: 16px;
 }
 .wuju-publish-redbag-form .credit {
-    margin: 10px;
+    margin: 20px;
 }
 .wuju-publish-redbag-form .credit label {
     margin-bottom: 8px;
@@ -12201,11 +11777,11 @@ span.aplayer-thumb {
     box-sizing: border-box;
 }
 .wuju-publish-redbag-form .type {
-    margin: 10px 10px 0;
+    margin: 20px 20px 0;
     display: flex;
 }
 .wuju-publish-redbag-form .tips {
-    margin: 15px 10px;
+    margin: 15px 20px;
     border: 1px solid #ecd2ad;
     background-color: #fff6e9;
     padding: 8px;
@@ -12233,7 +11809,7 @@ span.aplayer-thumb {
     color: #fbe044;
 }
 .wuju-publish-redbag-form textarea {
-    margin: 0 10px 10px;
+    margin: 0 20px 20px;
     width: calc(100% - 40px);
     box-sizing: border-box;
     padding: 10px;
@@ -12242,7 +11818,7 @@ span.aplayer-thumb {
     border: 1px solid #f1f1f1;
 }
 .wuju-publish-redbag-form .btn {
-    margin: 0 10px 10px;
+    margin: 0 20px 20px;
     text-align: center;
     background-color: #e94658;
     color: #fff;
@@ -12252,103 +11828,63 @@ span.aplayer-thumb {
 }
 
 
-.wuju-publish-redbag-form .img-list {
-    margin: 0 10px 10px;
-}
-.wuju-publish-redbag-form .img-list li {
-    width: calc((100% - 30px)/4);
-    height: 90px;
-    margin-right: 10px;
-    background-color: #e94658;
-    margin-bottom: 26px;
-    border-radius: 4px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.4;
-    position: relative;
-    float: left;
-    cursor: pointer;
-}
-.wuju-publish-redbag-form .img-list li:nth-child(4n) {
-    margin-right: 0;
-}
-.wuju-publish-redbag-form .img-list li.on,.wuju-publish-redbag-form .img-list li:hover {
-    opacity: 1;
-}
-.wuju-publish-redbag-form .img-list li p {
-    margin-top: 92px;
-    font-size: 12px;
-    text-align: center;
-    color: #555;
-}
-.wuju-publish-redbag-form .img-list li span {
-    position: absolute;
-    font-size: 12px;
-    background-color: #ffffff;
-    color: #e94658;
-    left: 4px;
-    top: 4px;
-    padding: 0 2px;
-    border-radius: 20px;
-}
-
-
-
 .wuju-post-redbag-content {
-    width: 170px;
-    height: 220px;
+    width: 180px;
+    height: 240px;
     background-color: #e94658;
     border-radius: 10px;
     margin-top: 10px;
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
 }
 .wuju-post-redbag-content .avatarimg {
     height: 80px;
-    background: rgb(199 52 68 / 60%);
+    background: #c73444;
     border-radius: 20px 20px 100% 100%;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
-.wuju-post-redbag-content .avatarimg span {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    background-color: #f3b860;
+.wuju-post-redbag-content .avatarimg img {
+    width: 40px;
+    height: 40px;
     border-radius: 100%;
-    color: #fff;
-    margin-top: 70px;
-}
-.wuju-post-redbag-content .avatarimg span:hover {
-    transform: scale(1.1);
+    left: 50%;
+    position: absolute;
+    margin-left: -20px;
+    bottom: -20px;
+    border: 1px solid #fff;
+    box-sizing: border-box;
 }
 .wuju-post-redbag-content .content {
-    margin: 35px 10px 15px;
+    margin: 35px 20px 15px;
     text-align: center;
     color: #fff;
     line-height: 20px;
-    overflow: hidden;
     height: 40px;
+    overflow: hidden;
 }
 .wuju-post-redbag-content .content p {
     line-height: 20px;
     overflow-wrap: break-word;
 }
-.wuju-post-redbag-content .tips {
+.wuju-post-redbag-content .open {
+    width: 48px;
+    height: 48px;
     text-align: center;
+    background-color: #f3b860;
+    color: #fff;
+    line-height: 48px;
+    border-radius: 100%;
+    margin: auto;
     cursor: pointer;
+    transition: transform 0.3s;
+}
+.wuju-post-redbag-content .had {
+    text-align: center;
+    text-decoration: underline;
     color: #f3ac38;
+    cursor: pointer;
 }
-.wuju-post-redbag-content .tips.no {
-    color: #f78592;
+.wuju-post-redbag-content .open:hover {
+    transform: scale(1.1);
 }
-
 .wuju-get-redbag-content .header {
     background-color: #e94658;
     padding: 20px;
@@ -12356,29 +11892,24 @@ span.aplayer-thumb {
     border-radius: var(--wuju-border-radius) var(--wuju-border-radius) 0 0;
 }
 .wuju-get-redbag-content .header .redbag-desc {
+    color: #fff;
     line-height: 24px;
     overflow-wrap: break-word;
-    color: #ffc8ce;
-    margin-top: 20px;
-}
-.wuju-get-redbag-content .redbag-hr {
-    background: -webkit-linear-gradient(left, rgba(248,215,59,0),#ffeb3b, rgba(248,215,59,0));
-    height: 1px;
 }
 .wuju-get-redbag-my-credit {
     margin: 20px;
     color: #fbe044;
+    font-size: 18px;
 }
 .wuju-get-redbag-content .header .userinfo img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 100%;
     border: 1px solid #fff;
     box-sizing: border-box;
 }
-.wuju-get-redbag-content .header .userinfo .name, .wuju-get-redbag-content .header .userinfo .name font {
+.wuju-get-redbag-content .header .userinfo .name {
     margin-top: 10px;
-    color: #fff;
 }
 .wuju-get-redbag-content .header .userinfo .name a, .wuju-get-redbag-content .header .userinfo .name a font {
     color: #fff !important;
@@ -12410,7 +11941,11 @@ span.aplayer-thumb {
 .wuju-get-redbag-content .list li>.avatarimg img {
     border-radius: 100%;
 }
+.wuju-get-redbag-my-credit n {
+    font-size: 14px;
+}
 .wuju-get-redbag-my-credit i {
+    font-style: normal;
     font-size: 24px;
     margin-right: 8px;
 }
@@ -12424,7 +11959,8 @@ span.aplayer-thumb {
 }
 .wuju-get-redbag-content .header .userinfo>a {
     position: relative;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     display: inline-block;
 }
 .wuju-get-redbag-content .list li>.avatarimg>a {
@@ -12692,9 +12228,6 @@ span.aplayer-thumb {
 
 
 /*转移板块*/
-.wuju-change-bbs-form .layui-layer-content {
-    height: inherit !important;
-}
 .wuju-change-bbs-content {
     padding: 20px;
 }
@@ -12763,2984 +12296,4 @@ span.aplayer-thumb {
     top: 50%;
     margin-left: 0;
     margin-top: -4px;
-}
-
-
-/*全站通知*/
-.wuju-system-notice-form .layui-layer-content {
-    background-color: #eee;
-}
-.wuju-system-notice-content {
-    padding: 15px;
-}
-.wuju-system-notice-content li {
-    border-radius: 6px;
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-.wuju-system-notice-content li .title {
-    font-size: 16px;
-}
-.wuju-system-notice-content li .time {
-    font-size: 12px;
-    color: #999;
-    margin-bottom: 15px;
-    margin-top: 6px;
-}
-.wuju-system-notice-content li .time span:last-child {
-    float: right;
-}
-.wuju-system-notice-content li .content {
-    min-height: 60px;
-    overflow: hidden;
-    line-height: 24px;
-    color: #555;
-}
-.wuju-system-notice-content li .content img {
-    max-width: 100%;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    margin-top: 10px;
-}
-.wuju-system-notice-content li .title i {
-    margin-left: 5px;
-    font-size: 12px;
-    padding: 1px 6px;
-    background-color: #f44336;
-    color: #fff;
-    border-radius: 4px;
-    vertical-align: 1px;
-    font-style: normal;
-}
-.wuju-system-notice-content .more {
-    text-align: center;
-    padding: 10px;
-    background-color: #fff;
-    margin-bottom: 30px;
-    border-radius: 4px;
-    box-shadow: 0px 4px 7px rgba(119, 119, 119, 0.1);
-    cursor: pointer;
-}
-.wuju-apply-bbs-admin-content,.wuju-apply-bbs-content {
-    padding: 20px;
-}
-.wuju-apply-bbs-admin-content .btn,.wuju-apply-bbs-content .btn {
-    margin-top: 10px;
-    text-align: center;
-    background-color: var(--wuju-color);
-    padding: 8px;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-}
-.wuju-apply-bbs-admin-content select {
-    height: 38px;
-}
-.wuju-apply-bbs-admin-content textarea,.wuju-apply-bbs-content textarea {
-    padding: 10px;
-    border-radius: 4px;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #f4f4f4;
-    margin-top: 10px;
-    height: 120px;
-}
-.wuju-apply-bbs-content .title {
-    box-sizing: border-box;
-    border: 1px solid #f4f4f4;
-    width: 100%;
-    padding: 8px;
-    border-radius: 4px;
-}
-
-
-
-/*自营商城*/
-.wuju-shop-main .wuju-content-left {
-    width: calc(100% - 315px);
-}
-.wuju-shop-main .full .wuju-content-left {
-    width: 100%;
-    margin-top: 30px;
-}
-.wuju-shop-main.taxonomy .wuju-main-content {
-    margin-top: 20px;
-}
-.wuju-shop-content li {
-    float: left;
-    width: calc((100% - 45px)/4);
-    background-color: #fff;
-    box-shadow: 0 0 3px #ddd;
-    border-bottom: 1px solid #ddd;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    position: relative;
-    border-radius: 4px;
-}
-.wuju-shop-main .full .wuju-shop-content li {
-    width: calc((100% - 60px)/5);
-}
-.wuju-shop-content li:nth-child(4n) {
-    margin-right: 0;
-}
-.wuju-shop-main .full .wuju-shop-content li:nth-child(4n) {
-    margin-right: 15px;
-}
-.wuju-shop-main .full .wuju-shop-content li:nth-child(5n) {
-    margin-right: 0;
-}
-.wuju-shop-content li .bg {
-    height: 180px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 4px 4px 0 0;
-}
-.full .wuju-shop-content li .bg {
-    height: 200px;
-}
-.wuju-shop-content li h2 {
-    font-size: 16px;
-    padding: 15px 12px 15px;
-    color: #333;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    line-height: 18px;
-    font-weight: normal;
-}
-.wuju-shop-content li .info {
-    padding: 0 12px 12px;
-    color: #999;
-    font-size: 12px;
-}
-.wuju-shop-content li .info span {
-    margin-top: 0;
-}
-.wuju-shop-content li .info span i {
-    font-size: 14px;
-}
-.wuju-shop-content li .info span:first-child {
-    font-size: 18px;
-    color: #e4393c;
-    float: left;
-}
-.wuju-shop-content li .info span:first-child m {
-    font-size: 20px;
-    width: inherit;
-    margin-right: 4px;
-}
-.wuju-shop-content li .info span .yuan {
-    font-size: 12px;
-}
-.wuju-shop-content li .info span:last-child {
-    float: right;
-    margin-top: 5px;
-}
-.wuju-shop-content li .mark,.wuju-goods-single-header .left .views .mark {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 1;
-    cursor: pointer;
-}
-.wuju-shop-content li .mark span,.wuju-goods-single-header .left .views .mark span {
-    padding: 2px 6px;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    margin-right: 5px;
-}
-.wuju-shop-content li .mark span.power,.wuju-goods-single-header .left .views .mark span.power {
-    background-color: #f35b4f;
-}
-.wuju-shop-content li .mark span.ico,.wuju-goods-single-header .left .views .mark span.ico {
-    background-color: #1499f8;
-}
-
-/*样式二*/
-.wuju-shop-content li.two {
-    padding: 6px;
-    box-sizing: border-box;
-    text-align: center;
-    border-radius: 0;
-    box-shadow: 0 0 0;
-    border: 0;
-}
-.wuju-shop-content li.two .bg {
-    border-radius: 0;
-}
-.wuju-shop-content li.two .info span:first-child {
-    float: inherit;
-}
-.wuju-shop-content li.two .info span:last-child {
-    display: none;
-}
-.wuju-shop-content li.two .info span:first-child m {
-    font-size: 14px;
-}
-.wuju-shop-content li.two .mark {
-    left: 15px;
-    top: 15px;
-}
-.wuju-shop-content li.two .mark span {
-    border-radius: 0;
-}
-.wuju-shop-header.two li {
-    border-radius: 0;
-}
-.wuju-shop-content li.two .bg {
-    height: 180px;
-}
-
-
-.wuju-shop-header {
-    display: flex;
-}
-.wuju-shop-header>li {
-    flex: initial;
-    border-radius: 4px;
-    padding: 9px 22px;
-    background-color: #fff;
-    margin: 0 20px 20px 0;
-    line-height: inherit;
-    position: relative;
-    cursor: pointer;
-}
-.wuju-shop-header>li.on, .wuju-shop-header>li:hover {
-    background: var(--wuju-color);
-    color: #fff;
-}
-.wuju-shop-header>li.on:after, .wuju-shop-header>li:hover:after {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 50%;
-    width: 16px;
-    content: '';
-    border-top: 6px solid var(--wuju-color);
-    border-right: 8px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-left: 8px solid transparent;
-    box-sizing: border-box;
-    margin-left: -6px;
-}
-.wuju-shop-content li .info span:first-child n {
-    text-decoration: line-through;
-    font-size: 12px;
-    color: #999;
-}
-
-/*商品模块添加*/
-.box .wuju-shop-header {
-    text-align: center;
-    display: inherit;
-    margin-bottom: 30px;
-}
-.wuju-shop-header .title {
-    padding-bottom: 10px;
-    color: #333;
-    font-size: 24px;
-    line-height: 1;
-}
-.wuju-shop-header .title a{
-    color: #333;
-}
-.wuju-shop-header .subtitle {
-    color: #999;
-}
-.wuju-shop-goods-box {
-    min-height: 340px;
-    margin-bottom: 40px;
-}
-.wuju-shop-header.left {
-    display: flex;
-    width: 100%;
-    margin-bottom: 20px;
-}
-.wuju-shop-header.left .title {
-    padding: 0;
-    text-align: left;
-}
-.wuju-shop-header.left .submenu {
-    text-align: right;
-    flex: 1;
-}
-.wuju-shop-header.left .submenu li {
-    margin-left: 22px;
-    color: #333;
-    font-size: 16px;
-    float: right;
-}
-.wuju-shop-header.left .submenu li:hover a {
-    color: #F44336;
-}
-.wuju-shop-header.left .submenu li a {
-    color: #999;
-}
-.wuju-shop-header.left .subtitle {
-    margin-top: 5px;
-    margin-left: 10px;
-}
-
-
-/*商品详情页面*/
-.wuju-goods-single-header {
-    display: flex;
-    margin-bottom: 10px;
-    position: relative;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 2px;
-    position: relative;
-}
-.wuju-goods-single-header .setting {
-    position: absolute;
-    right: 0px;
-    top: 0;
-    width: 40px;
-    text-align: center;
-    line-height: 40px;
-}
-.wuju-goods-single-header .setting i {
-    font-size: 22px;
-}
-.wuju-goods-single-header .left {
-    flex: 4.5;
-    display: flex;
-    margin-right: 20px;
-}
-.wuju-goods-single-header .right {
-    flex: 5.5;
-}
-.wuju-goods-single-header .left .views {
-    flex: 5;
-    height: 350px;
-    margin-right: 10px;
-    position: relative;
-}
-.wuju-goods-single-header .left .views img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border: 1px solid #ececec;
-    box-sizing: border-box;
-    border-radius: 4px;
-}
-.wuju-goods-single-header .left .list {
-    flex: 1;
-    height: 350px;
-}
-.wuju-goods-single-header .left .list li {
-    height: calc((100% - 30px)/4);
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-.wuju-goods-single-header .left .list li:last-child {
-    margin-bottom: 0;
-}
-.wuju-goods-single-header .left .list li img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border: 2px solid #ececec;
-    box-sizing: border-box;
-    border-radius: 4px;
-}
-.wuju-goods-single-header .left .list li.on img,.wuju-goods-single-header .left .list li:hover img {
-    border-color: var(--wuju-color);
-}
-.wuju-goods-single-header .right h1 {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 6px;
-}
-.wuju-goods-single-header .right .subtitle {
-    font-size: 13px;
-    color: #999;
-    margin-bottom: 20px;
-}
-.wuju-goods-single-header .right .price-info {
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 2px;
-    margin-bottom: 25px;
-    position: relative;
-}
-.wuju-goods-single-header .right .price-info .number-info {
-    position: absolute;
-    right: 18px;
-    text-align: center;
-    color: #999;
-    font-size: 16px;
-    display: flex;
-}
-.wuju-goods-single-header .right .price-info .number-info>div {
-    margin-left: 20px;
-}
-.wuju-goods-single-header .right .price-info .number-info>div p {
-    font-size: 12px;
-}
-.wuju-goods-single-header .right li {
-    margin: 12px 0;
-}
-.wuju-goods-single-header .right li span:first-child {
-    font-size: 12px;
-    margin-right: 10px;
-    width: 50px;
-    display: inline-block;
-}
-.wuju-goods-single-header .right li.price {
-    margin-bottom: 20px;
-}
-.wuju-goods-single-header .right li span:last-child {
-    vertical-align: -1px;
-}
-.wuju-goods-single-header .right li.price span:last-child,.wuju-goods-order-confirmation-content .box>.price span:last-child {
-    color: #c00000;
-    font-size: 30px;
-    vertical-align: -6px;
-}
-.wuju-goods-single-header .right li.price span:last-child t ,.wuju-goods-order-confirmation-content .box>.price span:last-child t{
-    font-size: 14px;
-}
-.wuju-goods-single-header .right li.price span:last-child n {
-    font-size: 14px;
-    text-decoration: line-through;
-    color: #999;
-    margin-left: 10px;
-    display: inline-block;
-}
-.wuju-goods-single-header .right li span:last-child n i {
-    color: #c30d0d;
-}
-.wuju-goods-single-header .right li span:last-child n {
-    margin-right: 10px;
-}
-.wuju-goods-single-header .right li.price span:last-child m,.wuju-goods-order-confirmation-content .box>.price span:last-child m {
-    font-size: 18px;
-    vertical-align: 2px;
-    margin-right: 4px;
-}
-.wuju-goods-single-header .right .select,.wuju-goods-single-header .right .select-price {
-    padding: 0 10px;
-    margin-bottom: 10px;
-}
-.wuju-goods-single-header .right .select li n,.wuju-goods-single-header .right .select-price li n {
-    padding: 4px 20px;
-    border: 1px solid #f1f1f1;
-    margin-right: 15px;
-    color: #333;
-    line-height: 22px;
-    display: inline-block;
-    cursor: pointer;
-    margin-bottom: 15px;
-}
-.wuju-goods-single-header .right .select li n.on, .wuju-goods-single-header .right .select li n:hover,.wuju-goods-single-header .right .select-price li n.on, .wuju-goods-single-header .right .select-price li n:hover {
-    border-color: var(--wuju-color);
-}
-
-.wuju-goods-single-header .right li.number {
-    display: flex;
-    padding: 0 10px;
-    align-items: center;
-}
-.wuju-goods-single-header .right li.number span:last-child {
-    display: flex;
-    align-items: center;
-}
-.wuju-goods-single-header .right li.number span:last-child i {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    border: 1px solid #ddd;
-    cursor: pointer;
-}
-.wuju-goods-single-header .right li.number span:last-child input {
-    border: none;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    width: 60px;
-    height: 32px;
-    padding: 10px;
-    box-sizing: border-box;
-    text-align: center;
-    font-weight: bold;
-}
-.wuju-goods-single-header .right li.number span:last-child i.on {
-    color: #ccc;
-    cursor: default;
-}
-.wuju-goods-single-header .right .btn {
-    display: flex;
-    margin-top: 40px;
-}
-.wuju-goods-single-header .right .btn>div {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    color: #999;
-    margin-right: 18px;
-    cursor: pointer;
-    text-align: center;
-    font-size: 12px;
-}
-.wuju-goods-single-header .right .btn .buy {
-    width: 160px;
-    text-align: center;
-    line-height: 50px;
-    font-size: 20px;
-    color: #fff;
-    background-color: var(--wuju-color);
-    border-color: var(--wuju-color);
-}
-.wuju-goods-single-header .right .btn .buy.no {
-    border: 1px solid #ccc;
-    color: #999;
-    background-color: #fff;
-}
-.wuju-goods-single-header .right .btn>div>i {
-    display: block;
-    margin-top: 8px;
-    margin-bottom: 2px;
-    font-size: 18px;
-}
-.wuju-goods-single-header .right .btn>div:hover {
-    border-color: var(--wuju-color);
-}
-.wuju-goods-single-content {
-    padding: 20px;
-    border-radius: 2px;
-    background-color: #fff;
-    min-height: 500px;
-}
-.wuju-goods-single-content .menu,.wuju-goods-single-commend-list .menu {
-    display: flex;
-}
-.wuju-goods-single-content .menu li,.wuju-goods-single-commend-list .menu li {
-    cursor: pointer;
-    margin: 0 25px;
-    padding: 0 10px;
-}
-.wuju-goods-single-content .menu li.on, .wuju-goods-single-content .menu li:hover,.wuju-goods-single-commend-list .menu li.on {
-    color: var(--wuju-color);
-}
-.wuju-goods-single-content .menu li.on:after, .wuju-goods-single-content .menu li:hover:after,.wuju-goods-single-commend-list .menu li.on:after {
-    border-bottom: 2px solid var(--wuju-color);
-    content: '';
-    display: block;
-    width: 50%;
-    margin: 8px auto 0;
-}
-.wuju-goods-single-content .menu li:first-child,.wuju-goods-single-commend-list li:first-child {
-    margin-left: 0;
-}
-
-.wuju-goods-single-commend-list {
-    padding: 20px;
-    border-radius: 2px;
-    background-color: #fff;
-    margin-bottom: 10px;
-}
-.wuju-goods-single-commend-list .wuju-shop-content {
-    padding-top: 20px;
-    min-height: inherit;
-}
-.wuju-goods-single-commend-list .wuju-shop-content li {
-    width: calc((100% - 60px)/5);
-    margin-bottom: 0;
-    border: 1px solid #f8f8f8;
-    background-color: #f9f9f9;
-}
-.wuju-goods-single-commend-list .wuju-shop-content li:nth-child(3n) {
-    margin-right: 15px;
-}
-.wuju-goods-single-commend-list .wuju-shop-content li:nth-child(5n) {
-    margin-right: 0;
-}
-.wuju-goods-single-commend-list .wuju-shop-content li .bg {
-    height: 160px;
-}
-.wuju-goods-single-content .content {
-    padding: 30px 0;
-    line-height: 1.7;
-    font-size: 16px;
-    color: #333;
-    word-break: break-all;
-}
-.wuju-goods-single-content .content .has-text-align-center {
-    text-align: center;
-}
-.wuju-goods-single-content .content img.aligncenter {
-    display: block;
-    margin: auto;
-}
-.wuju-goods-single-content .content p {
-    line-height: 1.7;
-    min-height: 27px;
-    word-break: break-word;
-}
-.wuju-goods-single-content .content.info {
-    background-color: #f9f9f9;
-    padding: 20px 20px 0;
-    margin-top: 20px;
-}
-.wuju-goods-single-content .content.info li {
-    width: 50%;
-    float: left;
-    margin-bottom: 20px;
-    color: #666;
-}
-.wuju-goods-single-content .content.info li span {
-    margin-right: 5px;
-}
-.wuju-goods-single-content .content img {
-    max-width: 100%;
-}
-
-.wuju-goods-single-commend-list .right {
-    flex: 1;
-}
-.wuju-goods-single-commend-list .right li {
-    float: right;
-    margin: 0;
-}
-.wuju-goods-single-commend-list .right li a {
-    color: #999;
-}
-.wuju-goods-single-commend-list .right li a:hover {
-    color: #333;
-}
-.wuju-goods-single-commend-list .right li a i {
-    width: 5px;
-    height: 5px;
-    display: inline-block;
-    border-radius: 100%;
-    background-color: var(--wuju-color);
-    margin-right: 6px;
-    vertical-align: 1px;
-    opacity: 0.4;
-}
-
-
-/*商城幻灯片*/
-.wuju-shop-slider {
-    height: 520px;
-    position: relative;
-}
-.wuju-shop-slider .nav {
-    width: var(--wuju-width);
-    margin: auto;
-    position: relative;
-}
-.wuju-shop-slider .nav .menu {
-    position: absolute;
-    z-index: 9;
-    width: 200px;
-    background: rgba(255, 255, 255, 0.65);
-    height: 480px;
-    padding: 30px 0;
-    box-sizing: border-box;
-    top: 20px;
-    border-radius: 4px;
-}
-.wuju-shop-slider .nav .menu .list {
-    height: 100%;
-    overflow-y: auto;
-}
-.wuju-shop-slider .nav .menu li>a {
-    display: inline-block;
-    width: 100%;
-    padding: 0 30px 0 40px;
-    box-sizing: border-box;
-    height: 60px;
-    line-height: 60px;
-}
-.wuju-shop-slider .nav .menu li>a:hover {
-    color: #333;
-    background-color: #fff;
-}
-.wuju-shop-slider .nav .menu li>a i {
-    float: right;
-    font-size: 12px;
-    font-weight: bold;
-}
-.wuju-shop-slider .nav .menu .list li .views {
-    display: none;
-    padding-left: 20px;
-    position: absolute;
-    top: 0;
-    height: 480px;
-    width: 400px;
-    left: 200px;
-}
-.wuju-shop-slider .nav .menu .list li:hover .views {
-    display: block;
-}
-.wuju-shop-slider .nav .menu .list li .content {
-    position: absolute;
-    width: 440px;
-    height: 480px;
-    background-color: #fff;
-    top: 0;
-    left: 15px;
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 4px;
-    overflow-y: auto;
-}
-.wuju-shop-slider .nav .menu .list li .content>a {
-    width: calc((100% - 20px)/2);
-    float: left;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
-}
-.wuju-shop-slider .nav .menu .list li .content>a img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    margin-right: 10px;
-    border-radius: 4px;
-}
-.wuju-shop-slider .nav .menu .list li .content>a span {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    width: calc(100% - 60px);
-}
-.wuju-shop-slider .nav .menu .list li .content>a:nth-child(2n) {
-    margin-right: 0;
-}
-
-/*商城四个格子推荐*/
-.wuju-shop-commend-ad {
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
-.wuju-shop-commend-ad li {
-    float: left;
-    margin-right: 15px;
-    margin-bottom: 15px;
-    transition: all .2s linear;
-    width: calc((100% - 45px)/4);
-}
-.wuju-shop-commend-ad li:hover {
-    transform: translate3d(0,-2px,0);
-    box-shadow: 0 15px 30px rgba(0,0,0,.1);
-}
-.wuju-shop-commend-ad li:nth-child(4n) {
-    margin-right: 0;
-}
-.wuju-shop-commend-ad li img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 4px;
-    height: 140px;
-}
-
-/*商品评论区*/
-.wuju-goods-single-content .wuju-comment-form {
-    padding: 0;
-    display: block !important;
-}
-.wuju-goods-single-content .wuju-post-comments {
-    height: 85px;
-}
-.wuju-goods-single-content .redbag{
-    display: none;
-}
-
-
-/*确定订单*/
-.wuju-goods-order-confirmation-form .layui-layer-content {
-    height: initial !important;
-}
-.wuju-goods-order-confirmation-content {
-    min-height: 300px;
-    padding: 20px;
-}
-.wuju-goods-order-confirmation-content .title {
-    margin-bottom: 15px;
-    font-size: 17px;
-}
-.wuju-goods-order-confirmation-content .box {
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 4px;
-    margin-bottom: 20px;
-}
-.wuju-goods-order-confirmation-content .box>div>span:first-child, .wuju-goods-order-confirmation-content .box>.select>li>span:first-child {
-    font-size: 12px;
-    margin-right: 10px;
-    width: 50px;
-    display: inline-block;
-}
-.wuju-goods-order-confirmation-content .box>div>span:last-child, .wuju-goods-order-confirmation-content .box>.select>li>span:last-child {
-    color: #F44336;
-}
-.wuju-goods-order-confirmation-content .btn {
-    margin-top: 15px;
-    text-align: center;
-    background-color: var(--wuju-color);
-    color: #fff;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.wuju-goods-order-confirmation-content .box>div {
-    line-height: 40px;
-}
-.wuju-goods-order-confirmation-content .box>div.address_order img {
-    width: 100%;
-    border-radius: 4px;
-}
-.wuju-goods-order-confirmation-content .box>.number span:last-child {
-    font-weight: bold;
-}
-.wuju-goods-order-confirmation-content .wuju-credit-recharge-type li {
-    line-height: 26px;
-}
-.wuju-goods-order-confirmation-content .wuju-credit-recharge-type .credit>i {
-    font-size: 20px;
-}
-.wuju-goods-order-confirmation-content .wuju-credit-recharge-type li n i {
-    line-height: 18px;
-}
-.wuju-goods-order-confirmation-content .marks textarea {
-    border: 1px solid #f2f2f2;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 4px;
-    margin-top: 10px;
-    height: 80px;
-}
-.wuju-goods-order-confirmation-content .marks textarea:hover, .wuju-goods-order-confirmation-content .marks textarea:focus,.wuju-address-select-content .other>div input:hover,.wuju-address-select-content .other>div input:focus,.wuju-address-select-content textarea:hover,.wuju-address-select-content textarea:focus {
-    border-color: var(--wuju-color);
-}
-.wuju-goods-order-confirmation-content .address {
-    padding: 10px 10px 30px;
-    border: 1px solid #f2f2f2;
-    border-radius: 4px;
-    margin-top: 10px;
-    position: relative;
-}
-.wuju-goods-order-confirmation-content .address li {
-    line-height: 36px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-.wuju-goods-order-confirmation-content .address li:hover {
-    color: var(--wuju-color);
-}
-.wuju-goods-order-confirmation-content .address:hover {
-    border: 1px solid var(--wuju-color);
-}
-.wuju-goods-order-confirmation-content .address li input {
-    margin-right: 10px;
-    vertical-align: -2px;
-    width: 15px;
-    height: 15px;
-}
-.wuju-goods-order-confirmation-content .address li m {
-    float: right;
-    color: #ccc;
-    display: none;
-}
-.wuju-goods-order-confirmation-content .address li:hover m {
-    display: block;
-}
-.wuju-goods-order-confirmation-content .address li m:hover {
-    color: #f00;
-}
-.wuju-goods-order-confirmation-content .address li p {
-    margin: 0 0 0 25px;
-    line-height: 10px;
-    color: #999;
-    font-size: 12px;
-}
-.wuju-goods-order-confirmation-content .address li p span {
-    margin-right: 20px;
-}
-.wuju-goods-order-confirmation-content .address li p n {
-    margin-left: 5px;
-}
-.wuju-goods-order-confirmation-content .address .add {
-    width: 90px;
-    text-align: center;
-    outline: 10px solid #fff;
-    position: absolute;
-    color: #ccc;
-    padding: 6px;
-    box-sizing: border-box;
-    left: 50%;
-    margin-left: -45px;
-    bottom: -15px;
-    border-radius: 10px;
-    cursor: pointer;
-    border: 1px solid #f2f2f2;
-    background-color: #fff;
-    font-size: 12px;
-}
-.wuju-goods-order-confirmation-content .address:hover .add {
-    border: 1px solid var(--wuju-color);
-    color: var(--wuju-color);
-}
-.wuju-goods-order-confirmation-content .address .no {
-    text-align: center;
-    font-size: 13px;
-    color: #ccc;
-    padding: 10px 0;
-}
-
-.wuju-goods-order-confirmation-content .pass-info .list li {
-    width: 50%;
-    float: left;
-    margin-top: 15px;
-}
-.wuju-goods-order-confirmation-content .pass-info .list li span {
-    margin-right: 10px;
-    color: #5fb878;
-    display: inline-block;
-    width: 60px;
-    text-align: right;
-}
-.wuju-goods-order-confirmation-content .pass-info .list li input {
-    border: 1px solid #ccc;
-    padding: 6px;
-    border-radius: 4px;
-    width: 140px;
-}
-.wuju-goods-order-confirmation-content .pass-info .list li input:hover {
-    border-color: var(--wuju-color);
-}
-.wuju-goods-order-confirmation-content .tips {
-    margin-bottom: 15px;
-    padding: 6px;
-    background-color: #fef3f3;
-    color: #e5685f;
-    border-radius: 4px;
-    border: 1px #f3cfce solid;
-    line-height: 22px;
-}
-
-
-
-
-.wuju-address-select-form .layui-layer-content {
-    height: inherit !important;
-}
-.wuju-address-select-content .content {
-    padding: 20px 20px 10px;
-    height: 338px;
-}
-.wuju-address-select-content .content li {
-    float: left;
-    width: calc((100% - 40px)/5);
-    margin-right: 10px;
-    text-align: center;
-    margin-bottom: 10px;
-    padding: 10px 2px;
-    background-color: #f5f5f5;
-    box-sizing: border-box;
-    cursor: pointer;
-    border-radius: 4px;
-    color: #666;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.wuju-address-select-content .content li:nth-child(5n) {
-    margin-right: 0;
-}
-.wuju-address-select-content .content li:hover {
-    background-color: var(--wuju-color);
-    color: #fff;
-}
-.wuju-address-select-content .header {
-    display: none;
-    padding: 10px 20px 0;
-    margin-top: 10px;
-}
-.wuju-address-select-content .header .select {
-    float: left;
-    display: flex;
-    align-items: center;
-}
-.wuju-address-select-content .header .select m {
-    padding: 5px 2px;
-    background-color: #f5f5f5;
-    box-sizing: border-box;
-    display: inline-block;
-    border-radius: 4px;
-    color: var(--wuju-color);
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 124px;
-    text-align: center;
-    margin-right: 10px;
-}
-.wuju-address-select-content .header .back {
-    float: right;
-    background-color: var(--wuju-color);
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.wuju-address-select-content textarea {
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 4px;
-    border: 1px solid #f2f2f2;
-    height: 100px;
-}
-.wuju-address-select-content .content .finish .btn {
-    text-align: center;
-    margin-top: 10px;
-    background-color: var(--wuju-color);
-    color: #fff;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.wuju-address-select-content .content .finish p {
-    margin-bottom: 10px;
-    color: #999;
-    margin-top: 10px;
-}
-.wuju-address-select-content .other {
-    display: flex;
-    margin-bottom: 15px;
-    margin-top: 10px;
-}
-.wuju-address-select-content .other>.name {
-    margin-right: 20px;
-}
-.wuju-address-select-content .other>div {
-    flex: 1;
-}
-.wuju-address-select-content .other>div input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    border-radius: 4px;
-    border: 1px solid #f2f2f2;
-}
-.wuju-goods-order-confirmation-content .address li .info>span {
-    width: calc(90% - 25px);
-    display: inline-block;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    vertical-align: -12px;
-}
-
-
-/*我的订单*/
-.wuju-goods-order-content {
-    padding: 0 20px 20px;
-}
-.wuju-goods-order-list .content {
-    height: 407px;
-}
-.wuju-goods-order-content .layui-tab-title {
-    display: flex;
-}
-.wuju-goods-order-content .layui-tab-title li{
-    flex: 1;
-}
-.wuju-goods-order-content .layui-tab-title li n {
-    background-color: #F44336;
-    color: #fff;
-    font-size: 12px;
-    padding: 0 5px;
-    border-radius: 4px;
-    margin-left: 5px;
-}
-.wuju-goods-order-content .layui-tab {
-    margin-bottom: 0;
-}
-.wuju-goods-order-content .layui-tab-content {
-    padding-bottom: 0;
-}
-.wuju-goods-order-form .layui-layer-content {
-    height: inherit !important;
-}
-.wuju-goods-order-list li {
-    display: flex;
-    margin: 10px 0 5px;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #f5f5f5;
-}
-.wuju-goods-order-list li:first-child {
-    margin-top: 0;
-}
-.wuju-goods-order-list li .img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-}
-.wuju-goods-order-list li .img img {
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    object-fit: cover;
-    object-position: center;
-}
-.wuju-goods-order-list li .info {
-    flex: 1;
-    overflow: hidden;
-}
-.wuju-goods-order-list li .info .title {
-    font-size: 16px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-}
-.wuju-goods-order-list li .info .desc {
-    margin-top: 12px;
-    color: #999;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-}
-.wuju-goods-order-list li .price {
-    width: 80px;
-    text-align: center;
-    height: 50px;
-    line-height: 50px;
-    color: #c00000;
-    font-size: 20px;
-}
-.wuju-goods-order-list li .price .yuan {
-    font-size: 14px;
-    vertical-align: 1px;
-}
-.wuju-goods-order-list li .info .desc span {
-    margin-right: 15px;
-}
-.wuju-goods-order-list li .do {
-    display: flex;
-    align-items: center;
-}
-.wuju-goods-order-list li .do .pay {
-    width: 80px;
-    text-align: center;
-    background: #f5f5f5;
-    border: 1px solid #ddd;
-    color: #666;
-    padding: 5px 0;
-    border-radius: 2px;
-    cursor: pointer;
-    margin-left: 20px;
-    display: inline-block;
-    margin-right: 10px;
-}
-.wuju-goods-order-list li .do .del {
-    cursor: pointer;
-    color: #aaa;
-    display: none;
-}
-.wuju-goods-order-list li .do .del:hover {
-    color: #b61e13;
-}
-.wuju-goods-order-list li:hover .do .del {
-    display: block;
-}
-.wuju-goods-order-list li .info .title n {
-    margin-right: 5px;
-    background-color: #F44336;
-    color: #fff;
-    font-size: 12px;
-    padding: 1px 4px;
-    border-radius: 2px;
-}
-.wuju-goods-order-list.status-0 li .do,.wuju-goods-order-list.status-2 li .do {
-    width: 170px;
-}
-.wuju-goods-order-list li .do .read {
-    cursor: pointer;
-    color: #1074c4;
-}
-
-
-.wuju-shortcodes-btn {
-    display: inline-block;
-    background-color: var(--wuju-color);
-    padding: 0 10px;
-    border-radius: 4px;
-    color: #fff !important;
-    text-decoration: none !important;
-    margin: 0 5px;
-    cursor: pointer;
-}
-.wuju-shortcodes-btn:hover {
-    color: #fff;
-}
-.wuju-login-search-tips {
-    height: 900px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: -150px;
-    font-size: 20px;
-    color: #999;
-}
-
-
-
-@keyframes shake-base { 0% { transform: translate(0px, 0px) rotate(0deg); }
-  2% { transform: translate(-0.5px, 0.5px) rotate(-0.5deg); }
-  4% { transform: translate(-2.5px, -1.5px) rotate(0.5deg); }
-  6% { transform: translate(1.5px, 1.5px) rotate(-1.5deg); }
-  8% { transform: translate(-1.5px, -2.5px) rotate(0.5deg); }
-  10% { transform: translate(1.5px, 1.5px) rotate(-0.5deg); }
-  12% { transform: translate(-1.5px, 1.5px) rotate(-1.5deg); }
-  14% { transform: translate(-1.5px, 0.5px) rotate(0.5deg); }
-  16% { transform: translate(0.5px, 0.5px) rotate(-0.5deg); }
-  18% { transform: translate(0.5px, -2.5px) rotate(-0.5deg); }
-  20% { transform: translate(-2.5px, 0.5px) rotate(-1.5deg); }
-  22% { transform: translate(1.5px, 0.5px) rotate(-0.5deg); }
-  24% { transform: translate(-0.5px, -1.5px) rotate(-0.5deg); }
-  26% { transform: translate(-1.5px, 1.5px) rotate(0.5deg); }
-  28% { transform: translate(-1.5px, -0.5px) rotate(0.5deg); }
-  30% { transform: translate(-2.5px, 0.5px) rotate(0.5deg); }
-  32% { transform: translate(1.5px, -0.5px) rotate(-0.5deg); }
-  34% { transform: translate(0.5px, -2.5px) rotate(-1.5deg); }
-  36% { transform: translate(0.5px, -2.5px) rotate(-0.5deg); }
-  38% { transform: translate(-2.5px, -0.5px) rotate(0.5deg); }
-  40% { transform: translate(-0.5px, 1.5px) rotate(0.5deg); }
-  42% { transform: translate(1.5px, 1.5px) rotate(-0.5deg); }
-  44% { transform: translate(-2.5px, -2.5px) rotate(0.5deg); }
-  46% { transform: translate(0.5px, -2.5px) rotate(0.5deg); }
-  48% { transform: translate(-0.5px, -2.5px) rotate(-0.5deg); }
-  50% { transform: translate(-0.5px, 0.5px) rotate(0.5deg); }
-  52% { transform: translate(1.5px, 0.5px) rotate(0.5deg); }
-  54% { transform: translate(-2.5px, 0.5px) rotate(-1.5deg); }
-  56% { transform: translate(-2.5px, 1.5px) rotate(0.5deg); }
-  58% { transform: translate(-2.5px, -2.5px) rotate(-0.5deg); }
-  60% { transform: translate(-0.5px, -2.5px) rotate(-0.5deg); }
-  62% { transform: translate(-1.5px, 0.5px) rotate(-0.5deg); }
-  64% { transform: translate(-1.5px, -0.5px) rotate(0.5deg); }
-  66% { transform: translate(-2.5px, 0.5px) rotate(-0.5deg); }
-  68% { transform: translate(-1.5px, -0.5px) rotate(0.5deg); }
-  70% { transform: translate(0.5px, 1.5px) rotate(0.5deg); }
-  72% { transform: translate(-2.5px, 1.5px) rotate(0.5deg); }
-  74% { transform: translate(1.5px, -0.5px) rotate(0.5deg); }
-  76% { transform: translate(-0.5px, -1.5px) rotate(0.5deg); }
-  78% { transform: translate(-0.5px, -2.5px) rotate(0.5deg); }
-  80% { transform: translate(1.5px, -0.5px) rotate(0.5deg); }
-  82% { transform: translate(-1.5px, 0.5px) rotate(-0.5deg); }
-  84% { transform: translate(-1.5px, -1.5px) rotate(-0.5deg); }
-  86% { transform: translate(0.5px, -0.5px) rotate(-1.5deg); }
-  88% { transform: translate(-2.5px, -2.5px) rotate(-1.5deg); }
-  90% { transform: translate(-1.5px, 1.5px) rotate(0.5deg); }
-  92% { transform: translate(-1.5px, 0.5px) rotate(0.5deg); }
-  94% { transform: translate(-1.5px, -0.5px) rotate(0.5deg); }
-  96% { transform: translate(1.5px, 0.5px) rotate(-0.5deg); }
-  98% { transform: translate(-0.5px, -1.5px) rotate(0.5deg); } }
-
-
-
-
-/*签到模块*/
-.wuju-sign-success-form .layui-layer-content {
-    padding: 20px;
-    height: inherit !important;
-}
-.wuju-sign-success-form .layui-layer-content>li {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #555;
-}
-.wuju-sign-success-form .layui-layer-content>li:first-child {
-    font-size: 20px;
-    color: #333;
-}
-.wuju-sign-success-form .layui-layer-content>li i {
-    font-size: 30px;
-    margin-right: 10px;
-    color: #4CAF50;
-    vertical-align: -2px;
-}
-.wuju-sign-success-form .layui-layer-content fieldset {
-    margin-top: 20px;
-    border-radius: 4px;
-}
-.wuju-sign-success-form .layui-layer-content legend {
-    margin: 0 auto;
-    font-size: 12px;
-    color: #999;
-}
-.wuju-sign-success-form .layui-layer-content .layui-field-box {
-    margin: 10px 15px 15px 15px;
-    background-color: #f4f4f4;
-    border-radius: 4px;
-}
-.wuju-sign-success-form .layui-layer-content .layui-field-box li {
-    padding-left: 10px;
-    border-left: 2px solid var(--wuju-color);
-    margin-bottom: 15px;
-}
-.wuju-sign-success-form .layui-layer-content .layui-field-box li:last-child {
-    margin-bottom: 0;
-}
-.wuju-sign-add-form-content .btn {
-    background-color: var(--wuju-color);
-    color: #fff;
-    padding: 6px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.wuju-sign-add-form-content .btn.no {
-    background-color: #ccc;
-}
-.wuju-sign-add-form-content .btn m {
-    font-size: 12px;
-    margin-left: 4px;
-}
-.wuju-sign-add-form-content .no-reward {
-    color: #999;
-    margin: 20px;
-}
-
-.wuju-sign-add-form-content .layui-field-box li {
-    text-align: left;
-    padding-left: 10px;
-    border-left: 2px solid var(--wuju-color);
-    margin-bottom: 15px;
-}
-.wuju-sign-add-form-content .layui-field-box li:last-child {
-    margin-bottom: 0;
-}
-.wuju-sign-add-form-content .layui-field-box {
-    margin: 10px 15px 15px 15px;
-    background-color: #f4f4f4;
-    border-radius: 4px;
-}
-.wuju-sign-add-form-content fieldset {
-    border-radius: 4px;
-}
-.wuju-sign-treasure-form .layui-layer-content {
-    text-align: center;
-    padding: 20px;
-    height: inherit !important;
-}
-.wuju-sign-add-form-content .treasure-img img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    margin-bottom: 15px;
-}
-
-
-/*订单评价*/
-.wuju-goods-order-comment-content {
-    padding: 20px;
-}
-.wuju-goods-order-comment-content .star .layui-rate i {
-    font-size: 30px;
-    margin-right: 10px;
-}
-.wuju-goods-order-comment-content .star {
-    text-align: center;
-    margin-bottom: 20px;
-}
-.wuju-goods-order-comment-textarea textarea {
-    width: 100%;
-    height: 85px;
-    font-size: 14px;
-    padding: 10px 40px 10px 10px;
-    color: #54412E;
-    margin-bottom: 5px;
-    line-height: 16px;
-    max-width: 100%;
-    resize: none;
-    border: 1px solid #e9e9e9;
-    box-sizing: border-box;
-    border-radius: var(--wuju-border-radius);
-}
-.wuju-goods-order-comment-form .layui-layer-content {
-    overflow: inherit !important;
-    height: inherit !important;
-}
-.wuju-goods-order-comment-content .btn {
-    padding: 10px;
-    text-align: center;
-    background-color: var(--wuju-color);
-    color: #fff;
-    border-radius: 4px;
-    margin-top: 20px;
-    cursor: pointer;
-}
-.wuju-goods-order-comment-textarea .img-upload {
-    float: left;
-    margin: 0px 20px 0 5px;
-    cursor: pointer;
-}
-.wuju-goods-order-comment-textarea .img-upload i {
-    font-size: 19px;
-    color: #b4b4b4;
-    vertical-align: -4px;
-}
-.wuju-goods-order-comment-textarea .video-upload {
-    float: left;
-    margin: -2px 20px 0 5px;
-    cursor: pointer;
-}
-.wuju-goods-order-comment-textarea .video-upload i {
-    color: #b4b4b4;
-    font-size: 26px;
-}
-.wuju-goods-order-comment-textarea .img-upload:hover i, .wuju-goods-order-comment-textarea .video-upload:hover i {
-    color: #000;
-}
-
-
-
-/*广告小工具*/
-.wuju-widget-ad-content {
-    padding: 10px 10px 10px;
-}
-.wuju-widget-ad-content li {
-    margin-bottom: 10px;
-}
-.wuju-widget-ad-content li:last-child {
-    margin-bottom: 0;
-}
-.wuju-widget-ad-content li img {
-    width: 100%;
-    border-radius: 4px;
-    height: 100px;
-    object-fit: cover;
-    object-position: center;
-}
-.wuju-widget-ad-header {
-    display: flex;
-    margin: 10px 10px 4px;
-}
-.wuju-widget-ad-header .title {
-    flex: 1;
-    border-left: 3px solid var(--wuju-color);
-    padding-left: 8px;
-}
-.wuju-widget-ad-header .join-title a {
-    color: #01AAED;
-}
-.wuju-widget-ad-content .desc {
-    color: #333;
-    line-height: 22px;
-}
-
-
-/*西瓜播放器*/
-.wuju-post-video .xgplayer {
-    width: 400px !important;
-    max-height: 600px;
-}
-.wuju-post-video .xgplayer-nostart,.wuju-post-video .xgplayer-is-enter{
-    height: 225px !important;
-}
-.single .wuju-post-video .xgplayer {
-    width: 600px !important;
-}
-.single .wuju-post-video .xgplayer-nostart,.single .wuju-post-video .xgplayer-is-enter{
-    height: 320px !important;
-}
-
-.xgplayer-skin-default .xgplayer-enter .xgplayer-enter-spinner{
-    height: 50px !important;
-    width: 50px !important;
-}
-.wuju-pop-video .layui-layer-content {
-    overflow: inherit !important;
-    height: inherit !important;
-}
-.wuju-pop-video .xgplayer {
-    height: 380px !important;
-}
-.xgplayer-skin-default .xgplayer-playbackrate ul {
-    margin: 0;
-    padding: 0;
-}
-.xgplayer-skin-default .xgplayer-playbackrate ul li {
-    list-style: none;
-}
-
-
-/*评论图片*/
-.wuju-comment-image-list {
-    padding-top: 10px;
-    width: 56%;
-}
-.wuju-comment-image-list>a {
-    float: left;
-    width: 75px;
-    height: 75px;
-    margin: 0 10px 10px 0;
-}
-.wuju-comment-image-list>a img {
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-    border: 1px solid #f1f1f1;
-    box-sizing: border-box;
-    object-fit: cover;
-}
-.wuju-comment-image-list.bbs>a {
-    width: 150px;
-    height: 150px;
-}
-.wuju-comment-image-list.number-1 a {
-    height: auto;
-    max-height: 200px;
-    width: auto;
-    max-width: 40%;
-    overflow: hidden;
-    position: relative;
-}
-
-.wuju-post-vote-list .title {
-    text-align: center;
-    margin: 30px 0 10px;
-}
-.wuju-post-vote-list li {
-    float: left;
-}
-.wuju-post-vote-list li img {
-    padding: 0;
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    margin: 0 3.2px 3.2px 0;
-    border: 0;
-    background-color: #eee;
-    border-radius: 2px;
-}
-
-
-
-/*排行榜*/
-.wuju-ranking-page {
-    margin-bottom: 0;
-}
-.wuju-ranking-page {
-    border-radius: var(--wuju-border-radius);
-}
-.wuju-ranking-page .left {
-    width: 150px;
-    float: left;
-    text-align: center;
-    background-color: #f8f8f8;
-    box-sizing: border-box;
-    border-radius: var(--wuju-border-radius);
-}
-.wuju-ranking-page .left>div {
-    width: 150px !important;
-    padding-bottom: 0 !important;
-}
-.wuju-ranking-page .left li {
-    line-height: 50px;
-    cursor: pointer;
-    position: relative;
-    opacity: .999;
-}
-.wuju-ranking-page .left li:first-child.on {
-    border-radius: var(--wuju-border-radius) var(--wuju-border-radius) 0 0;
-}
-.wuju-ranking-page .left li:last-child.on {
-    border-radius: 0 0 var(--wuju-border-radius) var(--wuju-border-radius);
-}
-.wuju-ranking-page .left li.on,.wuju-ranking-page .left li:hover {
-    background-color: var(--wuju-color);
-    color: #fff;
-    font-size: 16px;
-}
-
-
-
-.wuju-ranking-page .right {
-    float: left;
-    width: calc(100% - 170px);
-    margin-left: 20px;
-}
-.wuju-ranking-page-top {
-    display: flex;
-}
-.wuju-ranking-page-top li {
-    margin-right: 20px;
-    text-align: center;
-    box-sizing: border-box;
-    border-radius: 8px;
-    padding-bottom: 20px;
-    position: relative;
-    border: 3px solid #f5f5f5;
-    width: calc((100% - 60px)/4);
-}
-.wuju-ranking-page-top li:nth-child(4n),.wuju-ranking-page-bottom li:nth-child(4n) {
-    margin-right: 0 !important;
-}
-.wuju-ranking-page-top a, .wuju-ranking-page-top .btn {
-    position: relative;
-    z-index: 1;
-    display: block;
-}
-.wuju-ranking-page-top li .bg {
-    background-size: cover;
-    height: 80px;
-    position: relative;
-    background-position: center;
-    border-radius: 8px 8px 0 0;
-}
-.wuju-ranking-page-top li .avatarimg {
-    margin-top: -30px;
-    position: relative;
-}
-.wuju-ranking-page-top li .avatarimg img {
-    width: 60px;
-    height: 60px;
-    border-radius: 100%;
-    border: 2px solid #fff;
-}
-.wuju-ranking-page-top li .name {
-    margin: 10px;
-    font-size: 16px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.wuju-ranking-page-top li:before {
-    width: 0;
-    height: 100%;
-    border-width: 3px 0px 3px 0px;
-    top: -3px;
-    left: 0px;
-    content: '';
-    border-style: solid;
-    position: absolute;
-    border-radius: 8px;
-    box-sizing: content-box;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
-}
-.wuju-ranking-page-top li:hover:before {
-    width: 100%;
-}
-.wuju-ranking-page-top li:after {
-    width: 100%;
-    height: 0;
-    border-width: 0 3px 0 3px;
-    top: 0;
-    left: -3px;
-    content: '';
-    border-style: solid;
-    position: absolute;
-    border-radius: 8px;
-    box-sizing: content-box;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
-}
-.wuju-ranking-page-top li:hover:after {
-    height: 100%;
-}
-.wuju-ranking-page-top li .rank {
-    display: block;
-    color: #fff;
-    padding: 4px;
-    position: absolute;
-    box-sizing: border-box;
-    width: 100%;
-    z-index: 1;
-    border-radius: 8px 8px 0 0;
-}
-.wuju-ranking-page-top li.one .rank {
-    background-color: rgba(231, 76, 60, 0.4);
-}
-.wuju-ranking-page-top li.two .rank {
-    background-color: rgba(52, 152, 219, 0.4);
-}
-.wuju-ranking-page-top li.three .rank {
-    background-color: rgba(46, 204, 113, 0.4);
-}
-.wuju-ranking-page-top li.four .rank {
-    background-color: rgba(205, 220, 57, 0.4);
-}
-
-.wuju-ranking-page-top li.one:before,.wuju-ranking-page-top li.one:after {
-    border-color: #e74c3c;
-}
-.wuju-ranking-page-top li.two:before,.wuju-ranking-page-top li.two:after {
-    border-color: #3498db;
-}
-.wuju-ranking-page-top li.three:before,.wuju-ranking-page-top li.three:after {
-    border-color: #2ecc71;
-}
-.wuju-ranking-page-top li.four:before,.wuju-ranking-page-top li.four:after {
-    border-color: #CDDC39;
-}
-
-
-.wuju-ranking-page-top li .number {
-    margin: 10px;
-    color: #999;
-    font-size: 16px;
-}
-
-.wuju-ranking-page-bottom li {
-    float: left;
-    margin-right: 20px;
-    box-sizing: border-box;
-    margin-top: 20px;
-    border: 1px solid #f5f5f5;
-    padding: 5px;
-    border-radius: var(--wuju-border-radius);
-    width: calc((100% - 60px)/4);
-}
-.wuju-ranking-page-bottom li a{
-    display: flex;
-}
-.wuju-ranking-page-bottom li:hover {
-    border-color: var(--wuju-color);
-}
-.wuju-ranking-page-bottom li .rank {
-    width: 30px;
-    text-align: center;
-    line-height: 40px;
-    font-size: 14px;
-    color: #999;
-}
-.wuju-ranking-page-bottom li .avatarimg {
-    margin-right: 8px;
-    position: relative;
-}
-.wuju-ranking-page-bottom li .avatarimg img {
-    width: 38px;
-    height: 38px;
-    border-radius: 100%;
-}
-.wuju-ranking-page-bottom li .info .number {
-    color: #999;
-}
-.wuju-ranking-page-bottom li .info .name {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 110px;
-    height: 19px;
-    line-height: 19px;
-}
-.wuju-ranking-page-top li .avatarimg .wuju-verify {
-    left: 50%;
-    margin-left: 12px;
-}
-.wuju-ranking-page-top li .btn .follow.had {
-    background-color: #999;
-}
-.wuju-ranking-page-top li .btn .follow {
-    background-color: #2eb354;
-    padding: 6px 20px;
-    border-radius: 2px;
-    font-size: 15px;
-    color: #fff;
-    display: inline-block;
-    cursor: pointer;
-}
-
-
-/*筛选页面*/
-.wuju-page-select-menu {
-    margin-bottom: 15px;
-    color: #999;
-    margin-top: 5px;
-}
-.wuju-page-select-menu a {
-    color: #999;
-    font-size: 13px;
-}
-.wuju-page-select-menu a:hover {
-    color: var(--wuju-color);
-}
-
-.wuju-page-select-header-box {
-    background-color: #fff;
-    border-radius: 4px;
-    margin-bottom: 15px;
-    margin-top: 5px;
-    position: relative;
-}
-.wuju-page-select-header-box .bbs-topic-hidden {
-    display: none;
-}
-.wuju-page-select-header-box .admin {
-    position: absolute;
-    right: 2px;
-    top: 2px;
-    color: #999;
-    cursor: pointer;
-}
-.wuju-page-select-header-box .admin:hover{
-    color: #333;
-}
-.wuju-page-select-header-box .admin i {
-    font-size: 25px;
-}
-.wuju-page-select-header-box .bbs {
-    padding: 0 10px;
-    border-bottom: 2px solid #f3f4f9;
-    font-size: 15px;
-}
-.wuju-page-select-header-box .bbs li {
-    display: inline-block;
-    margin: 0 5px;
-    padding: 0 12px;
-    height: 70px;
-    line-height: 70px;
-    cursor: pointer;
-    box-sizing: border-box;
-}
-.wuju-page-select-header-box .bbs li.on,.wuju-page-select-header-box .bbs li:hover {
-    color: var(--wuju-color);
-    border-bottom: 3px solid;
-}
-
-.wuju-page-select-header-box .topic {
-    color: #666;
-    padding-bottom: 10px;
-}
-.wuju-page-select-header-box .topic:first-child {
-    padding-top: 10px;
-}
-.wuju-page-select-header-box .topic:last-child {
-    padding-bottom: 25px;
-}
-.wuju-page-select-header-box .topic label {
-    margin-right: 8px;
-    height: 28px;
-    margin-left: 10px;
-    float: left;
-    margin-top: 15px;
-    line-height: 28px;
-    min-width: 70px;
-    text-align: right;
-}
-.wuju-page-select-header-box .topic ul {
-    float: left;
-    width: calc(90% - 70px);
-}
-.wuju-page-select-header-box .topic li {
-    display: inline-block;
-    margin-top: 15px;
-    margin-right: 10px;
-    padding: 0 15px;
-    height: 28px;
-    cursor: pointer;
-    line-height: 28px;
-    border-radius: 4px;
-}
-.wuju-page-select-header-box .topic li.on, .wuju-page-select-header-box .topic li:hover {
-    background-color: var(--wuju-color);
-    color: #fff;
-}
-
-.wuju-page-select-sort {
-    margin-bottom: 15px;
-}
-.wuju-page-select-sort li {
-    display: inline-block;
-    margin-right: 20px;
-    width: 80px;
-    height: 32px;
-    line-height: 30px;
-    text-align: center;
-    color: #666;
-    box-sizing: border-box;
-    border-radius: 4px;
-    cursor: pointer;
-    border: 1px solid rgb(0 0 0 / 0%);
-}
-.wuju-page-select-sort li.on, .wuju-page-select-sort li:hover {
-    border: 1px solid var(--wuju-color);
-    color: var(--wuju-color);
-}
-.wuju-page-select-header-box .search.topic li {
-    border: 1px solid #ddd;
-    box-sizing: border-box;
-    transition: all 1s;
-    line-height: 27px;
-}
-.wuju-page-select-header-box .search.topic li:hover {
-    background-color: #fff;
-    border-color: #f44336;
-    color: #F44336;
-}
-.wuju-page-select-header-box .search.topic li i {
-    font-size: 12px;
-    margin-left: 5px;
-}
-
-.wuju-page-select-header-search {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--wuju-border-radius);
-}
-.wuju-page-select-header-search-input {
-    width: 60%;
-}
-.wuju-page-select-header-search-input .btn {
-    position: relative;
-    opacity: 0.7;
-}
-.wuju-page-select-header-search input {
-    box-shadow: 0px 2px 4px 0px rgb(0 0 0 / 10%);
-    height: 50px;
-    width: 100%;
-    border: none;
-    border-radius: 100px;
-    padding: 6px 15px;
-    box-sizing: border-box;
-    font-size: 15px;
-    color: #333;
-    opacity: 1;
-}
-.wuju-page-select-header-search-input .btn>i {
-    right: 20px;
-    font-size: 24px;
-    position: absolute;
-    top: 10px;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    color: #333;
-    opacity: 1;
-}
-.wuju-page-select-header-search-input .hot {
-    color: #fff;
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.wuju-page-select-header-search-input .hot>i {
-    margin-right: 20px;
-    font-size: 18px;
-}
-.wuju-page-select-header-search-input .hot>i:after {
-    height: 12px;
-    width: 2px;
-    background-color: #fff;
-    content: '';
-    display: inline-block;
-    margin-left: 20px;
-    border-radius: 10px;
-    opacity: 0.5;
-}
-.wuju-page-select-header-search-input .hot>span {
-    margin-right: 20px;
-    cursor: pointer;
-    opacity: 0.8;
-}
-.wuju-page-select-header-search-input .hot>span:hover {
-    opacity: 1;
-}
-
-
-.wuju-page-select-post-list {
-    padding-bottom: 60px;
-    min-height: 400px;
-}
-/*格子-1*/
-.wuju-page-select-post-list li {
-    width: calc((100% - 45px)/4);
-    float: left;
-    margin-right: 15px;
-    background-color: #fff;
-    border-radius: 4px;
-    margin-bottom: 15px;
-    position: relative;
-    overflow: hidden;
-}
-.wuju-page-select-post-list li:nth-child(4n) {
-    margin-right: 0;
-}
-.wuju-page-select-post-list li .bg {
-    height: 320px;
-    max-height: 800px;
-    overflow: hidden;
-}
-.wuju-page-select-post-list li .bg img {
-    width: 100%;
-    border-radius: 4px 4px 0 0;
-    height: 100%;
-    object-fit: cover;
-    background-color: #f1f1f1;
-}
-.wuju-page-select-post-list li .title {
-    margin: 10px 10px;
-    font-size: 16px;
-    overflow: hidden;
-    color: #333;
-    height: 42px;
-    display: flex;
-    align-items: center;
-}
-.wuju-page-select-post-list li .bar {
-    padding: 15px 10px;
-    border-top: 1px solid #ececec;
-    color: #999;
-}
-.wuju-page-select-post-list li .bar .views {
-    float: left;
-}
-.wuju-page-select-post-list li .bar .like {
-    float: right;
-    cursor: pointer;
-}
-.wuju-page-select-post-list li .bar i {
-    margin-right: 3px;
-}
-
-/*格子-2*/
-.wuju-page-select-post-list.lattice_2 li {
-    padding: 10px;
-    box-sizing: border-box;
-}
-.wuju-page-select-post-list.lattice_2 li .bg img {
-    border-radius: 8px;
-}
-.wuju-page-select-post-list.lattice_2 li .title {
-    margin: 10px 0;
-}
-.wuju-page-select-post-list.lattice_2 li .bar {
-    padding: 15px 0 0;
-}
-.wuju-page-select-post-list.lattice_2 li .bar {
-    padding: 15px 0 0;
-}
-
-/*格子-3*/
-.wuju-page-select-post-list.lattice_3 li {
-    position: relative;
-}
-.wuju-page-select-post-list.lattice_3 .bg img{
-    border-radius: 4px;
-}
-.wuju-page-select-post-list.lattice_3 li .title {
-    position: absolute;
-    bottom: 0;
-    color: #fff;
-    text-shadow: 0 2px 2px rgb(11 11 11 / 40%);
-    background: linear-gradient(to bottom, rgba(6, 6, 8, 0), rgba(6, 6, 8, 0.6));
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 0 0 4px 4px;
-    display: none;
-    padding: 10px 10px;
-    margin: 0;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-.wuju-page-select-post-list.lattice_3 li .title a {
-    color: #fff;
-}
-.wuju-page-select-post-list.lattice_3 li:hover .title {
-    display: block;
-}
-.wuju-page-select-post-list.lattice_3 li .bar {
-    position: absolute;
-    top: 0;
-    color: #fff;
-    width: 100%;
-    box-sizing: border-box;
-    display: none;
-}
-.wuju-page-select-post-list.lattice_3 li .bar .views {
-    display: none;
-}
-.wuju-page-select-post-list.lattice_3 li:hover .bar {
-    display: block;
-}
-
-
-
-/*格子4*/
-.wuju-page-select-post-list.lattice_4 li .bg img {
-    border-radius: 4px;
-}
-
-
-
-
-/*加载更多*/
-
-.wuju-page-select-post-list .wuju-more-posts .wuju-load-post {
-    margin: 0;
-    height: 40px;
-}
-.wuju-page-select-post-list .wuju-more-posts .wuju-load-post .wuju-loading-post {
-    top: inherit;
-    left: inherit;
-    margin-left: 0;
-}
-/*格子加载更多*/
-.wuju-page-select-post-list .wuju-more-posts{
-    position: relative;
-    left: inherit;
-    bottom: inherit;
-    margin: auto;
-    float: left;
-    margin-top: 30px;
-    margin-left: calc(50% - 50px);
-    width: 120px;
-}
-
-
-.wuju-page-select-post-list li .popup {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background: rgba(0, 0, 0, 0.4);
-    transition: all 0.4s;
-    opacity: 0;
-    cursor: pointer;
-}
-.wuju-page-select-post-list li .popup-btn {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    align-items: center;
-    justify-content: center;
-}
-.wuju-page-select-post-list li .popup-btn .text {
-    width: 70%;
-    text-align: center;
-    margin: auto;
-    background-color: #17A1FF;
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 44px;
-    position: relative;
-}
-.wuju-page-select-post-list li .popup-btn .text:hover:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    height: 100%;
-    transition: background 0.4s;
-    background: rgba(255, 255, 255, 0.2);
-}
-.wuju-page-select-post-list li .popup-title {
-    position: absolute;
-    color: #fff;
-    padding: 0 10px;
-    line-height: 24px;
-    transition: all 0.4s;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    box-sizing: border-box;
-    width: 100%;
-    bottom: -30px;
-}
-.wuju-page-select-post-list li:hover .popup .popup-title {
-    bottom: 8px;
-}
-.wuju-page-select-post-list li:hover .popup {
-    opacity: 1;
-}
-
-
-/*下载类*/
-.wuju-page-select-post-list.lattice_5 li .bg img,.wuju-page-select-post-list.lattice_6 li .bg img {
-    transition: all 0.4s;
-}
-.wuju-page-select-post-list.lattice_5 li:hover .bg img,.wuju-page-select-post-list.lattice_6 li:hover .bg img {
-    transform: scale(1.1);
-}
-.wuju-page-select-post-list li .popup-btn .icon {
-    width: 10px;
-    height: 10px;
-    text-align: center;
-    line-height: 10px;
-    color: #ccc;
-    border-radius: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.4s;
-}
-.wuju-page-select-post-list li .popup-btn .icon i {
-    font-size: 12px;
-    transition: all 0.4s;
-}
-.wuju-page-select-post-list li:hover .popup-btn .icon {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-}
-.wuju-page-select-post-list li:hover .popup-btn .icon i {
-    font-size: 20px;
-}
-.wuju-page-select-post-list li .popup-btn .icon i.wuju-sousuo1 {
-    margin-left: 3px;
-}
-.wuju-bbs-single-custom-field {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #f6f6f6;
-    border-radius: 4px;
-}
-.wuju-bbs-single-custom-field li {
-    margin-bottom: 15px;
-    color: #666;
-    width: 50%;
-    float: left;
-}
-.wuju-bbs-single-custom-field li:last-child {
-    margin-bottom: 0;
-}
-.wuju-bbs-single-custom-field li label {
-    color: var(--wuju-color);
-}
-.wuju-bbs-single-custom-field li>p {
-    font-size: 14px;
-    margin-top: 5px;
-    display: initial;
-}
-.wuju-bbs-sidebar-download-box .wuju-bbs-single-custom-field.download li {
-    float: inherit;
-    width: 100%;
-}
-
-
-.wuju-page-select-post-list li>.price {
-    position: absolute;
-    background-color: #FF9800;
-    color: #fff;
-    padding: 2px 5px;
-    border-radius: 4px;
-    top: 6px;
-    left: 6px;
-    font-size: 12px;
-}
-
-.wuju-page-select-post-list.waterfall li .bg img {
-    min-height: 120px;
-}
-
-/*样式7*/
-.wuju-page-select-post-list.lattice_7 li:hover .popup-btn .text {
-    bottom: 80px;
-}
-.wuju-page-select-post-list.lattice_7 li .popup-btn .text {
-    transition: all .3s;
-    position: absolute;
-    bottom: -45px;
-}
-
-
-
-
-/*下载内页*/
-.wuju-main-content.single-bbs.download .wuju-bbs-content-header-nav {
-    background-color: inherit;
-    padding: 12px 0;
-    font-size: 12px;
-}
-.wuju-main-content.single-bbs.download .wuju-bbs-content-header-nav a {
-    color: #999;
-    font-size: 12px;
-}
-.wuju-bbs-single-download {
-    background-color: #fff;
-    padding: 20px;
-    box-sizing: border-box;
-}
-.wuju-bbs-single-download-title {
-    color: rgba(0, 0, 0, 0.85);
-    font-size: 18px;
-    margin: 12px 0;
-    width: calc(100% - 310px);
-}
-.wuju-bbs-single-download-title m {
-    margin-right: 5px;
-    font-size: 14px;
-    background-color: #17a1ff;
-    color: #fff;
-    padding: 2px 6px;
-    border-radius: 2px;
-    vertical-align: 1px;
-}
-.wuju-bbs-single-download-title m.ban {
-    border-radius: 6px 2px 6px 2px;
-    background-color: #c69d58;
-}
-.wuju-bbs-single-download-title .like {
-    float: right;
-    color: #999;
-    cursor: pointer;
-}
-.wuju-bbs-single-download-title .like i {
-    font-size: 20px;
-}
-.wuju-bbs-single-download-content {
-    background-color: #fff;
-    padding: 12px;
-    box-sizing: border-box;
-    border-radius: var(--wuju-border-radius);
-    line-height: 1.7;
-    position: relative;
-    color: #333;
-    font-size: 16px;
-}
-.wuju-bbs-single-download-content>.content {
-    min-height: 300px;
-}
-.wuju-bbs-single-download-content img {
-    width: 100%;
-    max-width: 100%;
-    display: block;
-    margin: 0 auto 10px;
-}
-.wuju-bbs-single-download-content p {
-    line-height: 1.7;
-    display: block;
-    min-height: 27px;
-    word-break: break-word;
-}
-.wuju-bbs-single-download-content .wuju-bbs-copyright-info {
-    margin-top: 20px;
-}
-.wuju-single-download-topic-list {
-    margin-top: 20px;
-}
-.wuju-single-download-topic-list .title {
-    margin-bottom: 10px;
-}
-.wuju-single-download-topic-list a {
-    float: left;
-    display: block;
-    overflow: hidden;
-    margin-right: 10px;
-    margin-bottom: 9px;
-    padding: 0 10px;
-    height: 30px;
-    border-radius: 4px;
-    background: #f3f4f9;
-    color: #999;
-    text-align: center;
-    font-size: 13px;
-    line-height: 30px;
-}
-.wuju-bbs-sidebar-download-box {
-    padding: 15px;
-    background-color: #fff;
-    border-radius: var(--wuju-border-radius);
-}
-.wuju-bbs-download-box .download-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.wuju-bbs-download-box .download-btn a.btn {
-    flex: 1;
-    text-align: center;
-    background-image: linear-gradient(to right,#64c0ff,#17a1ff);
-    color: #fff;
-    height: 56px;
-    line-height: 56px;
-    font-size: 18px;
-    border-radius: 8px;
-    margin-right: 10px;
-    cursor: pointer;
-}
-.wuju-bbs-download-box .download-btn a.collect {
-    width: 56px;
-    text-align: center;
-    border: 1px solid #17a1ff;
-    height: 56px;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    color: #17a1ff;
-    background-color: #ebf7ff;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-}
-.wuju-bbs-download-box .download-btn a.collect i {
-    font-size: 20px;
-    margin-bottom: 2px;
-}
-.wuju-bbs-download-box .tips {
-    border: 1px solid #ff9b93;
-    color: #F44336;
-    font-size: 12px;
-    margin-bottom: 10px;
-    padding: 4px 10px;
-    text-align: center;
-    border-radius: 4px;
-    background-color: #fff4f4;
-}
-.wuju-bbs-download-box .tips i {
-    font-size: 12px;
-}
-.wuju-bbs-download-box .info {
-    border: 1px solid #ccc;
-    color: #666;
-    font-size: 12px;
-    margin-top: 10px;
-    padding: 4px 10px;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-    display: flex;
-}
-.wuju-bbs-download-box .info span {
-    flex: 1;
-}
-.wuju-bbs-download-box .info span i {
-    font-style: normal;
-}
-.wuju-bbs-single-custom-field.download {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 4px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-}
-.wuju-bbs-single-custom-field.download li {
-    display: flex;
-    color: #4da2dd;
-}
-.wuju-bbs-single-custom-field.download li label {
-    color: #999;
-    flex: 1;
-}
-.wuju-bbs-single-custom-field.download li p,.wuju-bbs-single-custom-field.download li a {
-    margin: 0;
-    color: #4da2dd;
-    max-width: 150px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.wuju-bbs-single-custom-field.download li:last-child {
-    margin-bottom: 0;
-}
-.wuju-bbs-content-header-fixed {
-    position: fixed;
-    width: 100%;
-    background-color: #fff;
-    left: 0;
-    top: 0;
-    z-index: 9999;
-    display: none;
-    padding: 10px 0;
-    box-shadow: 0 0 9px 3px rgba(191,191,191,.5);
-}
-.wuju-bbs-content-header-fixed-content {
-    width: var(--wuju-width);
-    margin: auto;
-    display: flex;
-    align-items: center;
-}
-.wuju-bbs-content-header-fixed-content .left {
-    width: calc(100% - 310px);
-    margin-right: 10px;
-}
-.wuju-bbs-content-header-fixed-content .left>div {
-    width: 100%;
-}
-.wuju-bbs-content-header-fixed-content .right {
-    width: 300px;
-}
-
-.wuju-bbs-download-relate li {
-    float: left;
-    width: calc((100% - 60px)/4);
-    margin-right: 20px;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-}
-
-.wuju-bbs-download-relate li:nth-child(4n) {
-    margin-right: 0;
-}
-.wuju-bbs-download-relate li a {
-    display: block;
-}
-.wuju-bbs-download-relate li .bg {
-    height: 350px;
-}
-.wuju-bbs-download-relate li .bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 4px;
-}
-.wuju-bbs-download-relate li .title {
-    position: absolute;
-    bottom: 0;
-    color: #fff;
-    text-shadow: 0 2px 2px rgba(11,11,11,.4);
-    background: linear-gradient(to bottom, rgba(6, 6, 8, 0), rgba(6, 6, 8, 0.6));
-    width: 100%;
-    box-sizing: border-box;
-    border-radius: 0 0 4px 4px;
-    padding: 15px 10px;
-    font-size: 16px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    transition: all .3s;
-    z-index: 1;
-}
-.wuju-bbs-download-relate li .btn {
-    transition: all .3s;
-    position: absolute;
-    text-align: center;
-    background-image: linear-gradient(to right,#32e696,#00BE6E);
-    left: calc(50% - 80px);
-    bottom: -42px;
-    width: 160px;
-    height: 42px;
-    line-height: 42px;
-    color: #fff;
-    border-radius: 4px;
-    opacity: 0;
-    z-index: 1;
-}
-.wuju-bbs-download-relate li:hover .btn {
-    opacity: 1;
-    bottom: 60px;
-}
-.wuju-bbs-download-relate li .shadow {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(0 0 0 / 0.5);
-    top: 0;
-    display: none;
-    border-radius: 4px;
-}
-.wuju-bbs-download-relate li:hover .shadow {
-    display: block;
-}
-.wuju-bbs-download-relate li .collect {
-    transition: all .3s;
-    position: absolute;
-    top: -50px;
-    right: 5px;
-    width: 45px;
-    height: 45px;
-    background-color: #fff;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    border-radius: 4px;
-    color: #999;
-    opacity: 0;
-    z-index: 1;
-    cursor: pointer;
-}
-.wuju-bbs-download-relate li .collect i {
-    font-size: 20px;
-}
-.wuju-bbs-download-relate li:hover .collect {
-    opacity: 1;
-    top: 5px;
-}
-.wuju-bbs-download-relate>.title {
-    margin-bottom: 15px;
-    font-size: 18px;
-    color: #666;
-    margin-top: 15px;
-}
-.wuju-bbs-download-relate>.title .right {
-    float: right;
-    font-size: 16px;
-}
-.wuju-bbs-download-relate>.title .right a {
-    color: #999;
-}
-.wuju-bbs-download-relate>.title .right:hover a {
-    color: #333;
-}
-.wuju-single-download-admin {
-    margin-top: 20px;
-}
-.wuju-single-download-admin li {
-    display: inline-block;
-    margin-right: 10px;
-    border: 1px solid #999;
-    font-size: 14px;
-    padding: 2px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-.wuju-bbs-download-form {
-    background-color: #f6f6f6;
-    padding: 0 0 10px;
-    margin-left: 15px;
-    margin-bottom: 15px;
-}
-.wuju-bbs-download-add {
-    width: 620px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-.wuju-bbs-download-add span {
-    width: 120px;
-    text-align: center;
-    background-color: #f1f1f1;
-    border: 1px solid #ddd5d5;
-    padding: 6px 10px;
-    display: block;
-    margin: auto;
-    cursor: pointer;
-    color: #666;
-    border-radius: 2px;
-}
-.wuju-bbs-download-add span:hover {
-    color: #222;
-    border-color: #999;
-}
-.wuju-bbs-download-form .li>i {
-    position: absolute;
-    right: 420px;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 1;
-}
-.wuju-bbs-download-form .li {
-    padding-top: 15px;
-    border-bottom: 3px solid #fff;
-}
-.wuju-bbs-download-form .li:nth-last-child(2) {
-    border: none;
-}
-.wuju-bbs-download-box .download-more {
-    margin-top: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-.wuju-bbs-download-box .download-more .title {
-    padding: 8px;
-    background-color: #eee;
-    text-align: center;
-    color: #666;
-    font-size: 12px;
-    cursor: pointer;
-}
-.wuju-bbs-download-box .download-more .content {
-    padding: 10px;
-    display: none;
-    border-top: 1px solid #ccc;
-}
-.wuju-bbs-download-box .download-more li {
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-}
-.wuju-bbs-download-box .download-more li:last-child {
-    border-bottom: none;
-}
-.wuju-bbs-download-box .download-more li .top {
-    display: flex;
-    margin-bottom: 5px;
-    color: #333;
-}
-.wuju-bbs-download-box .download-more li .top>div {
-    flex: 1;
-}
-.wuju-bbs-download-box .download-more li .top .url {
-    text-align: right;
-}
-.wuju-bbs-download-box .download-more li .top .url a {
-    color: #2196F3;
-}
-.wuju-bbs-download-box .download-more li .pass {
-    display: flex;
-    font-size: 12px;
-    color: #999;
-}
-.wuju-bbs-download-box .download-more li .pass>span {
-    flex: 1;
-}
-.wuju-bbs-download-box .download-more li .pass i {
-    font-style: normal;
-}
-
-.wuju-post-follow-user-list {
-    margin-bottom: 10px;
-    text-align: center;
-    background-color: #fff;
-    padding: 12px 10px;
-    border-radius: 4px;
-}
-.wuju-post-follow-user-list li {
-    float: left;
-    width: 10%;
-}
-.wuju-post-follow-user-list li .avatarimg {
-    width: 45px;
-    height: 45px;
-    margin: auto;
-    position: relative;
-}
-.wuju-post-follow-user-list li .avatarimg img {
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    border: 1px solid #f1f1f1;
-}
-.wuju-post-follow-user-list li p {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    color: #666;
-    margin-top: 5px;
-    font-size: 12px;
-    width: 90%;
-    margin: 5px auto 0;
-}
-.wuju-post-follow-user-list li.more i {
-    width: 45px;
-    height: 45px;
-    line-height: 45px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 100%;
-    box-sizing: border-box;
-    color: #999;
-}
-.wuju-post-images-list .blur img {
-    filter: blur(15px);
-    -webkit-filter: blur(15px);
-    background-color: #888;
-    cursor: pointer;
-}
-.wuju-post-images-list .blur i.wuju-icon {
-    font-size: 30px;
-    text-align: center;
-    position: absolute;
-    z-index: 9;
-    color: #fff;
-    left: 0;
-    right: 0;
-    top: 50%;
-    margin-top: -15px;
-    opacity: 0.5;
-    cursor: pointer;
-}
-.wuju-post-images-list a.blur i.gif {
-    opacity: 0.4;
-}
-.wuju-chat-windows-footer {
-    position: relative;
-}
-.wuju-msg-tips {
-    position: absolute;
-    right: 15px;
-    background-color: var(--wuju-color);
-    color: #fff;
-    width: 36px;
-    height: 36px;
-    line-height: 36px;
-    border-radius: 100%;
-    top: -45px;
-    text-align: center;
-    cursor: pointer;
-    display: none;
-    font-size: 12px;
-}
-.wuju-msg-tips:after {
-    left: 15px;
-    bottom: -2px;
-    transform: rotate(45deg);
-    background: var(--wuju-color);
-    content: "";
-    height: 8px;
-    position: absolute;
-    width: 8px;
-    z-index: -1;
-}
-
-.wuju-post-application-show {
-    margin: 10px 20px 0;
-    background-color: #f9f9f9;
-    width: 50%;
-    border-radius: 4px;
-    border: 1px solid #edeaea;
-    box-sizing: border-box;
-}
-.wuju-post-application-show>a {
-    display: flex;
-    align-items: center;
-    line-height: 40px;
-}
-.wuju-post-application-show .shop img {
-    width: 50px;
-    height: 50px;
-    border-radius: 4px 0 0 4px;
-    margin-right: 10px;
-}
-.wuju-post-application-show .shop .title {
-    width: calc(100% - 160px);
-    display: inline-block;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.wuju-post-application-show .shop .price {
-    width: 100px;
-    text-align: center;
-    color: #c00000;
-    display: inline-block;
-    font-size: 18px;
-}
-.wuju-post-application-show .shop .price t {
-    font-size: 14px;
-}
-.wuju-post-application-show>a i {
-    margin-right: 10px;
-    font-size: 22px;
-    margin-left: 10px;
-}
-.wuju-post-application-show .challenge i {
-    color: #2b8edc;
-}
-.wuju-post-application-show .tree i {
-    color: #009688;
-}
-.wuju-post-application-show .url>span {
-    width: calc(100% - 30px);
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    color: #666;
-}
-.wuju-post-application-show .shop .price m {
-    margin-right: 2px;
-    font-size: 18px;
-}
-.single .wuju-posts-list.single .wuju-post-application-show {
-    margin-left:20px;
-}
-
-.wuju-posts-list.single .wuju-post-application-show, .wuju-posts-list.normal .wuju-post-application-show {
-    width: calc(50% + 20px );
-    margin: 10px 0 0;
-}
-.wuju-post-application-show>a.pet {
-    padding: 4px;
-    font-size: 13px;
-}
-.wuju-post-application-show .pet img {
-    box-sizing: border-box;
-    width: 42px;
-    height: 42px;
-    margin-right: 10px;
-    border-radius: 4px;
-}
-
-.wuju-referral-info-form {
-    text-align: left;
-}
-
-
-.wuju-websocket-new-posts-tips {
-    border: 1px solid #b3cd9d;
-    color: #3c763d;
-    background-color: #dff0d8;
-    text-align: center;
-    padding: 10px;
-    border-radius: var(--wuju-border-radius);
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-
-.wuju-posts-list h2 .type {
-    border-radius: 2px;
-    cursor: pointer;
-    vertical-align: 2px;
-    margin-right: 8px;
-    display: inline-block;
-    font-size: 12px;
-    line-height: 18px;
-    padding: 0 5px;
-    color: #fff;
-}
-.wuju-comment-content .wuju-post-link {
-    margin-right: 5px;
-}
-
-.wuju-publish-words-power .credit-type,.wuju-publish-single-form .credit-type,.wuju-editor-bbs-content .credit-type {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-}
-.wuju-publish-words-power .credit-type m,.wuju-publish-single-form .credit-type m,.wuju-editor-bbs-content .credit-type m {
-    padding: 6px 20px;
-    margin-right: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    cursor: pointer;
-    color: #999;
-}
-.wuju-publish-words-power .credit-type m.on,.wuju-publish-single-form .credit-type m.on,.wuju-editor-bbs-content .credit-type m.on {
-    background-color: var(--wuju-color);
-    color: #fff;
-    border-color: var(--wuju-color);
-}
-
-.wuju-publish-words-power.inline .wuju-publish-words-power-content {
-    display: flex;
-    align-items: center;
-}
-.wuju-publish-words-power.inline .wuju-publish-words-power-content .credit-type {
-    margin-top: 0;
-    margin-left: 20px;
-}
-#wuju-bbs-publish-price {
-    display: flex;
-    align-items: center;
-}
-#wuju-bbs-publish-price .credit-type {
-    margin-left: 25px;
-    margin-top: 0;
-    margin-bottom: 15px;
 }

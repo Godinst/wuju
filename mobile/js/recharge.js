@@ -1,21 +1,7 @@
 
 
 //充值金币
-function wuju_recharge(recharge_type){
-if(!wuju.is_login){
-myApp.loginScreen();  
-return false;
-}
-
-if(recharge_type=='money'){
-money_number=$('.wuju-recharge-money-input input').val();
-if(money_number<0.01||!money_number){
-layer.open({content:'充值金额不能小于0.01元！',skin:'msg',time:2});
-return false;
-}
-$('#wuju-credit-recharge-number').val(money_number);
-}
-
+function wuju_recharge_credit(){
 number=$('#wuju-credit-recharge-number').val();	
 WIDout_trade_no=$('input[name="WIDout_trade_no"]').val();
 WIDsubject=$('input[name="WIDsubject"]').val();
@@ -29,12 +15,10 @@ if(number==''&&type!='keypay'){
 layer.open({content:'请选择充值金额！',skin:'msg',time:2});
 return false;		
 }
-if(type=='wechatpay_mobile'||type=='wechatpay_mp'||type=='xunhupay_wechat_mobile'){
+if(type=='wechat-h5'||type=='wechat-jsapi'||type=='xunhu-wechat'){
 pay_type='wechatpay';
-}else if(type=='alipay_code'){
+}else if(type=='qrcode'){
 pay_type='qrcode';
-}else if(type=='epay_wechatpay'||type=='epay_alipay'||type=='mapay_alipay'||type=='mapay_wechatpay'){
-pay_type=type;
 }else{
 pay_type='alipay';
 }
@@ -61,70 +45,30 @@ function d(){window.location.reload();}setTimeout(d,1500);//刷新页面
 });
 }
 
-//余额支付
-if(type=='moneypay'){
-data=$('#wuju-credit-recharge-form').serialize();
-data=data+'&type=moneypay';
-myApp.showIndicator();
-$.ajax({
-type: "POST",
-url:wuju.wuju_ajax_url+"/action/recharge-credit-money.php",
-data:data,
-success: function(msg){
-myApp.hideIndicator();
-layer.open({content:msg.msg,skin:'msg',time:2});
-if(msg.code==1){
-function d(){window.location.reload();}setTimeout(d,1500);//刷新页面
-// history.back(-1);
+//卡密支付
+if(type=='keypay'){
+myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/mywallet/key.php'});
 }
 
-}
-});
-}
-
-
-if(type=='alipay_code'){//当面付
+//当面付
+if(type=='qrcode'){
 data=$('#wuju-credit-recharge-form').serialize();
 data=data+'&type=qrcode';
 myApp.showIndicator();
 $.ajax({   
-url:wuju.home_url+'/Extend/pay/alipay/qrcode.php',
+url:wuju.theme_url+'/extend/alipay/qrcode.php',
 type:'GET',   
 data:data,
 success:function(msg){   
 myApp.hideIndicator();
-if(myApp.device.os=='ios'){
-window.location.href=msg;	
-}else{
-window.open(msg);	
-}
+window.location.href=msg;
 
-layer.open({
-content: '是否已经充值完成？'
-,btn: ['已充值', '已取消']
-,yes: function(index){
-myApp.showIndicator();
-$.ajax({   
-url:wuju.wuju_ajax_url+"/action/check-trade.php",
-type:'POST',   
-data:data,
-success:function(msg){   
-myApp.hideIndicator();
-if(msg.code==1){
-layer.open({content:msg.msg,skin:'msg',time:2});
-if(msg.type=='credit'){
-$('.wuju-mywallet-header .number span,.wuju-mine-list-credit').text(msg.credit);
-}
-function c(){history.back(-1);}setTimeout(c,2000);
-}else{
-layer.open({content:'充值失败，系统未查询到充值订单！',skin:'msg',time:2});
-}
-}   
-}); 
-layer.close(index);
-}
-});
+// html='<div class="popup wuju-publish-type-form profile-qrcode"><div class="page-content"><div class="wuju-alipay-qrcode-pay"><div id="wuju-qrcode"></div><p class="tips">请用支付宝扫码支付</p></div><div class="close"><a href="#" class="link icon-only close-popup" onclick="wuju_cancel_alipay_qrcode()"><i class="wuju-icon wuju-xiangxia2"></i></a></div>';
+// myApp.popup(html);
+// wuju_qrcode('wuju-qrcode',200,200,msg);
 
+// myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/mywallet/alipay-qrcode.php?url='+msg});
+// wuju_check_order_wechatpay(data);
 }   
 });
 
@@ -132,7 +76,7 @@ layer.close(index);
 
 
 //创建订单
-if(type!='creditpay'){
+if(type!='keypay'&&type!='creditpay'){
 data=$('#wuju-credit-recharge-form').serialize();
 data=data+'&type='+pay_type;
 $.ajax({
@@ -141,34 +85,29 @@ url:wuju.wuju_ajax_url+"/action/create-trade-no.php",
 data:data,
 success:function(aa){
 
-if(type=='alipay_mobile'||type=='wechatpay_mp'||type=='epay_wechatpay'||type=='epay_alipay'){//提交表单
+if(type=='alipay'){
 $('#wuju-credit-recharge-form').submit();
-$('#wuju-credit-recharge-form input[name="WIDout_trade_no"]').val(new Date().getTime());
-}else if(type=='wechatpay_mobile'){//微信H5支付
+}else if(type=='wechat-jsapi'){
+$('#wuju-credit-recharge-form').submit();
+}else if(type=='wechat-h5'){
 $.ajax({   
-url:wuju.home_url+"/Extend/pay/wechatpay/wechat-h5.php",
+url:wuju.mobile_ajax_url+"/pay/wechat-h5.php",
 type:'POST',   
 data:{number:number,type:'credit',WIDout_trade_no:WIDout_trade_no,WIDsubject:WIDsubject,openid:openid},    
 success:function(msg){
-if(myApp.device.os=='ios'){
-window.location.href=msg.url;
-}else{
-window.open(msg.url);	
-}
+window.location.href=msg.url; 
+// console.log(msg.url);
 }   
 }); 	
-}else if(type=='xunhupay_wechat_mobile'){//迅虎微信支付
+}else if(type=='xunhu-wechat'){
 data=$('#wuju-credit-recharge-form').serialize();
 $.ajax({   
-url:wuju.home_url+"/Extend/pay/xunhupay/wechatpay-xunhu-code.php",
+url:wuju.wuju_ajax_url+"/stencil/wechatpay-xunhu-code.php",
 type:'POST',   
 data:data,    
 success:function(msg){
-if(myApp.device.os=='ios'){
-window.location.href=msg;
-}else{
-window.open(msg);		
-}
+window.location.href=msg; 
+// console.log(msg.url);
 }   
 }); 	
 }
@@ -177,8 +116,6 @@ window.open(msg);
 }  
 });
 }
-
-
 
 }
 
@@ -192,11 +129,33 @@ myApp.getCurrentView().router.load({url:wuju.theme_url+'/mobile/templates/page/m
 }
 
 
-//余额充值包监听输入
-function wuju_recharge_money_select_bag(obj){
-if($('.wuju-recharge-number li').length>0){
-price=$(obj).val();
-$('.wuju-recharge-number li').removeClass('on');
-$('.price-'+price).addClass('on');
-}
-}
+// function wuju_check_order_wechatpay(data){
+// //长轮询付款
+// wuju_check_order_wechatpay_ajax=$.ajax({
+// type: "POST",
+// url:wuju.wuju_ajax_url+"/action/check-trade.php",
+// data:data,
+// success: function(msg){
+// if(msg.code==0){
+// wuju_check_order_wechatpay(data);
+// }else if(msg.code==1){
+// $('.wuju-alipay-qrcode-pay').html(msg.msg);
+// // if(msg.type=='credit'){
+// // credit=parseInt($('.wuju-mycredit-credit-info .credit i').html());
+// // recharge_number=parseInt(msg.recharge_number);
+// // count=credit+recharge_number;
+// // $('.wuju-mycredit-credit-info .credit i').html(count);
+// // }else{//开通会员
+// // $('.wuju-mycredit-user-info .vip m').html(msg.content);
+// // }
+// }else{
+// wuju_check_order_wechatpay(data);	
+// }
+// }
+// });	
+// }
+
+// //取消支付 取消长轮询
+// function wuju_cancel_alipay_qrcode(){
+// wuju_check_order_wechatpay_ajax.abort();
+// }
