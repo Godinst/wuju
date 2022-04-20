@@ -1,4 +1,4 @@
-.wuju-home-menu::-webkit-scrollbar, .wuju-video-special-menu::-webkit-scrollbar{
+.jinsom-home-menu::-webkit-scrollbar, .jinsom-video-special-menu::-webkit-scrollbar{
     width:0;
     height:0;
 }
@@ -17,7 +17,7 @@
     content: '';
     clear: both;
 }
-.wuju-icon {
+.jinsom-icon {
     font-size: 6vw;
 }
 input{
@@ -73,47 +73,47 @@ pre {
 
 
 /*loading加载*/
-.wuju-load {padding: 2vw;}
-.wuju-loading{ position:relative;width:12vw;height:12vw;margin: auto;text-align: center;}
-.wuju-loading i{ display:block;width:12vw;height:12vw; position:absolute;border-radius:50%; background:#555;left:0;top:0; opacity:0;}
-.wuju-loading i:nth-child(1){-webkit-animation:wuju-loading 1s linear 0s infinite}
-.wuju-loading i:nth-child(2){-webkit-animation:wuju-loading 1s linear .2s infinite}
-.wuju-loading i:nth-child(3){-webkit-animation:wuju-loading 1s linear .4s infinite}
-@-webkit-keyframes wuju-loading{
+.jinsom-load {padding: 2vw;}
+.jinsom-loading{ position:relative;width:12vw;height:12vw;margin: auto;text-align: center;}
+.jinsom-loading i{ display:block;width:12vw;height:12vw; position:absolute;border-radius:50%; background:#555;left:0;top:0; opacity:0;}
+.jinsom-loading i:nth-child(1){-webkit-animation:jinsom-loading 1s linear 0s infinite}
+.jinsom-loading i:nth-child(2){-webkit-animation:jinsom-loading 1s linear .2s infinite}
+.jinsom-loading i:nth-child(3){-webkit-animation:jinsom-loading 1s linear .4s infinite}
+@-webkit-keyframes jinsom-loading{
 0%{ transform:scale(0); opacity:0;}
 50%{ transform:scale(0); opacity:1;}
 100%{ transform:scale(1); opacity:0;}
 }
 
 /*加载动画*/
-.wuju-load-post {
+.jinsom-load-post {
     margin: 8vw 0 8vw;
     text-align: center;
 }
-.wuju-loading-post i {
+.jinsom-loading-post i {
     display: inline-block;
     width: 10px;
     height: 10px;
     border-radius: 10px;
     margin: 0 3px;
 }
-.wuju-loading-post i:nth-child(1) {
+.jinsom-loading-post i:nth-child(1) {
     animation: loading-post .6s .4s linear infinite;
     background-color: #BDBDBD;
 }
-.wuju-loading-post i:nth-child(2) {
+.jinsom-loading-post i:nth-child(2) {
     animation: loading-post .6s .3s linear infinite;
     background-color: #9E9E9E;
 }
-.wuju-loading-post i:nth-child(3) {
+.jinsom-loading-post i:nth-child(3) {
     animation: loading-post .6s .2s linear infinite;
     background-color: #757575;
 }
-.wuju-loading-post i:nth-child(4) {
+.jinsom-loading-post i:nth-child(4) {
     animation: loading-post .6s .1s linear infinite;
     background-color: #616161;
 }
-.wuju-loading-post i:nth-child(5) {
+.jinsom-loading-post i:nth-child(5) {
     animation: loading-post .6s .0s linear infinite;
     background-color: #424242;
 }
@@ -130,17 +130,17 @@ pre {
 }
 
 /*空模版*/
-.wuju-empty-page {
+.jinsom-empty-page {
     text-align: center;
     color: #999;
     padding: 4vw 0 5vw;
     font-size: 4vw;
     clear: both;
 }
-.wuju-empty-page i {
+.jinsom-empty-page i {
     font-size: 8vw;
 }
-.wuju-empty-page .title p{
+.jinsom-empty-page .title p{
     font-size: 3.5vw;
     margin: 0;
 }
@@ -184,28 +184,28 @@ pre {
     display: inline-block !important;
 }
 /*金币图标*/
-.wuju-jinbi{
+.jinsom-jinbi{
     color: #fe7f3e;
 }
 
 /*经验图标*/
-.wuju-jingyan {
+.jinsom-jingyan {
     color: #41a3ff;
     font-size: 5.6vw;
 }
 
 /*VIP图标*/
-.wuju-huiyuan {
+.jinsom-huiyuan {
     color: #FFC107;
 }
 
 /*成长值图标*/
-.wuju-chengchangzhi {
+.jinsom-chengchangzhi {
     color: #09b563;
 }
 
 /*认证图标*/
-.wuju-verify {
+.jinsom-verify {
     position: absolute;
     bottom: -1vw;
     right: -0.5vw;
@@ -214,34 +214,34 @@ pre {
     background-image: url(../../images/verify-icon.svg);
     background-size: 12.5vw;
 }
-.wuju-verify-a {
+.jinsom-verify-a {
     background-position: -4.2vw -4.2vw;
 }
-.wuju-verify-b {
+.jinsom-verify-b {
     background-position: -4.2vw -16.6vw;
 }
-.wuju-verify-c {
+.jinsom-verify-c {
     background-position: -4.2vw -41.6vw;/*女神*/
 }
-.wuju-verify-d {
+.jinsom-verify-d {
     background-position: -4.2vw -29vw;
 }
-.wuju-custom-verify {
+.jinsom-custom-verify {
     background-size: 4.3vw;
     bottom: -0.5vw;
 }
-.navbar .wuju-verify {
+.navbar .jinsom-verify {
     bottom: 1.5vw;
     right: 1.5vw;
 }
-.navbar .wuju-verify.wuju-custom-verify{
+.navbar .jinsom-verify.jinsom-custom-verify{
     right: 2vw;
 }
 /*会员图标*/
-.wuju-mark.wuju-vip:before {
+.jinsom-mark.jinsom-vip:before {
     content: '';
 }
-.wuju-mark {
+.jinsom-mark {
     font-size: 3vw;
     color: #fff;
     margin-left: 2vw;
@@ -249,19 +249,19 @@ pre {
     border-radius: 10vw;
     vertical-align: 0.5vw;
 }
-.wuju-mark.wuju-boy {
+.jinsom-mark.jinsom-boy {
     padding: 0.5vw 1.2vw;
 }
-.wuju-mark.wuju-girl {
+.jinsom-mark.jinsom-girl {
     padding: 0.5vw 1.5vw;
 }
-.wuju-boy {
+.jinsom-boy {
     background-color: #1E9FFF;
 }
-.wuju-girl {
+.jinsom-girl {
     background-color: #FF69B4;
 }
-.wuju-honor {
+.jinsom-honor {
     background-color: #009688;
 }
 
@@ -331,23 +331,23 @@ pre {
     bottom: 0;
     right: -1vw;
 }
-.navbar .center a .avatarimg i.wuju-custom-verify {
+.navbar .center a .avatarimg i.jinsom-custom-verify {
     bottom: -0.5vw;
 }
 /*----------------------------------首页---------------------------------*/
-#wuju-view-home .page-content {
+#jinsom-view-home .page-content {
     margin-bottom: 14.5vw;
 }
 .page-content.home {
     background-color: #eee;
 }
-.wuju-refresh-success {
+.jinsom-refresh-success {
     text-align: center;
     font-size: 4vw;
     line-height: 10vw;
     color: #35b558;
 }
-.wuju-refresh-success i {
+.jinsom-refresh-success i {
     font-size: 5vw;
     vertical-align: -1px;
 }
@@ -356,10 +356,10 @@ pre {
 
 /*首页菜单*/
 
-/*.wuju-home-navbar .subnavbar {
+/*.jinsom-home-navbar .subnavbar {
     border-bottom: 1px solid #f0f0f0;
 }*/
-.wuju-home-menu,.wuju-video-special-menu,.wuju-bbs-menu {
+.jinsom-home-menu,.jinsom-video-special-menu,.jinsom-bbs-menu {
     overflow-x: scroll;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
@@ -367,17 +367,17 @@ pre {
     width: 100%;
     padding: 0vw 2vw;
 }
-.wuju-home-menu li, .wuju-video-special-menu li, .wuju-bbs-menu li {
+.jinsom-home-menu li, .jinsom-video-special-menu li, .jinsom-bbs-menu li {
     margin-right: 6.5vw;
     display: inline-block;
     position: relative;
     color: #333;
     line-height: 10vw;
 }
-.wuju-bbs-menu li {
+.jinsom-bbs-menu li {
     line-height: 14vw;
 }
-.wuju-home-menu li.on:after, .wuju-video-special-menu li.on:after, .wuju-bbs-menu li.on:after {
+.jinsom-home-menu li.on:after, .jinsom-video-special-menu li.on:after, .jinsom-bbs-menu li.on:after {
     position: absolute;
     left: 30%;
     bottom: 0;
@@ -387,7 +387,7 @@ pre {
     border-bottom: 1vw solid #46c47c;
     border-radius: 20vw;
 }
-.wuju-home-menu li.on,.wuju-video-special-menu li.on,.wuju-bbs-menu li.on{
+.jinsom-home-menu li.on,.jinsom-video-special-menu li.on,.jinsom-bbs-menu li.on{
     color: #46c47c;
 }
 
@@ -396,7 +396,7 @@ pre {
 
 
 /*音乐*/
-.wuju-voice {
+.jinsom-voice {
     background: #28aef5;
     float: left;
     display: block;
@@ -412,7 +412,7 @@ pre {
     margin-right: .35rem;
     padding-right: .5rem;
 }
-.wuju-voice span:first-child {
+.jinsom-voice span:first-child {
     width: .83rem;
     height: 1.185rem;
     position: absolute;
@@ -421,7 +421,7 @@ pre {
     background-image: url(../images/voice-before.png);
     background-size: .83rem 1.185rem;
 }
-.wuju-voice .wave1,.wuju-voice .wave2 {
+.jinsom-voice .wave1,.jinsom-voice .wave2 {
     display: block;
     width: .8rem;
     height: .8rem;
@@ -430,13 +430,13 @@ pre {
     top: .65rem;
     left: .65rem;
 }
-.wuju-voice .wave1{
+.jinsom-voice .wave1{
     background-image: url(../images/voice-1.png);
 }
-.wuju-voice .wave2{
+.jinsom-voice .wave2{
     background-image: url(../images/voice-2.png);
 }
-.wuju-voice .wave3{
+.jinsom-voice .wave3{
     display: block;
     position: absolute;
     width: .8rem;
@@ -449,25 +449,25 @@ pre {
 
 
 /*------------------------------------消息----------------------------*/
-.page.wuju-notice-page {
+.page.jinsom-notice-page {
     background-color: #fff;
 }
-.wuju-chat-notice {
+.jinsom-chat-notice {
     padding: 4vw 4vw 0vw;
     align-items: center;
 }
-.wuju-chat-notice a{
+.jinsom-chat-notice a{
     display: flex;
     align-items: center;
 }
-.wuju-chat-notice a>span.text {
+.jinsom-chat-notice a>span.text {
     font-size: 4.5vw;
     flex: 1;
     line-height: 12vw;
     border-bottom: 1px solid #f6f6f6;
     padding: 3vw 0;
 }
-.wuju-chat-notice i {
+.jinsom-chat-notice i {
     width: 12vw;
     display: inline-block;
     border-radius: 100%;
@@ -478,16 +478,16 @@ pre {
     margin-right: 2vw;
     padding: 3vw 0;
 }
-.wuju-chat-notice .tip {
+.jinsom-chat-notice .tip {
     background-color: #ff3b30;
     padding: 0 2vw;
 }
-.wuju-chat-tab {
+.jinsom-chat-tab {
     color: #6d6d72;
     display: flex;
     width: 100%;
 }
-.wuju-chat-tab a {
+.jinsom-chat-tab a {
     flex: 1;
     position: relative;
     text-align: center;
@@ -496,11 +496,11 @@ pre {
     color: #555;
     display: inline-block;
 }
-.wuju-chat-tab a.active {
+.jinsom-chat-tab a.active {
     opacity: 1;
     color: #46c47c;
 }
-.wuju-chat-tab a.active:after {
+.jinsom-chat-tab a.active:after {
     position: absolute;
     left: 45%;
     bottom: 0;
@@ -510,39 +510,39 @@ pre {
     box-sizing: border-box;
     border-radius: 2vw;
 }
-.wuju-chat {
+.jinsom-chat {
     padding-bottom: 3vw;
 }
-.wuju-chat-user-list {
+.jinsom-chat-user-list {
     padding: 2vw 0;
 }
-#wuju-chat-tab-recently .wuju-chat-user-list {
+#jinsom-chat-tab-recently .jinsom-chat-user-list {
     padding-top: 0;
 }
-.wuju-chat-user-list a {
+.jinsom-chat-user-list a {
     display: block;
     padding: 3vw 0;
     height: 12vw;
 }
-.wuju-chat-user-avatar {
+.jinsom-chat-user-avatar {
     float: left;
     height: 15vw;
 }
-.wuju-chat-user-avatar img {
+.jinsom-chat-user-avatar img {
     width: 12vw;
     height: 12vw;
     border-radius: 100%;
     margin-right: 2vw;
 }
-.wuju-chat-user-info .name {
+.jinsom-chat-user-info .name {
     font-size: 5vw;
 }
-.wuju-chat-user-info .time {
+.jinsom-chat-user-info .time {
     float: right;
     font-size: 3vw;
     color: #999;
 }
-.wuju-chat-user-info .content {
+.jinsom-chat-user-info .content {
     color: #999;
     margin-top: 2vw;
     margin-left: 17vw;
@@ -551,13 +551,13 @@ pre {
     white-space: nowrap;
     max-width: 70%;
 }
-.wuju-chat-user-info .content m {
+.jinsom-chat-user-info .content m {
     color: #2196F3;
 }
-.wuju-chat-user-info .content p {
+.jinsom-chat-user-info .content p {
     margin: 0;
 }
-.wuju-chat-user-list a .tips {
+.jinsom-chat-user-list a .tips {
     position: absolute;
     right: 1vw;
     bottom: 5vw;
@@ -570,10 +570,10 @@ pre {
 
 
 
-.wuju-chat-user-list li {
+.jinsom-chat-user-list li {
     padding: 0 4vw;
 }
-.wuju-chat-user-list li.reg .wuju-icon,.wuju-chat-user-list li.cash .wuju-icon {
+.jinsom-chat-user-list li.reg .jinsom-icon,.jinsom-chat-user-list li.cash .jinsom-icon {
     width: 12vw;
     height: 12vw;
     line-height: 12vw;
@@ -583,15 +583,15 @@ pre {
     color: #fff;
     border-radius: 100%;
 }
-.wuju-chat-user-list li.cash .wuju-icon {
+.jinsom-chat-user-list li.cash .jinsom-icon {
     background-color: #aa7fff;
 }
-.wuju-chat-user-list li .avatar {
+.jinsom-chat-user-list li .avatar {
     width: 12vw;
     height: 12vw;
     border-radius: 100%;
 }
-.wuju-chat-user-list li no-img,.wuju-search-user-list li .avatarimg no-img {
+.jinsom-chat-user-list li no-img,.jinsom-search-user-list li .avatarimg no-img {
     width: 12vw;
     height: 12vw;
     border-radius: 100%;
@@ -601,10 +601,10 @@ pre {
     background-color: #2279e7;
     color: #fff;
 }
-.wuju-search-user-list li .avatarimg no-img{
+.jinsom-search-user-list li .avatarimg no-img{
     margin-right:2vw; 
 }
-.wuju-single-bbs-info .content .avatarimg no-img {
+.jinsom-single-bbs-info .content .avatarimg no-img {
     width: 16vw;
     height: 16vw;
     border-radius: 100%;
@@ -614,28 +614,28 @@ pre {
     background-color: #2279e7;
     color: #fff;
 }
-.wuju-chat-user-list li .time {
+.jinsom-chat-user-list li .time {
     position: absolute;
     right: 0;
     top: 2vw;
     font-size: 3vw;
     color: #999;
 }
-.wuju-chat-user-list li .tips {
+.jinsom-chat-user-list li .tips {
     position: absolute;
     right: 0;
     bottom: 5vw;
 }
-.wuju-chat-user-list li .tips .badge {
+.jinsom-chat-user-list li .tips .badge {
     background-color: #ff3b30;
 }
-.wuju-chat-user-list li .name {
+.jinsom-chat-user-list li .name {
     font-size: 4vw;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
-.wuju-chat-user-list li .desc {
+.jinsom-chat-user-list li .desc {
     color: #999;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -644,56 +644,56 @@ pre {
     width: 80%;
     font-size: 3vw;
 }
-.wuju-chat-user-list li .desc m {
+.jinsom-chat-user-list li .desc m {
     color: #2196F3;
 }
-.wuju-chat-user-list li .item-media {
+.jinsom-chat-user-list li .item-media {
     padding: 4vw 0;
     height: 12vw;
     position: relative;
     width: 17vw;
 }
-.wuju-chat-user-list li .item-media .wuju-verify {
+.jinsom-chat-user-list li .item-media .jinsom-verify {
     bottom: 2.5vw;
     right: 3.5vw;
 }
-.wuju-chat-user-list li .item-inner {
+.jinsom-chat-user-list li .item-inner {
     padding: 4vw 0;
     flex: 1;
     height: 20vw;
 }
-.wuju-chat-user-list li .item-title {
+.jinsom-chat-user-list li .item-title {
     width: 100%;
 }
-.wuju-chat-user-list li .swipeout-actions-right a {
+.jinsom-chat-user-list li .swipeout-actions-right a {
     font-size: 4vw;
     height: 100%;
 }
 
 
 /*----------------------------我的-------------------------------*/
-.wuju-mine-page li i {
+.jinsom-mine-page li i {
     font-size: 5vw;
 }
-.wuju-mine-page li.wuju-mine-user-info i {
+.jinsom-mine-page li.jinsom-mine-user-info i {
     font-size: inherit;
 }
-.wuju-mine-page .list-block li a{
+.jinsom-mine-page .list-block li a{
     padding: 0vw 4vw;
 }
-.wuju-mine-page .list-block li .item-media {
+.jinsom-mine-page .list-block li .item-media {
     padding: 3vw 0;
     margin-right: 4vw;
 }
-.wuju-mine-page .list-block li.wuju-mine-user-info .item-media {
+.jinsom-mine-page .list-block li.jinsom-mine-user-info .item-media {
     padding: 5vw 0;
 }
-.wuju-mine-page .list-block li .item-inner {
+.jinsom-mine-page .list-block li .item-inner {
     padding: 4vw 0;
     align-items: center;
     display: flex;
 }
-.wuju-mine-page .list-block li .item-inner .item-title>i {
+.jinsom-mine-page .list-block li .item-inner .item-title>i {
     width: 2vw;
     height: 2vw;
     display: inline-block;
@@ -701,58 +701,58 @@ pre {
     border-radius: 100%;
     margin-left: 2vw;
 }
-.wuju-mine-page .list-block li .item-media img {
+.jinsom-mine-page .list-block li .item-media img {
     width: 17vw;
     height: 17vw;
     border-radius: 2vw;
     box-sizing: border-box;
 }
-.wuju-mine-user-info .item-media {
+.jinsom-mine-user-info .item-media {
     height: 17vw;
     position: relative;
 }
-.wuju-mine-user-info .item-media .wuju-verify {
+.jinsom-mine-user-info .item-media .jinsom-verify {
     bottom: 4vw;
     right: -1vw;
 }
-.wuju-mine-page .list-block li .item-title p {
+.jinsom-mine-page .list-block li .item-title p {
     margin: 2vw 0;
 }
-.wuju-mine-page .list-block li .item-title .name {
+.jinsom-mine-page .list-block li .item-title .name {
     font-size: 4.5vw;
 }
-.wuju-mine-page .list-block li .item-title .exp {
+.jinsom-mine-page .list-block li .item-title .exp {
     display: flex;
     align-items: center;
     margin: 1vw 0;
 }
-.wuju-mine-page .list-block li .item-title .progress {
+.jinsom-mine-page .list-block li .item-title .progress {
     width: 46vw;
     height: 2vw;
     background-color: #ddd;
     border-radius: 20vw;
 }
-.wuju-mine-page .list-block li .item-title .bar {
+.jinsom-mine-page .list-block li .item-title .bar {
     height: 100%;
     background-color: #46c47c;
     border-radius: 20vw 0 0 20vw;
 }
-.wuju-mine-page .list-block li .item-title .id {
+.jinsom-mine-page .list-block li .item-title .id {
     color: #999;
     font-size: 3.8vw;
 }
-.wuju-mine-page .list-block li .item-title .progress-text {
+.jinsom-mine-page .list-block li .item-title .progress-text {
     margin-left: 2vw;
     color: #999;
     font-size: 3.8vw;
 }
-.wuju-mine-user-info .item-inner {
+.jinsom-mine-user-info .item-inner {
     padding: 3vw 0;
 }
-.wuju-mine-page .list-block li.sign .item-after {
+.jinsom-mine-page .list-block li.sign .item-after {
     color: #00b25e;
 }
-.wuju-mine-page hr {
+.jinsom-mine-page hr {
     background-color: #eeeeee;
     height: 2vw;
     margin: 0;
@@ -760,7 +760,7 @@ pre {
 
 /*-----------------------底部工具栏---------------------*/
 /*小圆点通知*/
-.wuju-icon .badge {
+.jinsom-icon .badge {
     position: absolute;
     top: 0vw !important;
     font-size: 3vw;
@@ -771,58 +771,58 @@ pre {
     font-family: -apple-system,SF UI Text,Helvetica Neue,Helvetica,Arial,sans-serif;
     line-height: 4.8vw;
 }
-.wuju-icon .badge {
+.jinsom-icon .badge {
     background-color: #FF5722;
 }
 /*首页*/
-.wuju-footer-toolbar .active.home i:before {
+.jinsom-footer-toolbar .active.home i:before {
   content: "\e7d8";
 }
 /*消息*/
-.wuju-footer-toolbar .active.notice i:before {
+.jinsom-footer-toolbar .active.notice i:before {
   content: "\e60b";
 }
 /*视频专题*/
-.wuju-footer-toolbar .active.video i:before {
+.jinsom-footer-toolbar .active.video i:before {
   content: "\e6ba";
 }
 /*文章专题*/
-.wuju-footer-toolbar .active.single i:before {
+.jinsom-footer-toolbar .active.single i:before {
   content: "\e9ca";
 }
 /*自定义页面*/
-.wuju-footer-toolbar .active.custom i:before {
+.jinsom-footer-toolbar .active.custom i:before {
   content: "\e6b2";
 }
-.wuju-footer-toolbar .notice i {
+.jinsom-footer-toolbar .notice i {
   position: relative;
 }
 /*发表*/
-.wuju-footer-toolbar .publish i {
+.jinsom-footer-toolbar .publish i {
     font-size: 11vw;
     line-height: 12vw;
     color: #46c47c;
     top: 0;
 }
-.wuju-footer-toolbar .publish {
+.jinsom-footer-toolbar .publish {
     padding: 0 !important;
 }
 /*发现*/
-.wuju-footer-toolbar .active.find i:before {
+.jinsom-footer-toolbar .active.find i:before {
   content: "\e60a";
 }
 /*我的*/
-.wuju-footer-toolbar .active.mine i:before {
+.jinsom-footer-toolbar .active.mine i:before {
   content: "\e7d9";
 }
 
 
 
 /*-----------------------------登录注册表单--------------------*/
-.wuju-login-navbar.navbar {
+.jinsom-login-navbar.navbar {
     background: rgba(70, 196, 124, 0);
 }
-.wuju-login-form-opacity {
+.jinsom-login-form-opacity {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -831,17 +831,17 @@ pre {
     background-size: cover;
     background-position: center;
 }
-.wuju-login-form {
+.jinsom-login-form {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
-.wuju-join-reg {
+.jinsom-join-reg {
     float: right;
     width: 14vw;
     font-size: 4.5vw;
 }
-.wuju-login-input-form {
+.jinsom-login-input-form {
     position: absolute;
     top: 25%;
     left: 0;
@@ -849,7 +849,7 @@ pre {
     width: 90%;
     margin: auto;
 }
-.wuju-login-input-form p input {
+.jinsom-login-input-form p input {
     width: 100%;
     outline: none;
     padding: 2vw 4vw 2vw 12vw;
@@ -861,11 +861,11 @@ pre {
     font-size: 4vw;
     height: 12vw;
 }
-.wuju-login-input-form p {
+.jinsom-login-input-form p {
     position: relative;
     margin: 0 0 5vw;
 }
-.wuju-login-btn {
+.jinsom-login-btn {
     position: relative;
     background-color: #46c47c;
     box-sizing: border-box !important;
@@ -876,9 +876,9 @@ pre {
     line-height: 12vw;
     border-radius: 1vw;
 }
-.wuju-login-input-form .name:before {
+.jinsom-login-input-form .name:before {
     content: "\e63c";
-    font-family: "wuju-icon" !important;
+    font-family: "jinsom-icon" !important;
     position: absolute;
     top: 2.6vw;
     left: 3vw;
@@ -886,9 +886,9 @@ pre {
     margin-left: 1vw;
     color: #000000;
 }
-.wuju-login-input-form .pass:before {
+.jinsom-login-input-form .pass:before {
     content: "\e634";
-    font-family: "wuju-icon" !important;
+    font-family: "jinsom-icon" !important;
     position: absolute;
     top: 3.5vw;
     left: 3.5vw;
@@ -896,9 +896,9 @@ pre {
     margin-left: 1vw;
     color: #000000;
 }
-.wuju-login-input-form .mail:before {
+.jinsom-login-input-form .mail:before {
     content: "\e70d";
-    font-family: "wuju-icon" !important;
+    font-family: "jinsom-icon" !important;
     position: absolute;
     top: 3vw;
     left: 3.5vw;
@@ -906,9 +906,9 @@ pre {
     margin-left: 1vw;
     color: #000000;
 }
-.wuju-login-input-form .phone:before {
+.jinsom-login-input-form .phone:before {
     content: "\e641";
-    font-family: "wuju-icon" !important;
+    font-family: "jinsom-icon" !important;
     position: absolute;
     top: 3vw;
     left: 3.5vw;
@@ -916,9 +916,9 @@ pre {
     margin-left: 1vw;
     color: #000000;
 }
-.wuju-login-input-form .code:before {
+.jinsom-login-input-form .code:before {
     content: "\e709";
-    font-family: "wuju-icon" !important;
+    font-family: "jinsom-icon" !important;
     position: absolute;
     top: 1vw;
     left: 1.5vw;
@@ -926,7 +926,7 @@ pre {
     margin-left: 1vw;
     color: #000000;
 }
-.wuju-login-popover {
+.jinsom-login-popover {
     top: 5vw !important;
     right: 5% !important;
     left: initial !important;
@@ -934,26 +934,26 @@ pre {
 .popover-angle {
     display: none;
 }
-.wuju-social-login {
+.jinsom-social-login {
     text-align: center;
 }
-.wuju-social-login a {
+.jinsom-social-login a {
     display: inline-block;
     margin: 2vw 5vw;
     text-shadow: 0 0 1px #555;
 }
-.wuju-social-login a i.fa-qq {
+.jinsom-social-login a i.fa-qq {
     color: #4487c6;
 }
-.wuju-social-login a i {
+.jinsom-social-login a i {
     font-size: 10vw;
 }
-.wuju-social-login a i.fa-weibo {
+.jinsom-social-login a i.fa-weibo {
     font-size: 11vw;
     color: #e12328;
     vertical-align: -0.5vw;
 }
-.wuju-social-login a i.fa-wechat {
+.jinsom-social-login a i.fa-wechat {
     color: #8ce14e;
 }
 
@@ -961,18 +961,18 @@ pre {
 
 
 /*设置页面*/
-.wuju-item-setting{
+.jinsom-item-setting{
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     color: #8e8e93;
     text-align: right;
 }
-.wuju-list-my-avatar .item-input {
+.jinsom-list-my-avatar .item-input {
     margin-top: 0;
     margin-bottom: -5px;
 }
-.wuju-login-out{
+.jinsom-login-out{
     text-align: center;
     line-height: 44px;
 }
@@ -985,11 +985,11 @@ pre {
 .dplayer-full button.dplayer-icon.dplayer-full-in-icon {
     display: none !important;
 }
-.wuju-video-player-navbar {
+.jinsom-video-player-navbar {
     background-color: #000 !important;
     position: fixed;
 }
-.wuju-video-player-navbar .left i {
+.jinsom-video-player-navbar .left i {
     color: #fff;
 }
 .dplayer:-webkit-full-screen video.dplayer-video.dplayer-video-current {
@@ -1002,22 +1002,22 @@ div.dplayer-menu.dplayer-menu-show {
 display: none !important;
 }
 
-.wuju-single video {
+.jinsom-single video {
     max-width: 100%;
     height: auto;
 }
-.wuju-single.video .wuju-video-img {
+.jinsom-single.video .jinsom-video-img {
     margin: 0;
     margin-bottom: 4vw;
 }
-.wuju-single.video {
+.jinsom-single.video {
     padding: 4vw;
 }
 .dplayer:-webkit-full-screen {
     margin-top: 0vw !important;
     height: inherit !important;
 }
-#wuju-video {
+#jinsom-video {
     background-color: #000;
     padding-top: 0 !important;
 }
@@ -1026,70 +1026,70 @@ display: none !important;
 /*======================================内容模版样式============================================*/
 
 /*动态模块*/
-.wuju-post-words {
+.jinsom-post-words {
     background-color: #fff;
     margin-bottom: 3vw;
     position: relative;
     font-size: 4vw;
 }
-.wuju-post-words:nth-last-child(2),.home .wuju-post-single:nth-last-child(2) {
+.jinsom-post-words:nth-last-child(2),.home .jinsom-post-single:nth-last-child(2) {
     border: none;
 }
-.wuju-post-words .header {
+.jinsom-post-words .header {
     padding: 4vw 4vw 0;
 }
-.wuju-post-words .header .avatars {
+.jinsom-post-words .header .avatars {
     float: left;
     margin-right: 2vw;
     height: 11vw;
     position: relative;
 }
-.wuju-post-words .header .avatars img {
+.jinsom-post-words .header .avatars img {
     width: 11vw;
     height: 11vw;
     border-radius: 100%;
 }
-.wuju-post-words .header .info {
+.jinsom-post-words .header .info {
     float: left;
     width: 78vw;
 }
-.wuju-post-words .header .info .name {
+.jinsom-post-words .header .info .name {
     margin-bottom: 2vw;
     overflow: hidden;
     white-space: nowrap;
 }
-.wuju-post-words .header .info .other {
+.jinsom-post-words .header .info .other {
     font-size: 3vw;
     color: #8e8e93;
 }
-.wuju-post-words .header .info .other span {
+.jinsom-post-words .header .info .other span {
     margin-right: 2vw;
 }
-.wuju-post-words .header .info .other span a{
+.jinsom-post-words .header .info .other span a{
     color: #8e8e93;
 }
-.wuju-post-words .content {
+.jinsom-post-words .content {
     padding: 3vw 4vw;
     word-wrap: break-word;
     overflow: hidden;
 }
-.wuju-post-words .content .desc {
+.jinsom-post-words .content .desc {
     font-size: 4vw;
     color: #555;
 }
-.wuju-post-read-more {
+.jinsom-post-read-more {
     padding: 2vw 4vw 4vw;
     color: #2196F3;
     cursor: pointer;
 }
-.wuju-post-words .content h1 {
+.jinsom-post-words .content h1 {
     color: #000;
     font-size: 4.5vw;
     font-weight: normal;
     margin: 0;
     margin-bottom: 2vw;
 }
-.wuju-post-words .content h1 .type,.wuju-single h1 .type {
+.jinsom-post-words .content h1 .type,.jinsom-single h1 .type {
     padding: 0.5vw 1.5vw;
     border-radius: 1vw;
     color: #fff;
@@ -1098,128 +1098,128 @@ display: none !important;
     vertical-align: 0.3vw;
     word-break: keep-all;
 }
-.wuju-single h1 .type{
+.jinsom-single h1 .type{
     font-size: 4.5vw;
 }
 /*有图*/
-.wuju-bbs-post-type-img i {
+.jinsom-bbs-post-type-img i {
     font-size: 4vw;
     color: #999;
 }
 /*置顶*/
-.wuju-bbs-post-type-up {
+.jinsom-bbs-post-type-up {
     background-color: #1499f8;
 }
 /*加精*/
-.wuju-bbs-post-type-nice {
+.jinsom-bbs-post-type-nice {
     background-color: #f35b4f;
 }
 /*付费*/
-.wuju-bbs-post-type-pay {
+.jinsom-bbs-post-type-pay {
     background-color: #FF9800;
 }
-.wuju-bbs-post-type-pay:before{
+.jinsom-bbs-post-type-pay:before{
     content:"付费";
 }
 /*投票*/
-.wuju-bbs-post-type-vote {
+.jinsom-bbs-post-type-vote {
     background-color: #673AB7;
 }
-.wuju-bbs-post-type-vote:before{
+.jinsom-bbs-post-type-vote:before{
     content:"投票";
 }
 /*vip*/
-.wuju-bbs-post-type-vip {
+.jinsom-bbs-post-type-vip {
     background-color: #e4cd02;
 }
-.wuju-bbs-post-type-vip:before{
+.jinsom-bbs-post-type-vip:before{
     content:"VIP可见";
 }
 /*回复可见*/
-.wuju-bbs-post-type-comment {
+.jinsom-bbs-post-type-comment {
     background-color: #009688;
 }
-.wuju-bbs-post-type-comment:before{
+.jinsom-bbs-post-type-comment:before{
     content:"回复可见";
 }
 /*登录可见*/
-.wuju-bbs-post-type-login {
+.jinsom-bbs-post-type-login {
     background-color: #6d89bb;
 }
-.wuju-bbs-post-type-login:before{
+.jinsom-bbs-post-type-login:before{
     content:"登录可见";
 }
 /*问答未完成*/
-.wuju-bbs-post-type-answer {
+.jinsom-bbs-post-type-answer {
     background-color: #FF5722;
 }
 /*问答已经完成*/
-.wuju-bbs-post-type-answer.ok {
+.jinsom-bbs-post-type-answer.ok {
     background-color: #4fc277;
 }
-.wuju-bbs-post-type-answer.ok:before{
+.jinsom-bbs-post-type-answer.ok:before{
     content:"已解决";
 }
 /*活动帖子*/
-.wuju-bbs-post-type-activity {
+.jinsom-bbs-post-type-activity {
     background-color: #5fb878;
 }
-.wuju-bbs-post-type-activity:before{
+.jinsom-bbs-post-type-activity:before{
     content:"活动";
 }
-.wuju-post-words .content>a {
+.jinsom-post-words .content>a {
     display: block;
 }
-.wuju-post-words .content img,.wuju-post-single-content img {
+.jinsom-post-words .content img,.jinsom-post-single-content img {
     max-width: 100%;
     height: auto;
 }
-.wuju-post-words .content p {
+.jinsom-post-words .content p {
     margin: 0;
     font-size: 4vw;
 }
-.wuju-post-words .content iframe,.wuju-post-single-content iframe{
+.jinsom-post-words .content iframe,.jinsom-post-single-content iframe{
     max-width: 100%;
 }
-.wuju-post-single-content iframe{
+.jinsom-post-single-content iframe{
     height: auto;
 }
-.wuju-post-single-content li {
+.jinsom-post-single-content li {
     list-style: inherit;
 }
-.wuju-post-single-content a {
+.jinsom-post-single-content a {
     color: #3F51B5;
     text-decoration: underline;
 }
-.wuju-post-single-content .wuju-post-link {
+.jinsom-post-single-content .jinsom-post-link {
     vertical-align: 2vw;
 }
-.wuju-post-words .footer {
+.jinsom-post-words .footer {
     padding: 3vw 0vw 3vw;
     display: flex;
     border-top: 1px solid #f5f5f5;
     margin: 0 4vw;
 }
-.wuju-post-words .footer a {
+.jinsom-post-words .footer a {
     color: #888;
     width: 20vw;
 }
-.wuju-post-words .footer a.more {
+.jinsom-post-words .footer a.more {
     flex: 1;
     text-align: right;
     padding-right: 2vw;
 }
-.wuju-post-words .footer a i {
+.jinsom-post-words .footer a i {
     font-size: 4vw;
 }
-.wuju-post-words>a {
+.jinsom-post-words>a {
     display: inline-block;
     width: 100%;
 }
-.wuju-post-images-list {
+.jinsom-post-images-list {
     padding: 0 4vw 4vw;
 }
-.wuju-post-images-list a {
+.jinsom-post-images-list a {
     overflow: hidden;
     position: relative;
     float: left;
@@ -1229,7 +1229,7 @@ display: none !important;
     height: 30vw;
     border-radius: 1vw;
 }
-.wuju-post-images-list a i {
+.jinsom-post-images-list a i {
     width: 10vw;
     height: 6vw;
     display: inline-block;
@@ -1243,10 +1243,10 @@ display: none !important;
     font-size: 4vw;
     font-style: normal;
 }
-.wuju-post-images-list a i.long {
+.jinsom-post-images-list a i.long {
     background-color: #507daf;
 }
-.wuju-post-images-list a img {
+.jinsom-post-images-list a img {
     width: 100%;
     float: left;
     height: 100%;
@@ -1254,29 +1254,29 @@ display: none !important;
     min-height: 100%;
     object-fit: cover;
 }
-.wuju-post-images-list a.one img{
+.jinsom-post-images-list a.one img{
     min-height: initial;
 }
-.wuju-post-images-list a.one {
+.jinsom-post-images-list a.one {
     width: inherit;
     max-width: 50%;
     max-height: 300px;
     height: auto;
 }
-.wuju-post-words .content .topic {
+.jinsom-post-words .content .topic {
     color: #46c47c;
     margin-right: 10px;
 }
-.wuju-post-at, .wuju-post-link, .post_at {
+.jinsom-post-at, .jinsom-post-link, .post_at {
     color: #6c81f7;
     margin: 0 2vw;
     display: inline-flex;
     overflow: hidden;
 }
-.wuju-post-link {
+.jinsom-post-link {
     vertical-align: 1vw;
 }
-.wuju-post-words .follow {
+.jinsom-post-words .follow {
     position: absolute;
     right: 2vw;
     top: 2vw;
@@ -1286,24 +1286,24 @@ display: none !important;
     font-size: 3vw;
     background-color: #46c47c;
 }
-.wuju-post-words .follow.has {
+.jinsom-post-words .follow.has {
     background-color: #bbb;
 }
-.wuju-post-words .follow i {
+.jinsom-post-words .follow i {
     vertical-align: -0.6vw;
     font-size: 5vw;
 }
-.wuju-hide-content {
+.jinsom-hide-content {
     padding: 2vw;
     margin: 0vw 4vw 2vw;
     background-color: #F8F8F9;
     word-wrap: break-word;
 }
-.wuju-hide-content img {
+.jinsom-hide-content img {
     max-width: 100%;
     height: auto;
 }
-.wuju-tips {
+.jinsom-tips {
     text-align: center;
     margin: 0 4vw 4vw;
     color: #999;
@@ -1311,29 +1311,29 @@ display: none !important;
     padding: 8vw;
     font-size: 3.8vw;
 }
-.wuju-tips .wuju-btn {
+.jinsom-tips .jinsom-btn {
     background-color: #5fb878;
     color: #fff;
     padding: 2vw 2vw;
     margin: 2vw 8vw;
     border-radius: 1vw;
 }
-.wuju-tips .wuju-icon {
+.jinsom-tips .jinsom-icon {
     font-size: 8vw;
     vertical-align: -1.4vw;
 }
-.wuju-tips .wuju-btn a {
+.jinsom-tips .jinsom-btn a {
     color: #fff;
     display: inline-block;
     width: 100%;
 }
-.wuju-post-password {
+.jinsom-post-password {
     margin-top: 1vw;
     position: relative;
     align-items: center;
     display: flex;
 }
-.wuju-post-password:before {
+.jinsom-post-password:before {
     content: "\f023";
     position: absolute;
     top: 2.5vw;
@@ -1343,14 +1343,14 @@ display: none !important;
     margin-left: 4px;
     color: #949494;
 }
-.wuju-post-password input {
+.jinsom-post-password input {
     line-height: 9vw;
     padding: 1vw 1vw 1vw 10vw;
     border-radius: 2px;
     flex: 5;
     border: none;
 }
-.wuju-post-password span {
+.jinsom-post-password span {
     background-color: #5FB878;
     border-radius: 1px;
     color: #fff;
@@ -1359,37 +1359,37 @@ display: none !important;
     display: inline-block;
     flex: 2;
 }
-.wuju-single .wuju-tips {
+.jinsom-single .jinsom-tips {
     margin: 0;
 }
-.wuju-single .wuju-hide-content {
+.jinsom-single .jinsom-hide-content {
     margin: 0vw 0 2vw;
     word-wrap: break-word;
 }
-.wuju-post-city i {
+.jinsom-post-city i {
     font-size: 4vw;
 }
-.wuju-post-city {
+.jinsom-post-city {
     padding: 0 4vw 2vw;
     font-size: 4vw;
     color: #808080;
 }
-.wuju-single .wuju-post-city {
+.jinsom-single .jinsom-post-city {
     padding: 0;
     margin-bottom: -2vw;
     margin-top: 2vw;
 }
 
 /*文章*/
-#wuju-post-single-content,#wuju-post-words-content,#wuju-post-bbs-content {
+#jinsom-post-single-content,#jinsom-post-words-content,#jinsom-post-bbs-content {
     background-color: #fff;
 }
-.wuju-post-single-content {
+.jinsom-post-single-content {
     word-wrap: break-word;
     overflow: hidden;
     padding-bottom: 3vw;
 }
-.wuju-post-single {
+.jinsom-post-single {
     background-color: #fff;
     margin-bottom: 3vw;
     position: relative;
@@ -1399,21 +1399,21 @@ display: none !important;
     background-position: right 2vw;
     background-size: 600px;
 }
-.wuju-post-single .wuju-post-city {
+.jinsom-post-single .jinsom-post-city {
     padding: 0vw 0 2vw;
 }
-.wuju-post-single h1{
+.jinsom-post-single h1{
     color: #333;
     font-size: 4.5vw;
     font-weight: normal;
     margin: 0;
     margin-bottom: 2vw;
 }
-.wuju-post-single-thum {
+.jinsom-post-single-thum {
     display: flex;
     padding-top: 2vw;
 }
-.wuju-post-single-thum>div {
+.jinsom-post-single-thum>div {
     position: relative;
     height: 25vw;
     margin-right: 1vw;
@@ -1424,10 +1424,10 @@ display: none !important;
     display: inline-block;
     border-radius: 1vw;
 }
-.wuju-post-single-thum>div:last-child{
+.jinsom-post-single-thum>div:last-child{
     margin-right:0; 
 }
-.wuju-post-single-thum>div:last-child span {
+.jinsom-post-single-thum>div:last-child span {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     height: 4.5vw;
@@ -1440,22 +1440,22 @@ display: none !important;
     font-size: 3.5vw;
     padding: 0 1vw;
 }
-.wuju-post-single .footer {
+.jinsom-post-single .footer {
     font-size: 4vw;
     display: flex;
     padding-top: 3vw;
     border-top: 1px solid #f5f5f5;
 }
-.wuju-post-single .footer a {
+.jinsom-post-single .footer a {
     line-height: 6.2vw;
     color: #888;
     text-align: right;
     width: 16vw;
 }
-.wuju-post-single .footer a.more {
+.jinsom-post-single .footer a.more {
     margin-right: 2vw;
 }
-.wuju-post-single .footer a.user {
+.jinsom-post-single .footer a.user {
     margin-right: 2vw;
     flex: 1;
     text-align: left;
@@ -1463,26 +1463,26 @@ display: none !important;
     overflow: hidden;
     white-space: nowrap;
 }
-.wuju-post-single .footer a:first-child img {
+.jinsom-post-single .footer a:first-child img {
     vertical-align: -1.2vw;
     border-radius: 100%;
     width: 5.2vw;
     height: 5.2vw;
 }
-.wuju-post-single .footer a i {
+.jinsom-post-single .footer a i {
     font-size: 4vw;
 }
-.wuju-post-single-desc {
+.jinsom-post-single-desc {
     font-size: 4vw;
     color: #555;
     word-break: break-all;
 }
-.wuju-post-single-content .left {
+.jinsom-post-single-content .left {
     float: left;
     width: 33.33%;
     height: 22vw;
 }
-.wuju-post-single-content .left>div {
+.jinsom-post-single-content .left>div {
     width: 100%;
     height: 22vw;
     display: inline-block;
@@ -1490,12 +1490,12 @@ display: none !important;
     background-position: center;
     border-radius: 1vw;
 }
-.wuju-post-single-content .right {
+.jinsom-post-single-content .right {
     margin-left: 35%;
     font-size: 4vw;
     color: #555;
 }
-.wuju-post-single-content pre,.wuju-post-words .content pre {
+.jinsom-post-single-content pre,.jinsom-post-words .content pre {
     display: inline-flex;
     word-wrap: break-word;
     background: #eee;
@@ -1539,7 +1539,7 @@ display: none !important;
 }
 
 /*视频模块*/
-.wuju-video-img {
+.jinsom-video-img {
     height: 50vw;
     background-size: cover;
     background-position: center;
@@ -1549,14 +1549,14 @@ display: none !important;
     margin: 5vw 4vw 0vw;
     background-color: #4d4d4d;
 }
-.wuju-video-img.custom {
+.jinsom-video-img.custom {
     margin: 0 0 3vw;
 }
-.wuju-video-pop {
+.jinsom-video-pop {
     overflow-y: hidden;
     background-color: #000;
 }
-.wuju-video-power-content {
+.jinsom-video-power-content {
     position: absolute;
     left: 0;
     align-items: center;
@@ -1570,7 +1570,7 @@ display: none !important;
     display: flex;
     box-sizing: border-box;
 }
-.wuju-video-power-content a {
+.jinsom-video-power-content a {
     background: #f60;
     padding: 2vw 6vw;
     border-radius: 1vw;
@@ -1579,10 +1579,10 @@ display: none !important;
     margin-top: 5vw;
     display: inline-block;
 }
-.wuju-video-power-content .box span {
+.jinsom-video-power-content .box span {
     color: #f60;
 }
-.wuju-video-img i {
+.jinsom-video-img i {
     background: rgba(0,0,0,.4);
     top: 50%;
     left: 50%;
@@ -1597,7 +1597,7 @@ display: none !important;
     margin-left: -7.5vw;
     font-size: 7vw;
 }
-.wuju-video-img .tips {
+.jinsom-video-img .tips {
     color: #fff;
     font-size: 4vw;
     line-height: 9vw;
@@ -1606,15 +1606,15 @@ display: none !important;
     text-align: center;
     border-radius: 1vw 1vw 0 0;
 }
-.wuju-video-img .tips span {
+.jinsom-video-img .tips span {
     color: #f60;
     margin-right: 2vw;
 }
-.wuju-bofang-:before {
+.jinsom-bofang-:before {
     content: "\e653";
     margin-left: 1.5vw;
 }
-.wuju-video-tips-content {
+.jinsom-video-tips-content {
     justify-content: center;
     color: #fff;
     display: flex;
@@ -1627,7 +1627,7 @@ display: none !important;
 video.dplayer-video.dplayer-video-current {
     background-color: #000;
 }
-.wuju-video-tips-btn {
+.jinsom-video-tips-btn {
     background: #f60;
     padding: 1vw 4vw;
     border-radius: 1vw;
@@ -1639,14 +1639,14 @@ video.dplayer-video.dplayer-video-current {
 
 
 /*动态详情页*/
-#wuju-post-words-content, #wuju-post-single-content {
+#jinsom-post-words-content, #jinsom-post-single-content {
     padding-bottom: 14vw;
 }
-.wuju-post-words-tool {
+.jinsom-post-words-tool {
     display: flex;
     width: 100%;
 }
-.wuju-post-words-tool >a:first-child {
+.jinsom-post-words-tool >a:first-child {
     flex: 5;
     line-height: 10vw !important;
     margin: 2vw 0;
@@ -1658,21 +1658,21 @@ video.dplayer-video.dplayer-video-current {
     height: initial !important;
     display: inline-block;
 }
-.wuju-post-words-tool >a:first-child>span:last-child {
+.jinsom-post-words-tool >a:first-child>span:last-child {
     float: right;
 }
-.wuju-post-words-tool>a:last-child>i {
+.jinsom-post-words-tool>a:last-child>i {
     font-size: 8vw;
     color: #d45a51;
 }
-.wuju-post-words-tool>a:last-child {
+.jinsom-post-words-tool>a:last-child {
     line-height: 13vw;
     height: initial !important;
 }
-.wuju-post-words-tool>a:last-child>i.wuju-hongbao:before {
+.jinsom-post-words-tool>a:last-child>i.jinsom-hongbao:before {
     vertical-align: -.8vw;
 }
-#wuju-comment-page textarea {
+#jinsom-comment-page textarea {
     border: none;
     width: calc(100% - 8vw);
     margin: 4vw 4vw 0;
@@ -1690,47 +1690,47 @@ video.dplayer-video.dplayer-video-current {
 
 
 /*转发模版*/
-.wuju-reprint {
+.jinsom-reprint {
     padding: 2vw 4vw 2vw;
     word-wrap: break-word;
     background-color: #f5f5f5;
     margin-bottom: 2vw;
 }
-.wuju-reprint-author a, .wuju-reprint-author a font {
+.jinsom-reprint-author a, .jinsom-reprint-author a font {
     color: #1e73be !important;
 }
-.wuju-reprint-title {
+.jinsom-reprint-title {
     font-size: 4.5vw;
     color: #333;
 }
-.wuju-reprint-content {
+.jinsom-reprint-content {
     color: #555;
     font-size: 4vw;
     line-height: 1.6;
 }
-.wuju-reprint .wuju-post-images-list {
+.jinsom-reprint .jinsom-post-images-list {
     padding: 2vw 0;
 }
-.wuju-reprint-content .wp-smiley {
+.jinsom-reprint-content .wp-smiley {
     width: 5.8vw;
     height: 5.8vw !important;
     max-height: 5.8vw !important;
     vertical-align: -1vw;
 }
-.wuju-reprint-author-name {
+.jinsom-reprint-author-name {
     display: inline-flex;
     overflow: hidden;
 }
 
 /*帖子内容页面*/
-#wuju-post-bbs-content .wuju-post-words .content .desc {
+#jinsom-post-bbs-content .jinsom-post-words .content .desc {
     font-size: 4.5vw;
     color: #333;
 }
 
 
 /*通用内容页面*/
-.wuju-single {
+.jinsom-single {
     background-color: #fff;
     position: relative;
     font-size: 4.5vw;
@@ -1740,7 +1740,7 @@ video.dplayer-video.dplayer-video-current {
     background-size: 600px;
     box-sizing: border-box;
 }
-.wuju-single h1 {
+.jinsom-single h1 {
     color: #333;
     font-size: 6vw;
     font-weight: normal;
@@ -1748,46 +1748,46 @@ video.dplayer-video.dplayer-video-current {
     margin-bottom: 2vw;
     word-break: break-all;
 }
-.wuju-post-single-content p {
+.jinsom-post-single-content p {
     line-height: 8vw;
     display: block;
     min-height: 8vw;
     font-size: 4vw;
 }
-.wuju-single-author-info {
+.jinsom-single-author-info {
     padding-bottom: 3vw;
     font-size: 4vw;
     border-bottom: 1px solid #f5f5f5;
     margin-bottom: 3vw;
 }
-.wuju-single-author-info span {
+.jinsom-single-author-info span {
     color: #999;
 }
-.wuju-single-author-info span.dot {
+.jinsom-single-author-info span.dot {
     margin: 0 2vw;
 }
-.wuju-single .footer {
+.jinsom-single .footer {
     display: flex;
     padding-top: 4vw;
     border-top: 1px solid #f5f5f5;
     margin-top: 4vw;
 }
-.wuju-single .footer a {
+.jinsom-single .footer a {
     color: #888;
     width: 20vw;
 }
-.wuju-single .footer a.comment, .wuju-single .footer a.views {
+.jinsom-single .footer a.comment, .jinsom-single .footer a.views {
     display: none;
 }
-.wuju-single .footer a.more {
+.jinsom-single .footer a.more {
     flex: 1;
     text-align: right;
     padding-right: 2vw;
 }
-.wuju-single .footer a i {
+.jinsom-single .footer a i {
     font-size: 4.5vw;
 }
-.wuju-single-copyright-info {
+.jinsom-single-copyright-info {
     border: 1px solid #efefef;
     color: #999;
     border-radius: 1vw;
@@ -1796,13 +1796,13 @@ video.dplayer-video.dplayer-video-current {
     padding: 3vw;
     margin-top: 5vw;
 }
-.wuju-post-single .footer a .like.had,.wuju-post-words .footer a .like.had,.wuju-single .footer a .like.had {
+.jinsom-post-single .footer a .like.had,.jinsom-post-words .footer a .like.had,.jinsom-single .footer a .like.had {
     color: #f56b41;
 }
-.wuju-post-like {
+.jinsom-post-like {
     margin-top: 4vw;
 }
-.wuju-post-like a {
+.jinsom-post-like a {
     margin-right: 1.7vw;
     margin-bottom: 2vw;
     display: inline-block;
@@ -1810,36 +1810,36 @@ video.dplayer-video.dplayer-video-current {
     height: 10vw;
     position: relative;
 }
-.wuju-post-like a:nth-child(8n) {
+.jinsom-post-like a:nth-child(8n) {
     margin-right: 0;
 }
-.wuju-post-like a img {
+.jinsom-post-like a img {
     width: 10vw;
     height: 10vw;
     border-radius: 100%;
 }
-.wuju-single .wuju-post-images-list {
+.jinsom-single .jinsom-post-images-list {
     padding: 0 0 4vw;
 }
 
-.wuju-single-comment {
+.jinsom-single-comment {
     background-color: #fff;
 }
-.wuju-single-comment>.header {
+.jinsom-single-comment>.header {
     padding: 0 4vw 2vw;
     border-bottom: 1px solid #f1f1f1;
 }
-.wuju-single-comment>.header li {
+.jinsom-single-comment>.header li {
     float: left;
     width: 20%;
     text-align: center;
     position: relative;
     padding: 2vw 0;
 }
-.wuju-single-comment>.header li.on {
+.jinsom-single-comment>.header li.on {
     color: #46c47c;
 }
-.wuju-single-comment>.header li.on:after {
+.jinsom-single-comment>.header li.on:after {
     position: absolute;
     left: 35%;
     bottom: 0;
@@ -1848,128 +1848,128 @@ video.dplayer-video.dplayer-video-current {
     box-sizing: border-box;
     border-bottom: 1vw solid #46c47c;
 }
-.wuju-single-comment-list {
+.jinsom-single-comment-list {
     padding-top: 2vw;
     padding-bottom: 14vw;
 }
-.wuju-single-comment-list>div {
+.jinsom-single-comment-list>div {
     position: relative;
     padding: 4vw 4vw 0vw;
     overflow: hidden;
     margin: 4vw 0 8vw;
 }
-.wuju-single-comment-list>div .up {
+.jinsom-single-comment-list>div .up {
     position: absolute;
     right: 4vw;
     color: #999;
 }
-.wuju-single-comment-list>div .up.on {
+.jinsom-single-comment-list>div .up.on {
     color: #f56b41;
 }
-.wuju-single-comment-list>div .up i {
+.jinsom-single-comment-list>div .up i {
     font-size: 5vw;
     margin-right: 1vw;
 }
-.wuju-single-comment-list>div .avatarimg {
+.jinsom-single-comment-list>div .avatarimg {
     float: left;
     width: 11vw;
     height: 11vw;
     margin-right: 2vw;
     position: relative;
 }
-.wuju-single-comment-list>div .avatarimg img {
+.jinsom-single-comment-list>div .avatarimg img {
     width: 11vw;
     height: 11vw;
     border-radius: 100%;
 }
-.wuju-single-comment-list>div .info {
+.jinsom-single-comment-list>div .info {
     float: left;
     width: 70vw;
 }
-.wuju-single-comment-list>div .info .name {
+.jinsom-single-comment-list>div .info .name {
     margin-bottom: 0.4vw;
     width: 98%;
     overflow: hidden;
     white-space: nowrap;
 }
-.wuju-single-comment-list>div .info .from {
+.jinsom-single-comment-list>div .info .from {
     font-size: 3vw;
     color: #8e8e93;
 }
-.wuju-single-comment-list>div .info .from span {
+.jinsom-single-comment-list>div .info .from span {
     margin-right: 5vw;
 }
-.wuju-single-comment-list>div .content {
+.jinsom-single-comment-list>div .content {
     margin-left: 9vw;
     padding: 4vw;
     line-height: 8vw;
     word-wrap: break-word;
     position: relative;
 }
-.wuju-single-comment-list>div .content .wuju-zhuanzai {
+.jinsom-single-comment-list>div .content .jinsom-zhuanzai {
     font-size: 4vw;
 }
-.wuju-single-comment-list>div .content .wuju-yicaina {
+.jinsom-single-comment-list>div .content .jinsom-yicaina {
     position: absolute;
     right: -5vw;
     top: 0vw;
     color: #5fb878;
     font-size: 15vw;
 }
-.wuju-single-comment-list>div .content .wuju-tips {
+.jinsom-single-comment-list>div .content .jinsom-tips {
     margin: 0;
 }
-.wuju-single-comment-list>div .content p {
+.jinsom-single-comment-list>div .content p {
     margin: 0;
     text-indent: unset !important;
 }
-.wuju-single-comment-list>div .content img {
+.jinsom-single-comment-list>div .content img {
     max-width: 100%;
     height: auto;
     padding: 1vw;
     border: 1px solid #f1f1f1;
     border-radius: 1vw;
 }
-.wuju-single-comment-list>div .content img.wp-smiley {
+.jinsom-single-comment-list>div .content img.wp-smiley {
     padding: 0;
     border: none;
 }
-.wuju-single-comment-list>div .footer {
+.jinsom-single-comment-list>div .footer {
     margin-left: 13vw;
     color: #888;
     padding-bottom: 4vw;
     border-bottom: 1px solid #f1f1f1;
     font-size: 4vw;
 }
-.wuju-single-comment-list>div:last-child .footer {
+.jinsom-single-comment-list>div:last-child .footer {
     border-bottom: none;
 }
-.wuju-single-comment-list>div .footer span.comment,.wuju-single-comment-list>div .footer span.delete {
+.jinsom-single-comment-list>div .footer span.comment,.jinsom-single-comment-list>div .footer span.delete {
     float: right;
     margin-left: 4vw;
 }
-.wuju-single-comment-list>div .footer span.comment.on {
+.jinsom-single-comment-list>div .footer span.comment.on {
     background-color: #f1f1f1;
     padding: 0.5vw 3vw;
     border-radius: 5vw;
     font-size: 3.5vw;
 }
-.wuju-single-comment-list>div .footer span.comment m:after {
+.jinsom-single-comment-list>div .footer span.comment m:after {
     content: ' 回复';
 }
-.wuju-single-comment-list>div .footer span.answer {
+.jinsom-single-comment-list>div .footer span.answer {
     float: right;
     margin-left: 4vw;
     color: #5fb878;
     font-weight: bold;
 }
-.wuju-redbag-icon, .redbag_icon {
-    font-family: "wuju-icon"!important;
+.jinsom-redbag-icon, .redbag_icon {
+    font-family: "jinsom-icon"!important;
     font-size: 6vw;
     margin-right: 1vw;
     color: #f44336;
 }
-.wuju-redbag-icon:before,.redbag_icon:before {
+.jinsom-redbag-icon:before,.redbag_icon:before {
     content: "\e6c8";
 }
 
@@ -1980,21 +1980,21 @@ video.dplayer-video.dplayer-video-current {
     background-color: rgba(70, 196, 124, 0);
     text-shadow: 0 0 4px rgba(0,0,0,0.5);
 }
-#wuju-member-mine-page {
+#jinsom-member-mine-page {
     background-repeat: no-repeat;
     background-size: contain;
     background-color: #89a6c6;
 }
-#wuju-member-other-page {
+#jinsom-member-other-page {
     background-repeat: no-repeat;
     background-size: contain;
     background-color: #89a6c6;
 }
-#wuju-member-other-page .wuju-member-other-post-list {
+#jinsom-member-other-page .jinsom-member-other-post-list {
     padding-bottom: 14vw;
     min-height: 65vh;
 }
-.wuju-member-mine-post-list{
+.jinsom-member-mine-post-list{
     min-height: 65vh;
 }
 [data-page=member-mine] .navbar.color,[data-page=member-other] .navbar.color,[data-page=bbs] .navbar.color,[data-page=topic] .navbar.color {
@@ -2007,35 +2007,35 @@ video.dplayer-video.dplayer-video-current {
 [data-page=member-mine] .navbar.color .center,[data-page=member-other] .navbar.color .center,[data-page=bbs] .navbar.color .center,[data-page=topic] .navbar.color .center{
     display: block;
 }
-.wuju-member-header {
+.jinsom-member-header {
     padding-bottom: 2.5vw;
     position: relative;
     text-align: center;
     text-shadow: 0 0 4px rgba(0,0,0,0.5);
     color: #fff;
 }
-.wuju-member-header .avatarimg img {
+.jinsom-member-header .avatarimg img {
     width: 20vw;
     height: 20vw;
     border-radius: 100%;
     border: 2px solid #fff;
     background-color: #fff;
 }
-.wuju-member-header .avatarimg .wuju-verify {
+.jinsom-member-header .avatarimg .jinsom-verify {
     left: 50%;
     margin-left: 5vw;
 }
-.wuju-member-header .avatarimg {
+.jinsom-member-header .avatarimg {
     position: relative;
     height: 20vw;
 }
-.wuju-member-header .name {
+.jinsom-member-header .name {
     font-size: 5vw;
     margin-bottom: 3vw;
     margin-top: 3vw;
     overflow: hidden;
 }
-.wuju-member-header .desc {
+.jinsom-member-header .desc {
     font-size: 4vw;
     margin-bottom: 5vw;
     padding: 0 10vw;
@@ -2043,22 +2043,22 @@ video.dplayer-video.dplayer-video-current {
     overflow: hidden;
     white-space: nowrap;
 }
-.wuju-member-header .info {
+.jinsom-member-header .info {
     display: flex;
 }
-.wuju-member-header .info a {
+.jinsom-member-header .info a {
     color: #fff;
 }
-.wuju-member-header .info>div {
+.jinsom-member-header .info>div {
     flex: 1;
 }
-.wuju-member-header .info p {
+.jinsom-member-header .info p {
     margin: 0;
 }
-.wuju-member-content {
+.jinsom-member-content {
     background-color: #eee;
 }
-.wuju-member-menu,.wuju-topic-menu {
+.jinsom-member-menu,.jinsom-topic-menu {
     overflow-x: scroll;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
@@ -2068,7 +2068,7 @@ video.dplayer-video.dplayer-video-current {
     background: #f9f9f9;
     box-sizing: border-box;
 }
-.wuju-member-menu li, .wuju-topic-menu li {
+.jinsom-member-menu li, .jinsom-topic-menu li {
     margin-right: 6.5vw;
     display: inline-block;
     font-size: 4.5vw;
@@ -2076,7 +2076,7 @@ video.dplayer-video.dplayer-video-current {
     position: relative;
     color: #333;
 }
-.wuju-member-menu li.on:after, .wuju-topic-menu li.on:after {
+.jinsom-member-menu li.on:after, .jinsom-topic-menu li.on:after {
     pointer-events: none;
     position: absolute;
     left: 15%;
@@ -2087,41 +2087,41 @@ video.dplayer-video.dplayer-video-current {
     border-bottom: 1vw solid #46c47c;
     border-radius: 5vw;
 }
-.wuju-member-menu li:last-child {
+.jinsom-member-menu li:last-child {
     margin-right: 0;
 }
-.wuju-member-menu li.on,.wuju-topic-menu li.on {
+.jinsom-member-menu li.on,.jinsom-topic-menu li.on {
     color: #46c47c;
 }
-.wuju-member-other-toolbar .toolbar-inner>div {
+.jinsom-member-other-toolbar .toolbar-inner>div {
     flex: 1;
     text-align: center;
     line-height: 10vw;
 }
-.wuju-member-other-toolbar .toolbar-inner>div:last-child {
+.jinsom-member-other-toolbar .toolbar-inner>div:last-child {
     border-right: none;
 }
-.wuju-member-other-toolbar .follow {
+.jinsom-member-other-toolbar .follow {
     border-right: 1px solid #f1efef;
     color: #46c47c;
 }
-.wuju-member-other-toolbar .follow.has {
+.jinsom-member-other-toolbar .follow.has {
     color: #bbb;
 }
-.wuju-member-other-toolbar .follow i {
+.jinsom-member-other-toolbar .follow i {
     vertical-align: -0.5vw;
 }
-.wuju-member-other-toolbar .chat {
+.jinsom-member-other-toolbar .chat {
     border-right: 1px solid #f1efef;
     color: #999;
 }
-.wuju-member-other-toolbar .chat i {
+.jinsom-member-other-toolbar .chat i {
     font-size: 5vw;
 }
-.wuju-member-other-toolbar .gift {
+.jinsom-member-other-toolbar .gift {
     color: #ff69a0;
 }
-.wuju-member-other-toolbar .gift i {
+.jinsom-member-other-toolbar .gift i {
     vertical-align: -0.2vw;
     font-size: 5.8vw;
 }
@@ -2129,18 +2129,18 @@ video.dplayer-video.dplayer-video-current {
 
 
 /*音乐播放器*/
-.wuju-music-player {
+.jinsom-music-player {
     background: rgba(0, 0, 0, 0.5);
     overflow: hidden;
 }
-.wuju-player-content {
+.jinsom-player-content {
     box-sizing: border-box;
     width: 100%;
     height: 50%;
     overflow: hidden;
     margin-top: 15%;
 }
-.wuju-music-player-close {
+.jinsom-music-player-close {
     position: absolute;
     color: #fff;
     opacity: 0.7;
@@ -2149,15 +2149,15 @@ video.dplayer-video.dplayer-video-current {
     text-align: center;
     line-height: 18vw;
 }
-.wuju-music-player-close i {
+.jinsom-music-player-close i {
     font-size: 8vw;
 }
-.wuju-player-record {
+.jinsom-player-record {
     position: relative;
     width: 100%;
     height: 100%;
 }
-.wuju-player-record .record-bg {
+.jinsom-player-record .record-bg {
     width: 60vw;
     height: 60vw;
     border: 2vw solid rgba(245, 245, 245, 0.2);
@@ -2166,29 +2166,29 @@ video.dplayer-video.dplayer-video-current {
     background-size: 100% 100%;
     overflow: hidden;
 }
-.wuju-player-record .record-pic {
+.jinsom-player-record .record-pic {
     width: 40vw;
     height: 40vw;
     border-radius: 50%;
     overflow: hidden;
     border: 2vw solid rgba(245, 245, 245, 0.2);
 }
-.wuju-player-record .record-pic no-img {
+.jinsom-player-record .record-pic no-img {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
 }
-.wuju-player-record .record-pic no-img i {
+.jinsom-player-record .record-pic no-img i {
     font-size: 18vw;
     color: #647076;
 }
-.wuju-player-record .record-pic img {
+.jinsom-player-record .record-pic img {
     width: 100%;
     height: 100%;
     display: block;
 }
-.wuju-player-record .record-bg, .wuju-player-record .record-pic {
+.jinsom-player-record .record-bg, .jinsom-player-record .record-pic {
     position: absolute;
     left: 0;
     right: 0;
@@ -2196,7 +2196,7 @@ video.dplayer-video.dplayer-video-current {
     bottom: 0;
     margin: auto;
 }
-.wuju-player-lyrics {
+.jinsom-player-lyrics {
     position: relative;
     width: 100%;
     height: 100%;
@@ -2209,19 +2209,19 @@ video.dplayer-video.dplayer-video-current {
     overflow-y: auto;
     word-wrap: break-word;
 }
-.wuju-player-lyrics .title {
+.jinsom-player-lyrics .title {
     font-size: 5.5vw;
 }
-.wuju-player-lyrics p {
+.jinsom-player-lyrics p {
     margin: 2vw 0;
 }
-.wuju-player-lyrics .wp-smiley {
+.jinsom-player-lyrics .wp-smiley {
     width: 7vw;
     height: 7vw !important;
     max-height: 7vw !important;
     vertical-align: -2vw;
 }
-.wuju-player-bg {
+.jinsom-player-bg {
     position: absolute;
     left: 0;
     top: 0;
@@ -2230,11 +2230,11 @@ video.dplayer-video.dplayer-video-current {
     height: 100%;
     background: linear-gradient(rgb(57, 57, 57), #5e727c);
 }
-.wuju-player-progress {
+.jinsom-player-progress {
     height: 15%;
     margin-top: 15%;
 }
-.wuju-player-progress .progress-bar {
+.jinsom-player-progress .progress-bar {
     position: relative;
     height: 0.7vw;
     width: 75vw;
@@ -2242,13 +2242,13 @@ video.dplayer-video.dplayer-video-current {
     background: rgba(255,255,255, 0.4);
     margin: 6vw auto;
 }
-.wuju-player-progress .progress {
+.jinsom-player-progress .progress {
     height: 100%;
     width: 0%;
     background: #FF5722;
     border-radius: 1vw;
 }
-.wuju-player-progress .progress-btn {
+.jinsom-player-progress .progress-btn {
     position: absolute;
     left: 0;
     top: -2vw;
@@ -2259,7 +2259,7 @@ video.dplayer-video.dplayer-video-current {
     border-radius: 100%;
     border: 2vw solid #fff;
 }
-.wuju-player-footer-btn {
+.jinsom-player-footer-btn {
     color: #bbb;
     display: flex;
     padding: 0 9vw;
@@ -2268,30 +2268,30 @@ video.dplayer-video.dplayer-video-current {
     bottom: 0;
     height: 15%;
 }
-.wuju-player-footer-btn>div {
+.jinsom-player-footer-btn>div {
     flex: 1;
     text-align: center;
 }
-.wuju-player-footer-btn>div i {
+.jinsom-player-footer-btn>div i {
     font-size: 8vw;
 }
-.wuju-player-footer-btn>div .wuju-shiliangzhinengduixiang31 {
+.jinsom-player-footer-btn>div .jinsom-shiliangzhinengduixiang31 {
     color: #F44336;
 }
-.wuju-player-footer-btn .comment {
+.jinsom-player-footer-btn .comment {
     position: relative;
 }
-.wuju-player-footer-btn .play {
+.jinsom-player-footer-btn .play {
     flex: 3;
 }
-.wuju-player-footer-btn .comment m {
+.jinsom-player-footer-btn .comment m {
     position: absolute;
     right: -5px;
     top: -10px;
     display: inline-block;
     width: 30px;
 }
-.wuju-music-voice {
+.jinsom-music-voice {
     width: 50vw;
     padding: 2vw;
     color: #fff;
@@ -2301,7 +2301,7 @@ video.dplayer-video.dplayer-video-current {
     border-radius: 2vw;
     margin: 2vw 0 4vw 6vw;
 }
-.wuju-music-voice:after {
+.jinsom-music-voice:after {
     content: '';
     position: absolute;
     left: -4vw;
@@ -2313,19 +2313,19 @@ video.dplayer-video.dplayer-video-current {
     overflow: hidden;
     border-width: 4vw;
 }
-.wuju-pop-music-player {
+.jinsom-pop-music-player {
     display: none;
 }
 
 
 /*注册表单*/
-.wuju-reg-form .wuju-login-input-form {
+.jinsom-reg-form .jinsom-login-input-form {
     top: 15%;
 }
-.wuju-login-input-form p.code {
+.jinsom-login-input-form p.code {
     display: flex;
 }
-.wuju-login-input-form p.code a {
+.jinsom-login-input-form p.code a {
     width: 100%;
     border-radius: 0 1vw 1vw 0;
     background-color: #46c47c;
@@ -2336,13 +2336,13 @@ video.dplayer-video.dplayer-video-current {
     align-items: center;
     justify-content: center;
 }
-.wuju-login-input-form p.code input {
+.jinsom-login-input-form p.code input {
     border-radius: 1vw 0 0 1vw;
 }
-.wuju-login-input-form p.code #code {
+.jinsom-login-input-form p.code #code {
     border-radius: 4px 0 0 4px;
 }
-.wuju-login-input-form p.code .wuju-get-code {
+.jinsom-login-input-form p.code .jinsom-get-code {
     margin-left: 3vw;
     padding: 0;
     background-color: #46c47c;
@@ -2350,23 +2350,23 @@ video.dplayer-video.dplayer-video-current {
     border-radius: 0 1vw 1vw 0;
     -webkit-appearance: none;
 }
-.wuju-get-code.no {
+.jinsom-get-code.no {
     background-color: #aaa !important;
 }
-.wuju-reg-doc {
+.jinsom-reg-doc {
     margin-bottom: 5vw;
     text-align: center;
     color: #fff;
     text-shadow: 0 1px 2px #000;
 }
-.wuju-reg-doc input {
+.jinsom-reg-doc input {
     -webkit-appearance:checkbox;
 }
-.wuju-reg-doc a {
+.jinsom-reg-doc a {
     color: #2196F3;
     text-shadow: 0 0px 0px #000;
 }
-.wuju-reg-doc-form .picker-modal-inner,.wuju-get-invite-code .picker-modal-inner {
+.jinsom-reg-doc-form .picker-modal-inner,.jinsom-get-invite-code .picker-modal-inner {
     overflow-y: scroll;
     padding: 4vw;
 }
@@ -2390,19 +2390,19 @@ video.dplayer-video.dplayer-video-current {
 
 
 /*聊天界面*/
-.wuju-chat-toolbar {
+.jinsom-chat-toolbar {
     display: flex;
     width: 100%;
     box-sizing: border-box;
     height: 10vw;
 }
-.wuju-chat-toolbar textarea {
+.jinsom-chat-toolbar textarea {
     flex: 5;
     border: 1px solid #f5f5f5;
     padding: 2vw;
     font-size: 4.5vw;
 }
-.wuju-chat-toolbar span {
+.jinsom-chat-toolbar span {
     flex: 1;
     display: inline-block;
     text-align: center;
@@ -2411,25 +2411,25 @@ video.dplayer-video.dplayer-video-current {
 }
 
 
-.wuju-chat-list,.wuju-chat-group-list {
+.jinsom-chat-list,.jinsom-chat-group-list {
     padding: 2vw;
     -moz-user-select: none;
     -webkit-user-select: none;
     -khtml-user-select:none;
     user-select: none;
 }
-.wuju-chat-list li,.wuju-chat-group-list li {
+.jinsom-chat-list li,.jinsom-chat-group-list li {
     position: relative;
     margin-bottom: 5vw;
     padding-left: 16.5vw;
     min-height: 18vw;
 }
-.wuju-chat-list li.myself,.wuju-chat-group-list li.myself {
+.jinsom-chat-list li.myself,.jinsom-chat-group-list li.myself {
     text-align: right;
     padding-left: 0;
     padding-right: 16.5vw;
 }
-.wuju-chat-message-list-user-info {
+.jinsom-chat-message-list-user-info {
     display: inline-block;
     vertical-align: top;
     box-sizing: content-box;
@@ -2438,19 +2438,19 @@ video.dplayer-video.dplayer-video-current {
     height: 12vw;
     width: 100%;
 }
-.wuju-chat-message-list-user-info .wuju-verify {
+.jinsom-chat-message-list-user-info .jinsom-verify {
     left: 9vw;
 }
-.wuju-chat-list li.myself .wuju-chat-message-list-user-info,.wuju-chat-group-list li.myself .wuju-chat-message-list-user-info {
+.jinsom-chat-list li.myself .jinsom-chat-message-list-user-info,.jinsom-chat-group-list li.myself .jinsom-chat-message-list-user-info {
     left: auto;
     right: 0vw;
 }
-.wuju-chat-message-list-user-info img {
+.jinsom-chat-message-list-user-info img {
     width: 12vw;
     height: 12vw;
     border-radius: 100%;
 }
-.wuju-chat-message-list-content {
+.jinsom-chat-message-list-content {
     position: relative;
     line-height: 7vw;
     padding: 3vw 3vw;
@@ -2465,19 +2465,19 @@ video.dplayer-video.dplayer-video-current {
     max-width: 95%;
     box-sizing: border-box;
 }
-.wuju-chat-group-list li .wuju-chat-message-list-content {
+.jinsom-chat-group-list li .jinsom-chat-message-list-content {
     margin-top: 7vw;
 }
-.wuju-chat-group-list li.myself .wuju-chat-message-list-content {
+.jinsom-chat-group-list li.myself .jinsom-chat-message-list-content {
     margin-top: 2vw;
 }
-.wuju-chat-list li.myself .wuju-chat-message-list-content,.wuju-chat-group-list li.myself .wuju-chat-message-list-content {
+.jinsom-chat-list li.myself .jinsom-chat-message-list-content,.jinsom-chat-group-list li.myself .jinsom-chat-message-list-content {
     margin-left: 0;
     text-align: left;
     background-color: #46c47c;
     color: #fff;
 }
-.wuju-chat-message-list-content:after {
+.jinsom-chat-message-list-content:after {
     content: '';
     position: absolute;
     left: -3vw;
@@ -2489,24 +2489,24 @@ video.dplayer-video.dplayer-video-current {
     overflow: hidden;
     border-width: 3vw;
 }
-.wuju-chat-list li.myself .wuju-chat-message-list-content:after,.wuju-chat-group-list li.myself .wuju-chat-message-list-content:after {
+.jinsom-chat-list li.myself .jinsom-chat-message-list-content:after,.jinsom-chat-group-list li.myself .jinsom-chat-message-list-content:after {
     left: auto;
     right: -3vw;
     border-top-color: #46c47c;
 }
-.wuju-chat-message-list-content img {
+.jinsom-chat-message-list-content img {
     max-width: 100%;
 }
-.wuju-chat-list li:last-child,.wuju-chat-group-list li:last-child {
+.jinsom-chat-list li:last-child,.jinsom-chat-group-list li:last-child {
     margin-bottom: 5vw;
 }
-.wuju-chat-message-list-time {
+.jinsom-chat-message-list-time {
     text-align: center;
     font-size: 3vw;
     color: #888;
     margin: 3vw;
 }
-.wuju-chat-message-list-content i.error {
+.jinsom-chat-message-list-content i.error {
     position: absolute;
     color: #F44336;
     left: -7vw;
@@ -2514,11 +2514,11 @@ video.dplayer-video.dplayer-video-current {
     cursor: pointer;
     font-size: 5.5vw;
 }
-.wuju-chat-message-tips {
+.jinsom-chat-message-tips {
     text-align: center;
     margin-bottom: 3vw;
 }
-.wuju-chat-message-tips span {
+.jinsom-chat-message-tips span {
     display: inline-block;
     line-height: 8vw;
     padding: 0 4vw;
@@ -2528,7 +2528,7 @@ video.dplayer-video.dplayer-video-current {
     font-size: 3vw;
     color: #fff;
 }
-.wuju-chat-tap-popover {
+.jinsom-chat-tap-popover {
     width: 50vw;
     padding: 2vw 0;
 }
@@ -2537,18 +2537,18 @@ video.dplayer-video.dplayer-video-current {
     margin-left: -3vw !important;
     top: -7vw !important;
 }
-.wuju-chat-tap-tool {
+.jinsom-chat-tap-tool {
     display: flex;
 }
-.wuju-chat-tap-tool a {
+.jinsom-chat-tap-tool a {
     flex: 1;
     padding: 0 2vw;
     text-align: center;
 }
-.wuju-chat-tap-tool a:hover {
+.jinsom-chat-tap-tool a:hover {
     background-color: #e3e2e2;
 }
-.wuju-chat-message-list-user-info span.name {
+.jinsom-chat-message-list-user-info span.name {
     position: relative;
     left: 1vw;
     top: -8vw;
@@ -2558,7 +2558,7 @@ video.dplayer-video.dplayer-video-current {
     text-align: left;
     font-style: normal;
 }
-.wuju-msg-tips {
+.jinsom-msg-tips {
     position: absolute;
     right: 2vw;
     top: -12vw;
@@ -2572,7 +2572,7 @@ video.dplayer-video.dplayer-video-current {
     font-size: 3.5vw;
     display: none;
 }
-.wuju-msg-tips:after {
+.jinsom-msg-tips:after {
     left: 3vw;
     bottom: -0.5vw;
     transform: rotate(45deg);
@@ -2585,144 +2585,144 @@ video.dplayer-video.dplayer-video-current {
 }
 
 /*签到*/
-.wuju-sign-header {
+.jinsom-sign-header {
     background-color: #fff;
     padding: 4vw 8vw;
     display: flex;
     margin-bottom: 4vw;
 }
-.wuju-sign-header .left {
+.jinsom-sign-header .left {
     flex: 1;
 }
-.wuju-sign-header p {
+.jinsom-sign-header p {
     margin: 0;
 }
-.wuju-sign-header .left p:first-child {
+.jinsom-sign-header .left p:first-child {
     margin-bottom: 2vw;
 }
-.wuju-sign-header .left p:first-child span {
+.jinsom-sign-header .left p:first-child span {
     color: #F44336;
     margin-right: 2vw;
     font-size: 8vw;
 }
-.wuju-sign-header p:last-child {
+.jinsom-sign-header p:last-child {
     color: #999;
 }
-.wuju-sign-header .right {
+.jinsom-sign-header .right {
     display: flex;
     align-items: center;
 }
-.wuju-sign-header .right .btn {
+.jinsom-sign-header .right .btn {
     padding: 2vw 6vw;
     background-color: #2eb354;
     color: #fff;
     border-radius: 10vw;
     font-size: 4.5vw;
 }
-.wuju-one-sign {
+.jinsom-one-sign {
     background-color: #fff;
     padding: 4vw;
     margin-bottom: 4vw;
 }
-.wuju-one-sign .header {
+.jinsom-one-sign .header {
     color: #999;
     text-align: center;
     padding-bottom: 4vw;
     border-bottom: 1px solid #f5f5f5;
 }
-.wuju-one-sign .content {
+.jinsom-one-sign .content {
     display: flex;
     padding-top: 4vw;
 }
-.wuju-one-sign .content li {
+.jinsom-one-sign .content li {
     flex: 1;
     text-align: center;
     display: flex;
     flex-flow: column;
 }
-.wuju-one-sign .content li p:nth-child(2) {
+.jinsom-one-sign .content li p:nth-child(2) {
     color: #555;
     margin: 2vw 0;
 }
-.wuju-one-sign .content li p {
+.jinsom-one-sign .content li p {
     flex: 1;
 }
-.wuju-one-sign .content li p:last-child {
+.jinsom-one-sign .content li p:last-child {
     font-size: 3vw;
 }
-.wuju-one-sign .header span {
+.jinsom-one-sign .header span {
     color: #FF9800;
     margin: 0 2vw;
 }
-.wuju-sign-header .right .btn.had {
+.jinsom-sign-header .right .btn.had {
     background-color: #ccc;
 }
 /*签到排行*/
-.wuju-sign-rank-content {
+.jinsom-sign-rank-content {
     padding: 32vw 4vw 4vw !important;
     padding-top: 32vw !important;
     background-color: #fff;
 }
-.wuju-sign-rank li.one {
+.jinsom-sign-rank li.one {
     text-align: center;
     position: relative;
 }
-.wuju-sign-rank li .avatarimg {
+.jinsom-sign-rank li .avatarimg {
     position: relative;
 }
-.wuju-sign-rank li.one .avatarimg img {
+.jinsom-sign-rank li.one .avatarimg img {
     width: 18vw;
     height: 18vw;
     border-radius: 100%;
 }
-.wuju-sign-rank li.one .avatarimg .wuju-verify {
+.jinsom-sign-rank li.one .avatarimg .jinsom-verify {
     left: 50%;
     margin-left: 4vw;
     bottom: 1.5vw;
 }
-.wuju-sign-rank li.one .name {
+.jinsom-sign-rank li.one .name {
     margin-bottom: 2vw;
     font-size: 5vw;
     overflow: hidden;
 }
-.wuju-sign-rank li.one .desc {
+.jinsom-sign-rank li.one .desc {
     position: absolute;
     right: 0;
     top: 0;
     color: #999;
 }
-.wuju-sign-rank li.one .number {
+.jinsom-sign-rank li.one .number {
     font-size: 5vw;
 }
-.wuju-sign-rank li.one .number i {
+.jinsom-sign-rank li.one .number i {
     margin: 0 2vw;
     color: #f00;
 }
-.wuju-sign-rank li.other {
+.jinsom-sign-rank li.other {
     padding: 4vw 0;
     border-bottom: 1px solid #f8f8f8;
 }
-.wuju-sign-rank li.other a {
+.jinsom-sign-rank li.other a {
     display: flex;
 }
-.wuju-sign-rank li.other .avatarimg {
+.jinsom-sign-rank li.other .avatarimg {
     height: 14vw;
     margin-right: 3vw;
 }
-.wuju-sign-rank li.other .avatarimg img {
+.jinsom-sign-rank li.other .avatarimg img {
     border-radius: 100%;
     width: 14vw;
     height: 14vw;
 }
-.wuju-sign-rank li.other .info {
+.jinsom-sign-rank li.other .info {
     flex: 1;
 }
-.wuju-sign-rank li.other .name {
+.jinsom-sign-rank li.other .name {
     line-height: 7vw;
     margin-top: 1vw;
     overflow: hidden;
 }
-.wuju-sign-rank li.other .desc {
+.jinsom-sign-rank li.other .desc {
     font-size: 4vw;
     line-height: 8vw;
     color: #999;
@@ -2731,24 +2731,24 @@ video.dplayer-video.dplayer-video-current {
     white-space: nowrap;
     width: 50vw;
 }
-.wuju-sign-rank li.other .number {
+.jinsom-sign-rank li.other .number {
     display: flex;
     align-items: center;
     color: #666;
 }
-.wuju-sign-rank li.other .number i {
+.jinsom-sign-rank li.other .number i {
     font-size: 5vw;
     color: #f00;
     margin: 0 1vw;
 }
-.wuju-sign-rank li:last-child {
+.jinsom-sign-rank li:last-child {
     border: none;
 }
-#wuju-continuous-sign-rank li.one .desc {
+#jinsom-continuous-sign-rank li.one .desc {
     position: initial;
     margin-bottom: 2vw;
 }
-.wuju-sign-rank li.one>span {
+.jinsom-sign-rank li.one>span {
     position: absolute;
     left: 0;
     background-color: #FFEB3B;
@@ -2760,17 +2760,17 @@ video.dplayer-video.dplayer-video-current {
 
 
 /*发布类型*/
-.wuju-publish-type-form {
+.jinsom-publish-type-form {
     background: rgba(255, 255, 255, 0.95);
 }
-.wuju-publish-type-form .bottom {
+.jinsom-publish-type-form .bottom {
     bottom: 20vw;
     position: absolute;
     width: 100%;
     padding: 4vw;
     box-sizing: border-box;
 }
-.wuju-publish-type-form .bottom li {
+.jinsom-publish-type-form .bottom li {
     float: left;
     text-align: center;
     padding: 2vw;
@@ -2778,11 +2778,11 @@ video.dplayer-video.dplayer-video-current {
     box-sizing: border-box;
     margin-bottom: 2vw;
 }
-.wuju-publish-type-form .ad {
+.jinsom-publish-type-form .ad {
     padding: 6vw 4vw;
     color: #666;
 }
-.wuju-publish-type-form .bottom li span {
+.jinsom-publish-type-form .bottom li span {
     display: block;
     width: 10vw;
     height: 10vw;
@@ -2793,50 +2793,50 @@ video.dplayer-video.dplayer-video-current {
     color: #fff;
     line-height: 10vw;
 }
-.wuju-publish-type-form .bottom li.words span, .wuju-publish-type-form .bottom li.pay span {
+.jinsom-publish-type-form .bottom li.words span, .jinsom-publish-type-form .bottom li.pay span {
     background-color: #f48924;
 }
-.wuju-publish-type-form .bottom li.music span {
+.jinsom-publish-type-form .bottom li.music span {
     background-color: #ff4f81;
 }
-.wuju-publish-type-form .bottom li.video span,.wuju-publish-type-form .bottom li.activity span {
+.jinsom-publish-type-form .bottom li.video span,.jinsom-publish-type-form .bottom li.activity span {
     background-color: #009fe3;
 }
-.wuju-publish-type-form .bottom li.single span,.wuju-publish-type-form .bottom li.answer span {
+.jinsom-publish-type-form .bottom li.single span,.jinsom-publish-type-form .bottom li.answer span {
     background-color: #5fb878;
 }
-.wuju-publish-type-form .bottom li.bbs span {
+.jinsom-publish-type-form .bottom li.bbs span {
     background-color: #9E9E9E;
 }
-.wuju-publish-type-form .bottom li.redbag span {
+.jinsom-publish-type-form .bottom li.redbag span {
     background-color: #e94658;
 }
-.wuju-publish-type-form .bottom li.vote span {
+.jinsom-publish-type-form .bottom li.vote span {
     background-color: #4CAF50;
 }
-.wuju-publish-type-form .bottom li.comment span {
+.jinsom-publish-type-form .bottom li.comment span {
     background-color: #009688;
 }
-.wuju-publish-type-form .bottom li.login span {
+.jinsom-publish-type-form .bottom li.login span {
     background-color: #6d89bb;
 }
-.wuju-publish-type-form .bottom li.vip span {
+.jinsom-publish-type-form .bottom li.vip span {
     background: #FFC107;
 }
-.wuju-publish-type-form .bottom li p {
+.jinsom-publish-type-form .bottom li p {
     color: #555;
     font-size: 4vw;
 }
-.wuju-publish-type-form .bottom li span i {
+.jinsom-publish-type-form .bottom li span i {
     font-size: 6vw;
 }
-.wuju-publish-type-form .close {
+.jinsom-publish-type-form .close {
     bottom: 0;
     position: absolute;
     text-align: center;
     width: 100%;
 }
-.wuju-publish-type-form .close a {
+.jinsom-publish-type-form .close a {
     width: 20vw;
     height: 20vw;
     text-align: center;
@@ -2844,14 +2844,14 @@ video.dplayer-video.dplayer-video-current {
     line-height: 20vw;
     color: #999;
 }
-.wuju-publish-type-form .close a i {
+.jinsom-publish-type-form .close a i {
     font-size: 8vw;
 }
 
 
 
 /*附件下载*/
-.wuju-file-download {
+.jinsom-file-download {
     padding: 2vw;
     background-color: #f2f2f5;
     display: flex;
@@ -2860,7 +2860,7 @@ video.dplayer-video.dplayer-video-current {
     align-items: center;
     margin-bottom: 2vw;
 }
-.wuju-file-download .icon {
+.jinsom-file-download .icon {
     height: 12vw;
     text-align: center;
     line-height: 12vw;
@@ -2869,24 +2869,24 @@ video.dplayer-video.dplayer-video-current {
     color: #fff;
     margin-right: 2vw;
 }
-.wuju-file-download .icon i {
+.jinsom-file-download .icon i {
     width: 12vw;
     height: 12vw;
     display: inline-block;
 }
-.wuju-file-download .info {
+.jinsom-file-download .info {
     flex: 1;
     margin-right: 2vw;
     width: 10vw !important;
 }
-.wuju-file-download .info .name {
+.jinsom-file-download .info .name {
     font-size: 4vw;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     width: 60vw;
 }
-.wuju-file-download .info .pass {
+.jinsom-file-download .info .pass {
     font-size: 3.5vw;
     color: #999;
     margin-top: 1vw;
@@ -2894,7 +2894,7 @@ video.dplayer-video.dplayer-video-current {
     max-height: 10vw;
     line-height: 5vw;
 }
-.wuju-file-download .btn {
+.jinsom-file-download .btn {
     display: block;
     width: 10vw;
     height: 10vw;
@@ -2904,18 +2904,18 @@ video.dplayer-video.dplayer-video-current {
 }
 
 /*活动帖子*/
-.wuju-bbs-activity-content {
+.jinsom-bbs-activity-content {
     padding: 3vw;
     background-color: #f8f8f8;
     color: #555;
 }
-.wuju-bbs-activity-content p {
+.jinsom-bbs-activity-content p {
     margin-bottom: 2vw;
 }
-.wuju-bbs-activity-content p span {
+.jinsom-bbs-activity-content p span {
     color: #f00;
 }
-.wuju-bbs-activity-btn,.wuju-btn {
+.jinsom-bbs-activity-btn,.jinsom-btn {
     text-align: center;
     padding: 2vw;
     background-color: #5fb878;
@@ -2924,35 +2924,35 @@ video.dplayer-video.dplayer-video-current {
     cursor: pointer;
     border-radius: 1vw;
 }
-.wuju-bbs-activity-btn.no,.wuju-btn.no {
+.jinsom-bbs-activity-btn.no,.jinsom-btn.no {
     background-color: #ccc;
 }
-.wuju-bbs-comment-activity li {
+.jinsom-bbs-comment-activity li {
     margin-bottom: 3vw;
     background-color: #fafafa;
     padding: 3vw;
     border-radius: 1vw;
 }
-.wuju-bbs-comment-activity li label {
+.jinsom-bbs-comment-activity li label {
     color: #35b558;
 }
-.wuju-bbs-comment-activity li .content {
+.jinsom-bbs-comment-activity li .content {
     margin: 0;
     padding: 0;
     line-height: 7vw;
     font-size: 4vw;
     color: #888;
 }
-.wuju-activity-form-list {
+.jinsom-activity-form-list {
     padding: 8vw 4vw 0;
 }
-.wuju-activity-form-list li {
+.jinsom-activity-form-list li {
     margin-bottom: 8vw;
 }
-.wuju-activity-form-list li textarea {
+.jinsom-activity-form-list li textarea {
     height: 30vw;
 }
-.wuju-activity-form-list li input, .wuju-activity-form-list li textarea {
+.jinsom-activity-form-list li input, .jinsom-activity-form-list li textarea {
     border: 1px solid #f1f1f1;
     padding: 3vw 2vw;
     border-radius: 1vw;
@@ -2960,16 +2960,16 @@ video.dplayer-video.dplayer-video-current {
     box-sizing: border-box;
     margin-top: 2vw;
 }
-.wuju-activity-form-list label {
+.jinsom-activity-form-list label {
     border-left: 1vw solid #46c47c;
     padding-left: 2vw;
 }
-.wuju-activity-form-tips {
+.jinsom-activity-form-tips {
     text-align: center;
     color: #999;
     padding-bottom: 8vw;
 }
-.wuju-activity-upload {
+.jinsom-activity-upload {
     background-color: #46c47c;
     color: #fff;
     padding: 2vw 3vw;
@@ -2979,7 +2979,7 @@ video.dplayer-video.dplayer-video-current {
     margin-top: 2vw;
     text-align: center;
 }
-.wuju-upload-activity-form {
+.jinsom-upload-activity-form {
     position: absolute;
     left: 0;
     top: 0;
@@ -2987,28 +2987,28 @@ video.dplayer-video.dplayer-video-current {
     height: 100%;
     opacity: 0;
 }
-.wuju-upload-activity-form input {
+.jinsom-upload-activity-form input {
     margin: 0 !important;
     padding: 0 !important;
     height: 10vw;
 }
 
 /*投票帖子*/
-.wuju-bbs-vote-info {
+.jinsom-bbs-vote-info {
     padding: 3vw;
     background-color: #f8f8f8;
     color: #555;
     margin-top: 2vw;
 }
-.wuju-bbs-vote-info span {
+.jinsom-bbs-vote-info span {
     display: block;
     line-height: 8vw;
 }
-.wuju-bbs-vote-info span i {
+.jinsom-bbs-vote-info span i {
     color: #f00;
     font-style: normal;
 }
-.wuju-bbs-vote-progress {
+.jinsom-bbs-vote-progress {
     height: 3vw;
     line-height: 3vw;
     position: relative;
@@ -3017,7 +3017,7 @@ video.dplayer-video.dplayer-video-current {
     margin-bottom: 5vw;
     margin-top: 1vw;
 }
-.wuju-bbs-vote-progress-bar {
+.jinsom-bbs-vote-progress-bar {
     position: absolute;
     left: 0;
     top: 0;
@@ -3029,17 +3029,17 @@ video.dplayer-video.dplayer-video-current {
     height: 3vw;
     line-height: 3vw;
 }
-.wuju-bbs-vote-text span {
+.jinsom-bbs-vote-text span {
     color: #5fb878;
 }
 
-.wuju-bbs-vote-form li {
+.jinsom-bbs-vote-form li {
     clear: both;
     margin-bottom: 4vw;
     background-color: #f8f8f8;
     padding: 2vw;
 }
-.wuju-bbs-vote-form li>input {
+.jinsom-bbs-vote-form li>input {
     float: left;
     width: 6vw;
     height: 6vw;
@@ -3051,27 +3051,27 @@ video.dplayer-video.dplayer-video-current {
 
 
 /*购买页面*/
-.wuju-post-buy-form {
+.jinsom-post-buy-form {
     text-align: center;
     padding: 4vw;
 }
 
-.wuju-post-buy-form .header i {
+.jinsom-post-buy-form .header i {
     font-size: 30vw;
     color: #ccc;
 }
 
 
 /*发布动态*/
-.wuju-publish-words-form {
+.jinsom-publish-words-form {
     background-color: #fff;
     padding: 4vw;
 }
-.wuju-publish-words-form .title {
+.jinsom-publish-words-form .title {
     margin-top: 4vw;
     display: none;
 }
-.wuju-publish-words-form .title input {
+.jinsom-publish-words-form .title input {
     border: none;
     width: 100%;
     box-sizing: border-box;
@@ -3079,10 +3079,10 @@ video.dplayer-video.dplayer-video-current {
     padding: 0;
     font-weight: bold;
 }
-.wuju-publish-words-form .content{
+.jinsom-publish-words-form .content{
     margin-top: 4vw;
 }
-.wuju-publish-words-form .content textarea {
+.jinsom-publish-words-form .content textarea {
     width: 100%;
     box-sizing: border-box;
     height: 40vw;
@@ -3094,18 +3094,18 @@ video.dplayer-video.dplayer-video-current {
     background-position: right 2vw;
     background-size: 600px;
 }
-.wuju-publish-words-form .city {
+.jinsom-publish-words-form .city {
     color: #808080;
     padding-bottom: 2vw;
 }
-.wuju-publish-words-form .city i {
+.jinsom-publish-words-form .city i {
     font-size: 5vw;
 }
-.wuju-publish-words-form .city.no {
+.jinsom-publish-words-form .city.no {
     text-decoration: line-through;
     color: #aaa;
 }
-.wuju-publish-words-form .add {
+.jinsom-publish-words-form .add {
     width: 30vw;
     height: 30vw;
     color: #bbb;
@@ -3120,10 +3120,10 @@ video.dplayer-video.dplayer-video-current {
     background-color: #f1f1f1;
     box-sizing: border-box;
 }
-.wuju-publish-words-form .add i {
+.jinsom-publish-words-form .add i {
     font-size: 8vw;
 }
-.wuju-publish-words-form .add input {
+.jinsom-publish-words-form .add input {
     position: absolute;
     top: 0;
     left: 0;
@@ -3133,7 +3133,7 @@ video.dplayer-video.dplayer-video-current {
     width: 100%;
     height: 100%;
 }
-.wuju-publish-words-form .images li {
+.jinsom-publish-words-form .images li {
     float: left;
     width: 30vw;
     height: 30vw;
@@ -3144,19 +3144,19 @@ video.dplayer-video.dplayer-video-current {
     background-color: #f5f5f5;
     position: relative;
 }
-.wuju-publish-words-form .images li img {
+.jinsom-publish-words-form .images li img {
     width: 100%;
     height: auto;
     min-height: 100%;
     object-fit: cover;
 }
-.wuju-publish-words-form .images li:nth-child(3n) {
+.jinsom-publish-words-form .images li:nth-child(3n) {
     margin-right: 0;
 }
-.wuju-publish-words-form .tool {
+.jinsom-publish-words-form .tool {
     display: flex;
 }
-.wuju-publish-words-form .tool span {
+.jinsom-publish-words-form .tool span {
     flex: 1;
     text-align: center;
     line-height: 14vw;
@@ -3165,38 +3165,38 @@ video.dplayer-video.dplayer-video-current {
     font-size: 5vw;
     color: #999;
 }
-.wuju-publish-words-form .tool span i {
+.jinsom-publish-words-form .tool span i {
     font-size: 6vw;
 }
-.wuju-publish-words-form .tool span i.wuju-quxiaojinzhi- {
+.jinsom-publish-words-form .tool span i.jinsom-quxiaojinzhi- {
     font-size: 5vw;
     color: #4CAF50;
 }
-.wuju-publish-words-form .tool span i.wuju-jinzhipinglun- {
+.jinsom-publish-words-form .tool span i.jinsom-jinzhipinglun- {
     font-size: 5vw;
     color: #f00;
 }
 
-.wuju-publish-words-form .add:nth-child(3n) {
+.jinsom-publish-words-form .add:nth-child(3n) {
     margin-right: 0;
 }
-.wuju-publish-words-form .images {
+.jinsom-publish-words-form .images {
     margin-bottom: 15vw;
     -moz-user-select: none;        
     -webkit-user-select: none;        
     user-select: none;
 }
-.wuju-publish-words-form .add span {
+.jinsom-publish-words-form .add span {
     width: 15vw;
     height: 15vw;
     margin-top: 7.5vw;
     display: none;
 }
-.wuju-publish-words-form .images ul {
+.jinsom-publish-words-form .images ul {
     margin: 0;
     padding: 0;
 }
-.wuju-publish-words-form .images li i {
+.jinsom-publish-words-form .images li i {
     position: absolute;
     right: 0;
     background-color: rgba(0, 0, 0, 0.4);
@@ -3205,7 +3205,7 @@ video.dplayer-video.dplayer-video-current {
     border-radius: 0 0 0 1vw;
     font-size: 4vw;
 }
-.wuju-publish-words-form .topic span {
+.jinsom-publish-words-form .topic span {
     background-color: rgba(0, 0, 0, 0.3);
     color: #fff;
     padding: 0vw 2vw;
@@ -3215,16 +3215,16 @@ video.dplayer-video.dplayer-video-current {
     margin-top: 2vw;
     float: left;
 }
-.wuju-publish-words-form .topic span:last-child {
+.jinsom-publish-words-form .topic span:last-child {
     margin-right: 0;
 }
-.wuju-publish-words-form .category-city {
+.jinsom-publish-words-form .category-city {
     display: flex;
 }
-.wuju-publish-words-form .category-city .city {
+.jinsom-publish-words-form .category-city .city {
     flex: 1;
 }
-#wuju-bbs-category {
+#jinsom-bbs-category {
     font-size: 4.5vw;
     border: 1px solid #ddd;
     padding: 0 2vw;
@@ -3232,17 +3232,17 @@ video.dplayer-video.dplayer-video-current {
 }
 
 /*发布艾特*/
-.wuju-publish-aite-popup,.wuju-publish-power-popup,.wuju-publish-topic-popup,.wuju-publish-bg-popup {
+.jinsom-publish-aite-popup,.jinsom-publish-power-popup,.jinsom-publish-topic-popup,.jinsom-publish-bg-popup {
     overflow-y: hidden;
 }
-.wuju-publish-aite-popup .navbar,.wuju-publish-power-popup .navbar,.wuju-publish-topic-popup .navbar,.wuju-publish-bg-popup .navbar {
+.jinsom-publish-aite-popup .navbar,.jinsom-publish-power-popup .navbar,.jinsom-publish-topic-popup .navbar,.jinsom-publish-bg-popup .navbar {
     display: flex;
 }
-.wuju-publish-aite-form {
+.jinsom-publish-aite-form {
     padding: 4vw;
     padding-bottom: 15vw;
 }
-.wuju-publish-aite-form .search input {
+.jinsom-publish-aite-form .search input {
     background-color: #f5f5f5;
     border: none;
     width: 100%;
@@ -3250,24 +3250,24 @@ video.dplayer-video.dplayer-video-current {
     box-sizing: border-box;
     border-radius: 1vw;
 }
-.wuju-publish-aite-form .list {
+.jinsom-publish-aite-form .list {
     padding: 2vw 0;
 }
-.wuju-publish-aite-form .list li {
+.jinsom-publish-aite-form .list li {
     display: flex;
     padding: 2vw 0 2vw;
 }
-.wuju-publish-aite-form .list li .avatarimg {
+.jinsom-publish-aite-form .list li .avatarimg {
     width: 12vw;
     height: 12vw;
     padding-bottom: 2vw;
     margin-right: 3vw;
     position: relative;
 }
-.wuju-publish-aite-form .list li .avatarimg .wuju-verify {
+.jinsom-publish-aite-form .list li .avatarimg .jinsom-verify {
     bottom: 1vw;
 }
-.wuju-publish-aite-form .list li .name {
+.jinsom-publish-aite-form .list li .name {
     display: flex;
     align-items: center;
     font-size: 4vw;
@@ -3277,99 +3277,99 @@ video.dplayer-video.dplayer-video-current {
     color: #555;
     overflow: hidden;
 }
-.wuju-publish-aite-form .list li .avatarimg img {
+.jinsom-publish-aite-form .list li .avatarimg img {
     width: 12vw;
     height: 12vw;
     border-radius: 100%;
     margin-right: 3vw;
 }
-.wuju-publish-aite-form .list li:last-child .name {
+.jinsom-publish-aite-form .list li:last-child .name {
     border: none;
 }
-.wuju-publish-aite-form .list.topic li .avatarimg img {
+.jinsom-publish-aite-form .list.topic li .avatarimg img {
     border-radius: 1vw;
 }
-.wuju-publish-aite-form .list li .hot {
+.jinsom-publish-aite-form .list li .hot {
     width: 35vw;
     display: flex;
     align-items: center;
     color: #999;
     margin-left: 5vw;
 }
-.wuju-publish-aite-form .list li .hot i {
+.jinsom-publish-aite-form .list li .hot i {
     margin-top: -1vw;
     margin-right: 1vw;
 }
-.wuju-publish-aite-form .list.topic li:nth-child(1) .name, .wuju-publish-aite-form .list.topic li:nth-child(1) .hot {
+.jinsom-publish-aite-form .list.topic li:nth-child(1) .name, .jinsom-publish-aite-form .list.topic li:nth-child(1) .hot {
     color: #f00;
 }
-.wuju-publish-aite-form .list.topic li:nth-child(2) .name, .wuju-publish-aite-form .list.topic li:nth-child(2) .hot {
+.jinsom-publish-aite-form .list.topic li:nth-child(2) .name, .jinsom-publish-aite-form .list.topic li:nth-child(2) .hot {
     color: #FF5722;
 }
-.wuju-publish-aite-form .list.topic li:nth-child(3) .name, .wuju-publish-aite-form .list.topic li:nth-child(3) .hot {
+.jinsom-publish-aite-form .list.topic li:nth-child(3) .name, .jinsom-publish-aite-form .list.topic li:nth-child(3) .hot {
     color: #FF9800;
 }
-.wuju-publish-aite-form .list.topic li.search .name{
+.jinsom-publish-aite-form .list.topic li.search .name{
     color: #555 !important;
 }
-.wuju-publish-aite-form .list.topic li.search .hot {
+.jinsom-publish-aite-form .list.topic li.search .hot {
     color: #999 !important;
 }
-.wuju-publish-aite-form .list .new {
+.jinsom-publish-aite-form .list .new {
     padding: 2vw 1vw;
     border-bottom: 1px solid #f5f5f5;
     margin-bottom: 2vw;
     display: inherit;
 }
-.wuju-publish-aite-form .list .new .name {
+.jinsom-publish-aite-form .list .new .name {
     font-size: 5vw;
     border-bottom: none;
     padding-bottom: 0;
 }
-.wuju-publish-aite-form .list .new .desc {
+.jinsom-publish-aite-form .list .new .desc {
     color: #999;
 }
-.wuju-publish-power-form {
+.jinsom-publish-power-form {
     padding: 4vw;
 }
-.wuju-publish-power-form li {
+.jinsom-publish-power-form li {
     display: flex;
     align-items: center;
     padding: 3vw 0;
 }
-.wuju-publish-power-form li .left {
+.jinsom-publish-power-form li .left {
     margin-right: 5vw;
 }
-.wuju-publish-power-form li .left i {
+.jinsom-publish-power-form li .left i {
     font-size: 8vw;
     color: #999;
 }
-.wuju-publish-power-form li .right .desc {
+.jinsom-publish-power-form li .right .desc {
     color: #999;
     font-size: 3vw;
 }
-.wuju-publish-power-form li.login .left i {
+.jinsom-publish-power-form li.login .left i {
     font-size: 9vw;
     margin-right: -1vw;
 }
-.wuju-publish-power-form li .right {
+.jinsom-publish-power-form li .right {
     width: 100%;
 }
-.wuju-publish-power-form li .select {
+.jinsom-publish-power-form li .select {
     color: #46c47c;
     width: 15vw;
 }
-.wuju-publish-words-form .power-content {
+.jinsom-publish-words-form .power-content {
     border-top: 1px solid #f5f5f5;
     padding-top: 2vw;
 }
-.wuju-publish-words-form .power-content input {
+.jinsom-publish-words-form .power-content input {
     border: none;
     width: 35vw;
     padding: 2vw 0;
     border-bottom: 1px solid #f1f1f1;
 }
-.wuju-publish-words-form .power-content textarea {
+.jinsom-publish-words-form .power-content textarea {
     border: none;
     height: 25vw;
     width: 100%;
@@ -3380,17 +3380,17 @@ video.dplayer-video.dplayer-video-current {
     box-sizing: border-box;
     border-radius: 1vw;
 }
-.wuju-publish-bg-popup {
+.jinsom-publish-bg-popup {
     overflow-y: hidden;
 }
 
-.wuju-publish-words-form .power-content .label-switch {
+.jinsom-publish-words-form .power-content .label-switch {
     width: 57vw;
 }
-.wuju-publish-words-form .power-content .label-switch .checkbox {
+.jinsom-publish-words-form .power-content .label-switch .checkbox {
     float: left;
 }
-.wuju-publish-words-form .power-content .tip {
+.jinsom-publish-words-form .power-content .tip {
     font-size: 3vw;
     float: left;
     margin-left: 1vw;
@@ -3399,76 +3399,76 @@ video.dplayer-video.dplayer-video-current {
 }
 
 /*发现页面*/
-.wuju-find-content {
+.jinsom-find-content {
     background-color: #fff;
 }
-.wuju-find-header {
+.jinsom-find-header {
     text-align: center;
     padding: 2vw 0vw;
 }
-.wuju-find-header li {
+.jinsom-find-header li {
     float: left;
     width: 25%;
     text-align: center;
     margin-bottom: 4vw;
 }
-.wuju-find-header li img {
+.jinsom-find-header li img {
     width: 8vw;
     height: 8vw;
 }
-.wuju-sns-cell-menu {
+.jinsom-sns-cell-menu {
     background-color: #fff;
     padding-top: 4vw;
     margin-bottom: 3vw;
 }
-.wuju-sns-cell-menu li {
+.jinsom-sns-cell-menu li {
     float: left;
     width: 25%;
     text-align: center;
     margin-bottom: 4vw;
 }
-.wuju-sns-cell-menu li p,.wuju-find-header li p {
+.jinsom-sns-cell-menu li p,.jinsom-find-header li p {
     font-size: 3.8vw;
 }
-.wuju-sns-cell-menu li img {
+.jinsom-sns-cell-menu li img {
     width: 12vw;
     height: 12vw;
 }
-.wuju-find-content .hr,.wuju-show-bbs-content .hr {
+.jinsom-find-content .hr,.jinsom-show-bbs-content .hr {
     background-color: #eeeeee;
     height: 2vw;
 }
-.wuju-find-box {
+.jinsom-find-box {
     padding: 4vw 4vw;
 }
-.wuju-find-box .header {
+.jinsom-find-box .header {
     padding-bottom: 3vw;
     border-bottom: 1px solid #f5f5f5;
 }
-.wuju-find-box .header a {
+.jinsom-find-box .header a {
     float: right;
 }
-.wuju-find-box.bbs .content li {
+.jinsom-find-box.bbs .content li {
     float: left;
     width: 16.8vw;
     text-align: center;
     margin-right: 2vw;
     margin-top: 5vw;
 }
-.wuju-find-box.bbs .content li:nth-child(5n) {
+.jinsom-find-box.bbs .content li:nth-child(5n) {
     margin-right: 0;
 }
-.wuju-find-box.bbs .content li .img {
+.jinsom-find-box.bbs .content li .img {
     position: relative;
     height: 12vw;
     border-radius: 2vw;
 }
-.wuju-find-box.bbs .content li .img img {
+.jinsom-find-box.bbs .content li .img img {
     width: 12vw;
     border-radius: 2vw;
     height: 12vw;
 }
-.wuju-find-box.bbs .content li .img no-img,.wuju-bbs-child-show li .img no-img {
+.jinsom-find-box.bbs .content li .img no-img,.jinsom-bbs-child-show li .img no-img {
     width: 12vw;
     border-radius: 2vw;
     height: 12vw;
@@ -3477,33 +3477,33 @@ video.dplayer-video.dplayer-video-current {
     background-color: #2279e7;
     color: #fff;
 }
-.wuju-find-box.bbs .content li .name {
+.jinsom-find-box.bbs .content li .name {
     margin-top: 2vw;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     font-size: 3.5vw;
 }
-.wuju-find-box.topic .content li {
+.jinsom-find-box.topic .content li {
     float: left;
     margin-right: 5vw;
     margin-top: 4vw;
     width: 43vw;
 }
-.wuju-find-box.topic .content li a{
+.jinsom-find-box.topic .content li a{
     display: flex;
 }
-.wuju-find-box.topic .content li span {
+.jinsom-find-box.topic .content li span {
     max-width: 31.5vw;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     line-height: 8.5vw;
 }
-.wuju-find-box.topic .content li:nth-child(2n) {
+.jinsom-find-box.topic .content li:nth-child(2n) {
     margin-right: 0;
 }
-.wuju-find-box.topic .content li i {
+.jinsom-find-box.topic .content li i {
     border-radius: 50%;
     width: 6vw;
     height: 6vw;
@@ -3515,40 +3515,40 @@ video.dplayer-video.dplayer-video-current {
     color: #aaa;
     border-right-color: transparent;
 }
-.wuju-find-box.topic .content li m {
+.jinsom-find-box.topic .content li m {
     line-height: 8.5vw;
 }
-.wuju-find-box.topic .content li:nth-child(1) i {
+.jinsom-find-box.topic .content li:nth-child(1) i {
     border: 2px solid rgba(244, 67, 54, 0.5);
     border-right-color: transparent;
     color: #F44336;
 }
-.wuju-find-box.topic .content li:nth-child(2) i {
+.jinsom-find-box.topic .content li:nth-child(2) i {
     border: 2px solid rgba(255, 193, 7, 0.5);
     border-right-color: transparent;
     color: #FFC107;
 }
-.wuju-find-box.topic .content li:nth-child(3) i {
+.jinsom-find-box.topic .content li:nth-child(3) i {
     border: 2px solid rgba(33, 150, 243, 0.5);
     border-right-color: transparent;
     color: #2196F3;
 }
-.wuju-find-box.topic .content li:nth-child(4) i {
+.jinsom-find-box.topic .content li:nth-child(4) i {
     border: 2px solid rgba(76, 175, 80, 0.5);
     border-right-color: transparent;
     color: #4CAF50;
 }
-.wuju-find-box.topic .content li:nth-child(5) i {
+.jinsom-find-box.topic .content li:nth-child(5) i {
     border: 2px solid rgba(189, 100, 204, 0.5);
     border-right-color: transparent;
     color: #c47dd0;
 }
-.wuju-find-box.topic .content li:nth-child(6) i {
+.jinsom-find-box.topic .content li:nth-child(6) i {
     border: 2px solid rgba(72, 199, 187, 0.5);
     border-right-color: transparent;
     color: #4bc9be;
 }
-.wuju-find-box.active-user .content li {
+.jinsom-find-box.active-user .content li {
     width: 14vw;
     float: left;
     margin-right: 1.6vw;
@@ -3556,10 +3556,10 @@ video.dplayer-video.dplayer-video-current {
     height: 14vw;
     position: relative;
 }
-.wuju-find-box.active-user .content li:nth-child(6n) {
+.jinsom-find-box.active-user .content li:nth-child(6n) {
     margin-right: 0;
 }
-.wuju-find-box.active-user .content li img {
+.jinsom-find-box.active-user .content li img {
     width: 100%;
     border-radius: 1vw;
     height: auto;
@@ -3574,11 +3574,11 @@ video.dplayer-video.dplayer-video-current {
 }
 
 
-.wuju-mywallet-form {
+.jinsom-mywallet-form {
     background-color: #fff;
     height: 100%;
 }
-.wuju-mywallet-header {
+.jinsom-mywallet-header {
     padding: 8vw 10vw;
     color: #fff;
     background-color: #393f4d;
@@ -3587,106 +3587,106 @@ video.dplayer-video.dplayer-video-current {
     height: 20vw;
     text-align: center;
 }
-.wuju-mywallet-header .center {
+.jinsom-mywallet-header .center {
     font-size: 8vw;
 }
-.wuju-mywallet-header>div {
+.jinsom-mywallet-header>div {
     flex: 1;
 }
-.wuju-mywallet-header .number, .wuju-mywallet-header .yuan {
+.jinsom-mywallet-header .number, .jinsom-mywallet-header .yuan {
     font-size: 7vw;
 }
-.wuju-mywallet-header .number .name, .wuju-mywallet-header .yuan .name {
+.jinsom-mywallet-header .number .name, .jinsom-mywallet-header .yuan .name {
     font-size: 4vw;
     padding-top: 2vw;
 }
-.wuju-mywallet-box {
+.jinsom-mywallet-box {
     background-color: #fff;
     padding: 4vw;
     margin-bottom: 2vw;
 }
-.wuju-mywallet-box .header {
+.jinsom-mywallet-box .header {
     padding-bottom: 3vw;
     border-bottom: 1px solid #f6f6f6;
     color: #888;
     font-size: 4vw;
 }
-.wuju-mywallet-box .content li {
+.jinsom-mywallet-box .content li {
     padding-top: 3vw;
     float: left;
     width: 32%;
     margin-right: 2%;
     text-align: center;
 }
-.wuju-mywallet-box .content li:nth-child(3n) {
+.jinsom-mywallet-box .content li:nth-child(3n) {
     margin-right: 0;
 }
-.wuju-mywallet-box .content li i {
+.jinsom-mywallet-box .content li i {
     font-size: 10vw;
 }
-.wuju-mywallet-box .content li p {
+.jinsom-mywallet-box .content li p {
     font-size: 4vw;
 }
-.wuju-mywallet-box .content li.recharge-credit i {
+.jinsom-mywallet-box .content li.recharge-credit i {
     color: #56abe4;
 }
-.wuju-mywallet-box .content li.recharge-vip i {
+.jinsom-mywallet-box .content li.recharge-vip i {
     color: #f44336;
 }
-.wuju-mywallet-box .content li.transfer i {
+.jinsom-mywallet-box .content li.transfer i {
     color: #009688;
 }
-.wuju-mywallet-box .content li.withdrawals i {
+.jinsom-mywallet-box .content li.withdrawals i {
     color: #fa9e3b;
 }
-.wuju-mywallet-box .content li.shop i {
+.jinsom-mywallet-box .content li.shop i {
     color: #f7584d;
 }
-.wuju-mywallet-box .content li.gift i {
+.jinsom-mywallet-box .content li.gift i {
     color: #ff69a0;
 }
-.wuju-mywallet-box .content li.key i {
+.jinsom-mywallet-box .content li.key i {
     color: #607D8B;
 }
-.wuju-mywallet-box .content li.lottery i {
+.jinsom-mywallet-box .content li.lottery i {
     color: #FF5722;
 }
-.wuju-mywallet-box .content li.luck-draw i {
+.jinsom-mywallet-box .content li.luck-draw i {
     color: #313131;
 }
-.wuju-mywallet-box:last-child {
+.jinsom-mywallet-box:last-child {
     margin-bottom: 0;
     padding-bottom: 6vw;
 }
 
-.wuju-mywallet-box .content li.income i {
+.jinsom-mywallet-box .content li.income i {
     color: #4CAF50;
     font-size: 11.5vw;
 }
-.wuju-mywallet-box .content li.outlay i {
+.jinsom-mywallet-box .content li.outlay i {
     color: #f98966;
     font-size: 11.5vw;
 }
-.wuju-mywallet-box .content li.recharge-note i {
+.jinsom-mywallet-box .content li.recharge-note i {
     font-size: 11vw;
     color: #009688;
 }
-.wuju-mywallet-box .content li.withdrawals-note i {
+.jinsom-mywallet-box .content li.withdrawals-note i {
     font-size: 11.5vw;
     color: #56abe4;
 }
-.wuju-mywallet-box .content li.exp-note i {
+.jinsom-mywallet-box .content li.exp-note i {
     color: #aa7fff;
     font-size: 11vw;
 }
-.wuju-mywallet-form .hr {
+.jinsom-mywallet-form .hr {
     height: 2vw;
     background-color: #eeeeee;
 }
-.wuju-recharge-number,.wuju-recharge-type {
+.jinsom-recharge-number,.jinsom-recharge-type {
     padding: 4vw;
 }
-.wuju-recharge-number li, .wuju-recharge-type li {
+.jinsom-recharge-number li, .jinsom-recharge-type li {
     float: left;
     width: 32%;
     margin-right: 2%;
@@ -3697,10 +3697,10 @@ video.dplayer-video.dplayer-video-current {
     border: 1px solid #f5f5f5;
     box-sizing: border-box;
 }
-.wuju-recharge-number li.on,.wuju-recharge-type li.on,.wuju-send-gift-form li.on {
+.jinsom-recharge-number li.on,.jinsom-recharge-type li.on,.jinsom-send-gift-form li.on {
     border-color: #5FB878;
 }
-.wuju-recharge-number li n,.wuju-recharge-type li n,.wuju-send-gift-form li n {
+.jinsom-recharge-number li n,.jinsom-recharge-type li n,.jinsom-send-gift-form li n {
     position: absolute;
     right: 0;
     width: 0;
@@ -3710,35 +3710,35 @@ video.dplayer-video.dplayer-video-current {
     top: 0;
     display: none;
 }
-.wuju-recharge-number li.on n,.wuju-recharge-type li.on n,.wuju-send-gift-form li.on n {
+.jinsom-recharge-number li.on n,.jinsom-recharge-type li.on n,.jinsom-send-gift-form li.on n {
     display: inline-block;
 }
-.wuju-recharge-number li n i,.wuju-recharge-type li n i,.wuju-send-gift-form li n i {
+.jinsom-recharge-number li n i,.jinsom-recharge-type li n i,.jinsom-send-gift-form li n i {
     position: absolute;
     top: -10vw;
     right: 0;
     color: #fff;
 }
-.wuju-recharge-number li .top {
+.jinsom-recharge-number li .top {
     padding: 8vw 0;
     border-bottom: 1px solid #f2f2f2;
 }
-.wuju-recharge-number li .top .wuju-vip2 {
+.jinsom-recharge-number li .top .jinsom-vip2 {
     color: #F44336;
     font-size: 7vw;
     vertical-align: -1vw;
 }
-.wuju-recharge-number li .bottom {
+.jinsom-recharge-number li .bottom {
     padding: 2vw 0;
 }
-.wuju-recharge-number li:nth-child(3n) {
+.jinsom-recharge-number li:nth-child(3n) {
     margin-right: 0;
 }
-.wuju-recharge-tips {
+.jinsom-recharge-tips {
     text-align: center;
     color: #999;
 }
-.wuju-recharge-type li {
+.jinsom-recharge-type li {
     padding: 2vw;
     box-sizing: border-box;
     width: 48%;
@@ -3746,24 +3746,24 @@ video.dplayer-video.dplayer-video-current {
     height: 13vw;
     line-height: 9vw;
 }
-.wuju-recharge-type li:nth-child(2n) {
+.jinsom-recharge-type li:nth-child(2n) {
     margin-right: 0;
 }
-.wuju-recharge-type li>i {
+.jinsom-recharge-type li>i {
     margin-right: 2vw;
     vertical-align: -0.5vw;
 }
-.wuju-recharge-type li>i.wuju-weixinzhifu {
+.jinsom-recharge-type li>i.jinsom-weixinzhifu {
     color: #41b035;
 }
-.wuju-recharge-type li>i.wuju-zhifubaozhifu {
+.jinsom-recharge-type li>i.jinsom-zhifubaozhifu {
     font-size: 6vw;
     color: #00a7ff;
 }
-.wuju-recharge-type li>i.wuju-qiamizhifu {
+.jinsom-recharge-type li>i.jinsom-qiamizhifu {
     color: #666;
 }
-.wuju-recharge-btn {
+.jinsom-recharge-btn {
     margin: 0 4vw 0vw;
     text-align: center;
     padding: 3vw;
@@ -3771,33 +3771,33 @@ video.dplayer-video.dplayer-video-current {
     color: #fff;
     border-radius: 1vw;
 }
-.wuju-recharge-custom-html {
+.jinsom-recharge-custom-html {
     padding: 4vw;
 }
-.wuju-recharge-number li .top span {
+.jinsom-recharge-number li .top span {
     margin-right: 1vw;
     vertical-align: -0.5vw;
 }
-.wuju-recharge-content {
+.jinsom-recharge-content {
     background-color: #fff;
 }
 
 /* 购买付费内容*/
-.wuju-post-buy-content {
+.jinsom-post-buy-content {
     background-color: #fff;
 }
-.wuju-post-buy-form .price i {
+.jinsom-post-buy-form .price i {
     font-size: 8vw;
     color: #f00;
     margin-right: 2vw;
     display: inline-flex;
     vertical-align: -1vw;
 }
-.wuju-post-buy-form .hadbuy {
+.jinsom-post-buy-form .hadbuy {
     font-size: 3vw;
     color: #999;
 }
-.wuju-post-buy-form .btn {
+.jinsom-post-buy-form .btn {
     background-color: #5fb878;
     color: #fff;
     padding: 3vw 2vw;
@@ -3805,11 +3805,11 @@ video.dplayer-video.dplayer-video-current {
     border-radius: 1vw;
     font-size: 5vw;
 }
-.wuju-post-buy-form .vip {
+.jinsom-post-buy-form .vip {
     margin: 2vw;
     color: #FF5722;
 }
-.wuju-bbs-no-power-tips.list {
+.jinsom-bbs-no-power-tips.list {
     padding: 8vw;
     text-align: center;
     background-color: #F8F8F9;
@@ -3818,11 +3818,11 @@ video.dplayer-video.dplayer-video-current {
     height: 100%;
     box-sizing: border-box;
 }
-.wuju-bbs-no-power-tips i {
+.jinsom-bbs-no-power-tips i {
     font-size: 8vw;
     margin-right: 1vw;
 }
-.wuju-bbs-no-power-tips.single,.wuju-bbs-no-power-tips.bbs {
+.jinsom-bbs-no-power-tips.single,.jinsom-bbs-no-power-tips.bbs {
     height: 100%;
     box-sizing: border-box;
     overflow: hidden;
@@ -3832,7 +3832,7 @@ video.dplayer-video.dplayer-video-current {
     background-color: #555;
     color: #ccc;
 }
-.wuju-bbs-no-power-tips .btn {
+.jinsom-bbs-no-power-tips .btn {
     background-color: #ccc;
     color: #555;
     margin-top: 4vw;
@@ -3841,10 +3841,10 @@ video.dplayer-video.dplayer-video-current {
     display: block;
     text-align: center;
 }
-.wuju-bbs-no-power-tips p {
+.jinsom-bbs-no-power-tips p {
     margin-top: 4vw;
 }
-.wuju-bbs-no-power-tips input {
+.jinsom-bbs-no-power-tips input {
     border: none;
     padding: 2vw;
     width: 100%;
@@ -3852,23 +3852,23 @@ video.dplayer-video.dplayer-video-current {
     border-radius: 1vw;
     margin: 3vw 0 2vw;
 }
-.wuju-notice-tips-content{
+.jinsom-notice-tips-content{
     background-color:#fff; 
 }
-.wuju-chat-notice .wuju-aite2 {
+.jinsom-chat-notice .jinsom-aite2 {
     background-color: #FF9800;
 }
-.wuju-chat-notice .wuju-pinglun2 {
+.jinsom-chat-notice .jinsom-pinglun2 {
     background-color: #4CAF50;
 }
-.wuju-chat-notice .wuju-xihuan2 {
+.jinsom-chat-notice .jinsom-xihuan2 {
     background-color: #F44336;
 }
-.wuju-chat-notice .wuju-tongzhi1 {
+.jinsom-chat-notice .jinsom-tongzhi1 {
     background-color: #2196F3;
 }
 
-.wuju-chat-user-list.notice li .item-media a span {
+.jinsom-chat-user-list.notice li .item-media a span {
     width: 2.5vw;
     height: 2.5vw;
     display: inline-block;
@@ -3878,13 +3878,13 @@ video.dplayer-video.dplayer-video-current {
     top: 4vw;
 }
 /*我的粉丝*/
-.wuju-chat-user-list.follower,.wuju-follower-content {
+.jinsom-chat-user-list.follower,.jinsom-follower-content {
     background-color: #fff;
 }
-.wuju-chat-user-list.follower a, .wuju-chat-user-list.visitor a, .wuju-chat-user-list.bbs-commend a, .wuju-chat-user-list.nearby-people a, .wuju-chat-user-list.notice a {
+.jinsom-chat-user-list.follower a, .jinsom-chat-user-list.visitor a, .jinsom-chat-user-list.bbs-commend a, .jinsom-chat-user-list.nearby-people a, .jinsom-chat-user-list.notice a {
     padding: 0;
 }
-.wuju-chat-user-list.follower li .follow, .wuju-chat-user-list.visitor li .follow, .wuju-chat-user-list.bbs-commend li .follow {
+.jinsom-chat-user-list.follower li .follow, .jinsom-chat-user-list.visitor li .follow, .jinsom-chat-user-list.bbs-commend li .follow {
     color: #ffffff;
     border-radius: 20vw;
     font-size: 3vw;
@@ -3895,30 +3895,30 @@ video.dplayer-video.dplayer-video-current {
     right: 4vw;
     top: 6.3vw;
 }
-.wuju-chat-user-list.follower li .follow.has,.wuju-chat-user-list.visitor li .follow.has,.wuju-chat-user-list.bbs-commend li .follow.has {
+.jinsom-chat-user-list.follower li .follow.has,.jinsom-chat-user-list.visitor li .follow.has,.jinsom-chat-user-list.bbs-commend li .follow.has {
     background-color: #bbb;
 }
-.wuju-chat-user-list.follower li .follow i,.wuju-chat-user-list.visitor li .follow i,.wuju-chat-user-list.bbs-commend li .follow i {
+.jinsom-chat-user-list.follower li .follow i,.jinsom-chat-user-list.visitor li .follow i,.jinsom-chat-user-list.bbs-commend li .follow i {
     vertical-align: -0.6vw;
     font-size: 5.5vw;
 }
 
-.wuju-visitor-content {
+.jinsom-visitor-content {
     background-color: #fff;
 }
-.wuju-visitor-content .title {
+.jinsom-visitor-content .title {
     color: #555;
     font-size: 6vw;
     margin-top: 5vw;
     padding: 0 2vw 1vw;
 }
-.wuju-visitor-nodata {
+.jinsom-visitor-nodata {
     color: #999;
     font-size: 5vw;
     text-align: center;
     margin: 4vw;
 }
-.wuju-visitor-nodata i {
+.jinsom-visitor-nodata i {
     font-size: 10vw;
     vertical-align: -1.5vw;
     margin-right: 2vw;
@@ -3927,33 +3927,33 @@ video.dplayer-video.dplayer-video-current {
 
 
 /*论坛页面*/
-.wuju-bbs-bg {
+.jinsom-bbs-bg {
     height: 54vw;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-.wuju-bbs-header {
+.jinsom-bbs-header {
     margin: 0 2vw 3vw;
     background-color: #fff;
     margin-top: -20vw;
     padding: 2vw;
     border-radius: 2vw 2vw 1vw 1vw;
 }
-.wuju-bbs-header .top {
+.jinsom-bbs-header .top {
     display: flex;
 }
-.wuju-bbs-header .top .avatarimg {
+.jinsom-bbs-header .top .avatarimg {
     margin-left: 2vw;
     margin-top: -10vw;
     height: 22vw;
 }
-.wuju-bbs-header .top .avatarimg img {
+.jinsom-bbs-header .top .avatarimg img {
     width: 20vw;
     height: 20vw;
     border-radius: 2vw;
 }
-.wuju-bbs-header .top .avatarimg no-img {
+.jinsom-bbs-header .top .avatarimg no-img {
     width: 20vw;
     height: 20vw;
     border-radius: 2vw;
@@ -3964,30 +3964,30 @@ video.dplayer-video.dplayer-video-current {
     text-align: center;
     font-size: 6vw;
 }
-.wuju-bbs-header .top .number {
+.jinsom-bbs-header .top .number {
     margin-left: 4vw;
 }
-.wuju-bbs-header .top .number span {
+.jinsom-bbs-header .top .number span {
     margin-top: 4vw;
     display: inline-block;
     margin-right: 4vw;
     color: #555;
 }
-.wuju-bbs-header .top .number span:last-child {
+.jinsom-bbs-header .top .number span:last-child {
     margin-right: 0;
 }
-.wuju-bbs-header .name {
+.jinsom-bbs-header .name {
     font-size: 5vw;
     margin: 2vw;
     display: flex;
     align-items: center;
 }
-.wuju-bbs-header .desc {
+.jinsom-bbs-header .desc {
     color: #999;
     font-size: 3.8vw;
     margin: 4vw 2vw 2vw;
 }
-.wuju-bbs-header .name .follow {
+.jinsom-bbs-header .name .follow {
     color: #ffffff;
     border-radius: 20vw;
     font-size: 3vw;
@@ -4000,34 +4000,34 @@ video.dplayer-video.dplayer-video-current {
     flex: 1;
     max-width: 15vw;
 }
-.wuju-bbs-header .name .follow i {
+.jinsom-bbs-header .name .follow i {
     vertical-align: -0.6vw;
     font-size: 5vw;
 }
-.wuju-bbs-content,.wuju-topic-content {
+.jinsom-bbs-content,.jinsom-topic-content {
     padding-top: 0 !important;
     background-color: #eeeeee;
 }
-.wuju-bbs-header .member li {
+.jinsom-bbs-header .member li {
     float: left;
     height: 8vw;
     margin-right: 1vw;
 }
-.wuju-bbs-header .member li img {
+.jinsom-bbs-header .member li img {
     width: 8vw;
     height: 8vw;
     border-radius: 100%;
     border: none;
 }
-.wuju-bbs-header .member a span {
+.jinsom-bbs-header .member a span {
     height: 8vw;
     display: flex;
     align-items: center;
 }
-.wuju-bbs-header .member a span i {
+.jinsom-bbs-header .member a span i {
     font-size: 4vw;
 }
-.wuju-bbs-child-show {
+.jinsom-bbs-child-show {
     background-color: #fff;
     margin: 2vw 0vw 0;
     border-radius: 1vw;
@@ -4037,62 +4037,62 @@ video.dplayer-video.dplayer-video-current {
     white-space: nowrap;
     border-bottom: 1px solid #f5f5f5;
 }
-.wuju-bbs-child-show li {
+.jinsom-bbs-child-show li {
     text-align: center;
     width: 18vw;
     display: inline-block;
     margin-right: 2vw;
 }
-.wuju-bbs-child-show li .img {
+.jinsom-bbs-child-show li .img {
     height: 12vw;
 }
-.wuju-bbs-child-show li .img img {
+.jinsom-bbs-child-show li .img img {
     width: 12vw;
     height: 12vw;
     border-radius: 2vw;
 }
-.wuju-bbs-child-show li .name {
+.jinsom-bbs-child-show li .name {
     margin-top: 2vw;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     font-size: 3.5vw;
 }
-.wuju-bbs-commend-show {
+.jinsom-bbs-commend-show {
     background-color: #fff;
     border-radius: 1vw;
     padding: 3vw 3vw;
     border-bottom: 1px solid #f5f5f5;
 }
-.wuju-bbs-commend-show li {
+.jinsom-bbs-commend-show li {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     line-height: 10vw;
 }
-.wuju-bbs-commend-show li .up {
+.jinsom-bbs-commend-show li .up {
     background-color: #1499f8;
     color: #fff;
     padding: 0.5vw 1vw;
     border-radius: 1vw;
     margin-right: 1vw;
 }
-.wuju-bbs-commend-show li a {
+.jinsom-bbs-commend-show li a {
     display: inline-block;
     width: 100%;
 }
-.wuju-bbs-menu {
+.jinsom-bbs-menu {
     padding: 0 4vw 0vw;
     background-color: #fff;
     box-sizing: border-box;
 }
-.wuju-bbs-post-list.wuju-post-list {
+.jinsom-bbs-post-list.jinsom-post-list {
     padding-bottom: 16vw;
 }
-.wuju-bbs-header .name .follow.has {
+.jinsom-bbs-header .name .follow.has {
     background-color: #bbb;
 }
-.wuju-bbs-header .name .chat {
+.jinsom-bbs-header .name .chat {
     color: #ffffff;
     border-radius: 20vw;
     font-size: 3vw;
@@ -4106,34 +4106,34 @@ video.dplayer-video.dplayer-video-current {
     flex: 1;
     max-width: 15vw;
 }
-.wuju-bbs-header .name .chat i {
+.jinsom-bbs-header .name .chat i {
     vertical-align: -0.6vw;
     font-size: 5vw;
     margin-right: 0.5vw;
 }
 
 
-.wuju-bbs-list-default {
+.jinsom-bbs-list-default {
     padding: 4vw;
     background-color: #fff;
     border-bottom: 1px dotted #e2e2e2;
 }
-.wuju-bbs-list-default a {
+.jinsom-bbs-list-default a {
     display: flex;
     align-items: center;
 }
-.wuju-bbs-list-default a .avatarimg {
+.jinsom-bbs-list-default a .avatarimg {
     height: 12vw;
     position: relative;
     margin-right: 4vw;
 }
-.wuju-bbs-list-default a .avatarimg img {
+.jinsom-bbs-list-default a .avatarimg img {
     width: 12vw;
     height: 12vw;
     border-radius: 1vw;
     box-sizing: border-box;
 }
-.wuju-bbs-list-default h2 {
+.jinsom-bbs-list-default h2 {
     font-size: 4.2vw;
     font-weight: normal;
     margin: 0;
@@ -4143,7 +4143,7 @@ video.dplayer-video.dplayer-video-current {
     text-overflow: ellipsis;
     margin-bottom: 1vw;
 }
-.wuju-bbs-list-default h2 .commend {
+.jinsom-bbs-list-default h2 .commend {
     padding: 0.2vw 1.2vw;
     border-radius: 1vw;
     background-color: #F44336;
@@ -4153,12 +4153,12 @@ video.dplayer-video.dplayer-video-current {
     margin-right: 1vw;
     vertical-align: 0.6vw;
 }
-.wuju-bbs-list-default .user {
+.jinsom-bbs-list-default .user {
     color: #999;
     font-size: 3.8vw;
     line-height: 5vw;
 }
-.wuju-bbs-list-default .user .name {
+.jinsom-bbs-list-default .user .name {
     margin-right: 4vw;
     max-width: 35vw;
     white-space: nowrap;
@@ -4166,48 +4166,48 @@ video.dplayer-video.dplayer-video-current {
     text-overflow: ellipsis;
     display: inline-flex;
 }
-.wuju-bbs-list-default .user .number {
+.jinsom-bbs-list-default .user .number {
     float: right;
 }
-.wuju-bbs-list-default .user i {
+.jinsom-bbs-list-default .user i {
     font-size: 4vw;
 }
-.wuju-bbs-tab-post-content .wuju-bbs-list-default:last-child {
+.jinsom-bbs-tab-post-content .jinsom-bbs-list-default:last-child {
     border: none;
 }
-.wuju-bbs-tab-post-content .wuju-bbs-list-default {
+.jinsom-bbs-tab-post-content .jinsom-bbs-list-default {
     padding: 4vw 0;
 }
 
 /*打赏*/
-.wuju-reward-content {
+.jinsom-reward-content {
     background-color: #fff;
 }
-.wuju-reward-bg {
+.jinsom-reward-bg {
     width: 100vw;
     height: 30vw;
     background-color: #46c47c;
     border-radius: 0 0 100vw 100vw;
 }
-.wuju-reward-content .avatarimg {
+.jinsom-reward-content .avatarimg {
     text-align: center;
     margin-top: -11vw;
 }
-.wuju-reward-content .avatarimg img {
+.jinsom-reward-content .avatarimg img {
     width: 20vw;
     height: 20vw;
     border: 1vw solid #fff;
     border-radius: 100%;
 }
-.wuju-reward-content .name {
+.jinsom-reward-content .name {
     text-align: center;
     font-size: 6vw;
 }
-.wuju-reward-content .number {
+.jinsom-reward-content .number {
     padding: 4vw;
     margin-top: 4vw;
 }
-.wuju-reward-content .number li {
+.jinsom-reward-content .number li {
     float: left;
     width: 31%;
     text-align: center;
@@ -4218,22 +4218,22 @@ video.dplayer-video.dplayer-video-current {
     border: 1px solid #dedede;
     margin-right: 3.5%;
 }
-.wuju-reward-content .number li span {
+.jinsom-reward-content .number li span {
     margin-left: 1vw;
     vertical-align: -0.5vw;
 }
-.wuju-reward-content .number li:nth-child(3n) {
+.jinsom-reward-content .number li:nth-child(3n) {
     margin-right: 0;
 }
 
 
 /*卡密兑换*/
-.wuju-key-recharge-content {
+.jinsom-key-recharge-content {
     background-color: #fff;
     padding: 4vw;
     margin-top: 4vw;
 }
-.wuju-key-recharge-content input {
+.jinsom-key-recharge-content input {
     box-sizing: border-box;
     width: 100%;
     padding: 4vw;
@@ -4241,11 +4241,11 @@ video.dplayer-video.dplayer-video-current {
     border: 1px solid #f1f1f1;
     font-size: 4vw;
 }
-.wuju-key-recharge-content .info {
+.jinsom-key-recharge-content .info {
     margin-top: 4vw;
     color: #999;
 }
-.wuju-key-recharge-content .btn {
+.jinsom-key-recharge-content .btn {
     background-color: #46c47c;
     text-align: center;
     color: #fff;
@@ -4255,15 +4255,15 @@ video.dplayer-video.dplayer-video-current {
 }
 
 /*账单*/
-.wuju-recharge-note-content {
+.jinsom-recharge-note-content {
     background-color: #fff;
 }
-.wuju-chat-user-list.recharge-note .item-after {
+.jinsom-chat-user-list.recharge-note .item-after {
     font-size: 5vw;
     color: #f59200;
     margin-top: 7vw;
 }
-.wuju-chat-user-list.recharge-note li .item-media span {
+.jinsom-chat-user-list.recharge-note li .item-media span {
     width: 12vw;
     height: 12vw;
     display: inline-block;
@@ -4274,23 +4274,23 @@ video.dplayer-video.dplayer-video-current {
     border-radius: 100%;
     font-size: 4vw;
 }
-.wuju-chat-user-list.recharge-note li {
+.jinsom-chat-user-list.recharge-note li {
     padding: 2vw 4vw;
 }
-.wuju-chat-user-list.recharge-note li>a {
+.jinsom-chat-user-list.recharge-note li>a {
     height: inherit;
     padding: 0;
 }
-.wuju-chat-user-list.recharge-note li .item-media span i {
+.jinsom-chat-user-list.recharge-note li .item-media span i {
     color: #fff;
 }
-.wuju-chat-user-list.recharge-note .item-after.out {
+.jinsom-chat-user-list.recharge-note .item-after.out {
     color: #333;
 }
 
 
 /*论坛发布*/
-.wuju-bbs-publish-icon {
+.jinsom-bbs-publish-icon {
     position: absolute;
     bottom: 8vw;
     left: 50%;
@@ -4301,7 +4301,7 @@ video.dplayer-video.dplayer-video-current {
     border-radius: 100%;
     z-index: 2;
 }
-.wuju-bbs-publish-icon i {
+.jinsom-bbs-publish-icon i {
     font-size: 14vw;
     color: #46c47c;
     position: absolute;
@@ -4311,10 +4311,10 @@ video.dplayer-video.dplayer-video-current {
 
 
 /*文章话题列表*/
-.wuju-single-topic-list {
+.jinsom-single-topic-list {
     margin-top: 4vw;
 }
-.wuju-single-topic-list li {
+.jinsom-single-topic-list li {
     float: left;
     list-style: none;
     height: 8vw;
@@ -4324,13 +4324,13 @@ video.dplayer-video.dplayer-video-current {
     border-radius: 1vw 1px 1px 1vw;
     margin-bottom: 2vw;
 }
-.wuju-single-topic-list li img {
+.jinsom-single-topic-list li img {
     width: 8vw;
     height: 8vw;
     border-radius: 1vw 1px 1px 1vw;
     border: 0;
 }
-.wuju-single-topic-list li no-img {
+.jinsom-single-topic-list li no-img {
     width: 8vw;
     height: 8vw;
     border-radius: 1vw 1px 1px 1vw;
@@ -4340,7 +4340,7 @@ video.dplayer-video.dplayer-video-current {
     line-height: 8vw;
     float: left;
 }
-.wuju-single-topic-list li span {
+.jinsom-single-topic-list li span {
     display: inline-block;
     vertical-align: 2.8vw;
     padding: 0 2vw;
@@ -4349,7 +4349,7 @@ video.dplayer-video.dplayer-video-current {
 }
 
 /*置顶推荐图标*/
-.wuju-post-words .header .info .name .sticky,.wuju-post-words .content h1 .sticky,.wuju-post-single h1 .sticky{
+.jinsom-post-words .header .info .name .sticky,.jinsom-post-words .content h1 .sticky,.jinsom-post-single h1 .sticky{
     padding: 0.5vw 1.5vw;
     border-radius: 1vw;
     background-color: #1E9FFF;
@@ -4358,7 +4358,7 @@ video.dplayer-video.dplayer-video-current {
     font-size: 3.5vw;
     vertical-align: 0.3vw;
 }
-.wuju-post-words .header .info .name .commend,.wuju-post-words .content h1 .commend,.wuju-post-single h1 .commend {
+.jinsom-post-words .header .info .name .commend,.jinsom-post-words .content h1 .commend,.jinsom-post-single h1 .commend {
     padding: 0.5vw 1.5vw;
     border-radius: 1vw;
     background-color: #F44336;
@@ -4367,12 +4367,12 @@ video.dplayer-video.dplayer-video-current {
     font-size: 3.5vw;
     vertical-align: 0.3vw;
 }
-.wuju-post-words .content h1 .sticky,.wuju-post-words .content h1 .commend,.wuju-post-single h1 .sticky,.wuju-post-single h1 .commend{
+.jinsom-post-words .content h1 .sticky,.jinsom-post-words .content h1 .commend,.jinsom-post-single h1 .sticky,.jinsom-post-single h1 .commend{
     margin-left:0;
     margin-right:1vw;  
     vertical-align: 0.6vw;
 }
-.wuju-single h1 .sticky,.wuju-single h1 .commend{
+.jinsom-single h1 .sticky,.jinsom-single h1 .commend{
     padding: 0.5vw 1.5vw;
     border-radius: 1vw;
     background-color: #1E9FFF;
@@ -4381,10 +4381,10 @@ video.dplayer-video.dplayer-video-current {
     margin-right:1vw;  
     vertical-align: 0.6vw;
 }
-.wuju-single h1 .commend{
+.jinsom-single h1 .commend{
     background-color: #F44336;
 }
-h1 .sticky:before,.wuju-bbs-commend-show li .up:before{
+h1 .sticky:before,.jinsom-bbs-commend-show li .up:before{
     content: "顶";
 }
 h1 .commend:before{
@@ -4392,46 +4392,46 @@ h1 .commend:before{
 }
 
 /*我关注的论坛*/
-.wuju-bbs-like-content {
+.jinsom-bbs-like-content {
     background-color: #fff;
 }
-.wuju-bbs-like {
+.jinsom-bbs-like {
     padding: 4vw 4vw;
 }
-.wuju-bbs-like li {
+.jinsom-bbs-like li {
     float: left;
     width: 16.8vw;
     text-align: center;
     margin-right: 2vw;
     margin-top: 4vw;
 }
-.wuju-bbs-like li:nth-child(5n) {
+.jinsom-bbs-like li:nth-child(5n) {
     margin-right: 0;
 }
-.wuju-bbs-like li .img {
+.jinsom-bbs-like li .img {
     position: relative;
     height: 12vw;
     border-radius: 2vw;
 }
-.wuju-bbs-like li .img img {
+.jinsom-bbs-like li .img img {
     width: 12vw;
     border-radius: 2vw;
     height: 12vw;
 }
-.wuju-bbs-like li .name {
+.jinsom-bbs-like li .name {
     margin-top: 2vw;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     font-size: 3.8vw;
 }
-.wuju-bbs-like-content .wuju-empty-page {
+.jinsom-bbs-like-content .jinsom-empty-page {
     margin: 4vw;
 }
-.wuju-bbs-like-content .wuju-empty-page i {
+.jinsom-bbs-like-content .jinsom-empty-page i {
     font-size: 10vw;
 }
-.wuju-follow-more-bbs {
+.jinsom-follow-more-bbs {
     color: #ffffff;
     border-radius: 20vw;
     font-size: 3.5vw;
@@ -4442,15 +4442,15 @@ h1 .commend:before{
 
 
 /*大转盘*/
-.wuju-lottery-content {
+.jinsom-lottery-content {
     background-color: #0a7b5c;
 }
-.wuju-lottery-container {
+.jinsom-lottery-container {
     position: relative;
     margin: auto;
     height: 90vw;
 }
-.wuju-lottery-container .item {
+.jinsom-lottery-container .item {
     position: absolute;
     left: 50%;
     top: calc(50% - 11vw);
@@ -4461,19 +4461,19 @@ h1 .commend:before{
     border-right: 40vw solid #A52A2A;
     transform-origin: 0px 50%;
 }
-.wuju-lottery-container .item:nth-child(odd) {
+.jinsom-lottery-container .item:nth-child(odd) {
     border-right-color: #d2cea2;
 }
-.wuju-lottery-container .item:nth-child(even) {
+.jinsom-lottery-container .item:nth-child(even) {
     border-right-color: #ff6501;
 }
-.wuju-lottery-container .item-content {
+.jinsom-lottery-container .item-content {
     position: absolute;
     right: -35vw;
     top: -3vw;
     color: #fff;
 }
-.wuju-lottery-arrow {
+.jinsom-lottery-arrow {
     position: absolute;
     width: 20vw;
     height: 20vw;
@@ -4490,7 +4490,7 @@ h1 .commend:before{
     color: #fff;
     font-size: 6vw;
 }
-.wuju-lottery-arrow:before {
+.jinsom-lottery-arrow:before {
     content: '';
     display: inline-block;
     width: 0;
@@ -4502,22 +4502,22 @@ h1 .commend:before{
     top: -15vw;
     left: 7vw;
 }
-.wuju-lottery-info {
+.jinsom-lottery-info {
     display: flex;
     padding: 0 4vw;
     margin-bottom: 4vw;
 }
-.wuju-lottery-info>div {
+.jinsom-lottery-info>div {
     flex: 1;
     text-align: center;
     color: #31c09b;
 }
-.wuju-lottery-info>div span {
+.jinsom-lottery-info>div span {
     color: #CDDC39;
     font-size: 4vw;
     margin-left: 2vw;
 }
-.wuju-lottery-money {
+.jinsom-lottery-money {
     margin: auto;
     width: 80%;
     background-color: rgba(22, 79, 63, 0.3);
@@ -4525,15 +4525,15 @@ h1 .commend:before{
     border-radius: 1vw;
     display: flex;
 }
-.wuju-lottery-money span {
+.jinsom-lottery-money span {
     display: flex;
     align-items: center;
     color: #31c09b;
 }
-.wuju-lottery-money span:first-child {
+.jinsom-lottery-money span:first-child {
     margin-right: 4vw;
 }
-.wuju-lottery-money input {
+.jinsom-lottery-money input {
     width: 20vw;
     background-color: #d2cea2;
     border-radius: 20px;
@@ -4544,7 +4544,7 @@ h1 .commend:before{
     font-weight: bold;
     font-size: 4vw;
 }
-.wuju-lottery-money span.add {
+.jinsom-lottery-money span.add {
     background-color: #8BC34A;
     padding: 0 2vw;
     margin-left: 4vw;
@@ -4552,7 +4552,7 @@ h1 .commend:before{
     font-size: 4vw;
     color: #0f362c;
 }
-.wuju-lottery-btn {
+.jinsom-lottery-btn {
     width: 75%;
     background-color: #e2553e;
     color: #fff;
@@ -4566,11 +4566,11 @@ h1 .commend:before{
 
 
 /*内容管理模块*/
-.wuju-post-admin {
+.jinsom-post-admin {
     display: flex;
     padding: 0 4vw 4vw;
 }
-.wuju-post-admin span {
+.jinsom-post-admin span {
     flex: 1;
     text-align: center;
     border: 1px solid #999;
@@ -4578,20 +4578,20 @@ h1 .commend:before{
     margin-right: 4vw;
     border-radius: 1vw;
 }
-.wuju-post-admin span:first-child {
+.jinsom-post-admin span:first-child {
     background-color: #F44336;
     color: #fff;
     border-color: #f44336;
 }
-.wuju-post-admin span:last-child {
+.jinsom-post-admin span:last-child {
     margin-right: 0;
 }
-.wuju-post-admin span:nth-child(2) {
+.jinsom-post-admin span:nth-child(2) {
     background-color: #009688;
     color: #fff;
     border-color: #009688;
 }
-.wuju-post-admin span:nth-child(3) {
+.jinsom-post-admin span:nth-child(3) {
     background-color: #2196F3;
     color: #fff;
     border-color: #2196f3;
@@ -4599,54 +4599,54 @@ h1 .commend:before{
 
 
 /*设置页面*/
-.wuju-setting-content {
+.jinsom-setting-content {
     background-color: #eee;
 }
-.wuju-setting-content.desc {
+.jinsom-setting-content.desc {
     background-color: #fff;
 }
-.wuju-setting-box {
+.jinsom-setting-box {
     margin: 3vw;
     background-color: #fff;
     padding: 0 3vw;
     border-radius: 1vw;
 }
-.wuju-setting-box li {
+.jinsom-setting-box li {
     padding: 3vw 0;
     border-bottom: 1px solid #f5f5f5;
     position: relative;
 }
-.wuju-setting-box li>a {
+.jinsom-setting-box li>a {
     display: flex;
     position: relative;
 }
-.wuju-setting-box li .title {
+.jinsom-setting-box li .title {
     flex: 1;
 }
-.wuju-setting-box li .value img {
+.jinsom-setting-box li .value img {
     width: 18vw;
     height: 18vw;
     border-radius: 1vw;
 }
-.wuju-setting-box li.avatarimg .value {
+.jinsom-setting-box li.avatarimg .value {
     height: 18vw;
 }
-.wuju-setting-box li span {
+.jinsom-setting-box li span {
     display: flex;
     align-items: center;
 }
-.wuju-setting-box li .value {
+.jinsom-setting-box li .value {
     margin-right: 2vw;
     color: #999;
     max-width: 60vw;
 }
-.wuju-setting-box li .a {
+.jinsom-setting-box li .a {
     color: #999;
 }
-.wuju-setting-box li:last-child {
+.jinsom-setting-box li:last-child {
     border-bottom: none;
 }
-.wuju-setting-login-out {
+.jinsom-setting-login-out {
     background-color: #F44336;
     color: #fff;
     border-color: #f44336;
@@ -4655,7 +4655,7 @@ h1 .commend:before{
     margin: 4vw 3vw 8vw;
     border-radius: 2vw;
 }
-.wuju-setting-box select {
+.jinsom-setting-box select {
     -webkit-appearance: none;
     background-color: #fff;
     border: none;
@@ -4665,14 +4665,14 @@ h1 .commend:before{
     height: 100%;
     opacity: 0;
 }
-#wuju-setting-time {
+#jinsom-setting-time {
     position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0;
     z-index: 9;
 }
-.wuju-setting-box li.desc .value,.wuju-setting-box li.verify-info .value {
+.jinsom-setting-box li.desc .value,.jinsom-setting-box li.verify-info .value {
     max-width: 55%;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -4680,11 +4680,11 @@ h1 .commend:before{
     display: inline-block;
     margin-top: 1vw;
 }
-.wuju-setting-content.desc .wuju-setting-box {
+.jinsom-setting-content.desc .jinsom-setting-box {
     margin: 0;
     padding: 0;
 }
-.wuju-setting-content.desc .wuju-setting-box textarea {
+.jinsom-setting-content.desc .jinsom-setting-box textarea {
     border: none;
     width: calc(100% - 8vw);
     margin: 4vw 4vw 0;
@@ -4696,17 +4696,17 @@ h1 .commend:before{
     background-color: #f8f8f8;
     border-radius: 2vw;
 }
-.wuju-setting-box-desc-tips {
+.jinsom-setting-box-desc-tips {
     margin: 0 4vw;
     text-align: right;
     color: #999;
 }
 
 /*搜索页面*/
-#wuju-search-form {
+#jinsom-search-form {
     margin-top: 1.5vw;
 }
-#wuju-search-form>i {
+#jinsom-search-form>i {
     position: absolute;
     color: #999;
     left: 2vw;
@@ -4716,14 +4716,14 @@ h1 .commend:before{
 [data-page='search-mobile'] .center {
     left: 0 !important;
 }
-.wuju-search-hot, .wuju-pop-search-bbs, .wuju-pop-search-topic {
+.jinsom-search-hot, .jinsom-pop-search-bbs, .jinsom-pop-search-topic {
     margin: 4vw;
 }
-.wuju-search-hot .title,.wuju-pop-search-bbs .title,.wuju-pop-search-topic .title {
+.jinsom-search-hot .title,.jinsom-pop-search-bbs .title,.jinsom-pop-search-topic .title {
     color: #999;
     margin-bottom: 3vw;
 }
-.wuju-search-hot li {
+.jinsom-search-hot li {
     background-color: #f1f1f1;
     float: left;
     margin-right: 2vw;
@@ -4733,19 +4733,19 @@ h1 .commend:before{
     border-radius: 1vw;
     font-size: 4vw;
 }
-.wuju-pop-search-bbs li {
+.jinsom-pop-search-bbs li {
     float: left;
     text-align: center;
     margin-right: 2.666%;
     margin-bottom: 2.666%;
     width: 23%;
 }
-.wuju-pop-search-bbs li img {
+.jinsom-pop-search-bbs li img {
     width: 15vw;
     height: 15vw;
     border-radius: 1vw;
 }
-.wuju-pop-search-bbs li no-img {
+.jinsom-pop-search-bbs li no-img {
     width: 15vw;
     height: 15vw;
     border-radius: 1vw;
@@ -4756,7 +4756,7 @@ h1 .commend:before{
     display: inline-block;
     font-size: 5vw;
 }
-.wuju-pop-search-bbs li p {
+.jinsom-pop-search-bbs li p {
     color: #a5aab0;
     margin-top: 1vw;
     overflow: hidden;
@@ -4764,11 +4764,11 @@ h1 .commend:before{
     white-space: nowrap;
     font-size: 3vw;
 }
-.wuju-pop-search-bbs li:nth-child(4n) {
+.jinsom-pop-search-bbs li:nth-child(4n) {
     margin-right: 0;
 }
 
-.wuju-pop-search-topic li {
+.jinsom-pop-search-topic li {
     width: 100%;
     height: 120px;
     position: relative;
@@ -4778,7 +4778,7 @@ h1 .commend:before{
     border-radius: 1vw;
     margin-bottom: 4vw;
 }
-.wuju-pop-search-topic li .shadow {
+.jinsom-pop-search-topic li .shadow {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -4786,13 +4786,13 @@ h1 .commend:before{
     border-radius: 4px;
     z-index: 1;
 }
-.wuju-pop-search-topic li img {
+.jinsom-pop-search-topic li img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 1vw;
 }
-.wuju-pop-search-topic li no-img {
+.jinsom-pop-search-topic li no-img {
     width: 100%;
     height: 100%;
     border-radius: 1vw;
@@ -4800,7 +4800,7 @@ h1 .commend:before{
     display: inline-block;
     background: linear-gradient(to right,#89a6c6, rgb(160, 191, 225));
 }
-.wuju-pop-search-topic li p {
+.jinsom-pop-search-topic li p {
     position: absolute;
     width: 100%;
     top: 50%;
@@ -4817,56 +4817,56 @@ h1 .commend:before{
 }
 
 
-.wuju-search-tab {
+.jinsom-search-tab {
     display: none;
 }
-.wuju-search-post-list {
+.jinsom-search-post-list {
     padding-bottom: 11vw;
 }
 [data-page=search] .center {
     left: 0 !important;
 }
-.wuju-search-user-list.topic li .avatarimg img {
+.jinsom-search-user-list.topic li .avatarimg img {
     border-radius: 2vw;
 }
-.wuju-search-user-list li {
+.jinsom-search-user-list li {
     background-color: #fff;
     padding: 2vw 4vw 2vw;
 }
-.wuju-search-user-list li a {
+.jinsom-search-user-list li a {
     display: flex;
 }
-.wuju-search-user-list li .avatarimg {
+.jinsom-search-user-list li .avatarimg {
     height: 12vw;
     margin: 2vw 0;
     position: relative;
 }
-.wuju-search-user-list li .avatarimg .wuju-verify {
+.jinsom-search-user-list li .avatarimg .jinsom-verify {
     right: 2vw;
     bottom: -0.5vw;
 }
-.wuju-search-user-list li .avatarimg img {
+.jinsom-search-user-list li .avatarimg img {
     width: 12vw;
     height: 12vw;
     border-radius: 100%;
     margin-right: 2vw;
 }
-.wuju-search-user-list li .info {
+.jinsom-search-user-list li .info {
     width: 100%;
     padding: 2vw 0;
     border-bottom: 1px solid #f5f5f5;
 }
-.wuju-search-user-list li .desc {
+.jinsom-search-user-list li .desc {
     color: #999;
     margin-top: 1vw;
 }
-.wuju-search-user-list li .desc span {
+.jinsom-search-user-list li .desc span {
     margin-right: 4vw;
 }
-.wuju-search-user-list li:last-child .info {
+.jinsom-search-user-list li:last-child .info {
     border-bottom: none;
 }
-.wuju-search-user-list h1 {
+.jinsom-search-user-list h1 {
     font-size: 4vw;
     font-weight: normal;
     padding: 0 2vw 0;
@@ -4874,20 +4874,20 @@ h1 .commend:before{
     border-left: 1.5vw solid #46c47c;
     margin: 2vw 4vw 2vw;
 }
-.wuju-bbs-cat-list {
+.jinsom-bbs-cat-list {
     background-color: #fff;
 }
 
-.wuju-home-right-bar {
+.jinsom-home-right-bar {
     position: fixed;
     right: 4vw;
     top: 50%;
     z-index: 9999;
 }
-.wuju-home-right-bar.home {
+.jinsom-home-right-bar.home {
     top: calc(50% + 17vw);
 }
-.wuju-home-right-bar li {
+.jinsom-home-right-bar li {
     width: 12vw;
     height: 12vw;
     background-color: rgba(0, 0, 0, 0.3);
@@ -4899,7 +4899,7 @@ h1 .commend:before{
 
 
 /*话题页面*/
-.wuju-topic-page-header {
+.jinsom-topic-page-header {
     padding: 18vw 4vw 6vw;
     color: #fff;
     position: relative;
@@ -4908,7 +4908,7 @@ h1 .commend:before{
     background-size: cover;
     background-position: center;
 }
-.wuju-topic-page-header .shadow {
+.jinsom-topic-page-header .shadow {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -4916,17 +4916,17 @@ h1 .commend:before{
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
 }
-.wuju-topic-page-header .top {
+.jinsom-topic-page-header .top {
     display: flex;
     position: relative;
 }
-.wuju-topic-page-header .avatarimg {
+.jinsom-topic-page-header .avatarimg {
     width: 16vw;
     height: 16vw;
     margin-right: 4vw;
     position: relative;
 }
-.wuju-topic-page-header .avatarimg img {
+.jinsom-topic-page-header .avatarimg img {
     width: 16vw;
     height: 16vw;
     border-radius: 0 2vw;
@@ -4934,11 +4934,11 @@ h1 .commend:before{
     object-fit: cover;
     box-sizing: border-box;
 }
-.wuju-topic-page-header .info {
+.jinsom-topic-page-header .info {
     position: relative;
     width: 100%;
 }
-.wuju-topic-page-header .info .name {
+.jinsom-topic-page-header .info .name {
     font-size: 5vw;
     text-shadow: 0 0 4px rgba(0,0,0,0.5);
     width: 46vw;
@@ -4947,21 +4947,21 @@ h1 .commend:before{
     height: 14vw;
     overflow: hidden;
 }
-.wuju-topic-page-header .info .number {
+.jinsom-topic-page-header .info .number {
     position: absolute;
     bottom: 0;
     text-shadow: 0 0 4px rgba(0,0,0,0.5);
     line-height: 3vw;
 }
-.wuju-topic-page-header .info .number span {
+.jinsom-topic-page-header .info .number span {
     margin-right: 4vw;
     font-size: 3vw;
 }
-.wuju-topic-page-header .info .number span i {
+.jinsom-topic-page-header .info .number span i {
     margin-left: 1vw;
     font-size: 4vw;
 }
-.wuju-topic-page-header .follow {
+.jinsom-topic-page-header .follow {
     position: absolute;
     right: 0vw;
     border-radius: 10vw;
@@ -4971,19 +4971,19 @@ h1 .commend:before{
     border: 1px solid #fff;
     padding: 1.5vw 5vw;
 }
-.wuju-topic-page-header .follow.had {
+.jinsom-topic-page-header .follow.had {
     background-color: #e1e1e1;
     color: #888;
     border: 1px solid #edecec;
 }
-.wuju-topic-page-header .desc {
+.jinsom-topic-page-header .desc {
     margin-top: 6vw;
     font-size: 4vw;
     text-shadow: 0 0 4px rgba(0,0,0,0.5);
     position: relative;
     color: #eee;
 }
-.wuju-topic-page-header .avatarimg .type {
+.jinsom-topic-page-header .avatarimg .type {
     position: absolute;
     top: -2vw;
     left: -2vw;
@@ -4994,7 +4994,7 @@ h1 .commend:before{
     border-bottom: 2vw solid transparent;
     border-radius: 1vw 1vw 0 0;
 }
-.wuju-topic-page-header .avatarimg .type>span {
+.jinsom-topic-page-header .avatarimg .type>span {
     position: absolute;
     font-size: 3vw;
     width: 8vw;
@@ -5006,13 +5006,13 @@ h1 .commend:before{
 
 
 /*论坛大厅*/
-.wuju-show-bbs-content{
+.jinsom-show-bbs-content{
     background-color: #fff;
 }
-.wuju-bbs-tab-post {
+.jinsom-bbs-tab-post {
     padding: 4vw 4vw 0;
 }
-.wuju-bbs-tab-post-header {
+.jinsom-bbs-tab-post-header {
     text-align: center;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -5020,7 +5020,7 @@ h1 .commend:before{
     white-space: nowrap;
     width: 100%;
 }
-.wuju-bbs-tab-post-header>li {
+.jinsom-bbs-tab-post-header>li {
     font-size: 4vw;
     padding: 2vw;
     background-color: #f5f5f5;
@@ -5030,68 +5030,68 @@ h1 .commend:before{
     display: inline-block;
     width: 20vw;
 }
-.wuju-bbs-tab-post-header>li:last-child {
+.jinsom-bbs-tab-post-header>li:last-child {
     margin-right: 0;
 }
-.wuju-bbs-tab-post-content ul {
+.jinsom-bbs-tab-post-content ul {
     margin: 0;
     display: none;
     padding: 2vw 0;
 }
-.wuju-bbs-tab-post-content ul.on {
+.jinsom-bbs-tab-post-content ul.on {
     display: block;
 }
-.wuju-bbs-tab-post-content li {
+.jinsom-bbs-tab-post-content li {
     line-height: 7vw;
     border-bottom: 1px dashed #f2f2f2;
     font-size: 4vw;
     padding: 1.5vw 0;
     word-break: break-all;
 }
-.wuju-bbs-tab-post-content li:last-child {
+.jinsom-bbs-tab-post-content li:last-child {
     border: none;
 }
-.wuju-bbs-tab-post-content li .mark span {
+.jinsom-bbs-tab-post-content li .mark span {
     color: #fff;
     font-size: 3vw;
     padding: 0.5vw 1vw;
     border-radius: 1vw;
     margin-right: 1vw;
 }
-.wuju-bbs-tab-post-content li m {
+.jinsom-bbs-tab-post-content li m {
     float: right;
     color: #999;
 }
-.wuju-find-box .header>span {
+.jinsom-find-box .header>span {
     border-left: 1vw solid #5fb878;
     padding-left: 2vw;
 }
-.wuju-bbs-show-ad img {
+.jinsom-bbs-show-ad img {
     max-width: 100%;
 }
 
 
 /*话题中心*/
-.wuju-topic-show-form {
+.jinsom-topic-show-form {
     display: flex;
 }
-.wuju-topic-show-form>div {
+.jinsom-topic-show-form>div {
     overflow-y: scroll;
 }
-.wuju-topic-show-form .right {
+.jinsom-topic-show-form .right {
     flex: 1;
 }
-.wuju-topic-show-form .right .html {
+.jinsom-topic-show-form .right .html {
     margin-top: 4vw;
 }
-.wuju-topic-show-form .right .html img {
+.jinsom-topic-show-form .right .html img {
     max-width: 100%;
 }
-.wuju-topic-show-form .left {
+.jinsom-topic-show-form .left {
     box-sizing: border-box;
     background-color: #f5f5f5;
 }
-.wuju-topic-show-form .left li {
+.jinsom-topic-show-form .left li {
     font-size: 3.8vw;
     text-align: center;
     width: 22vw;
@@ -5100,30 +5100,30 @@ h1 .commend:before{
     white-space: nowrap;
     line-height: 15vw;
 }
-.wuju-topic-show-form .right ul {
+.jinsom-topic-show-form .right ul {
     margin: 0;
     padding: 0 4vw;
     display: none;
 }
-.wuju-topic-show-form .right ul.on {
+.jinsom-topic-show-form .right ul.on {
     display: block;
 }
-.wuju-topic-show-form .left li.on {
+.jinsom-topic-show-form .left li.on {
     background-color: #fff;
 }
-.wuju-topic-show-form .right li {
+.jinsom-topic-show-form .right li {
     padding: 5vw 0;
     border-bottom: 1px solid #f5f5f5;
 }
-.wuju-topic-show-form .right li>a {
+.jinsom-topic-show-form .right li>a {
     display: flex;
 }
-.wuju-topic-show-form .right li>a img {
+.jinsom-topic-show-form .right li>a img {
     width: 12vw;
     height: 12vw;
     border-radius: 1vw;
 }
-.wuju-topic-show-form .right li no-img,.wuju-bbs-like li .img no-img,.wuju-publish-aite-form .list li .avatarimg no-img,.wuju-search-user-list.topic li .avatarimg no-img {
+.jinsom-topic-show-form .right li no-img,.jinsom-bbs-like li .img no-img,.jinsom-publish-aite-form .list li .avatarimg no-img,.jinsom-search-user-list.topic li .avatarimg no-img {
     width: 12vw;
     height: 12vw;
     border-radius: 1vw;
@@ -5134,10 +5134,10 @@ h1 .commend:before{
     color: #fff;
     font-size: 6vw;
 }
-.wuju-search-user-list.topic li .avatarimg no-img{
+.jinsom-search-user-list.topic li .avatarimg no-img{
     margin-right: 2vw;
 }
-.wuju-topic-page-header .avatarimg no-img{
+.jinsom-topic-page-header .avatarimg no-img{
     width: 16vw;
     height: 16vw;
     border-radius: 1vw;
@@ -5148,48 +5148,48 @@ h1 .commend:before{
     color: #fff;
     font-size: 8vw;
 }
-.wuju-topic-show-form .right li .avatarimg {
+.jinsom-topic-show-form .right li .avatarimg {
     width: 12vw;
     height: 12vw;
     margin-right: 4vw;
 }
-.wuju-topic-show-form .right li .info .number {
+.jinsom-topic-show-form .right li .info .number {
     font-size: 3vw;
     color: #999;
     position: absolute;
     bottom: 0;
 }
-.wuju-topic-show-form .right li .info .number>span {
+.jinsom-topic-show-form .right li .info .number>span {
     margin-right: 4vw;
 }
-.wuju-topic-show-form .right li .info .number>span i {
+.jinsom-topic-show-form .right li .info .number>span i {
     margin-left: 1vw;
 }
-.wuju-topic-show-form .right li .info {
+.jinsom-topic-show-form .right li .info {
     width: 100%;
     position: relative;
 }
-.wuju-topic-show-form .right li:last-child .info {
+.jinsom-topic-show-form .right li:last-child .info {
     border: none;
 }
-.wuju-chat-user-list.nearby-people li {
+.jinsom-chat-user-list.nearby-people li {
     margin: 2vw 0;
 }
 
 
 /*话题排行榜*/
-.wuju-topic-rank-list {
+.jinsom-topic-rank-list {
     padding: 3vw 4vw;
 }
-.wuju-topic-rank-list li {
+.jinsom-topic-rank-list li {
     position: relative;
     padding: 3vw 0;
     border-bottom: 1px solid #f5f5f5;
 }
-.wuju-topic-rank-list li:last-child {
+.jinsom-topic-rank-list li:last-child {
     border: none;
 }
-.wuju-topic-rank-list li .rank {
+.jinsom-topic-rank-list li .rank {
     position: absolute;
     top: 4vw;
     left: 5px;
@@ -5200,7 +5200,7 @@ h1 .commend:before{
     border-bottom: 2vw solid transparent;
     border-radius: 1vw 1vw 0 0;
 }
-.wuju-topic-rank-list li .rank span {
+.jinsom-topic-rank-list li .rank span {
     position: absolute;
     font-size: 3vw;
     width: 7.5vw;
@@ -5209,17 +5209,17 @@ h1 .commend:before{
     left: -4vw;
     color: #fff;
 }
-.wuju-topic-rank-list li .avatarimg {
+.jinsom-topic-rank-list li .avatarimg {
     height: 14vw;
     width: 22vw;
 }
-.wuju-topic-rank-list li .avatarimg img {
+.jinsom-topic-rank-list li .avatarimg img {
     width: 14vw;
     height: 14vw;
     border-radius: 2vw;
     box-sizing: border-box;
 }
-.wuju-topic-rank-list li .avatarimg no-img {
+.jinsom-topic-rank-list li .avatarimg no-img {
     width: 14vw;
     height: 14vw;
     border-radius: 1vw;
@@ -5230,40 +5230,40 @@ h1 .commend:before{
     color: #fff;
     font-size: 7vw;
 }
-.wuju-topic-rank-list li .info {
+.jinsom-topic-rank-list li .info {
     width: 100%;
     position: relative;
 }
-.wuju-topic-rank-list li .info .name {
+.jinsom-topic-rank-list li .info .name {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     width: 68vw;
 }
-.wuju-topic-rank-list li .info .number {
+.jinsom-topic-rank-list li .info .number {
     color: #999;
     font-size: 3vw;
     position: absolute;
     bottom: 0;
 }
-.wuju-topic-rank-list li .info .number span {
+.jinsom-topic-rank-list li .info .number span {
     margin-right: 4vw;
 }
-.wuju-topic-rank-list li a {
+.jinsom-topic-rank-list li a {
     display: flex;
     padding: 2vw;
 }
-.wuju-topic-rank-list li.a .rank {
+.jinsom-topic-rank-list li.a .rank {
     border-left: 2.5vw solid #F44336;
     border-right: 2.5vw solid #F44336;
     border-top: 4vw solid #F44336;
 }
-.wuju-topic-rank-list li.b .rank {
+.jinsom-topic-rank-list li.b .rank {
     border-left: 2.5vw solid #FFC107;
     border-right: 2.5vw solid #FFC107;
     border-top: 4vw solid #FFC107;
 }
-.wuju-topic-rank-list li.c .rank {
+.jinsom-topic-rank-list li.c .rank {
     border-left: 2.5vw solid #2196F3;
     border-right: 2.5vw solid #2196F3;
     border-top: 4vw solid #2196F3;
@@ -5271,10 +5271,10 @@ h1 .commend:before{
 
 
 /*赠送礼物*/
-.wuju-send-gift-form {
+.jinsom-send-gift-form {
     padding: 4vw 4vw 14vw;
 }
-.wuju-send-gift-form li {
+.jinsom-send-gift-form li {
     float: left;
     width: 32%;
     margin-right: 2%;
@@ -5286,7 +5286,7 @@ h1 .commend:before{
     box-sizing: border-box;
     border-radius: 4px;
 }
-.wuju-send-gift-form li>m {
+.jinsom-send-gift-form li>m {
     position: absolute;
     background-color: #f44336;
     color: #fff;
@@ -5299,79 +5299,79 @@ h1 .commend:before{
     font-size: 3vw;
     padding: 0 2vw;
 }
-.wuju-send-gift-form li .top {
+.jinsom-send-gift-form li .top {
     border-bottom: 1px solid #f2f2f2;
     padding: 2vw;
 }
-.wuju-send-gift-form li .top .name {
+.jinsom-send-gift-form li .top .name {
     color: #666;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
-.wuju-send-gift-form li .bottom {
+.jinsom-send-gift-form li .bottom {
     padding: 2vw 0;
     word-break: keep-all;
 }
-.wuju-send-gift-form li .top img {
+.jinsom-send-gift-form li .top img {
     max-width: 100%;
     height: 25vw;
 }
-.wuju-send-gift-form li:nth-child(3n) {
+.jinsom-send-gift-form li:nth-child(3n) {
     margin-right: 0;
 }
-.wuju-send-gift-toolbar .credit {
+.jinsom-send-gift-toolbar .credit {
     font-size: 4vw;
 }
-.wuju-send-gift-toolbar .credit i {
+.jinsom-send-gift-toolbar .credit i {
     vertical-align: -0.5vw;
 }
-.wuju-send-gift-toolbar span.send {
+.jinsom-send-gift-toolbar span.send {
     text-align: right;
     font-size: 4.5vw;
 }
-.wuju-send-gift-toolbar span {
+.jinsom-send-gift-toolbar span {
     flex: 1;
     padding: 0 2vw;
     line-height: 14vw;
 }
-.wuju-send-gift-toolbar span.send m {
+.jinsom-send-gift-toolbar span.send m {
     font-size: 4vw;
     background-color: #FFC107;
     color: #fff;
     padding: 2vw 5vw;
     border-radius: 1vw;
 }
-.wuju-send-gift-toolbar span.send i {
+.jinsom-send-gift-toolbar span.send i {
     margin-right: 4vw;
     font-size: 3vw;
     color: #999;
 }
-.wuju-gift-note-form {
+.jinsom-gift-note-form {
     margin-top: 12vw;
     padding: 0 4vw 4vw;
 }
-.wuju-gift-note-form li {
+.jinsom-gift-note-form li {
     line-height: 12vw;
     padding: 1vw 0vw;
     font-size: 4vw;
     border-bottom: 1px solid #f5f5f5;
 }
-.wuju-gift-note-form li m {
+.jinsom-gift-note-form li m {
     margin: 0 2vw;
     color: #2196F3;
 }
-.wuju-gift-note-form li span {
+.jinsom-gift-note-form li span {
     float: right;
     color: #999;
 }
-.wuju-gift-note-form li:last-child {
+.jinsom-gift-note-form li:last-child {
     border: none;
 }
-.wuju-gift-number-tip span {
+.jinsom-gift-number-tip span {
     color: #ff5722;
 }
-.wuju-gift-number-tip {
+.jinsom-gift-number-tip {
     text-align: center;
     margin-top: 4vw;
     font-size: 4.5vw;
@@ -5379,56 +5379,56 @@ h1 .commend:before{
 }
 
 /*所属圈子*/
-.wuju-single-bbs-info {
+.jinsom-single-bbs-info {
     border-top: 2vw solid #eeeeee;
     border-bottom: 2vw solid #eeeeee;
     padding: 0 4vw;
 }
-.wuju-single-bbs-info .title {
+.jinsom-single-bbs-info .title {
     padding: 3vw 0;
     border-bottom: 1px solid #f1f1f1;
 }
-.wuju-single-bbs-info .content {
+.jinsom-single-bbs-info .content {
     padding: 4vw 0;
 }
-.wuju-single-bbs-info .content a{
+.jinsom-single-bbs-info .content a{
     display: flex;
     align-items: center;
 }
-.wuju-single-bbs-info .content .avatarimg {
+.jinsom-single-bbs-info .content .avatarimg {
     height: 16vw;
     margin-right: 4vw;
 }
-.wuju-single-bbs-info .content .avatarimg img {
+.jinsom-single-bbs-info .content .avatarimg img {
     width: 16vw;
     height: 16vw;
     border: none;
     border-radius: 1vw;
 }
-.wuju-single-bbs-info .content .info {
+.jinsom-single-bbs-info .content .info {
     flex: 1;
 }
-.wuju-single-bbs-info .content .info .number {
+.jinsom-single-bbs-info .content .info .number {
     margin-top: 6vw;
     font-size: 3.5vw;
     color: #999;
     line-height: 0;
 }
-.wuju-single-bbs-info .content .info .number span {
+.jinsom-single-bbs-info .content .info .number span {
     margin-right: 2vw;
 }
-.wuju-single-bbs-info .content .go {
+.jinsom-single-bbs-info .content .go {
     padding: 1.5vw 2vw;
     background-color: #f2f2f2;
     color: #555;
     font-size: 3.8vw;
     border-radius: 1vw;
 }
-.wuju-single-bbs-info .desc {
+.jinsom-single-bbs-info .desc {
     padding-bottom: 3vw;
     font-size: 4vw;
 }
-.wuju-user_honor-select-form li {
+.jinsom-user_honor-select-form li {
     color: #555;
     float: left;
     padding: 2vw 5vw;
@@ -5438,15 +5438,15 @@ h1 .commend:before{
     cursor: pointer;
     border: 1px solid #d3d3d3;
 }
-.wuju-user_honor-select-form li.on {
+.jinsom-user_honor-select-form li.on {
     background-color: #5fb878;
     border-color: #fff;
     color: #fff;
 }
-.wuju-user_honor-select-form {
+.jinsom-user_honor-select-form {
     padding: 4vw;
 }
-.wuju-user_honor-select-form .nodata {
+.jinsom-user_honor-select-form .nodata {
     text-align: center;
     font-size: 4vw;
     color: #999;
@@ -5455,14 +5455,14 @@ h1 .commend:before{
 
 
 /*上传头像*/
-#wuju-avatar-demo {
+#jinsom-avatar-demo {
     margin: auto;
-    font-family: "wuju-icon" !important;
+    font-family: "jinsom-icon" !important;
     position: relative;
     border: 1px solid #e5e5e5;
     border-radius: 1vw;
 }
-#wuju-avatar-demo:before {
+#jinsom-avatar-demo:before {
     content: "\e6a3";
     position: absolute;
     top: 50%;
@@ -5485,7 +5485,7 @@ h1 .commend:before{
 
 /*上传视频*/
 
-.wuju-upload-video-btn,.wuju-upload-music-btn {
+.jinsom-upload-video-btn,.jinsom-upload-music-btn {
     height: 30vw;
     text-align: center;
     background-color: #dedede;
@@ -5496,14 +5496,14 @@ h1 .commend:before{
     justify-content: center;
     position: relative;
 }
-.wuju-upload-video-btn i,.wuju-upload-music-btn i {
+.jinsom-upload-video-btn i,.jinsom-upload-music-btn i {
     font-size: 10vw;
 }
-.wuju-upload-video-btn p,.wuju-upload-music-btn p {
+.jinsom-upload-video-btn p,.jinsom-upload-music-btn p {
     font-size: 4vw;
     color: #fff;
 }
-.wuju-upload-video-btn .percent,.wuju-upload-music-btn .percent {
+.jinsom-upload-video-btn .percent,.jinsom-upload-music-btn .percent {
     position: absolute;
     background-color: #aaa;
     width: 0;
@@ -5511,28 +5511,28 @@ h1 .commend:before{
     left: 0;
     border-radius: 1vw;
 }
-.wuju-upload-video-btn .center,.wuju-upload-music-btn .center {
+.jinsom-upload-video-btn .center,.jinsom-upload-music-btn .center {
     z-index: 1;
     pointer-events: none;
 }
-#wuju-upload-video,#wuju-upload-music {
+#jinsom-upload-video,#jinsom-upload-music {
     position: absolute;
     height: 30vw;
     width: 100%;
     top: 0;
     opacity: 0;
 }
-#wuju-upload-video-form,#wuju-upload-music-form {
+#jinsom-upload-video-form,#jinsom-upload-music-form {
     position: relative;
 }
-.wuju-remove-video-toolbar span.del,.wuju-remove-video-toolbar span.read.on{
+.jinsom-remove-video-toolbar span.del,.jinsom-remove-video-toolbar span.read.on{
     background-color: #ccc;
 }
-.wuju-remove-video-toolbar span.read {
+.jinsom-remove-video-toolbar span.read {
     margin-right: 4vw;
     background-color: #79bf7c;
 }
-.wuju-remove-video-toolbar span,.wuju-remove-music-toolbar span {
+.jinsom-remove-video-toolbar span,.jinsom-remove-music-toolbar span {
     display: inline-block;
     flex: 1;
     text-align: center;
@@ -5540,27 +5540,27 @@ h1 .commend:before{
     padding: 2vw 0;
     border-radius: 1vw;
 }
-.wuju-remove-video-toolbar {
+.jinsom-remove-video-toolbar {
     margin-top: 4vw;
     display: none;
 }
-.wuju-publish-words-form.single .power-content label {
+.jinsom-publish-words-form.single .power-content label {
     display: none;
 }
-.wuju-publish-words-form.video .power-content textarea, .wuju-publish-words-form.video .power-content label,.wuju-publish-words-form.music .power-content textarea, .wuju-publish-words-form.music .power-content label {
+.jinsom-publish-words-form.video .power-content textarea, .jinsom-publish-words-form.video .power-content label,.jinsom-publish-words-form.music .power-content textarea, .jinsom-publish-words-form.music .power-content label {
     display: none;
 }
-.wuju-publish-words-form.video .power-content input.price, .wuju-publish-words-form.video .power-content input.password,.wuju-publish-words-form.music .power-content input.price, .wuju-publish-words-form.music .power-content input.password,.wuju-publish-words-form.single .power-content input.price, .wuju-publish-words-form.single .power-content input.password {
+.jinsom-publish-words-form.video .power-content input.price, .jinsom-publish-words-form.video .power-content input.password,.jinsom-publish-words-form.music .power-content input.price, .jinsom-publish-words-form.music .power-content input.password,.jinsom-publish-words-form.single .power-content input.price, .jinsom-publish-words-form.single .power-content input.password {
     width: 100%;
     padding: 3vw 2vw;
     border-bottom: 1px solid #f1f1f1;
     box-sizing: border-box;
 }
-.wuju-publish-video-set-cover-content img {
+.jinsom-publish-video-set-cover-content img {
     width: 100%;
     height: auto;
 }
-#wuju-music-url,#wuju-video-url {
+#jinsom-music-url,#jinsom-video-url {
     padding: 3vw 2vw;
     width: 100%;
     box-sizing: border-box;
@@ -5575,59 +5575,59 @@ h1 .commend:before{
 
 
 /*视频专题*/
-.wuju-video-special-list {
+.jinsom-video-special-list {
     padding-top: 10vw;
 }
-.wuju-video-special-list li {
+.jinsom-video-special-list li {
     position: relative;
     overflow: hidden;
 }
-.wuju-video-special-list li .bottom {
+.jinsom-video-special-list li .bottom {
     padding: 3vw;
     display: flex;
     align-items: center;
 }
-.wuju-video-special-list li .bottom .avatarimg {
+.jinsom-video-special-list li .bottom .avatarimg {
     height: 9vw;
     margin-right: 2vw;
 }
-.wuju-video-special-list li .bottom .avatarimg img {
+.jinsom-video-special-list li .bottom .avatarimg img {
     width: 9vw;
     height: 9vw;
     border-radius: 100%;
 }
-.wuju-video-special-list li .bottom .name {
+.jinsom-video-special-list li .bottom .name {
     flex: 1;
     font-size: 3.8vw;
 }
-.wuju-video-special-list li .bottom .name a {
+.jinsom-video-special-list li .bottom .name a {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     max-width: 40vw;
     float: left;
 }
-.wuju-video-special-list li .bottom .name span {
+.jinsom-video-special-list li .bottom .name span {
     float: left;
     color: #f00;
     margin-left: 4vw;
 }
-.wuju-video-special-list li .bottom .comment {
+.jinsom-video-special-list li .bottom .comment {
     float: right;
     font-size: 4vw;
     margin-right: 2vw;
 }
-.wuju-video-special-list li .bottom .more {
+.jinsom-video-special-list li .bottom .more {
     float: right;
     padding: 0 4vw;
 }
-.wuju-video-special-list li .bottom .comment i {
+.jinsom-video-special-list li .bottom .comment i {
     margin-right: 1vw;
 }
-.wuju-video-special-list li .bottom .more i, .wuju-video-special-list li .bottom .comment i {
+.jinsom-video-special-list li .bottom .more i, .jinsom-video-special-list li .bottom .comment i {
     font-size: 5vw;
 }
-.wuju-video-special-list li .play-icon {
+.jinsom-video-special-list li .play-icon {
     background: rgba(0,0,0,.4);
     top: 50%;
     left: 50%;
@@ -5642,13 +5642,13 @@ h1 .commend:before{
     margin-left: -7.5vw;
     font-size: 7vw;
 }
-.wuju-video-special-list li .bg {
+.jinsom-video-special-list li .bg {
     position: relative;
     background-size: cover;
     background-position: center;
     height: 52vw;
 }
-.wuju-video-special-list li .bg .shadow {
+.jinsom-video-special-list li .bg .shadow {
     position: absolute;
     top: 0;
     left: 0;
@@ -5657,7 +5657,7 @@ h1 .commend:before{
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0)));
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
 }
-.wuju-video-special-list li .bg .title {
+.jinsom-video-special-list li .bg .title {
     position: absolute;
     top: 0;
     color: #fff;
@@ -5669,7 +5669,7 @@ h1 .commend:before{
     margin: 3vw 4vw;
     font-size: 4.5vw;
 }
-.wuju-video-special-list li .bg .play {
+.jinsom-video-special-list li .bg .play {
     position: absolute;
     bottom: 3vw;
     left: 4vw;
@@ -5677,7 +5677,7 @@ h1 .commend:before{
     font-size: 3vw;
     text-shadow: 0 0 4px rgba(0,0,0,0.5);
 }
-.wuju-video-special-list li .bg .time {
+.jinsom-video-special-list li .bg .time {
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     right: 2vw;
@@ -5687,15 +5687,15 @@ h1 .commend:before{
     padding: 0.5vw 1.5vw;
     border-radius: 9vw;
 }
-.wuju-video-special-list li .bottom .name .follow.has {
+.jinsom-video-special-list li .bottom .name .follow.has {
     color: #999;
 }
-.wuju-video-special-list li .bottom .name .follow {
+.jinsom-video-special-list li .bottom .name .follow {
     float: left;
     margin-left: 4vw;
     color: #f00;
 }
-.wuju-video-special-list li .bottom .name .follow i {
+.jinsom-video-special-list li .bottom .name .follow i {
     font-size: 4vw;
 }
 
@@ -5704,13 +5704,13 @@ h1 .commend:before{
 [data-page="vip"] .navbar {
     background-color: #393f4d;
 }
-.wuju-vip-page-header-bg {
+.jinsom-vip-page-header-bg {
     height: 30vw;
     position: absolute;
     width: 100%;
     background-color: #393f4d;
 }
-.wuju-vip-page-header-card {
+.jinsom-vip-page-header-card {
     width: 90vw;
     height: 40vw;
     margin: 8vw auto 0;
@@ -5720,11 +5720,11 @@ h1 .commend:before{
     box-shadow: 0px 20px 20px -8px #ccc;
     border: 1px solid #d8d8d8;
 }
-.wuju-vip-page-header-card.vip {
+.jinsom-vip-page-header-card.vip {
     background: linear-gradient(to right, rgb(253, 226, 156), rgb(248, 181, 0));
     border: 1px solid #fde199;
 }
-.wuju-vip-page-header-card .logo {
+.jinsom-vip-page-header-card .logo {
     position: absolute;
     right: 2vw;
     top: 2vw;
@@ -5732,20 +5732,20 @@ h1 .commend:before{
     color: #fff;
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
 }
-.wuju-vip-page-header-card .title {
+.jinsom-vip-page-header-card .title {
     position: absolute;
     top: 5vw;
     left: 4vw;
     font-size: 5vw;
     color: #888;
 }
-.wuju-vip-page-header-card.vip .title {
+.jinsom-vip-page-header-card.vip .title {
     color: #aa8114;
     background: linear-gradient(to right, #aa8114 0%, #FF9800 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.wuju-vip-page-header-card .info {
+.jinsom-vip-page-header-card .info {
     position: absolute;
     bottom: 4vw;
     width: 100%;
@@ -5756,27 +5756,27 @@ h1 .commend:before{
     text-shadow: 1px 1px 1px #efe7d3, -1px -1px 1px white;
     align-items: center;
 }
-.wuju-vip-page-header-card.vip .info {
+.jinsom-vip-page-header-card.vip .info {
     color: #927216;
 }
-.wuju-vip-page-header-card .info span {
+.jinsom-vip-page-header-card .info span {
     flex: 1;
 }
-.wuju-vip-page-header-card .title span {
+.jinsom-vip-page-header-card .title span {
     color: #FF5722;
     -webkit-text-fill-color: initial;
     margin-left: 3vw;
     font-size: 3vw;
 }
-.wuju-vip-page-header-card.vip .title span {
+.jinsom-vip-page-header-card.vip .title span {
     font-size: 4vw;
 }
-.wuju-vip-page-header-card .icon {
+.jinsom-vip-page-header-card .icon {
     position: absolute;
     right: 6vw;
     top: -7vw;
 }
-.wuju-vip-page-header-card .info a {
+.jinsom-vip-page-header-card .info a {
     width: 18vw;
     margin-right: 10vw;
     text-shadow: 0 0 0;
@@ -5787,37 +5787,37 @@ h1 .commend:before{
     font-size: 3vw;
     border-radius: 6vw;
 }
-.wuju-vip-page-info {
+.jinsom-vip-page-info {
     margin: 8vw 4vw;
 }
-.wuju-vip-page-info .header {
+.jinsom-vip-page-info .header {
     text-align: center;
     margin-bottom: 4vw;
 }
-.wuju-vip-page-info li {
+.jinsom-vip-page-info li {
     float: left;
     width: 25%;
     margin-bottom: 4vw;
     text-align: center;
 }
-.wuju-vip-page-info li p {
+.jinsom-vip-page-info li p {
     font-size: 3vw;
 }
-.wuju-vip-page-info li i {
+.jinsom-vip-page-info li i {
     font-size: 7vw;
 }
-.wuju-vip-toolbar {
+.jinsom-vip-toolbar {
     border-top: 1px solid #f1f1f1;
 }
-.wuju-vip-toolbar .toolbar-inner {
+.jinsom-vip-toolbar .toolbar-inner {
     padding: 0;
     font-size: 4vw;
 }
-.wuju-vip-toolbar a:first-child {
+.jinsom-vip-toolbar a:first-child {
     padding-left: 4vw;
     font-size: 3.5vw;
 }
-.wuju-vip-toolbar a:last-child {
+.jinsom-vip-toolbar a:last-child {
     display: inline-block;
     width: 32vw;
     text-align: center;
@@ -5825,7 +5825,7 @@ h1 .commend:before{
     background-color: #F44336;
     color: #fff;
 }
-.wuju-vip-page-get-number {
+.jinsom-vip-page-get-number {
     margin: 10vw 4vw;
     text-align: center;
     border: 1px solid #ffe294;
@@ -5834,18 +5834,18 @@ h1 .commend:before{
     border-radius: 10vw;
     background-color: #fffad0;
 }
-.wuju-vip-page-get-number span {
+.jinsom-vip-page-get-number span {
     margin-left: 5vw;
 }
-.wuju-vip-page-get-number i {
+.jinsom-vip-page-get-number i {
     vertical-align: -0.5vw;
 }
-.wuju-vip-page-get-number.had {
+.jinsom-vip-page-get-number.had {
     background-color: #f6f6f6;
     border: 1px solid #dedede;
     color: #cbcbcb;
 }
-.wuju-vip-content {
+.jinsom-vip-content {
     padding-bottom: 14vw !important;
 }
 .fancybox-active {
@@ -5855,49 +5855,49 @@ h1 .commend:before{
     background: rgba(0, 0, 0, 0);
 }
 
-.wuju-post-more-form .box {
+.jinsom-post-more-form .box {
     padding: 4vw 0 0;
     border-bottom: 1px solid #f1f1f1;
 }
-.wuju-post-more-form .box:first-child {
+.jinsom-post-more-form .box:first-child {
     padding-top: 8vw;
 }
-.wuju-post-more-form .box li {
+.jinsom-post-more-form .box li {
     text-align: center;
     float: left;
     width: 16.666%;
     margin-bottom: 4vw;
 }
-.wuju-post-more-form .box li i {
+.jinsom-post-more-form .box li i {
     color: #555;
 }
-.wuju-post-more-form .box li p {
+.jinsom-post-more-form .box li p {
     font-size: 3vw;
     margin-top: 1vw;
 }
-.wuju-post-more-form .box:last-child {
+.jinsom-post-more-form .box:last-child {
     border: none;
     padding-bottom: 0vw;
 }
-.wuju-post-more-form .box.share li i {
+.jinsom-post-more-form .box.share li i {
     font-size: 8vw;
 }
-.wuju-post-more-form .box.share li i.wuju-weixin {
+.jinsom-post-more-form .box.share li i.jinsom-weixin {
     color: #3eb135;
 }
-.wuju-post-more-form .box.share li i.wuju-weibo {
+.jinsom-post-more-form .box.share li i.jinsom-weibo {
     color: #e6162d;
 }
-.wuju-post-more-form .box.share li i.wuju-qq {
+.jinsom-post-more-form .box.share li i.jinsom-qq {
     color: #4dafea;
 }
-.wuju-post-more-form .box.share li i.wuju-qqkongjian2 {
+.jinsom-post-more-form .box.share li i.jinsom-qqkongjian2 {
     color: #eecf3d;
 }
-.wuju-post-more-form .box.share li i.wuju-lianjie {
+.jinsom-post-more-form .box.share li i.jinsom-lianjie {
     color: #999;
 }
-.wuju-post-more-form .cancel {
+.jinsom-post-more-form .cancel {
     text-align: center;
     padding: 3vw;
     letter-spacing: 2px;
@@ -5906,14 +5906,14 @@ h1 .commend:before{
 }
 
 
-.wuju-bbs-post-list-2, .wuju-bbs-post-list-3, .wuju-bbs-post-list-4 {
+.jinsom-bbs-post-list-2, .jinsom-bbs-post-list-3, .jinsom-bbs-post-list-4 {
     padding: 4vw;
     background-color: #fff;
 }
-.wuju-bbs-post-list-3{
+.jinsom-bbs-post-list-3{
     padding: 2vw;
 }
-.wuju-bbs-list-lattice {
+.jinsom-bbs-list-lattice {
     width: 44vw;
     float: left;
     margin-right: 4vw;
@@ -5923,14 +5923,14 @@ h1 .commend:before{
     box-shadow: 0px 0px 8px 0px rgba(2, 10, 18, 0.12);
     position: relative;
 }
-.wuju-bbs-list-lattice .bg {
+.jinsom-bbs-list-lattice .bg {
     height: 30vw;
     border-radius: 1.5vw 1.5vw 0 0;
     background-size: cover;
     box-shadow: 0px 5px 20px -4px rgba(2, 10, 18, 0.22);
     background-color: #ccc;
 }
-.wuju-bbs-list-lattice .title {
+.jinsom-bbs-list-lattice .title {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -5940,26 +5940,26 @@ h1 .commend:before{
     line-height: 6vw;
     height: 12vw;
 }
-.wuju-bbs-list-lattice:nth-child(2n) {
+.jinsom-bbs-list-lattice:nth-child(2n) {
     margin-right: 0;
 }
-.wuju-bbs-list-lattice .footer {
+.jinsom-bbs-list-lattice .footer {
     color: #999;
     font-size: 3vw;
     margin-top: 2.5vw;
 }
-.wuju-bbs-list-lattice .footer .views {
+.jinsom-bbs-list-lattice .footer .views {
     float: right;
 }
-.wuju-bbs-list-lattice .footer i {
+.jinsom-bbs-list-lattice .footer i {
     font-size: 3vw;
 }
-.wuju-bbs-list-lattice .content {
+.jinsom-bbs-list-lattice .content {
     padding: 2.5vw 3.5vw;
     display: flex;
     flex-direction: column;
 }
-.wuju-bbs-list-lattice .commend {
+.jinsom-bbs-list-lattice .commend {
     position: absolute;
     top: 1vw;
     left: 1vw;
@@ -5969,81 +5969,81 @@ h1 .commend:before{
     border-radius: 1vw;
     font-size: 3vw;
 }
-.wuju-bbs-list-lattice.grid img {
+.jinsom-bbs-list-lattice.grid img {
     width: 100%;
     border-radius: 1.5vw 1.5vw 0 0;
 }
-.wuju-bbs-list-lattice.grid {
+.jinsom-bbs-list-lattice.grid {
     margin: 1.9vw;
 }
-.wuju-bbs-post-list-3 .wuju-empty-page {
+.jinsom-bbs-post-list-3 .jinsom-empty-page {
     position: absolute;
     bottom: 0;
     width: 100%;
     left: 0;
 }
-.wuju-post-single.private {
+.jinsom-post-single.private {
     padding: 4vw;
 }
-.wuju-post-single.private .wuju-tips {
+.jinsom-post-single.private .jinsom-tips {
     margin: 0;
     border-radius: 2vw;
 }
 
-.wuju-home-menu.leaderboard {
+.jinsom-home-menu.leaderboard {
     font-size: 4vw;
 }
-.wuju-leaderboard-content {
+.jinsom-leaderboard-content {
     padding: 16vw 4vw 4vw 0vw;
 }
-.wuju-leaderboard-content li {
+.jinsom-leaderboard-content li {
     margin-bottom: 6vw;
 }
-.wuju-leaderboard-content li a {
+.jinsom-leaderboard-content li a {
     display: flex;
     align-items: center;
 }
-.wuju-leaderboard-content li .rank {
+.jinsom-leaderboard-content li .rank {
     width: 14vw;
     text-align: center;
 }
-.wuju-leaderboard-content li .avatarimg {
+.jinsom-leaderboard-content li .avatarimg {
     height: 12vw;
     margin-right: 2vw;
     position: relative;
 }
-.wuju-leaderboard-content li .avatarimg img {
+.jinsom-leaderboard-content li .avatarimg img {
     width: 12vw;
     height: 12vw;
     border-radius: 1vw;
     box-sizing: border-box;
 }
-.wuju-leaderboard-content li .info {
+.jinsom-leaderboard-content li .info {
     flex: 1;
 }
-.wuju-leaderboard-content li .rank i {
+.jinsom-leaderboard-content li .rank i {
     font-size: 8vw;
 }
-.wuju-leaderboard-content li:first-child .rank i {
+.jinsom-leaderboard-content li:first-child .rank i {
     color: #FFC107;
 }
-.wuju-leaderboard-content li:nth-child(2) .rank i {
+.jinsom-leaderboard-content li:nth-child(2) .rank i {
     color: #ccc;
 }
-.wuju-leaderboard-content li:nth-child(3) .rank i {
+.jinsom-leaderboard-content li:nth-child(3) .rank i {
     color: #c09a62;
 }
-.wuju-leaderboard-content li .number {
+.jinsom-leaderboard-content li .number {
     text-align: center;
     width: 15vw;
     font-size: 3vw;
     color: #999;
 }
-.wuju-leaderboard-content li .number i {
+.jinsom-leaderboard-content li .number i {
     font-size: 4.5vw;
     color: #F44336;
 }
-.wuju-leaderboard-content li .info .desc {
+.jinsom-leaderboard-content li .info .desc {
     font-size: 3vw;
     color: #999;
     width: 50vw;
@@ -6052,18 +6052,18 @@ h1 .commend:before{
     white-space: nowrap;
     margin-top: 2vw;
 }
-.wuju-chat-user-list.notice li.reg .desc {
+.jinsom-chat-user-list.notice li.reg .desc {
     overflow: inherit;
     white-space: inherit;
     width: 100%;
 }
-.wuju-chat-user-list.notice li.reg .item-inner {
+.jinsom-chat-user-list.notice li.reg .item-inner {
     overflow: inherit;
 }
-.wuju-bbs-comment-quick {
+.jinsom-bbs-comment-quick {
     margin: 0 4vw;
 }
-.wuju-bbs-comment-quick li {
+.jinsom-bbs-comment-quick li {
     margin-top: 4vw;
     float: left;
     border: 1px solid #999;
@@ -6071,7 +6071,7 @@ h1 .commend:before{
     margin-right: 3vw;
     border-radius: 1vw;
 }
-.wuju-mobile-bbs-comment-tips {
+.jinsom-mobile-bbs-comment-tips {
     margin: 2vw 4vw;
     text-align: center;
     color: #f00;
@@ -6082,63 +6082,63 @@ h1 .commend:before{
 [data-page="black-house"] .navbar {
     background-color: #000;
 }
-.wuju-black-house-content {
+.jinsom-black-house-content {
     background-color: #000;
     padding: 16vw 4vw 4vw !important;
 }
-.wuju-black-house-box {
+.jinsom-black-house-box {
     background-color: rgba(141, 141, 141, 0.3);
     border: 1px solid #999;
     border-radius: 1vw;
     padding: 2vw;
     margin-bottom: 4vw;
 }
-.wuju-black-house-box>.title {
+.jinsom-black-house-box>.title {
     padding-bottom: 2vw;
     border-bottom: 1px solid #333;
     font-weight: bold;
     color: #d2d200;
     font-size: 5vw;
 }
-.wuju-black-house-box>.title span {
+.jinsom-black-house-box>.title span {
     color: #999;
     margin-left: 4vw;
     font-weight: normal;
     font-size: 3vw;
 }
-.wuju-black-house-box .content {
+.jinsom-black-house-box .content {
     padding-top: 4vw;
 }
-.wuju-black-house-box li {
+.jinsom-black-house-box li {
     float: left;
     width: 48%;
     text-align: center;
     margin-right: 4%;
     margin-bottom: 4%;
 }
-.wuju-black-house-box li:nth-child(2n) {
+.jinsom-black-house-box li:nth-child(2n) {
     margin-right: 0;
 }
-.wuju-black-house-box li img {
+.jinsom-black-house-box li img {
     width: 18vw;
     height: 18vw;
     border-radius: 100%;
 }
-.wuju-black-house-box .content li .name a, .wuju-black-house-box .content li .name a font {
+.jinsom-black-house-box .content li .name a, .jinsom-black-house-box .content li .name a font {
     color: #aaa !important;
 }
-.wuju-black-house-box li .time {
+.jinsom-black-house-box li .time {
     margin: 2vw;
     color: #FF5722;
     font-size: 3vw;
 }
-.wuju-black-house-box .content li .time.black {
+.jinsom-black-house-box .content li .time.black {
     color: #000;
 }
-.wuju-black-house-box .content li .time.yellow {
+.jinsom-black-house-box .content li .time.yellow {
     color: #CDDC39;
 }
-.wuju-black-house-box li .btn {
+.jinsom-black-house-box li .btn {
     background-color: #3ba358;
     color: #fff;
     padding: 1.6vw;
@@ -6149,24 +6149,24 @@ h1 .commend:before{
 
 
 /*幸运抽奖*/
-[data-page="luck-draw"] .navbar,.wuju-show-luck-gift-popup .navbar {
+[data-page="luck-draw"] .navbar,.jinsom-show-luck-gift-popup .navbar {
     background-color: #222;
 }
-.wuju-luck-draw-content {
+.jinsom-luck-draw-content {
     background-color: #222;
 }
-.wuju-luck-gift {
+.jinsom-luck-gift {
     background-color: #313131;
     margin: 4vw;
     border-radius: 1vw;
     padding: 4vw;
 }
-.wuju-luck-draw-current-credit {
+.jinsom-luck-draw-current-credit {
     color: #f5b43a;
     font-weight: bold;
     margin-bottom: 4vw;
 }
-.wuju-luck-draw-cover .img {
+.jinsom-luck-draw-cover .img {
     width: 40vw;
     height: 40vw;
     margin: auto;
@@ -6175,7 +6175,7 @@ h1 .commend:before{
     background-size: cover;
     position: relative;
 }
-.wuju-luck-draw-cover .img .name {
+.jinsom-luck-draw-cover .img .name {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -6185,7 +6185,7 @@ h1 .commend:before{
     text-align: center;
     padding: 2vw 0;
 }
-.wuju-luck-draw-btn>span {
+.jinsom-luck-draw-btn>span {
     text-align: center;
     background-color: #2ecc71;
     color: #fff;
@@ -6194,39 +6194,39 @@ h1 .commend:before{
     border-radius: 4px;
     display: block;
 }
-.wuju-luck-draw-btn>span:hover {
+.jinsom-luck-draw-btn>span:hover {
     opacity: .8;
 }
-.wuju-luck-draw-btn>span:nth-child(2) {
+.jinsom-luck-draw-btn>span:nth-child(2) {
     background-color: #3498db;
 }
-.wuju-luck-draw-btn>span:nth-child(3) {
+.jinsom-luck-draw-btn>span:nth-child(3) {
     background-color: #9b59b6;
 }
-.wuju-luck-draw-btn>span:nth-child(4) {
+.jinsom-luck-draw-btn>span:nth-child(4) {
     background-color: #e74c3c;
 }
-.wuju-luck-draw-list {
+.jinsom-luck-draw-list {
     background-color: rgba(255,255,255,.2);
     padding: 4vw 0;
     border-radius: 2vw;
     margin-top: 10vw;
 }
-.wuju-luck-draw-list>.title {
+.jinsom-luck-draw-list>.title {
     display: flex;
     position: relative;
     padding-bottom: 4vw;
 }
-.wuju-luck-draw-list>.title li.on {
+.jinsom-luck-draw-list>.title li.on {
     color: #f5b43a;
     font-size: 4.5vw;
 }
-.wuju-luck-draw-list>.title li {
+.jinsom-luck-draw-list>.title li {
     flex: 1;
     text-align: center;
     color: #937c55;
 }
-.wuju-luck-draw-list>.title:before {
+.jinsom-luck-draw-list>.title:before {
     position: absolute;
     content: "";
     top: 100%;
@@ -6235,16 +6235,16 @@ h1 .commend:before{
     background: -webkit-linear-gradient(left, rgba(248,215,59,0), #f0d03a, rgba(248,215,59,0));
     height: 1px;
 }
-.wuju-luck-draw-list ul {
+.jinsom-luck-draw-list ul {
     padding: 0 4vw;
 }
-.wuju-luck-draw-list ul li {
+.jinsom-luck-draw-list ul li {
     display: flex;
     align-items: center;
     color: #bbb;
     padding: 3vw 0;
 }
-.wuju-luck-draw-list ul li .img {
+.jinsom-luck-draw-list ul li .img {
     background-position: center;
     background-size: cover;
     margin-right: 2vw;
@@ -6254,37 +6254,37 @@ h1 .commend:before{
     border-radius: 100%;
     position: relative;
 }
-.wuju-luck-draw-list ul li .img i {
+.jinsom-luck-draw-list ul li .img i {
     bottom: 0;
     right: 0;
 }
-.wuju-luck-draw-info {
+.jinsom-luck-draw-info {
     background-color: rgba(255,255,255,.2);
     padding: 4vw;
     border-radius: 2vw;
     margin-top: 10vw;
     color: #877150;
 }
-.wuju-luck-draw-info .title {
+.jinsom-luck-draw-info .title {
     font-weight: bold;
     margin-bottom: 2vw;
 }
-.wuju-luck-draw-info p {
+.jinsom-luck-draw-info p {
     line-height: 7vw;
 }
-.wuju-luck-draw-list ul li m {
+.jinsom-luck-draw-list ul li m {
     color: #f5b43a;
 }
-.wuju-luck-gift-list-content {
+.jinsom-luck-gift-list-content {
     background-color: #222;
     padding: 4vw;
 }
-.wuju-luck-gift-list .tips {
+.jinsom-luck-gift-list .tips {
     color: #f5b43a;
     text-align: center;
     margin-bottom: 4vw;
 }
-.wuju-luck-gift-list li {
+.jinsom-luck-gift-list li {
     float: left;
     width: 28vw;
     margin-right: 4vw;
@@ -6293,67 +6293,67 @@ h1 .commend:before{
     font-size: 3vw;
     margin-bottom: 4vw;
 }
-.wuju-luck-gift-list li:nth-child(3n+1) {
+.jinsom-luck-gift-list li:nth-child(3n+1) {
     margin-right: 0;
 }
-.wuju-luck-gift-list li img {
+.jinsom-luck-gift-list li img {
     width: 100%;
     border: 2px solid;
     border-radius: 2vw;
 }
-.wuju-luck-draw-list ul.b li a {
+.jinsom-luck-draw-list ul.b li a {
     display: flex;
     align-items: center;
     color: #bbb;
 }
-.wuju-black-house-header-html h1 {
+.jinsom-black-house-header-html h1 {
     text-align: center;
     font-size: 8vw;
 }
-.wuju-black-house-header-html, .wuju-black-house-footer-html {
+.jinsom-black-house-header-html, .jinsom-black-house-footer-html {
     color: #fff;
 }
-.wuju-cash-form-more {
+.jinsom-cash-form-more {
     padding: 6vw;
 }
-.wuju-cash-form-more li {
+.jinsom-cash-form-more li {
     line-height: 14vw;
     font-size: 4.5vw;
 }
 
-.wuju-cash-form-content {
+.jinsom-cash-form-content {
     padding: 8vw 4vw;
 }
-.wuju-cash-form-content>div span:first-child {
+.jinsom-cash-form-content>div span:first-child {
     margin-right: 2vw;
 }
-.wuju-cash-form-content>div {
+.jinsom-cash-form-content>div {
     margin-bottom: 8vw;
 }
-.wuju-cash-form-content>div input {
+.jinsom-cash-form-content>div input {
     border: 1px solid #e3e3e3;
     padding: 3vw 2vw;
     border-radius: 1vw;
     width: 68vw;
 }
-.wuju-cash-form-content .number input {
+.jinsom-cash-form-content .number input {
     margin-right: 1vw;
     width: 24vw;
     padding: 2.5vw 2vw;
 }
-.wuju-cash-form-content .credit m {
+.jinsom-cash-form-content .credit m {
     color: #fe7f3e;
     font-size: 5vw;
 }
-.wuju-cash-form-content .number m {
+.jinsom-cash-form-content .number m {
     font-size: 5vw;
     margin: 0 1vw;
     color: #666;
 }
-.wuju-cash-form-content .number n {
+.jinsom-cash-form-content .number n {
     color: #2196F3;
 }
-.wuju-cash-form-content .type>m {
+.jinsom-cash-form-content .type>m {
     border: 1px solid #e3e3e3;
     padding: 2vw 4vw;
     cursor: pointer;
@@ -6362,13 +6362,13 @@ h1 .commend:before{
     border-radius: 1vw;
     position: relative;
 }
-.wuju-cash-form-content .type>m.on{
+.jinsom-cash-form-content .type>m.on{
     border: 1px solid #5fb878;
 }
-.wuju-cash-form-content .type>m n{
+.jinsom-cash-form-content .type>m n{
     display: none;
 }
-.wuju-cash-form-content .type>m.on n {
+.jinsom-cash-form-content .type>m.on n {
     position: absolute;
     right: 0;
     width: 0;
@@ -6378,14 +6378,14 @@ h1 .commend:before{
     top: 0;
     display: block;
 }
-.wuju-cash-form-content .type>m n i {
+.jinsom-cash-form-content .type>m n i {
     position: absolute;
     top: -6vw;
     right: 0;
     color: #ffffff;
     font-size: 3vw;
 }
-.wuju-cash-btn {
+.jinsom-cash-btn {
     text-align: center;
     background-color: #5fb878;
     color: #fff;
@@ -6394,14 +6394,14 @@ h1 .commend:before{
     cursor: pointer;
     margin-bottom: 0 !important;
 }
-.wuju-cash-form-end {
+.jinsom-cash-form-end {
     text-align: center;
 }
-.wuju-cash-form-end>i {
+.jinsom-cash-form-end>i {
     font-size: 12vw;
     color: #4CAF50;
 }
-.wuju-cash-form-end>p {
+.jinsom-cash-form-end>p {
     color: #999;
     margin-top: 4vw;
 }
@@ -6411,16 +6411,16 @@ h1 .commend:before{
     margin-bottom: 2vw;
 }
 
-.wuju-reprint-check {
+.jinsom-reprint-check {
     display: flex;
 }
-.wuju-reprint-check li {
+.jinsom-reprint-check li {
     margin-bottom: 4vw;
     padding: 4vw;
     display: flex;
     flex: 1;
 }
-.wuju-reprint-check li input {
+.jinsom-reprint-check li input {
     width: 6vw;
     height: 6vw;
     margin: 0;
@@ -6430,19 +6430,19 @@ h1 .commend:before{
 
 
 /*红包*/
-.wuju-post-redbag-content {
+.jinsom-post-redbag-content {
     width: 40vw;
     height: 50vw;
     background-color: #e94658;
     border-radius: 3vw;
 }
-.wuju-post-redbag-content .avatarimg {
+.jinsom-post-redbag-content .avatarimg {
     height: 18vw;
     background: #c73444;
     border-radius: 6vw 6vw 100% 100%;
     position: relative;
 }
-.wuju-post-redbag-content .avatarimg img {
+.jinsom-post-redbag-content .avatarimg img {
     width: 10vw;
     height: 10vw;
     border-radius: 100%;
@@ -6453,10 +6453,10 @@ h1 .commend:before{
     border: 1px solid #fff;
     box-sizing: border-box;
 }
-.wuju-post-redbag-content .content p {
+.jinsom-post-redbag-content .content p {
     font-size: 3.5vw;
 }
-.wuju-post-redbag-content .content {
+.jinsom-post-redbag-content .content {
     margin: 7vw 4vw 2vw;
     text-align: center;
     color: #fff;
@@ -6466,7 +6466,7 @@ h1 .commend:before{
     font-size: 3.5vw;
     padding: 0;
 }
-.wuju-post-redbag-content .open {
+.jinsom-post-redbag-content .open {
     width: 9vw;
     height: 9vw;
     text-align: center;
@@ -6478,7 +6478,7 @@ h1 .commend:before{
     font-size: 13px;
     color: #fff;
 }
-.wuju-post-redbag-content .had {
+.jinsom-post-redbag-content .had {
     text-align: center;
     text-decoration: underline;
     cursor: pointer;
@@ -6491,91 +6491,91 @@ h1 .commend:before{
 [data-page="get-redbag"] .navbar,[data-page="publish-redbag"] .navbar {
     background-color: #e94658;
 }
-.wuju-get-redbag-content .header {
+.jinsom-get-redbag-content .header {
     background-color: #e94658;
     padding: 20px;
     text-align: center;
 }
-.wuju-get-redbag-content .header .redbag-desc {
+.jinsom-get-redbag-content .header .redbag-desc {
     color: #fff;
     margin: 0 4vw 4vw;
     overflow-wrap: break-word;
 }
-.wuju-get-redbag-my-credit {
+.jinsom-get-redbag-my-credit {
     margin: 4vw;
     color: #fbe044;
     font-size: 5vw;
 }
-.wuju-get-redbag-my-credit i {
+.jinsom-get-redbag-my-credit i {
     font-style: normal;
     font-size: 10vw;
     margin-right: 2vw;
 }
-.wuju-get-redbag-my-credit n {
+.jinsom-get-redbag-my-credit n {
     font-size: 3.5vw;
 }
-.wuju-get-redbag-content .header .userinfo img {
+.jinsom-get-redbag-content .header .userinfo img {
     width: 14vw;
     height: 14vw;
     border-radius: 100%;
     border: 1px solid #fff;
     box-sizing: border-box;
 }
-.wuju-get-redbag-content .header .userinfo .name, .wuju-get-redbag-content .header .userinfo .name font {
+.jinsom-get-redbag-content .header .userinfo .name, .jinsom-get-redbag-content .header .userinfo .name font {
     color: #fff !important;
     font-size: 4.5vw;
 }
-.wuju-get-redbag-content>.info {
+.jinsom-get-redbag-content>.info {
     padding: 3vw;
     border-bottom: 1px solid #f1f1f1;
     color: #999;
 }
-.wuju-get-redbag-content>.info n {
+.jinsom-get-redbag-content>.info n {
     float: right;
     color: #e94658;
 }
-.wuju-get-redbag-content .list {
+.jinsom-get-redbag-content .list {
     padding: 0 4vw;
 }
-.wuju-get-redbag-content .list li {
+.jinsom-get-redbag-content .list li {
     display: flex;
     align-items: center;
     margin: 4vw 0;
     position: relative;
 }
-.wuju-get-redbag-content .list li>.avatarimg img {
+.jinsom-get-redbag-content .list li>.avatarimg img {
     border-radius: 100%;
     width: 12vw;
     height: 12vw;
 }
-.wuju-get-redbag-content .list li>.info {
+.jinsom-get-redbag-content .list li>.info {
     flex: 1;
     margin: 0 4vw;
 }
-.wuju-get-redbag-content .list li>.info .time {
+.jinsom-get-redbag-content .list li>.info .time {
     margin-top: 2vw;
     color: #999;
 }
-.wuju-publish-redbag-form .credit {
+.jinsom-publish-redbag-form .credit {
     margin: 8vw;
 }
-.wuju-publish-redbag-form .credit label {
+.jinsom-publish-redbag-form .credit label {
     margin-bottom: 2vw;
     display: inline-block;
     color: #e94658;
 }
-.wuju-publish-redbag-form .credit>li input {
+.jinsom-publish-redbag-form .credit>li input {
     width: 100%;
     padding: 3vw 2vw;
     border-radius: 1vw;
     border: 1px solid #f1f1f1;
     box-sizing: border-box;
 }
-.wuju-publish-redbag-form .type {
+.jinsom-publish-redbag-form .type {
     margin: 8vw 8vw 0;
     display: flex;
 }
-.wuju-publish-redbag-form .tips {
+.jinsom-publish-redbag-form .tips {
     margin: 4vw 8vw;
     border: 1px solid #ecd2ad;
     background-color: #fff6e9;
@@ -6584,12 +6584,12 @@ h1 .commend:before{
     font-size: 3vw;
     border-radius: 1vw;
 }
-.wuju-publish-redbag-form .type>li.on {
+.jinsom-publish-redbag-form .type>li.on {
     background-color: #e94658;
     border: 1px solid #e94658;
     color: #fbe044;
 }
-.wuju-publish-redbag-form .type>li {
+.jinsom-publish-redbag-form .type>li {
     flex: 1;
     text-align: center;
     padding: 2vw 0;
@@ -6600,10 +6600,10 @@ h1 .commend:before{
     border: 1px solid #f3909b;
     cursor: pointer;
 }
-.wuju-publish-redbag-form .type>li:last-child {
+.jinsom-publish-redbag-form .type>li:last-child {
     margin-right: 0;
 }
-.wuju-publish-redbag-form textarea {
+.jinsom-publish-redbag-form textarea {
     margin: 0 8vw 6vw;
     width: calc(100% - 16vw);
     box-sizing: border-box;
@@ -6615,7 +6615,7 @@ h1 .commend:before{
     line-height: 6vw;
     font-size: 4vw;
 }
-.wuju-publish-redbag-form .btn {
+.jinsom-publish-redbag-form .btn {
     margin: 0 8vw 8vw;
     text-align: center;
     background-color: #e94658;
@@ -6624,19 +6624,19 @@ h1 .commend:before{
     border-radius: 1vw;
     cursor: pointer;
 }
-.wuju-get-redbag-content .header .userinfo>a {
+.jinsom-get-redbag-content .header .userinfo>a {
     position: relative;
 }
-.wuju-get-redbag-content .header .userinfo>a>i {
+.jinsom-get-redbag-content .header .userinfo>a>i {
     bottom: 0.5vw;
 }
-.wuju-get-redbag-content .list li>.avatarimg>a {
+.jinsom-get-redbag-content .list li>.avatarimg>a {
     position: relative;
     width: 12vw;
     height: 12vw;
     display: inline-block;
 }
-.wuju-get-redbag-content .list li>span {
+.jinsom-get-redbag-content .list li>span {
     position: absolute;
     z-index: 1;
     top: 0px;
@@ -6653,17 +6653,17 @@ h1 .commend:before{
 
 
 /*修改手机号、邮箱、密码*/
-.wuju-setting-content.update-phone {
+.jinsom-setting-content.update-phone {
     background-color: #fff;
 }
-.wuju-setting-update-phone-email-input {
+.jinsom-setting-update-phone-email-input {
     margin: 6vw;
 }
-.wuju-setting-update-phone-email-input p {
+.jinsom-setting-update-phone-email-input p {
     margin-bottom: 4vw;
     position: relative;
 }
-.wuju-setting-update-phone-email-input input {
+.jinsom-setting-update-phone-email-input input {
     width: 100%;
     outline: none;
     padding: 2vw 4vw 2vw 12vw;
@@ -6677,21 +6677,21 @@ h1 .commend:before{
     background-color: #f6f6f6;
     flex: 1;
 }
-.wuju-setting-update-phone-email-input p.code {
+.jinsom-setting-update-phone-email-input p.code {
     display: flex;
 }
-.wuju-setting-update-phone-email-input p.code input {
+.jinsom-setting-update-phone-email-input p.code input {
     margin-right: 4vw;
 }
-.wuju-setting-update-phone-email-input p.code input.wuju-get-code {
+.jinsom-setting-update-phone-email-input p.code input.jinsom-get-code {
     margin-right: 0;
     padding: 0;
     background-color: #46c47c;
     color: #fff;
 }
-.wuju-setting-update-phone-email-input p.phone:before {
+.jinsom-setting-update-phone-email-input p.phone:before {
     content: "\e641";
-    font-family: "wuju-icon" !important;
+    font-family: "jinsom-icon" !important;
     position: absolute;
     top: 3vw;
     left: 3.5vw;
@@ -6699,9 +6699,9 @@ h1 .commend:before{
     margin-left: 1vw;
     color: #000000;
 }
-.wuju-setting-update-phone-email-input p.code:before {
+.jinsom-setting-update-phone-email-input p.code:before {
     content: "\e709";
-    font-family: "wuju-icon" !important;
+    font-family: "jinsom-icon" !important;
     position: absolute;
     top: 1vw;
     left: 1.5vw;
@@ -6709,9 +6709,9 @@ h1 .commend:before{
     margin-left: 1vw;
     color: #000000;
 }
-.wuju-setting-update-phone-email-input p.mail:before {
+.jinsom-setting-update-phone-email-input p.mail:before {
     content: "\e70d";
-    font-family: "wuju-icon" !important;
+    font-family: "jinsom-icon" !important;
     position: absolute;
     top: 2.5vw;
     left: 3.5vw;
@@ -6719,9 +6719,9 @@ h1 .commend:before{
     margin-left: 1vw;
     color: #000000;
 }
-.wuju-setting-update-phone-email-input p.pass:before {
+.jinsom-setting-update-phone-email-input p.pass:before {
     content: "\e605";
-    font-family: "wuju-icon" !important;
+    font-family: "jinsom-icon" !important;
     position: absolute;
     top: 2.5vw;
     left: 3.5vw;
@@ -6729,33 +6729,33 @@ h1 .commend:before{
     margin-left: 1vw;
     color: #555;
 }
-.wuju-setting-update-phone-email-input p.tips {
+.jinsom-setting-update-phone-email-input p.tips {
     text-align: center;
     color: #999;
 }
-.wuju-setting-update-phone-email-input.question select {
+.jinsom-setting-update-phone-email-input.question select {
     width: 100%;
     height: 12vw;
     border-radius: 1vw;
     border: 1px solid #f1f1f1;
     font-size: 4vw;
 }
-.wuju-setting-update-phone-email-input.question .code input {
+.jinsom-setting-update-phone-email-input.question .code input {
     margin: 0;
 }
 
 /*案例页面*/
-.wuju-case-page-content {
+.jinsom-case-page-content {
     background: #eeeeee;
 }
-.wuju-case-content {
+.jinsom-case-content {
     padding: 14vw 4vw 4vw 4vw;
 }
-.wuju-case-content ul{
+.jinsom-case-content ul{
     padding: 0;
     margin: 0;
 }
-.wuju-case-content ul li {
+.jinsom-case-content ul li {
     width: 44vw;
     float: left;
     margin-bottom: 4vw;
@@ -6764,31 +6764,31 @@ h1 .commend:before{
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0,0,0,.10);
 }
-.wuju-case-content ul li:nth-child(2n-1) {
+.jinsom-case-content ul li:nth-child(2n-1) {
     margin-right: 4vw;
 }
-.wuju-case-avatar {
+.jinsom-case-avatar {
     height: 28vw;
     width: 100%;
     border-radius: 1vw 1vw 0 0;
     background-size: cover;
     background-position: center;
 }
-.wuju-case-info {
+.jinsom-case-info {
     padding: 2vw;
 }
-.wuju-case-name {
+.jinsom-case-name {
     margin: 2vw 0;
     color: #00a2eb;
 }
-.wuju-case-desc {
+.jinsom-case-desc {
     height: 10vw;
     color: #707070;
     margin-bottom: 2vw;
     font-size: 3.8vw;
     overflow: hidden;
 }
-.wuju-case-visit {
+.jinsom-case-visit {
     text-align: center;
     font-size: 3.5vw;
     color: #999;
@@ -6796,14 +6796,14 @@ h1 .commend:before{
 }
 
 
-#wuju-task-navbar-center span {
+#jinsom-task-navbar-center span {
     display: inline-block;
     width: 60px;
     position: relative;
     font-size: 4vw;
     margin: 0 4vw;
 }
-#wuju-task-navbar-center span.on:before {
+#jinsom-task-navbar-center span.on:before {
     content: '';
     height: 3px;
     background-color: #fff;
@@ -6815,81 +6815,81 @@ h1 .commend:before{
     margin-left: -25%;
     border-radius: 20px;
 }
-.wuju-task-form {
+.jinsom-task-form {
     padding: 4vw;
 }
-.wuju-task-form-header {
+.jinsom-task-form-header {
     margin: 2vw 0vw 10vw;
 }
-.wuju-task-form-header .header {
+.jinsom-task-form-header .header {
     display: flex;
     margin-bottom: 6vw;
 }
-.wuju-task-form-header .header .title {
+.jinsom-task-form-header .header .title {
     flex: 1;
 }
-.wuju-task-form-header .header .number n {
+.jinsom-task-form-header .header .number n {
     color: #f00;
     margin: 0 1vw;
 }
-.wuju-task-form-header li {
+.jinsom-task-form-header li {
     float: left;
     width: 25%;
     text-align: center;
 }
-.wuju-task-form-header li img {
+.jinsom-task-form-header li img {
     width: 10vw;
 }
-.wuju-task-form-header li p {
+.jinsom-task-form-header li p {
     color: #999;
     font-size: 3.5vw;
 }
-.wuju-task-form-content ul {
+.jinsom-task-form-content ul {
     margin: 0;
     padding: 0;
     display: none;
 }
-.wuju-task-form-content ul.on {
+.jinsom-task-form-content ul.on {
     display: block;
 }
-.wuju-task-form-content ul li {
+.jinsom-task-form-content ul li {
     margin-bottom: 4vw;
     padding-bottom: 4vw;
     border-bottom: 1px solid #f6f6f6;
     position: relative;
 }
-.wuju-task-form-content ul li .info {
+.jinsom-task-form-content ul li .info {
     display: flex;
 }
-.wuju-task-form-content ul li .reward {
+.jinsom-task-form-content ul li .reward {
     margin-top: 4vw;
     font-size: 3vw;
     color: #e99d85;
 }
-.wuju-task-form-content ul li .left {
+.jinsom-task-form-content ul li .left {
     max-width: 55vw;
     margin-right: 4vw;
 }
-.wuju-task-form-content ul li .desc {
+.jinsom-task-form-content ul li .desc {
     color: #999;
     margin: 1vw 0;
     line-height: 5vw;
     font-size: 3.5vw;
     min-height: 10vw;
 }
-.wuju-task-form-content ul li .right {
+.jinsom-task-form-content ul li .right {
     position: absolute;
     right: 0;
     top: 0;
 }
-.wuju-task-form-content ul li .right .number {
+.jinsom-task-form-content ul li .right .number {
     font-size: 3.5vw;
     color: #7A8F9A;
 }
-.wuju-task-form-content ul li .right .number m {
+.jinsom-task-form-content ul li .right .number m {
     color: #4ACA6D;
 }
-.wuju-task-form-content ul li .right .status {
+.jinsom-task-form-content ul li .right .status {
     padding: 1vw 2vw;
     border: 1px solid #46c47c;
     color: #46c47c;
@@ -6902,57 +6902,57 @@ h1 .commend:before{
     float: right;
     width: 15vw;
 }
-.wuju-task-form-content ul li .right .status.on {
+.jinsom-task-form-content ul li .right .status.on {
     background-color: #46c47c;
     color: #fff;
 }
-.wuju-task-form-content ul li .right .status.had {
+.jinsom-task-form-content ul li .right .status.had {
     border-color: #ccc;
     color: #fff;
     background-color: #ccc;
     cursor: default;
 }
-.wuju-task-form-content ul li .reward p {
+.jinsom-task-form-content ul li .reward p {
     margin-top: 2vw;
 }
-.wuju-task-form-content ul li .reward span {
+.jinsom-task-form-content ul li .reward span {
     margin: 0 1vw;
 }
-.wuju-task-form-content ul li .reward p.normal {
+.jinsom-task-form-content ul li .reward p.normal {
     color: #999;
 }
-.wuju-task-form-content ul li:last-child {
+.jinsom-task-form-content ul li:last-child {
     border-bottom: none;
 }
 
 
 
-.wuju-task-treasure-form {
+.jinsom-task-treasure-form {
     padding: 8vw;
 }
-.wuju-task-treasure-img {
+.jinsom-task-treasure-img {
     text-align: center;
 }
-.wuju-task-treasure-img img {
+.jinsom-task-treasure-img img {
     width: 20vw;
 }
-.wuju-task-treasure-name {
+.jinsom-task-treasure-name {
     text-align: center;
     margin-top: 2vw;
     color: #666;
 }
-.wuju-task-treasure-reward {
+.jinsom-task-treasure-reward {
     padding: 4vw;
     background-color: #f9f9f9;
     margin: 5vw;
     border-radius: 1vw;
 }
-.wuju-task-treasure-reward span {
+.jinsom-task-treasure-reward span {
     margin: 4vw;
     display: block;
     color: #e99d85;
 }
-.wuju-task-treasure-btn {
+.jinsom-task-treasure-btn {
     text-align: center;
     padding: 2.5vw;
     background-color: #46c47c;
@@ -6961,15 +6961,15 @@ h1 .commend:before{
     cursor: pointer;
     margin: 0 5vw;
 }
-.wuju-task-treasure-btn.had {
+.jinsom-task-treasure-btn.had {
     background-color: #ccc;
     cursor: default;
 }
-.wuju-task-treasure-form .number {
+.jinsom-task-treasure-form .number {
     position: absolute;
     opacity: 0.3;
 }
-.wuju-task-treasure-form .number n {
+.jinsom-task-treasure-form .number n {
     color: #f00;
 }
 
@@ -6995,26 +6995,26 @@ h1 .commend:before{
 .owl-carousel .owl-stage-outer{
     border-radius:1vw; 
 }
-.wuju-mobile-slider .item a {
+.jinsom-mobile-slider .item a {
     display: block;
     border-radius: 1vw;
     background-size: cover;
     background-position: center;
 }
-.wuju-find-slider{
+.jinsom-find-slider{
     padding: 4vw;
 }
-.wuju-bbs-slider {
+.jinsom-bbs-slider {
     padding: 4vw 4vw 0;
 }
-.wuju-mobile-sns-slider-content {
+.jinsom-mobile-sns-slider-content {
     padding: 4vw;
     background-color: #fff;
 }
 .owl-carousel.owl-hidden {
     opacity: 1;
 }
-.wuju-mobile-slider .item a p {
+.jinsom-mobile-slider .item a p {
     position: absolute;
     bottom: 0;
     color: #fff;

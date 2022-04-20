@@ -28,7 +28,7 @@ function hideFlash(){
 function addOkListener() {
 	dialog.onok = function() {
 		if (!imageUrls.length) return;
-		var urlPrefix = wuju.home_url,
+		var urlPrefix = jinsom.home_url,
             images = domUtils.getElementsByTagName(editor.document,"img");
         editor.fireEvent('saveScene');
 		for (var i = 0,img; img = images[i++];) {

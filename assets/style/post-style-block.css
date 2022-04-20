@@ -1,9 +1,9 @@
-.wuju-post-user-info.single{
+.jinsom-post-user-info.single{
 	display: none;
 }
-.wuju-post-footer-bar {
+.jinsom-post-footer-bar {
     display: none;
 }
-.wuju-posts-list.single .wuju-post-footer-bar,.wuju-posts-list.bg-bbs .wuju-post-footer-bar {
+.jinsom-posts-list.single .jinsom-post-footer-bar,.jinsom-posts-list.bg-bbs .jinsom-post-footer-bar {
     display: block;
 }

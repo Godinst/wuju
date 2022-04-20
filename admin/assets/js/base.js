@@ -16,35 +16,35 @@ return this;}
 function serialize(){return data;}
 function serializeJSON(){return JSON.stringify(serialize());}
 this.addPair=addPair;this.addPairs=addPairs;this.serialize=serialize;this.serializeJSON=serializeJSON;}
-FormSerializer.patterns=patterns;FormSerializer.serializeObject=function serializeObject(){return new FormSerializer($,this).addPairs(this.serializeArray()).serialize();};FormSerializer.serializeJSON=function serializeJSON(){return new FormSerializer($,this).addPairs(this.serializeArray()).serializeJSON();};if(typeof $.fn!=="undefined"){$.fn.serializeObjectwuju=FormSerializer.serializeObject;$.fn.serializeJSONwuju=FormSerializer.serializeJSON;}
+FormSerializer.patterns=patterns;FormSerializer.serializeObject=function serializeObject(){return new FormSerializer($,this).addPairs(this.serializeArray()).serialize();};FormSerializer.serializeJSON=function serializeJSON(){return new FormSerializer($,this).addPairs(this.serializeArray()).serializeJSON();};if(typeof $.fn!=="undefined"){$.fn.serializeObjectLightSNS=FormSerializer.serializeObject;$.fn.serializeJSONLightSNS=FormSerializer.serializeJSON;}
 
 
 
 //切换WordPress面板
-$(".wuju-panel-header-left").click(function() {
+$(".jinsom-panel-header-left").click(function() {
 if ($("#adminmenumain").css('display')=='block') {
 $("#wpcontent").css("margin-left", "0px");
 $("#adminmenumain").hide(0);
-$(".wuju-admin-logo").removeClass('had_show')
+$(".jinsom-admin-logo").removeClass('had_show')
 } else {
 $("#adminmenumain").show(0);
 $("#wpcontent").css("margin-left", "160px");
-$(".wuju-admin-logo").addClass('had_show')
+$(".jinsom-admin-logo").addClass('had_show')
 }
 });
 
 
 //折叠菜单
-$(".wuju-show-menu").click(function() {
-if ($(".wuju-panel-nav").css('width')=='180px') {
+$(".jinsom-show-menu").click(function() {
+if ($(".jinsom-panel-nav").css('width')=='180px') {
 $(this).children('i').addClass('fa-expand').removeClass('fa-compress');
-$(".wuju-panel-nav").css("width", "48px").addClass('on');
-$(".wuju-panel-content").css("margin-left", "48px");
-$(".wuju-panel-nav ul li a span").hide();
-$('.wuju-panel-nav ul li .wuju-panel-arrow:after').css('right','2px');
+$(".jinsom-panel-nav").css("width", "48px").addClass('on');
+$(".jinsom-panel-content").css("margin-left", "48px");
+$(".jinsom-panel-nav ul li a span").hide();
+$('.jinsom-panel-nav ul li .jinsom-panel-arrow:after').css('right','2px');
 
-$('.wuju-panel-nav.on ul li').hover(function() {
-if($('.wuju-panel-nav').hasClass('on')){
+$('.jinsom-panel-nav.on ul li').hover(function() {
+if($('.jinsom-panel-nav').hasClass('on')){
 layer.tips($(this).find('span').html(), $(this));
 }
 }, function() {
@@ -53,12 +53,12 @@ layer.closeAll('tips');
 
 } else {
 $(this).children('i').addClass('fa-compress').removeClass('fa-expand');
-$(".wuju-panel-nav ul li a span").show();
-$(".wuju-panel-content").css("margin-left", "180px");
-$('.wuju-panel-nav ul li .wuju-panel-arrow:after').css('right','10px');
-$(".wuju-panel-nav").css("width", "180px").removeClass('on');
+$(".jinsom-panel-nav ul li a span").show();
+$(".jinsom-panel-content").css("margin-left", "180px");
+$('.jinsom-panel-nav ul li .jinsom-panel-arrow:after').css('right','10px');
+$(".jinsom-panel-nav").css("width", "180px").removeClass('on');
 
-$('.wuju-panel-nav.on ul li').hover(function() {
+$('.jinsom-panel-nav.on ul li').hover(function() {
 }, function() {
 });
 
@@ -66,25 +66,25 @@ $('.wuju-panel-nav.on ul li').hover(function() {
 });
 
 //切换肤色
-$('[name="wuju_options[wuju_panel_skin]"]').click(function(){
+$('[name="jinsom_options[jinsom_panel_skin]"]').click(function(){
 skin=$(this).val();
 if(skin=='dark'){
-$('.wuju-panel').addClass('wuju-panel-theme-dark').removeClass('wuju-panel-theme-light');
+$('.jinsom-panel').addClass('jinsom-panel-theme-dark').removeClass('jinsom-panel-theme-light');
 }else{
-$('.wuju-panel').addClass('wuju-panel-theme-light').removeClass('wuju-panel-theme-dark');
+$('.jinsom-panel').addClass('jinsom-panel-theme-light').removeClass('jinsom-panel-theme-dark');
 }
 });
 
 //监听面板
-$("input[name='wuju_options[wuju_panel_name]']").bind("input propertychange",function(event){
-$('.wuju-panel-header-inner h1').html($(this).val());
+$("input[name='jinsom_options[jinsom_panel_name]']").bind("input propertychange",function(event){
+$('.jinsom-panel-header-inner h1').html($(this).val());
 });
 
 layui.use(['layer'], function() {
-$("#wuju-get-update-info").click(function() {
+$("#jinsom-get-update-info").click(function() {
 layer.load(1);
 var my_domain = document.domain;
-var url = wuju.author_update + "/update.php?callback=?&url=123";
+var url = jinsom.author_update + "/update.php?callback=?&url=123";
 jQuery.getJSON(url, function(data) {
 layer.closeAll('loading');
 layer.alert(data.version)
@@ -95,7 +95,7 @@ layer.alert(data.version)
 
 
 // 回车搜索
-$(".wuju-panel-search input").keypress(function(e) {  
+$(".jinsom-panel-search input").keypress(function(e) {  
 if(e.which == 13) {  
 return false;
 }  
@@ -108,7 +108,7 @@ var element = layui.element
 });
 
 //退出登录
-function wuju_login_out(){
+function jinsom_login_out(){
 layer.confirm('你确定要退出本帐号吗？',{
 title:'退出登录',
 btnAlign: 'c',
@@ -117,7 +117,7 @@ btn: ['确定','按错了']
 layer.msg('已退出，欢迎再次回来！');
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/update/profile.php",
+url:jinsom.jinsom_ajax_url+"/update/profile.php",
 data: {login_out:1},
 success: function(msg){}
 });
@@ -127,8 +127,8 @@ function d(){window.location.href='/';}setTimeout(d,2500);
 
 
 //导入备份
-function wuju_admin_backup_export(){
-backup=$('#wuju-admin-backup-export-val').val();
+function jinsom_admin_backup_export(){
+backup=$('#jinsom-admin-backup-export-val').val();
 if(backup=='delete'){
 title='你要确定要清空所有的设置选项吗？清空之后将恢复默认设置！';
 }else{
@@ -140,7 +140,7 @@ btnAlign: 'c',
 layer.load(1);
 $.ajax({
 type:"POST",
-url: wuju.wuju_ajax_url+"/admin/action/admin-setting.php",
+url: jinsom.jinsom_ajax_url+"/admin/action/admin-setting.php",
 data:{backup:backup},
 success: function(msg){
 layer.closeAll('loading');
@@ -154,28 +154,28 @@ function c(){window.location.reload();}setTimeout(c,2000);
 }
 
 //metabox导出备份
-function wuju_amdin_backup_metabox(){
-post_id=wuju_getUrlParam('post');
-window.open(wuju.theme_url+"/module/admin/action/admin-setting-metabox-back.php?download&post_id="+post_id);
+function jinsom_amdin_backup_metabox(){
+post_id=jinsom_getUrlParam('post');
+window.open(jinsom.theme_url+"/module/admin/action/admin-setting-metabox-back.php?download&post_id="+post_id);
 }
 
 
 //metabox导入备份
-function wuju_amdin_backup_metabox_import(){
-backup=$('#wuju-admin-backup-metabox-val').val();
+function jinsom_amdin_backup_metabox_import(){
+backup=$('#jinsom-admin-backup-metabox-val').val();
 if(backup=='delete'){
 title='你要确定要清空所有的设置选项吗？清空之后将恢复默认设置！';
 }else{
 title='你确定要导入备份设置吗？你之前的设置选项会被覆盖！';
 }
-post_id=wuju_getUrlParam('post');
+post_id=jinsom_getUrlParam('post');
 layer.confirm(title,{
 btnAlign: 'c',
 }, function(){
 layer.load(1);
 $.ajax({
 type:"POST",
-url: wuju.wuju_ajax_url+"/admin/action/admin-setting-metabox-back.php",
+url: jinsom.jinsom_ajax_url+"/admin/action/admin-setting-metabox-back.php",
 data:{backup:backup,post_id:post_id},
 success: function(msg){
 layer.closeAll('loading');
@@ -190,12 +190,12 @@ function c(){window.location.reload();}setTimeout(c,2000);
 
 
 //保存设置
-function wuju_admin_save_setting(){
-data=$('#wuju-panel-form').serializeJSONwuju();
+function jinsom_admin_save_setting(){
+data=$('#jinsom-panel-form').serializeJSONLightSNS();
 layer.load(1);
 $.ajax({
 type:"POST",
-url: wuju.wuju_ajax_url+"/admin/action/admin-save.php",
+url: jinsom.jinsom_ajax_url+"/admin/action/admin-save.php",
 data:{data:data},
 success: function(msg){
 layer.closeAll('loading');
@@ -209,11 +209,11 @@ if(msg.code==1){
 
 
 //弹出卡密表单
-function wuju_admin_key_form(){
+function jinsom_admin_key_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/key.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/key.php",
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
@@ -227,11 +227,11 @@ content: msg
 }
 
 //弹出卡密生成的表单
-function wuju_admin_key_add_form(){
+function jinsom_admin_key_add_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/key-add.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/key-add.php",
 success: function(msg){
 layer.closeAll('loading');
 window.admin_key_add_form=layer.open({
@@ -245,21 +245,21 @@ var form = layui.form;
 var laydate = layui.laydate;
 form.render('radio');
 form.on('radio(add-key)', function(data){
-$('#wuju-add-key-form li.number i').html($(data.elem).attr('data'));
+$('#jinsom-add-key-form li.number i').html($(data.elem).attr('data'));
 }); 
-laydate.render({elem:'#wuju-key-expiry',type:'date'});
+laydate.render({elem:'#jinsom-key-expiry',type:'date'});
 });
 }
 });		
 }
 
 //生成卡密
-function wuju_admin_key_add(){
-data=$('#wuju-add-key-form').serialize();
+function jinsom_admin_key_add(){
+data=$('#jinsom-add-key-form').serialize();
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/key-add.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/key-add.php",
 data:data,
 success: function(msg){
 layer.closeAll('loading');
@@ -273,11 +273,11 @@ layer.close(admin_key_add_form);
 
 
 //弹出卡密查询表单
-function wuju_admin_key_search_form(){
+function jinsom_admin_key_search_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/key-search.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/key-search.php",
 success: function(msg){
 layer.closeAll('loading');
 window.admin_key_search_form=layer.open({
@@ -286,7 +286,7 @@ btn: false,
 type: 1,
 resize:false,
 area: '350px',
-skin: 'wuju-login-form',
+skin: 'jinsom-login-form',
 content: msg
 });
 }
@@ -294,12 +294,12 @@ content: msg
 }
 
 //卡密查询
-function wuju_admin_key_search(){
-key=$('#wuju-pop-key-search').val();
+function jinsom_admin_key_search(){
+key=$('#jinsom-pop-key-search').val();
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/key-search.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/key-search.php",
 data:{key:key},
 success: function(msg){
 layer.closeAll('loading');
@@ -319,11 +319,11 @@ layer.msg(msg.msg);
 
 
 //弹出导出卡密的表单
-function wuju_admin_key_export_form(){
+function jinsom_admin_key_export_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/key-export.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/key-export.php",
 success: function(msg){
 layer.closeAll('loading');
 window.admin_key_add_form=layer.open({
@@ -336,11 +336,11 @@ layui.use(['form'], function () {
 var form = layui.form;
 form.render('radio');
 
-form.on('radio(wuju-custom-key-number)', function(data){
+form.on('radio(jinsom-custom-key-number)', function(data){
 if(data.value=='custom'){
-$('#wuju-custom-key-number').show();
+$('#jinsom-custom-key-number').show();
 }else{
-$('#wuju-custom-key-number').hide();	
+$('#jinsom-custom-key-number').hide();	
 }
 }); 
 
@@ -350,17 +350,17 @@ $('#wuju-custom-key-number').hide();
 }
 
 //提交导出表单
-function wuju_admin_key_export(){
-$('#wuju-export-key-form').submit();	
+function jinsom_admin_key_export(){
+$('#jinsom-export-key-form').submit();	
 }
 
 
 //弹出删除卡密的表单
-function wuju_admin_key_delete_form(){
+function jinsom_admin_key_delete_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/key-delete.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/key-delete.php",
 success: function(msg){
 layer.closeAll('loading');
 window.admin_key_add_form=layer.open({
@@ -378,12 +378,12 @@ form.render('radio');
 }
 
 //删除卡密
-function wuju_admin_key_delete(){
-data=$('#wuju-delete-key-form').serialize();
+function jinsom_admin_key_delete(){
+data=$('#jinsom-delete-key-form').serialize();
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/key-delete.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/key-delete.php",
 data:data,
 success: function(msg){
 layer.closeAll('loading');
@@ -394,11 +394,11 @@ layer.msg(msg.msg);
 
 
 //弹出批量注册表单
-function wuju_multiple_reg_form(){
+function jinsom_multiple_reg_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/multiple-reg.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/multiple-reg.php",
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
@@ -417,28 +417,28 @@ form.render('checkbox');
 
 
 //提交批量注册
-function wuju_multiple_reg(){
-username=$('.wuju-multiple-reg-username').val();	
-password=$('.wuju-multiple-reg-password').val();
-city=$('.wuju-multiple-city:checkbox:checked').val();	
-sex=$('.wuju-multiple-sex:checkbox:checked').val();	
+function jinsom_multiple_reg(){
+username=$('.jinsom-multiple-reg-username').val();	
+password=$('.jinsom-multiple-reg-password').val();
+city=$('.jinsom-multiple-city:checkbox:checked').val();	
+sex=$('.jinsom-multiple-sex:checkbox:checked').val();	
 if(username==''){
 layer.msg('请输入用户名！');
 return false;	
 }
-$('.wuju-multiple-reg-form .btn').html('<i class="fa fa-superpowers fa-spin"></i> 批量注册中...');
+$('.jinsom-multiple-reg-form .btn').html('<i class="fa fa-superpowers fa-spin"></i> 批量注册中...');
 layer.load(1);
 $.ajax({
 type: "POST",
 data:{username:username,password:password,city:city,sex:sex},
-url:wuju.wuju_ajax_url+"/admin/action/multiple-reg.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/multiple-reg.php",
 success: function(msg){
 layer.closeAll('loading');
-$('.wuju-multiple-reg-form .btn').html('<i class="fa fa-superpowers"></i> 开始注册');
+$('.jinsom-multiple-reg-form .btn').html('<i class="fa fa-superpowers"></i> 开始注册');
 if(msg.code==1){
-$('.wuju-multiple-reg-form .username .show').html(msg.content);	
-$('.wuju-multiple-userdata').val(msg.user_data);
-$('.wuju-multiple-reg-form .lable p span').show();
+$('.jinsom-multiple-reg-form .username .show').html(msg.content);	
+$('.jinsom-multiple-userdata').val(msg.user_data);
+$('.jinsom-multiple-reg-form .lable p span').show();
 }else{
 layer.msg(msg.msg);	
 }
@@ -447,18 +447,18 @@ layer.msg(msg.msg);
 }
 
 //显示已经注册成功的用户id
-function wuju_multiple_userdata_form(){
-userdata=$('.wuju-multiple-userdata').val();
+function jinsom_multiple_userdata_form(){
+userdata=$('.jinsom-multiple-userdata').val();
 layer.prompt({title: '已经注册成功的用户id集合',formType: 2,btnAlign: 'c',value:userdata}); 	
 }
 
 
 //弹出邀请码表单
-function wuju_admin_invite_code_form(){
+function jinsom_admin_invite_code_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/invite-code.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/invite-code.php",
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
@@ -473,11 +473,11 @@ content: msg
 
 
 //弹出生成邀请码表单
-function wuju_admin_invite_code_add_form(){
+function jinsom_admin_invite_code_add_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/invite-code-add.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/invite-code-add.php",
 success: function(msg){
 layer.closeAll('loading');
 window.admin_invite_code_add_form=layer.open({
@@ -486,7 +486,7 @@ btn: false,
 type: 1,
 resize:false,
 area: '350px',
-skin: 'wuju-login-form',
+skin: 'jinsom-login-form',
 content: msg
 });
 }
@@ -494,12 +494,12 @@ content: msg
 }
 
 //生成邀请码
-function wuju_admin_invite_code_add(){
-number=$('#wuju-pop-invite-code-number').val();
+function jinsom_admin_invite_code_add(){
+number=$('#jinsom-pop-invite-code-number').val();
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/invite-code-add.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/invite-code-add.php",
 data:{number:number},
 success: function(msg){
 layer.closeAll('loading');
@@ -514,11 +514,11 @@ layer.close(admin_invite_code_add_form);
 
 
 //弹出邀请码查询表单
-function wuju_admin_invite_code_search_form(){
+function jinsom_admin_invite_code_search_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/invite-code-search.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/invite-code-search.php",
 success: function(msg){
 layer.closeAll('loading');
 window.admin_invite_code_search_form=layer.open({
@@ -527,7 +527,7 @@ btn: false,
 type: 1,
 resize:false,
 area: '350px',
-skin: 'wuju-login-form',
+skin: 'jinsom-login-form',
 content: msg
 });
 }
@@ -535,12 +535,12 @@ content: msg
 }
 
 //邀请码查询
-function wuju_admin_invite_code_search(){
-code=$('#wuju-pop-invite-code').val();
+function jinsom_admin_invite_code_search(){
+code=$('#jinsom-pop-invite-code').val();
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/invite-code-search.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/invite-code-search.php",
 data:{code:code},
 success: function(msg){
 layer.closeAll('loading');
@@ -560,11 +560,11 @@ layer.msg(msg.msg);
 
 
 //弹出导出邀请码的表单
-function wuju_admin_invite_code_export_form(){
+function jinsom_admin_invite_code_export_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/invite-code-export.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/invite-code-export.php",
 success: function(msg){
 layer.closeAll('loading');
 window.admin_key_add_form=layer.open({
@@ -583,17 +583,17 @@ form.render('radio');
 
 
 //提交导出邀请码表单
-function wuju_admin_invite_code_export(){
-$('#wuju-export-invite-code-form').submit();	
+function jinsom_admin_invite_code_export(){
+$('#jinsom-export-invite-code-form').submit();	
 }
 
 
 //弹出删除邀请码的表单
-function wuju_admin_invite_code_delete_form(){
+function jinsom_admin_invite_code_delete_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/invite-code-delete.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/invite-code-delete.php",
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
@@ -611,12 +611,12 @@ form.render('radio');
 }
 
 //删除邀请码
-function wuju_admin_invite_code_delete(){
-data=$('#wuju-delete-invite-code-form').serialize();
+function jinsom_admin_invite_code_delete(){
+data=$('#jinsom-delete-invite-code-form').serialize();
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/invite-code-delete.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/invite-code-delete.php",
 data:data,
 success: function(msg){
 layer.closeAll('loading');
@@ -629,11 +629,11 @@ layer.msg(msg.msg);
 
 
 //弹出批量导入视频表单
-function wuju_multiple_import_form(){
+function jinsom_multiple_import_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/multiple-import.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/multiple-import.php",
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
@@ -652,25 +652,25 @@ form.render('checkbox');
 
 
 //提交批量注册
-function wuju_multiple_import(){
-ids=$('.wuju-multiple-import-ids').val();	
-content=$('.wuju-multiple-import-content').val();
+function jinsom_multiple_import(){
+ids=$('.jinsom-multiple-import-ids').val();	
+content=$('.jinsom-multiple-import-content').val();
 if(ids==''||content==''){
 layer.msg('请输入信息！');
 return false;	
 }
-$('.wuju-multiple-import-form .btn').html('<i class="fa fa-superpowers fa-spin"></i> 导入中...');
+$('.jinsom-multiple-import-form .btn').html('<i class="fa fa-superpowers fa-spin"></i> 导入中...');
 layer.load(1);
 $.ajax({
 type: "POST",
 data:{ids:ids,content:content},
-url:wuju.wuju_ajax_url+"/admin/action/multiple-import.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/multiple-import.php",
 success: function(msg){
 layer.closeAll('loading');
-$('.wuju-multiple-import-form .btn').html('<i class="fa fa-superpowers"></i> 开始导入<span></span>');
+$('.jinsom-multiple-import-form .btn').html('<i class="fa fa-superpowers"></i> 开始导入<span></span>');
 layer.msg(msg.msg);	
 if(msg.code==1){
-$('.wuju-multiple-import-content').val('');
+$('.jinsom-multiple-import-content').val('');
 }
 }
 });	
@@ -678,11 +678,11 @@ $('.wuju-multiple-import-content').val('');
 
 
 //弹出充值记录表单
-function wuju_admin_recharge_form(){
+function jinsom_admin_recharge_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/recharge.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/recharge.php",
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
@@ -697,7 +697,7 @@ content: msg
 
 
 //弹出查看聊天记录表单
-function wuju_admin_chat_note_form(){
+function jinsom_admin_chat_note_form(){
 layer.confirm('选择你要查看的聊天记录类型',{
 btn: ['单聊记录','群聊记录'],
 btnAlign: 'c',
@@ -706,7 +706,7 @@ function(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/chat-note-one.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/chat-note-one.php",
 success: function(msg){
 layer.closeAll();
 layer.open({
@@ -722,7 +722,7 @@ function(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/chat-note-group.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/chat-note-group.php",
 success: function(msg){
 layer.closeAll();
 layer.open({
@@ -738,7 +738,7 @@ content: msg
 }
 
 //删除聊天记录
-function wuju_admin_del_chat_note(type,id,obj){
+function jinsom_admin_del_chat_note(type,id,obj){
 layer.confirm('删除之后将不可恢复，你确定？',{
 btn: ['确定','取消'],
 btnAlign: 'c',
@@ -747,7 +747,7 @@ function(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/chat-note-delete.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/chat-note-delete.php",
 data:{type:type,id:id},
 success: function(msg){
 layer.closeAll('loading');
@@ -761,11 +761,11 @@ $(obj).parents('li').remove();
 }
 
 //查看聊天记录详情
-function wuju_admin_read_chat_note(type,id){
+function jinsom_admin_read_chat_note(type,id){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/chat-note-all.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/chat-note-all.php",
 data:{type:type,id:id},
 success: function(msg){
 layer.closeAll('loading');
@@ -784,7 +784,7 @@ function wuju_custom_verify_domain(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:"https://admin.wuju.cn/verify.php",
+url:"https://wuju.cn/verify.php",
 data:{domain:wuju.domain,theme:wuju.theme_name},
 success: function(msg){
 layer.closeAll('loading');
@@ -794,11 +794,11 @@ layer.msg(msg.msg);
 }
 
 //弹出提现记录表单
-function wuju_admin_cash_form(){
+function jinsom_admin_cash_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/cash.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/cash.php",
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
@@ -811,17 +811,17 @@ content: msg
 });	
 }
 //查看提现详情
-function wuju_cash_more(ID){
+function jinsom_cash_more(ID){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/stencil/cash-more.php",
+url:jinsom.jinsom_ajax_url+"/stencil/cash-more.php",
 data:{ID:ID},
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
 title:false,
-skin:'wuju-cash-form',
+skin:'jinsom-cash-form',
 type: 1,
 area: ['380px', 'auto'], 
 content: msg
@@ -831,14 +831,14 @@ content: msg
 }
 
 //通过提现
-function  wuju_cash_agree(ID,obj){
+function  jinsom_cash_agree(ID,obj){
 layer.confirm('你要通过该提现记录吗',{
 btnAlign: 'c',
 }, function(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/cash-do.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/cash-do.php",
 data:{ID:ID,type:'agree'},
 success: function(msg){
 layer.closeAll('loading');
@@ -854,12 +854,12 @@ $(obj).remove();
 }
 
 //拒绝提现
-function  wuju_cash_refuse(ID,obj){
+function  jinsom_cash_refuse(ID,obj){
 layer.prompt({title: '请输入拒绝通过的原因', formType: 2},function(reason,index){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/cash-do.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/cash-do.php",
 data:{ID:ID,type:'refuse',reason:reason},
 success: function(msg){
 layer.closeAll('loading');
@@ -877,11 +877,11 @@ layer.close(index);
 
 
 //弹出全站通知表单
-function wuju_admin_notice_form(){
+function jinsom_admin_notice_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/notice.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/notice.php",
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
@@ -896,11 +896,11 @@ content: msg
 }
 
 //弹出发表全站通知表单
-function wuju_admin_notice_add_form(){
+function jinsom_admin_notice_add_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/notice-add.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/notice-add.php",
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
@@ -908,7 +908,7 @@ title:'全站通知',
 type: 1,
 fixed: false,
 area: ['500px'], 
-skin: 'wuju-admin-notice-add-form',
+skin: 'jinsom-admin-notice-add-form',
 content: msg
 });
 }
@@ -917,8 +917,8 @@ content: msg
 
 
 //发表全站通知
-function wuju_admin_notice_add(){
-content=$('#wuju-admin-notice-add-val').val();
+function jinsom_admin_notice_add(){
+content=$('#jinsom-admin-notice-add-val').val();
 if(content==''){
 layer.msg("通知内容不能为空！");
 return false;
@@ -926,7 +926,7 @@ return false;
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/notice-do.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/notice-do.php",
 data:{content:content,type:'add'},
 success: function(msg){
 layer.closeAll('loading');
@@ -940,11 +940,11 @@ function c(){layer.closeAll();}setTimeout(c,2000);
 
 
 //弹出编辑全站通知表单
-function wuju_admin_notice_edit_form(id){
+function jinsom_admin_notice_edit_form(id){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/notice-edit.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/notice-edit.php",
 data:{id:id},
 success: function(msg){
 layer.closeAll('loading');
@@ -953,7 +953,7 @@ title:'全站通知',
 type: 1,
 fixed: false,
 area: ['500px'], 
-skin: 'wuju-admin-notice-add-form',
+skin: 'jinsom-admin-notice-add-form',
 content: msg
 });
 }
@@ -961,8 +961,8 @@ content: msg
 }
 
 //编辑全站通知
-function wuju_admin_notice_edit(id){
-content=$('#wuju-admin-notice-add-val').val();
+function jinsom_admin_notice_edit(id){
+content=$('#jinsom-admin-notice-add-val').val();
 if(content==''){
 layer.msg("通知内容不能为空！");
 return false;
@@ -970,7 +970,7 @@ return false;
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/notice-do.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/notice-do.php",
 data:{content:content,type:'edit',id:id},
 success: function(msg){
 layer.closeAll('loading');
@@ -983,11 +983,11 @@ function c(){layer.closeAll();}setTimeout(c,2000);
 }
 
 //查看全站通知
-function wuju_admin_notice_read_form(id){
+function jinsom_admin_notice_read_form(id){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/notice-read.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/notice-read.php",
 data:{id:id},
 success: function(msg){
 layer.closeAll('loading');
@@ -996,7 +996,7 @@ title:'通知详情',
 type: 1,
 fixed: false,
 area: ['500px','350px'], 
-skin: 'wuju-admin-notice-read-form',
+skin: 'jinsom-admin-notice-read-form',
 content: msg
 });
 }
@@ -1004,7 +1004,7 @@ content: msg
 }
 
 //删除聊天记录
-function wuju_admin_notice_del(id,obj){
+function jinsom_admin_notice_del(id,obj){
 layer.confirm('你确定要删除这条通知？',{
 btn: ['确定','取消'],
 btnAlign: 'c',
@@ -1013,7 +1013,7 @@ function(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/notice-do.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/notice-do.php",
 data:{type:'delete',id:id},
 success: function(msg){
 layer.closeAll('loading');
@@ -1028,11 +1028,11 @@ $(obj).parents('li').remove();
 
 
 //版主申请表单
-function wuju_admin_apply_bbs_admin_form(){
+function jinsom_admin_apply_bbs_admin_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/apply-bbs-admin.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/apply-bbs-admin.php",
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
@@ -1047,11 +1047,11 @@ content: msg
 }
 
 //查看版主申请
-function wuju_admin_apply_bbs_admin_read_form(id){
+function jinsom_admin_apply_bbs_admin_read_form(id){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/apply-bbs-admin-do.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/apply-bbs-admin-do.php",
 data:{id:id},
 success: function(msg){
 layer.closeAll('loading');
@@ -1067,20 +1067,20 @@ content: msg
 }
 
 //版主申请操作
-function wuju_admin_apply_bbs_admin_do(type,id,obj){
+function jinsom_admin_apply_bbs_admin_do(type,id,obj){
 
 if(type=='refuse'){//拒绝
 layer.prompt({title: '请输入拒绝通过的原因', formType: 2},function(reason,index){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/apply-bbs-admin-do.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/apply-bbs-admin-do.php",
 data:{ID:id,type:type,reason:reason},
 success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
 if(msg.code==1){
-$('#wuju-admin-apply-bbs-admin-'+id+' span m').html('已经拒绝').attr('style','');
+$('#jinsom-admin-apply-bbs-admin-'+id+' span m').html('已经拒绝').attr('style','');
 layer.close(index);
 layer.close(admin_apply_bbs_admin_read_form);
 }
@@ -1105,16 +1105,16 @@ function(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/apply-bbs-admin-do.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/apply-bbs-admin-do.php",
 data:{ID:id,type:type},
 success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
 if(msg.code==1){
 if(type=='del'){
-$('#wuju-admin-apply-bbs-admin-'+id).remove();
+$('#jinsom-admin-apply-bbs-admin-'+id).remove();
 }else if(type=='agree'){
-$('#wuju-admin-apply-bbs-admin-'+id+' span m').html('已经通过').attr('style','');
+$('#jinsom-admin-apply-bbs-admin-'+id+' span m').html('已经通过').attr('style','');
 }
 layer.close(admin_apply_bbs_admin_read_form);
 }
@@ -1129,11 +1129,11 @@ layer.close(admin_apply_bbs_admin_read_form);
 
 
 //论坛开通申请表单
-function wuju_admin_apply_bbs_form(){
+function jinsom_admin_apply_bbs_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/apply-bbs.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/apply-bbs.php",
 success: function(msg){
 layer.closeAll('loading');
 layer.open({
@@ -1148,11 +1148,11 @@ content: msg
 }
 
 //查看论坛申请表单
-function wuju_admin_apply_bbs_read_form(id){
+function jinsom_admin_apply_bbs_read_form(id){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/apply-bbs-do.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/apply-bbs-do.php",
 data:{id:id},
 success: function(msg){
 layer.closeAll('loading');
@@ -1168,20 +1168,20 @@ content: msg
 }
 
 //论坛申请操作
-function wuju_admin_apply_bbs_do(type,id,obj){
+function jinsom_admin_apply_bbs_do(type,id,obj){
 
 if(type=='refuse'){//拒绝
 layer.prompt({title: '请输入拒绝通过的原因', formType: 2},function(reason,index){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/apply-bbs-do.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/apply-bbs-do.php",
 data:{ID:id,type:type,reason:reason},
 success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
 if(msg.code==1){
-$('#wuju-admin-apply-bbs-admin-'+id+' span m').html('已经拒绝').attr('style','');
+$('#jinsom-admin-apply-bbs-admin-'+id+' span m').html('已经拒绝').attr('style','');
 layer.close(index);
 layer.close(admin_apply_bbs_read_form);
 }
@@ -1206,16 +1206,16 @@ function(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/apply-bbs-do.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/apply-bbs-do.php",
 data:{ID:id,type:type},
 success: function(msg){
 layer.closeAll('loading');
 layer.msg(msg.msg);
 if(msg.code==1){
 if(type=='del'){
-$('#wuju-admin-apply-bbs-admin-'+id).remove();
+$('#jinsom-admin-apply-bbs-admin-'+id).remove();
 }else if(type=='agree'){
-$('#wuju-admin-apply-bbs-admin-'+id+' span m').html('已经通过').attr('style','');
+$('#jinsom-admin-apply-bbs-admin-'+id+' span m').html('已经通过').attr('style','');
 }
 layer.close(admin_apply_bbs_read_form);
 }
@@ -1233,11 +1233,11 @@ layer.close(admin_apply_bbs_read_form);
 }
 
 //商城订单
-function wuju_admin_shop_order_form(){
+function jinsom_admin_shop_order_form(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/shop-order.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/shop-order.php",
 success: function(msg){
 layer.closeAll('loading');
 window.admin_apply_bbs_read_form=layer.open({
@@ -1255,11 +1255,11 @@ content: msg
 
 
 //查看订单
-function wuju_goods_order_view_form(trade_no){
+function jinsom_goods_order_view_form(trade_no){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/order-view.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/order-view.php",
 data:{trade_no:trade_no},
 success: function(msg){
 layer.closeAll('loading');
@@ -1268,7 +1268,7 @@ title:'订单查看',
 type: 1,
 fixed: false,
 offset: '100px',
-skin:'wuju-goods-order-view-form',
+skin:'jinsom-goods-order-view-form',
 area: ['500px','auto'],
 resize:false,
 content: msg
@@ -1278,11 +1278,11 @@ content: msg
 }
 
 //发货表单
-function wuju_goods_order_send_form(trade_no){
+function jinsom_goods_order_send_form(trade_no){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/stencil/order-send.php",
+url:jinsom.jinsom_ajax_url+"/admin/stencil/order-send.php",
 data:{trade_no:trade_no},
 success: function(msg){
 layer.closeAll('loading');
@@ -1290,7 +1290,7 @@ window.goods_order_send_form=layer.open({
 title:'订单发货',
 type: 1,
 fixed: false,
-skin:'wuju-goods-order-send-form',
+skin:'jinsom-goods-order-send-form',
 area: ['500px','auto'],
 resize:false,
 content: msg
@@ -1300,12 +1300,12 @@ content: msg
 }
 
 //发货
-function wuju_goods_order_send(trade_no){
-content=$('#wuju-goods-order-send-content').val();
+function jinsom_goods_order_send(trade_no){
+content=$('#jinsom-goods-order-send-content').val();
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/order-send.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/order-send.php",
 data:{content:content,trade_no:trade_no},
 success: function(msg){
 layer.closeAll('loading');
@@ -1320,7 +1320,7 @@ layer.close(goods_order_view_form);
 
 
 //删除聊天记录
-function wuju_goods_order_delete(trade_no){
+function jinsom_goods_order_delete(trade_no){
 layer.confirm('你确定要删除该订单？',{
 btn: ['确定','取消'],
 btnAlign: 'c',
@@ -1329,7 +1329,7 @@ function(){
 layer.load(1);
 $.ajax({
 type: "POST",
-url:wuju.wuju_ajax_url+"/admin/action/order-delete.php",
+url:jinsom.jinsom_ajax_url+"/admin/action/order-delete.php",
 data:{trade_no:trade_no},
 success: function(msg){
 layer.closeAll('loading');
@@ -1342,13 +1342,13 @@ layer.close(goods_order_view_form);
 }
 
 
-function wuju_no(){
+function jinsom_no(){
 layer.msg("还没有写好啦！预留接口");	
 }
 
 
 
-function wuju_getUrlParam(name){
+function jinsom_getUrlParam(name){
 var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
 var r = window.location.search.substr(1).match(reg);
 if(r!=null)return  unescape(r[2]); return null;

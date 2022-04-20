@@ -1,21 +1,21 @@
-/*wuju*/
-.wuju-posts-list{
+/*jinsom*/
+.jinsom-posts-list{
     width: calc(100% - 90px);
     float: right;
     position: relative;
     padding-bottom: 15px;
 }
-.wuju-post-single-content {
+.jinsom-post-single-content {
     padding-bottom: 0;
 }
-.wuju-post-footer-bar {
+.jinsom-post-footer-bar {
     margin-top: 0;
 }
-.wuju-posts-list h1 {
+.jinsom-posts-list h1 {
     margin: 0;
     margin-top: 10px;
 }
-.wuju-post-user-info {
+.jinsom-post-user-info {
     position: absolute;
     left: -95px;
     width: 72px;
@@ -23,28 +23,28 @@
     margin-top: -20px;
     padding: 4px 0 0 4px;
 }
-.wuju-post-user-info .wuju-vip-icon{
+.jinsom-post-user-info .jinsom-vip-icon{
     display: inline-block;
 }
-.wuju-user-info-card {
+.jinsom-user-info-card {
     left: 70px;
 }
-.wuju-post-user-info-avatar img.avatar {
+.jinsom-post-user-info-avatar img.avatar {
     width: 64px;
     height: 64px;
     border: 2px #fff solid;
     border-radius: 100%;
 }
-.wuju-post-user-info-name span {
+.jinsom-post-user-info-name span {
     display: none;
 }
-.wuju-post-user-info-name {
+.jinsom-post-user-info-name {
     margin: 75px 0 0;
 }
-.wuju-post-user-info-time {
+.jinsom-post-user-info-time {
     display: none;
 }
-.wuju-post-user-info-name a {
+.jinsom-post-user-info-name a {
     font-size: 12px;
     margin-top: 80px;
     line-height: 18px;
@@ -56,18 +56,18 @@
     overflow: hidden;
     white-space: nowrap;
 }
-.wuju-post-user-info-avatar i.wuju-verify {
+.jinsom-post-user-info-avatar i.jinsom-verify {
     bottom: 0;
     right: 0;
 }
 
-.wuju-post-content {
+.jinsom-post-content {
     margin-top: 5px;
 }
-.wuju-post-user-info-name i {
+.jinsom-post-user-info-name i {
     display: none;
 }
-.wuju-post-footer-bar span:first-child {
+.jinsom-post-footer-bar span:first-child {
     display: inline-block;
 }
 
@@ -75,7 +75,7 @@
 
 
 /*置顶图标*/
-.wuju-post-top-time {
+.jinsom-post-top-time {
     position: absolute;
     left: -5px;
     top: 0;
@@ -87,16 +87,16 @@
     color: #ffffff;
     display: block;
 }
-.wuju-post-top-time span:first-child {
+.jinsom-post-top-time span:first-child {
     margin-right: 8px;
 }
-.wuju-post-top-time .commend:before {
+.jinsom-post-top-time .commend:before {
     content: "荐";
 }
-.wuju-post-top-time .top:before {
+.jinsom-post-top-time .top:before {
     content: "顶";
 }
-.wuju-post-top-time:before {
+.jinsom-post-top-time:before {
     content: "";
     position: absolute;
     left: 0;
@@ -107,18 +107,18 @@
     border-bottom: 5px solid transparent;
     border-left: 5px solid transparent;
 }
-.wuju-post-single-bar.single .author {
+.jinsom-post-single-bar.single .author {
     display: none;
 }
-.wuju-post-single-thum a {
+.jinsom-post-single-thum a {
     height: 136px;
 }
-.wuju-post-single-thum a:last-child span {
+.jinsom-post-single-thum a:last-child span {
     top: 114px;
 }
-.wuju-post-user-info.bbs {
+.jinsom-post-user-info.bbs {
     display: block;
 }
-.wuju-post-images-list a.one>i {
+.jinsom-post-images-list a.one>i {
     right: 19px;
 }
